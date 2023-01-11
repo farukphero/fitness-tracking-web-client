@@ -5,6 +5,7 @@ function App() {
     <div className="App">
        Welcome to fitness tracking application
        Let's do some code
+       less talk, more code.......
     </div>
   );
 }
