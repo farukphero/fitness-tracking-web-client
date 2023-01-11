@@ -1,12 +1,10 @@
 import './App.css';
+import Home from './Pages/Home/Home/Home';
 
 function App() {
   return (
     <div className="App">
-       Welcome to fitness tracking application
-       Let's do some code
-       less talk, more code.......
-       wow wonderful
+       <Home></Home>
     </div>
   );
 }
