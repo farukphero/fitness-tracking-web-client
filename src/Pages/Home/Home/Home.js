@@ -1,12 +1,14 @@
 import React from 'react';
 import ContactUs from '../ContactUs/ContactUs';
-import Header from '../../../Components/Header/Header';
+import Branches from '../Branches/Branches';
+import Demo from '../Branches/Demo';
 
 const Home = () => {
     return (
         <div>
-            <Header></Header>
-            {/* <ContactUs></ContactUs> */}
+            <ContactUs></ContactUs>
+            <Branches></Branches>
+            <Demo></Demo>
         </div>
     );
 };
