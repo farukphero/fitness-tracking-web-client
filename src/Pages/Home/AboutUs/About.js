@@ -6,11 +6,11 @@ const About = () => {
         <div className=' bg-gray-700 text-white'>
             <div className='container mx-auto'>
             <h3 className='text-4xl font-bold text-center py-10'>About Our Website</h3>
-            <div className='flex gap-2 my-5'>
-                <div className='w-1/2'>
+            <div className='grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 place-items-center'>
+                <div className=''>
                     <AboutCarousel />
                 </div>
-                <div className='w-1/2 h-3/4'>
+                <div className=''>
                     <p className='text-2xl p-5 h-3/4'><span>You can monitor and improve your daily life, activities, and health using this website.</span>
                     <br/>
                        <span> You set goals for your diet, sleep, and exercise using the same platform. We track your progress and will update you regularly on your progress.</span>
