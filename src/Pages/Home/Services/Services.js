@@ -13,7 +13,7 @@ const Services = () => {
         description: 'Exercise is very important for the health of the human body. You can maintain your daily exercise with us.Leave the responsibility of your daily exercise to us. We will track your progess.'},
         {id: 3, 
         name: 'Daily Activities',
-        image:'https://cdn1.vectorstock.com/i/1000x1000/63/85/daily-routine-clocks-routine-clocks-vector-27206385.jpg',
+        image:'https://us.123rf.com/450wm/yusufdemirci/yusufdemirci1901/yusufdemirci190100100/yusufdemirci190100100.jpg?ver=6',
         description: 'Your Daily Activities is very important for the health of you. You can maintain your Daily Activities like eating, sleeping and all everything with us.Leave the responsibility of your Daily Activities to us. We will track your progess.'},
     ]
     return (

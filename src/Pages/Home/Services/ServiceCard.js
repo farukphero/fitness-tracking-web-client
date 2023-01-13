@@ -8,7 +8,7 @@ const ServiceCard = ({service}) => {
             <figure><img className='w-full lg:h-60 md:h-auto' src={image} alt="service-card" /></figure>
             <div className="card-body" style={{height: '300px'}}>
                 <h2 className="card-title font-semibold">{name}</h2>
-                <p>{description}</p>
+                <p>{description.slice(0, 170)}...</p>
                 <div className="absolute bottom-0 left-0">
                     <button className="btn btn-primary">Explore More</button>
                 </div>

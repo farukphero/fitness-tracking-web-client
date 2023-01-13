@@ -5,10 +5,10 @@ import Services from '../Services/Services';
 
 const Home = () => {
     return (
-        <div>
-            <ContactUs></ContactUs>
-            <About/>
+        <div className='w-11/12 mx-auto'>
             <Services/>
+            <About/>
+            <ContactUs></ContactUs>
         </div>
     );
 };

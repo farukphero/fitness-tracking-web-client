@@ -11,7 +11,7 @@ const About = () => {
                     <AboutCarousel />
                 </div>
                 <div className=''>
-                    <p className='text-2xl p-5 h-3/4'><span>You can monitor and improve your daily life, activities, and health using this website.</span>
+                    <p className='lg:text-xl p-5 h-3/4'><span>You can monitor and improve your daily life, activities, and health using this website.</span>
                     <br/>
                        <span> You set goals for your diet, sleep, and exercise using the same platform. We track your progress and will update you regularly on your progress.</span>
                        <br/>
