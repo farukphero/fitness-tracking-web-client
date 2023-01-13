@@ -3,7 +3,7 @@ import React from "react";
 const ContactUs = () => {
   return (
     <section className="mt-12">
-      <h2 className="text-4xl text-white font-bold text-center py-10">Feel Free To Contact Us</h2>
+      <h2 className="text-3xl lg:text-4xl text-white font-bold text-center py-10">Feel Free To Contact Us</h2>
       <div className="overflow-hidden bg-gray-700">
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <div className="flex flex-col items-center justify-between xl:flex-row">

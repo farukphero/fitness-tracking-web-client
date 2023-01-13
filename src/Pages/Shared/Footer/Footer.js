@@ -4,7 +4,7 @@ import logo from '../../../../src/images/apple-touch-icon.png'
 const Footer = () => {
     //footer
     return (
-        <div className="relative mt-16 bg-gray-700">
+        <div className="relative bg-gray-700">
             <svg
                 className="absolute top-0 w-full h-6 -mt-5 sm:-mt-10 sm:h-16 text-gray-700 "
                 preserveAspectRatio="none"
@@ -133,14 +133,6 @@ const Footer = () => {
                                         className="transition-colors duration-300 text-gray-400 hover:text-teal-accent-400"
                                     >
                                         Media
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="/"
-                                        className="transition-colors duration-300 text-gray-400 hover:text-teal-accent-400"
-                                    >
-                                        Brochure
                                     </a>
                                 </li>
                                 <li>
