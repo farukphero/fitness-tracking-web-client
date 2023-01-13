@@ -15,14 +15,16 @@ import { MdGrade } from "react-icons/md";
 const Banner = () => {
   return (
     <div className="bg-gray-700 pt-8">
-      <div className="text-white text-center font-bold">
+      <div className="text-white flex justify-center  font-bold">
+        <div>
         <h1 className="text-bold text-4xl">
-          {" "}
-          Stay Healthy Even If You <br /> Stay{" "}
-          <span className="text-pink-700">At Home</span>
+          
+          Stay Healthy Even If You 
         </h1>
+        <h1 className="text-bold text-4xl">Stay <span className="text-amber-300">At Home</span></h1>
+        </div>
       </div>
-      <div className="pt-16 pb-16  ">
+      {/* <div className="pt-16 pb-16  ">
         <Swiper
           slidesPerView={4}
           spaceBetween={30}
@@ -37,22 +39,28 @@ const Banner = () => {
             <img className="mb-10" src={slide1} alt=""></img>
           </SwiperSlide>
           <SwiperSlide>
-            {" "}
+           
             <img src={slide2} alt=""></img>
           </SwiperSlide>
           <SwiperSlide>
-            {" "}
+           
             <img src={slide3} alt=""></img>
           </SwiperSlide>
           <SwiperSlide>
-            {" "}
+           
             <img src={slide4} alt=""></img>
           </SwiperSlide>
           <SwiperSlide>
-            {" "}
+            
             <img src={slide5} alt=""></img>
           </SwiperSlide>
         </Swiper>
+      </div> */}
+      <div className="grid grid-cols-4 gap-4 mt-5">
+      <img className="mb-10" src={slide1} alt=""></img>
+      <img className="mb-10" src={slide2} alt=""></img>
+      <img className="mb-10" src={slide3} alt=""></img>
+      <img className="mb-10" src={slide4} alt=""></img>
       </div>
     </div>
   );

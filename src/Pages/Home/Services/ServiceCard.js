@@ -9,8 +9,8 @@ const ServiceCard = ({service}) => {
             <div className="card-body" style={{height: '300px'}}>
                 <h2 className="card-title font-semibold">{name}</h2>
                 <p>{description.slice(0, 170)}...</p>
-                <div className="absolute bottom-0 left-0">
-                    <button className="btn btn-primary">Explore More</button>
+                <div className="absolute bottom-5 left-8">
+                    <button className="btn btn-accent text-white">Explore More</button>
                 </div>
             </div>
         </div>

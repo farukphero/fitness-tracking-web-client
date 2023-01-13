@@ -38,11 +38,14 @@ const Review = () => {
     },
   ];
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-4 bg-black pl-8 pt-8 gap-4 pb-8 pr-8">
+   <div className="mt-20">
+    <h2 className=" text-center text-3xl font-bold py-5 text-white"> Reviews</h2>
+     <div className="grid grid-cols-1 lg:grid-cols-4 bg-gray-800 pl-8 pt-8 gap-4 pb-8 pr-8 ">
       {allReview.map((reviews) => (
         <SingleReviewCard reviews={reviews}></SingleReviewCard>
       ))}
     </div>
+   </div>
   );
 };
 

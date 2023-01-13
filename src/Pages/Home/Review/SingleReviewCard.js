@@ -6,7 +6,8 @@ const SingleReviewCard = ({ reviews }) => {
   console.log(reviews);
 
   return (
-    <div className="card  shadow-md shadow-pink-700">
+    <div className="card shadow-md shadow-pink-700">
+      
       <div className="card-body">
         <MdOutlineRateReview className="text-pink-700 text-3xl"></MdOutlineRateReview>
         <p className="text-white">{review}</p>

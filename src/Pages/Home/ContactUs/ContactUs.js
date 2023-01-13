@@ -64,7 +64,7 @@ const ContactUs = () => {
                     <textarea className="textarea textarea-bordered flex-grow w-full   transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline" placeholder="Your Message"></textarea>
                   </div>
                  
-                  <input type="submit" value="Submit" className="btn w-full" />
+                  <input type="submit" value="Submit" className="btn btn-accent text-white w-full" />
                 </form>
               </div>
             </div>

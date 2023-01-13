@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from '../../../../src/images/apple-touch-icon.png'
 
 const Footer = () => {
     //footer
@@ -24,35 +25,21 @@ const Footer = () => {
                             title="Company"
                             className="inline-flex items-center"
                         >
-                            <svg
-                                className="w-8 text-white"
-                                viewBox="0 0 24 24"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeMiterlimit="10"
-                                stroke="currentColor"
-                                fill="none"
-                            >
-                                <rect x="3" y="1" width="7" height="12" />
-                                <rect x="3" y="17" width="7" height="6" />
-                                <rect x="14" y="1" width="7" height="6" />
-                                <rect x="14" y="11" width="7" height="12" />
-                            </svg>
-                            <span className="ml-2 text-xl font-bold tracking-wide text-white uppercase">
-                                Company
+                             <img className='h-10 w-10 rounded-lg' src={logo} alt="" />
+                            <span className="ml-2 text-5xl font-bold text-white uppercase">
+                                 FITLESSIAN
                                 
                             </span>
                         </a>
                         <div className="mt-4 lg:max-w-sm">
-                            <p className="text-sm text-gray-400">
+                            {/* <p className="text-sm text-gray-400">
                                 Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                                 accusantium doloremque laudantium, totam rem aperiam.
                             </p>
                             <p className="mt-4 text-sm text-gray-400">
                                 Eaque ipsa quae ab illo inventore veritatis et quasi architecto
                                 beatae vitae dicta sunt explicabo.
-                            </p>
+                            </p> */}
                         </div>
                     </div>
                     <div className="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4">
@@ -132,14 +119,7 @@ const Footer = () => {
                                         Entertainment
                                     </a>
                                 </li>
-                                <li>
-                                    <a
-                                        href="/"
-                                        className="transition-colors duration-300 text-gray-400 hover:text-teal-accent-400"
-                                    >
-                                        Portfolio
-                                    </a>
-                                </li>
+                                 
                             </ul>
                         </div>
                         <div>
@@ -232,7 +212,7 @@ const Footer = () => {
                 </div>
                 <div className="flex flex-col justify-between pt-5 pb-10 border-t border-deep-purple-accent-200 sm:flex-row">
                     <p className="text-sm text-gray-100">
-                        © Copyright 2020 Lorem Inc. All rights reserved.
+                        © Copyright 2023 Fitlessian All rights reserved.
                     </p>
                     <div className="flex items-center mt-4 space-x-4 sm:mt-0">
                         <a
