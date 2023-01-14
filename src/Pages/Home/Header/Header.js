@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../../../../src/images/apple-touch-icon.png";
+import logo from "../../../images/apple-touch-icon.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -8,47 +8,47 @@ const Header = () => {
   const navBar = [
     {
       _id: 0,
-      navigate: `/products`,
-      title: `Our Product`,
-      content: `Products`,
+      navigate: `/Leaderboard`,
+      title: `Leaderboard`,
+      content: `Leaderboard`,
     },
     {
       _id: 1,
-      navigate: `/pricing`,
-      aria: `Product Pricing`,
-      content: `Pricing`,
+      navigate: `/Goals`,
+      aria: `Goals`,
+      content: `Goals`,
     },
     {
       _id: 2,
-      navigate: `/features`,
-      aria: `Product features`,
-      content: `Features`,
+      navigate: `/Community`,
+      aria: `Community`,
+      content: `Community`,
     },
     {
       _id: 3,
-      navigate: `/about`,
-      aria: `About Us`,
-      content: `About`,
+      navigate: `/Tutorials`,
+      aria: `Tutorials`,
+      content: `Tutorials`,
     },
   ];
 
   return (
-    <div className="bg-gray-900 sticky top-0 z-10">
+    <div className="bg-gray-900">
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
           <div className="flex items-center">
             <Link
-              href="/"
+              to="/"
               aria-label="Company"
               title="Company"
               className="inline-flex items-center mr-8"
             >
-              <img className="h-8 w-8 rounded-lg" src={logo} alt="" />
-              <span className="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
-                Fit<span className="text-red-500">lessian</span>
-              </span>
+              <img className="h-8 w-8 rounded-md" src={logo} alt="" />
+              <h1 className="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
+                Fit<span className="text-red-500">Friend</span>
+              </h1>
             </Link>
-            <ul className="items-center hidden space-x-8 lg:flex">
+            <ul className=" items-center hidden space-x-8 lg:flex">
               {navBar.map((nav) => (
                 <li key={nav._id}>
                   <Link
@@ -113,15 +113,15 @@ const Header = () => {
                   <div className="flex items-center justify-between mb-4">
                     <div>
                       <Link
-                        href="/"
+                        to="/"
                         aria-label="Company"
                         title="Company"
-                        className="inline-flex items-center mr-8"
+                        className="inline-flex items-center"
                       >
-                        <img className="h-8 w-8 rounded-lg" src={logo} alt="" />
-                        <span className="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
-                          Fit<span className="text-red-500">lessian</span>
-                        </span>
+                        <img className="h-8 w-8 rounded-md" src={logo} alt="" />
+                        <h1 className="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
+                          Fit<span className="text-red-500">Friend</span>
+                        </h1>
                       </Link>
                     </div>
                     <div>

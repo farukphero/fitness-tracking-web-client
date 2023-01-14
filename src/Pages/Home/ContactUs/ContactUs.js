@@ -3,30 +3,24 @@ import React from "react";
 const ContactUs = () => {
   return (
     <section className="mt-12">
-      <h2 className="text-3xl lg:text-4xl text-white font-bold text-center py-10">Feel Free To Contact Us</h2>
+      <h2 className="text-3xl lg:text-4xl text-white font-bold text-center pt-10">
+        Get In Touch{" "}
+      </h2>
+      <p className="text-white text-center lg:w-1/3 mx-auto pt-2 mb-4">
+        {" "}
+        Great genius takes shape by contact with another great genius, but, less
+        by assimilation than by friction.
+      </p>
       <div className="overflow-hidden bg-gray-700">
-      <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-        <div className="flex flex-col items-center justify-between xl:flex-row">
-<<<<<<< HEAD
-          <div className="w-full hidden md:flex max-w-xl mb-12 xl:pr-16 xl:mb-0 xl:w-7/12">
-            <p className="mb-4 text-base text-white md:text-2xl">
-              Great genius takes shape by contact with another great genius,
-              but, less by assimilation than by friction.
-=======
-          <div className="w-full hidden md:flex w-xl mb-12 xl:pr-16 xl:mb-0 xl:w-7/12">
-            
-            <p className="mb-4 text-base hidden lg:flex text-white md:text-xl">
-            Great genius takes shape by contact with another great genius, but, less by assimilation than by friction.
-
->>>>>>> main
-            </p>
-          </div>
-          <div className="w-full max-w-xl xl:px-8 xl:w-5/12 ">
+        <div className="px-4  pb-20 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8  ">
+          <div className="w-full xl:px-8 xl:w-6/12 mx-auto">
             <div className="relative">
               <div className="relative bg-white rounded shadow-2xl p-7 sm:p-10">
-                <h3 className="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl">
-                  Share your Opinion
+                <h3 className="mb-4 text-xl text-start sm:mb-6 sm:text-2xl">
+                  {" "}
+                  Contact form <hr />
                 </h3>
+
                 <form>
                   <div className="mb-1">
                     <label
@@ -69,20 +63,17 @@ const ContactUs = () => {
                       placeholder="Your Message"
                     ></textarea>
                   </div>
-<<<<<<< HEAD
-
-                  <input type="submit" value="Submit" className="btn w-full" />
-=======
-                 
-                  <input type="submit" value="Submit" className="btn btn-accent text-white w-full" />
->>>>>>> main
+                  <input
+                    type="submit"
+                    value="Submit"
+                    className="btn btn-accent text-white w-full"
+                  />
                 </form>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
     </section>
   );
 };
