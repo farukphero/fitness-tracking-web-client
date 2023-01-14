@@ -1,3 +1,23 @@
+<<<<<<< HEAD
+import React from 'react';
+import ContactUs from '../ContactUs/ContactUs';
+import Branches from '../Branches/Branches';
+import Demo from '../Branches/Demo';
+
+const Home = () => {
+    return (
+        <div>
+<<<<<<< HEAD
+            <ContactUs></ContactUs>
+            <Branches></Branches>
+            <Demo></Demo>
+=======
+            <Header></Header>
+            <ContactUs></ContactUs>
+>>>>>>> main
+        </div>
+    );
+=======
 import React from "react";
 import About from "../AboutUs/About";
 import Banner from "../Banner/Banner";
@@ -17,6 +37,7 @@ const Home = () => {
       <Branches></Branches>
     </div>
   );
+>>>>>>> 943546e939a3040d07ed1f22dea76aefdbc77c75
 };
 
 export default Home;
