@@ -15,7 +15,7 @@ import { MdGrade } from "react-icons/md";
 const Banner = () => {
   return (
     <div className="bg-gray-700 pt-8">
-      <div className="text-white flex justify-center font-bold">
+      <div className="text-white flex justify-center font-semibold">
         <div>
         <h1 className="text-bold text-3xl md:text-4xl">
           

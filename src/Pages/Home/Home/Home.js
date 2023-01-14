@@ -13,8 +13,8 @@ import Services from '../Services/Services';
       <Services />
       <About />
       <Review></Review>
-      <ContactUs></ContactUs>
       <Branches></Branches>
+      <ContactUs></ContactUs>
     </div>
   );
  };
