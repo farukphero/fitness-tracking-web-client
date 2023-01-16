@@ -6,10 +6,9 @@ const SingleReviewCard = ({ reviews }) => {
   console.log(reviews);
 
   return (
-    <div className="card shadow-md shadow-pink-700">
-      
+    <div className="card shadow-md shadow-green-600">
       <div className="card-body">
-        <MdOutlineRateReview className="text-pink-700 text-3xl"></MdOutlineRateReview>
+        <MdOutlineRateReview className="text-3xl text-all-green"></MdOutlineRateReview>
         <p className="text-white">{review}</p>
         <div className="flex  items-center mt-6">
           <div className="avatar mr-6">
