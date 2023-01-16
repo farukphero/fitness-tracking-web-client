@@ -1,4 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
+import SignIn from "../../Authentications/SignIn/SignIn";
+import SignUp from "../../Authentications/SignUp/SignUp";
 import KeepTrack from "../../Layout/KeepTrack/KeepTrack";
 import Main from "../../Layout/Main/Main";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
@@ -34,6 +36,14 @@ export const router = createBrowserRouter([
       {
         path: "/Tutorials",
         element: <Tutorials></Tutorials>,
+      },
+      {
+        path: "/SignIn",
+        element: <SignIn></SignIn>,
+      },
+      {
+        path: "/SignUp",
+        element: <SignUp></SignUp>,
       },
       
     ],
