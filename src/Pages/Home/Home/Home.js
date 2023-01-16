@@ -5,6 +5,7 @@ import Branches from '../Branches/Branches';
 import ContactUs from '../ContactUs/ContactUs';
 import Review from '../Review/Review';
 import Services from '../Services/Services';
+import Lorem from '../../../Lorem';
  
  const Home = () => {
   return (
@@ -15,6 +16,7 @@ import Services from '../Services/Services';
       <Review></Review>
       <Branches></Branches>
       <ContactUs></ContactUs>
+      <Lorem></Lorem>
     </div>
   );
  };
