@@ -30,6 +30,12 @@ const Header = () => {
       aria: `Tutorials`,
       content: `Tutorials`,
     },
+    {
+      _id: 4,
+      navigate: `/Dashboard`,
+      aria: `Dashboard`,
+      content: `Dashboard`,
+    },
   ];
 
   return (
