@@ -25,9 +25,9 @@ const Footer = () => {
               className="inline-flex items-center"
             >
               <img className="h-10 w-10 rounded-lg" src={logo} alt="" />
-              <span className="ml-2 text-4xl font-bold text-all-green uppercase">
-                FITLESSIAN
-              </span>
+              <h1 className="ml-2 text-4xl font-bold tracking-wide text-gray-100 uppercase ">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-white">FitLessian </span>
+              </h1>
             </a>
             <div className="mt-4 lg:max-w-sm"></div>
           </div>

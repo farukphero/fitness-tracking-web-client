@@ -3,7 +3,7 @@ import "./Contact.css";
 
 const ContactUs = () => {
   return (
-    <section className="mt-12">
+    <section id='contact' className="mt-12">
       <h2 className="text-3xl lg:text-4xl text-all-green font-semibold text-center pt-10">
         Get In Touch{" "}
       </h2>
