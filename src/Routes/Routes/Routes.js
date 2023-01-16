@@ -1,8 +1,18 @@
 import { createBrowserRouter } from "react-router-dom";
+<<<<<<< HEAD
+import Dashboardlayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
+
+=======
 import SignIn from "../../Authentications/SignIn/SignIn";
 import SignUp from "../../Authentications/SignUp/SignUp";
+>>>>>>> main
 import KeepTrack from "../../Layout/KeepTrack/KeepTrack";
 import Main from "../../Layout/Main/Main";
+import Event from "../../Pages/Dashboard/Event/Event";
+import Report from "../../Pages/Dashboard/Report/Report";
+import SettingAndPrivacy from "../../Pages/Dashboard/SettingAndPrivacy/SettingAndPrivacy";
+import Support from "../../Pages/Dashboard/Support/Support";
+import UserInfo from "../../Pages/Dashboard/UserInfo/UserInfo";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Home from "../../Pages/Home/Home/Home";
 import Community from "../../Pages/OtherPages/Community/Community";
@@ -38,6 +48,21 @@ export const router = createBrowserRouter([
         element: <Tutorials></Tutorials>,
       },
       {
+<<<<<<< HEAD
+        path: "/Dashboard",
+        element: <Dashboardlayout></Dashboardlayout>,
+        children: [
+          { path: "/Dashboard/userInfo", element: <UserInfo></UserInfo> },
+          {
+            path: "/Dashboard/setting",
+            element: <SettingAndPrivacy></SettingAndPrivacy>,
+          },
+          { path: "/Dashboard/report", element: <Report></Report> },
+          { path: "/Dashboard/event", element: <Event></Event> },
+          { path: "/Dashboard/support", element: <Support></Support> },
+        ],
+      },
+=======
         path: "/SignIn",
         element: <SignIn></SignIn>,
       },
@@ -46,15 +71,19 @@ export const router = createBrowserRouter([
         element: <SignUp></SignUp>,
       },
       
+>>>>>>> main
     ],
   },
+
   {
     path: "/KeepTrack",
     element: <KeepTrack></KeepTrack>,
     errorElement: <ErrorPage />,
-    children: [{
+    children: [
+      {
         path: "/KeepTrack/Foods",
         element: <Foods></Foods>,
-    }]
+      },
+    ],
   },
 ]);

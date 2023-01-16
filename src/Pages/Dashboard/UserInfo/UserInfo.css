@@ -1,0 +1,7 @@
+.text-user-info {
+  font-size: 20px;
+}
+.progress-user:hover {
+  background-color: darkkhaki;
+  transition: all 0.3s ease;
+}
