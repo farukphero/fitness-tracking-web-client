@@ -1,0 +1,234 @@
+[
+    {
+        "id": 1,
+       " name": "Diet",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8sMPMzeEUZBprfOs7WTcOqwNTL1-Q8B_3jg&usqp=CAU",
+        "description": "Diet is very important for the health of the human body. You can maintain your daily diet with us.Leave the responsibility of your daily nutrition to us. We will track your progess.",
+        "serviceDetail": [
+{
+    "id" : 1,
+    "serviceName": "Diet for teenager",
+    "description": "With the teen years come a tremendous amount of changes. Your teen will grow emotionally, functionally, and intellectually, developing a sense of independence, identity, and self-esteem. Your teen will also grow physically, increasing their need for calories and nutrients. Helping your teen develop a positive relationship with food will go a long way in guiding him to become the healthy, self-reliant adult you want him to be.",
+    "img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJlKFoHQxSvF7kkvHBRucK4v7Bn0uM4ySqVw&usqp=CAU",
+    "tricks": [
+        { "heading": "The best way your teen can maintain a healthy weight is to eat a diet rich in whole grains, fruits, vegetables, no-fat or low-fat milk products, beans, eggs, fish, nuts, and lean meats.Eating healthfully means getting the right balance of nutrients. As your teen grows, he or she will require more calories and an increase of key nutrients including protein, calcium, and iron.How much a teen should eat depends on their individual needs. In general your teen should eat a varied diet, including:" },
+        {
+            "points": [
+                { "point": "Fruits", "description": "Your teen should eat 2 cups of fruit and 2 ½ cups of vegetables every day (for a 2,000 calorie diet)." },
+                { "point": "1,300 milligrams (mg) of calcium daily", "description": "Your teen should eat three 1-cup servings of low-fat or fat-free calcium-rich foods every day. Good sources include yogurt or milk. One-cup equivalents include 1½ ounces of low-fat cheddar cheese or 2 ounces of fat-free American cheese." },
+                { "point": "Protein to build muscles and organs.", "description": "Your teen should eat 5½ ounces of protein-rich foods every day. Good sources include lean meat, poultry, or fish. One-ounce equivalents of other protein sources include ½ cup of beans or tofu, one egg, a tablespoon of peanut butter, and ½ ounce of nuts or seeds." },
+                { "point": "Whole grains for energy.", "description": "Teens should get 6 ounces of grains every day. One-ounce equivalents include one slice of whole grain bread, ½ cup of whole grain pasta or brown rice, 1 cup of bulgur, or 1 cup of whole grain breakfast cereal." },
+                { "point": "Iron-rich foods.", "description": "Your teen should eat three 1-cup servings of low-fat or fat-free calcium-rich foods every day. Good sources include yogurt or milk. One-cup equivalents include 1½ ounces of low-fat cheddar cheese or 2 ounces of fat-free American cheese." },
+                { "point": "Limiting fat.", "description": "Teens should limit their fat intake to 25 to 35 percent of their total calories every day and they should choose unsaturated fats over saturated fats whenever possible. Healthier, unsaturated fats include olive, canola, safflower, sunflower, corn, and soybean oils; fatty, coldwater fish like salmon, trout, tuna, and whitefish; and nuts and seeds." }
+           ]
+        }
+    ]
+},
+{
+    "id" : 2,
+    "serviceName": "Diet for adult",
+    "description": "For adults, weight management can be a major nutrition-related concern and a key factor in achieving health and wellness. In order to remain healthy, adults must be aware of changes in their energy needs, based on their level of physical activity, and then balance their calorie intake as needed. Adults who are active in sports or other physical activities may require more calories than adults who are less active.",
+    "img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJc8k7KihiUKKZ0wzTmqgr4uONAvwrNb6RzQ&usqp=CAU",
+    "tricks": [
+        { "heading": "Caloric intake for adult should be 1,800 to 2,200 calories a day ." },
+        {
+            "points": [
+                { "point": "Fruit & Veg", "description": "Make sure to include lots of colour on the plate by choosing bright coloured fruit and vegetables. Not only are these filling and low in calories, but they also provide many vitamins, minerals and phytochemicals which have a huge range of health benefits." },
+                { "point": "Fats and sweets", "description": "Limit as much as possible." },
+                { "point": "Wholegrain Foods", "description": "The best carbohydrates are the ones higher in Fibre. Choose high fibre and low sugar breakfast cereals, wholemeal and wholegrain bread, rolls and wraps, brown rice, whole-wheat pasta and potatoes with their skins." },
+                { "point": "Dairy", "description": "If you are watching your weight choose low-fat dairy produce as they contain the same calcium content as higher fat versions." },
+                { "point": "Protein Foods", "description": "Choose lean meat, skinless chicken, fish, eggs, peas and beans for at least 2 of your daily meals." }
+           ]
+        }
+    ]
+},
+{
+    "id" : 3,
+    "serviceName": "Diet for senior",
+    "description": "Getting one well-balanced meal on the table every day, let alone three, can be a challenge for anyone. It’s even harder with all the other tasks of caregiving, especially if your loved one has special diet needs or trouble even tasting the food you make.",
+    "img": "https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+    "tricks": [
+        { "heading": "Usually, you get the vitamins, minerals, and nutrients you need with a well-balanced diet, but many older adults don’t. Here are some areas that often fall short." },
+        {
+            "points": [
+              
+                { "point": "B vitamins", "description": "B6 in whole grains and organ meats, like liver, B12 in lean meats and some fish, Folate from dark greens, beans, and peas." },
+                { "point": "Calcium and vitamin D", "description": "These are important for strong bones. Calcium is in dairy products, like milk and yogurt, and in dark, green, leafy vegetables, like broccoli and kale. You get vitamin D from being out in the sun. That can be harder for someone who’s unwell, so look for products with added vitamin D." },
+                { "point": "Fiber", "description": "Fiber is good for the heart, helps prevent diabetes, and keeps you regular to avoid constipation. Good sources include beans, whole grains, and veggies." },
+                { "point": "Healthy fats", "description": "Try to limit fat (especially saturated) and cholesterol, and totally avoid trans fats. They can lead to heart and blood pressure problems." },
+                { "point": "Potassium", "description": "Not eating enough potassium can raise blood pressure. You get potassium in foods such as bananas, potatoes, and yogurt." }
+           ]
+        }
+    ]
+}
+]
+    },
+    {
+        "id": 2,
+       " name": "Exercise",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7YSPB7CWGVf1Sue69gD55FzP_Zq8HOvDsHw&usqp=CAU",
+        "description": "Exercise is very important for the health of the human body. You can maintain your daily exercise with us.Leave the responsibility of your daily exercise to us. We will track your progess.",
+        "serviceDetail": [
+            {
+                "id" : 1,
+                "serviceName": "Exercise for teenager",
+                "description": "There are lots of reasons why children might become more sedentary at this stage: exams and academic burdens causing stress levels to mount, puberty and the accompanying hormonal changes reducing energy and motivation levels, a greater degree of self-consciousness and increasing pressure to look a certain way.",
+                "img":"https://content.active.com/Assets/Active.com+Content+Site+Digital+Assets/Kids/ft+mg+1.jpg",
+                "tricks": [
+                    { "heading": "The best way your teen can maintain a healthy weight is to eat a diet rich in whole grains, fruits, vegetables, no-fat or low-fat milk products, beans, eggs, fish, nuts, and lean meats.Eating healthfully means getting the right balance of nutrients. As your teen grows, he or she will require more calories and an increase of key nutrients including protein, calcium, and iron.How much a teen should eat depends on their individual needs. In general your teen should eat a varied diet, including:" },
+                    {
+                        "points": [
+                            { "point": "Strength exercises", "description": "using body weight to help build strong bones, ligaments and tendons" },
+                            { "point": "Endurance activities ", "description": "such as running, throwing and catching." },
+                            { "point": "Cardiovascular fitness", "description": "to help boost stamina and metabolism." },
+                            { "point": "Flexibility.", "description": "(children tend to become less flexible during this period of rapid growth).." }
+                           
+                       ]
+                    }
+                ]
+            },
+            {
+                "id" : 2,
+                "serviceName": "Exercise for adult",
+                "description": "Physical activity is anything that gets your body moving. Each week adults need 150 minutes of moderate-intensity physical activity and 2 days of muscle strengthening activity.",
+                "img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvX4loYSMDrPQE8XtxZv65TWc5qil0xCtxfQ&usqp=CAU",
+                "tricks": [
+                    { "heading": "Adults should move more and sit less throughout the day. Some physical activity is better than none. Adults who sit less and do any amount of moderate-to-vigorous intensity physical activity gain some health benefits." },
+                    {
+                        "points": [
+                            { "point": "Moderate-intensity aerobic activity", "description": "such as brisk walking) for 150 minutes every week (for example, 30 minutes a day, 5 days a week." },
+                            { "point": "Vigorous-intensity aerobic activity", "description": "such as jogging or running) for 75 minutes (1 hour and 15 minutes) every week ." },
+                            { "point": "An equivalent mix of moderate- and vigorous-intensity aerobic activity", "description": "on 2 or more days a week." },
+                            { "point": "Muscle-strengthening activities", "description": "on 2 or more days a week that work all major muscle groups (legs, hips, back, abdomen, chest, shoulders, and arms)." }
+                        
+                       ]
+                    }
+                ]
+            },
+            {
+                "id" : 3,
+                "serviceName": "Exercise for senior",
+                "description": "Once you turn 40, you lose one per cent muscle every year. The right types of exercises can prevent this muscle loss, delay (or even prevent) cognitive decline, which is a common result of aging.",
+                "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSANBi4ojCp2BZqAfaz6U2VE7bQoFne75wY-A&usqp=CAU",
+                "tricks": [
+                    { "heading": "For those with an active lifestyle develop better coping mechanisms towards age related issues. And the inactive ones will eventually feel it even harder to even stay active." },
+                    {
+                        "points": [
+                          
+                            { "point": "To prevent heart disease", "description": "Try: Cardiovascular workouts, 3 to 4 times a week." },
+                            { "point": "To ward off osteoporosis", "description": "Try: High-impact activities, 1 to 2 times a week." },
+                            { "point": "To fight arthritis", "description": "Try: Strength training, 2 to 3 times a week." },
+                            { "point": "To fight depression", "description": "Try: Yoga, once a week." },
+                            { "point": "To fight back pain", "description": "Try: Holding a plank for 90 seconds, 3 times a week." }
+                       ]
+                    }
+                ]
+            }
+            ]
+    },
+    {
+        "id": 3,
+        "name": "Daily Activities",
+        "image": "https://us.123rf.com/450wm/yusufdemirci/yusufdemirci1901/yusufdemirci190100100/yusufdemirci190100100.jpg?ver=6",
+        "description": "Your Daily Activities is very important for the health of you. You can maintain your Daily Activities like eating, sleeping and all everything with us.Leave the responsibility of your Daily Activities to us. We will track your progess.",
+        "serviceDetail": [
+            {
+                "id" : 1,
+                "serviceName": "Daily activities for teenager",
+                "description": "A perfect routine is the one which can help us stay fit and productive during the day.",
+                "img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbAziag7JamPdq7BdmFAjY8RqxbGw-rnEBLg&usqp=CAU",
+                "tricks": [
+                    { "heading": "Teenage brains experience big periods of growth during adolescence. This can sometimes make life pretty hard for you and your teenager as they grapple with the hormonal changes in their bodies, the rapid growth of their brain, and the many transitions they experience in the world around them. Healthy routine for teenagers can help them navigate this complicated time because they bring structure and predictability to a teenager’s world and prevent them experiencing the stress associated with sudden change." },
+                    {
+                        "points": [
+                            { "point": "6.00 AM - ", "description": "Wake up, wash your face, drink water and go to toilet." },
+                            { "point": "6.10 AM - ", "description": "Go for a morning walk." },
+                            { "point": "6.45 AM - ", "description": "Come back home, drink some water and take a break." },
+                            { "point": "7.00 AM - ", "description": "Study (since the mind is fresh and clear at morning)" },
+                            { "point": "8.40 AM - ", "description": "Stop studying." },
+                            { "point": "8.50 AM - ", "description": "Have your breakfast." },
+                            { "point": "9.10 AM - ", "description": "Wear your school uniform." },
+                            { "point": "9.20 AM - ", "description": "Sit on the bus and go to school." },
+                            { "point": "4.30 PM - ", "description": "Come back home, change clothes and go to play." },
+                            { "point": "5.50 PM - ", "description": "Return home." },
+                            { "point": "6.00 PM - ", "description": "Pray to God and have some snacks." },
+                            { "point": "6.15 PM - ", "description": "Watch some well-written dramas or Geographic channels on your television." },
+                            { "point": "6.45 PM - ", "description": "Study and do your homework." },
+                            { "point": "8.30 PM - ", "description": "Stop studying." },
+                            { "point": "8.35 PM - ", "description": "Have your dinner." },
+                            { "point": "9.00 PM - ", "description": "Watch some tutorial video." },
+                            { "point": "9.50 PM - ", "description": "Go to bed." },
+                            { "point": "Note - ", "description": "Your views might differ from us." }
+                           
+                           
+                       ]
+                    }
+                ]
+            },
+            {
+                "id" : 2,
+                "serviceName": "Daily activities for adult",
+                "description": "We aim to give people access to reliable science-based information to support anyone on their journey towards a healthy, sustainable diet. In this section you can read about how everybody, regardless of age, shape, size and ability needs to become more active every day.",
+                "img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtaQpV3sGIbfB81mtQpSQKSrBFZTp6d_Ghk0I6nKwY_sht_XhuRTadKVTaHGtDssY6Cu4&usqp=CAU",
+                "tricks": [
+                    { "heading": "Everybody, regardless of age, shape, size and ability needs to become more active every day. We should all be moving more. Did you know that an active life is essential for physical and mental health and wellbeing?" },
+                    {
+                        "points": [
+                            { "point": "6.00 AM - ", "description": "Wake up, wash your face, drink water and go to toilet." },
+                            { "point": "6.10 AM - ", "description": "Go for a morning walk." },
+                            { "point": "6.45 AM - ", "description": "Come back home, drink some water and take a break." },
+                            { "point": "7.00 AM - ", "description": "Do your essential daily work." },
+                            
+                            { "point": "8.50 AM - ", "description": "Have your breakfast." },
+                            { "point": "9.10 AM - ", "description": "Wear your dress." },
+                            { "point": "9.20 AM - ", "description": "Sit on the bus and go to office." },
+                            { "point": "4.30 PM - ", "description": "Come back home, change clothes and go to outside and do your essential work." },
+                            { "point": "6.50 PM - ", "description": "Return home." },
+                            { "point": "7.00 PM - ", "description": "Pray to God and have some snacks." },
+                            { "point": "7.15 PM - ", "description": "Watch some well-written dramas or Geographic channels on your television." },
+                            { "point": "7.45 PM - ", "description": "Study about your office work and plan for next day." },
+                            
+                            { "point": "8.30 PM - ", "description": "Have your dinner." },
+                            { "point": "9.00 PM - ", "description": "Spend some time with your family members." },
+                            { "point": "9.50 PM - ", "description": "Go to bed." },
+                            { "point": "Note - ", "description": "Your views might differ from us." }
+                           
+                       ]
+                    }
+                ]
+            },
+            {
+                "id" : 3,
+                "serviceName": "Daily activities for senior",
+                "description": "Life, especially during the pandemic, can be unpredictable. For older adults who are feeling less in command of particular parts of life, such as losing cognitive or physical functioning, concentrating on what can be controlled is empowering. ",
+                "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnBHj1C_QqAm3M8q7AJfipYxXWX6xt8_ZX4lUhvbthYHWGkz7APxM2H4RDSeByhe5O-Rc&usqp=CAU",
+                "tricks": [
+                    { "heading": "A great place to begin is by establishing a daily routine for seniors, adapted to their particular interests and needs. Keep in mind a senior’s routine is certainly not designed to be a rigid regimen to be adhered to, but simply the basis for structure and predictability. With the older adult’s input and direction, decide on a desired framework for every day." },
+                    {
+                        "points": [
+                          
+                            { "point": "6.00 AM - ", "description": "Wake up, wash your face, drink water and go to toilet." },
+                            { "point": "6.10 AM - ", "description": "Go for a morning walk." },
+                            { "point": "6.45 AM - ", "description": "Come back home, drink some water and take a break." },
+                            { "point": "7.00 AM - ", "description": "Do your essential daily work." },
+                            
+                            { "point": "8.50 AM - ", "description": "Have your breakfast." },
+                            { "point": "9.10 AM - ", "description": "Wear your dress." },
+                            { "point": "9.20 AM - ", "description": "Sit on the bus and go to office if you have a job or spend time for gardening, watching television, reading book and sleeping at noon and you can skip the next one point" },
+                            { "point": "4.30 PM - ", "description": "Come back home, change clothes and go to outside and do your essential work." },
+                            { "point": "6.50 PM - ", "description": "Return home." },
+                            { "point": "7.00 PM - ", "description": "Pray to God and have some snacks." },
+                            { "point": "7.15 PM - ", "description": "Watch some well-written dramas or Geographic channels on your television." },
+                            { "point": "7.45 PM - ", "description": "Study about your office work and plan for next day if you have a job." },
+                            
+                            { "point": "8.30 PM - ", "description": "Have your dinner." },
+                            { "point": "9.00 PM - ", "description": "Spend some time with your family members." },
+                            { "point": "9.50 PM - ", "description": "Go to bed." },
+                            { "point": "Note - ", "description": "Your views might differ from us." }
+                       ]
+                    }
+                ]
+            }
+            ]
+    }
+]
