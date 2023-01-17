@@ -1,11 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
-<<<<<<< HEAD
-import Dashboardlayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
-
-=======
+import DashboardLayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
 import SignIn from "../../Authentications/SignIn/SignIn";
 import SignUp from "../../Authentications/SignUp/SignUp";
->>>>>>> main
 import KeepTrack from "../../Layout/KeepTrack/KeepTrack";
 import Main from "../../Layout/Main/Main";
 import Event from "../../Pages/Dashboard/Event/Event";
@@ -48,21 +44,6 @@ export const router = createBrowserRouter([
         element: <Tutorials></Tutorials>,
       },
       {
-<<<<<<< HEAD
-        path: "/Dashboard",
-        element: <Dashboardlayout></Dashboardlayout>,
-        children: [
-          { path: "/Dashboard/userInfo", element: <UserInfo></UserInfo> },
-          {
-            path: "/Dashboard/setting",
-            element: <SettingAndPrivacy></SettingAndPrivacy>,
-          },
-          { path: "/Dashboard/report", element: <Report></Report> },
-          { path: "/Dashboard/event", element: <Event></Event> },
-          { path: "/Dashboard/support", element: <Support></Support> },
-        ],
-      },
-=======
         path: "/SignIn",
         element: <SignIn></SignIn>,
       },
@@ -70,8 +51,20 @@ export const router = createBrowserRouter([
         path: "/SignUp",
         element: <SignUp></SignUp>,
       },
-      
->>>>>>> main
+    ],
+  },
+  {
+    path: "/Dashboard",
+    element: <DashboardLayout></DashboardLayout>,
+    children: [
+      { path: "/Dashboard/userInfo", element: <UserInfo></UserInfo> },
+      {
+        path: "/Dashboard/setting",
+        element: <SettingAndPrivacy></SettingAndPrivacy>,
+      },
+      { path: "/Dashboard/report", element: <Report></Report> },
+      { path: "/Dashboard/event", element: <Event></Event> },
+      { path: "/Dashboard/support", element: <Support></Support> },
     ],
   },
 

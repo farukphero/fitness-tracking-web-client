@@ -6,10 +6,14 @@ import { AiOutlineSetting } from "react-icons/ai";
 import { TbReportSearch } from "react-icons/tb";
 import { BsCalendarEvent } from "react-icons/bs";
 import { CgSupport } from "react-icons/cg";
+import Footer from "../../Pages/Shared/Footer/Footer";
+import Header from "../../Pages/Home/Header/Header";
 
-const Dashboardlayout = () => {
+const DashboardLayout = () => {
   return (
-    <div className="mb-44">
+  <div>
+    <Header></Header>
+      <div className="">
       <div className="drawer drawer-mobile">
         <input
           id="dashboard-drawer"
@@ -19,11 +23,11 @@ const Dashboardlayout = () => {
         <div className="drawer-content">
           <Outlet></Outlet>
         </div>
-        <div className="drawer-side ml-16">
-          <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80 mt-16   text-white ">
+        <div className="drawer-side ml-16 bg-gradient-to-r from-primary to-accent">
+          <label htmlFor="dashboard-drawer" className=" "></label>
+          <ul className="menu p-4 w-80 text-white ">
             <>
-              <li className="border-2  border-green-600 btn-explore     rounded-md mb-2 ">
+              <li className="border-2  border-black btn-explore rounded-md mb-2 ">
                 <Link
                   className="text-center ml-16 text-about font-bold"
                   to="/Dashboard/userInfo"
@@ -32,7 +36,7 @@ const Dashboardlayout = () => {
                   <FaRegUser></FaRegUser>
                 </Link>
               </li>
-              <li className="border-2  border-green-600 btn-explore rounded-md  mb-2">
+              <li className="border-2  border-black btn-explore rounded-md  mb-2">
                 <Link
                   className="text-center ml-16 text-about font-bold"
                   to="/dashboard/setting"
@@ -41,7 +45,7 @@ const Dashboardlayout = () => {
                   <AiOutlineSetting></AiOutlineSetting>
                 </Link>
               </li>
-              <li className="border-2  border-green-600 btn-explore     rounded-md mb-2">
+              <li className="border-2  border-black btn-explore     rounded-md mb-2">
                 <Link
                   className="text-center ml-16 text-about font-bold"
                   to="/Dashboard/report"
@@ -50,7 +54,7 @@ const Dashboardlayout = () => {
                   <TbReportSearch></TbReportSearch>
                 </Link>
               </li>
-              <li className="border-2  border-green-600 btn-explore     rounded-md mb-2">
+              <li className="border-2  border-black btn-explore     rounded-md mb-2">
                 <Link
                   className="text-center ml-16 text-about font-bold"
                   to="/Dashboard/event"
@@ -59,7 +63,7 @@ const Dashboardlayout = () => {
                   <BsCalendarEvent></BsCalendarEvent>
                 </Link>
               </li>
-              <li className="border-2  border-green-600 btn-explore     rounded-md mb-2">
+              <li className="border-2  border-black btn-explore     rounded-md mb-2">
                 <Link
                   className="text-center ml-16 text-about font-bold"
                   to="/Dashboard/support"
@@ -73,7 +77,9 @@ const Dashboardlayout = () => {
         </div>
       </div>
     </div>
+    <Footer></Footer>
+  </div>
   );
 };
 
-export default Dashboardlayout;
+export default DashboardLayout;
