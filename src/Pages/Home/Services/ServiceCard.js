@@ -3,7 +3,7 @@ import "./ServiceCard.css";
 
 const ServiceCard = ({ service }) => {
   const { name, description, image } = service;
-  console.log(service);
+  // console.log(service);
   return (
     <div className="w-full my-10  shadow-xl image-full rounded relative">
       <figure>

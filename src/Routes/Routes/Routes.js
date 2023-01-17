@@ -1,11 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
-<<<<<<< HEAD
-import Dashboardlayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
 
-=======
+import Dashboardlayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
 import SignIn from "../../Authentications/SignIn/SignIn";
 import SignUp from "../../Authentications/SignUp/SignUp";
->>>>>>> main
 import KeepTrack from "../../Layout/KeepTrack/KeepTrack";
 import Main from "../../Layout/Main/Main";
 import Event from "../../Pages/Dashboard/Event/Event";
@@ -48,7 +45,6 @@ export const router = createBrowserRouter([
         element: <Tutorials></Tutorials>,
       },
       {
-<<<<<<< HEAD
         path: "/Dashboard",
         element: <Dashboardlayout></Dashboardlayout>,
         children: [
@@ -62,7 +58,7 @@ export const router = createBrowserRouter([
           { path: "/Dashboard/support", element: <Support></Support> },
         ],
       },
-=======
+      {
         path: "/SignIn",
         element: <SignIn></SignIn>,
       },
@@ -70,8 +66,6 @@ export const router = createBrowserRouter([
         path: "/SignUp",
         element: <SignUp></SignUp>,
       },
-      
->>>>>>> main
     ],
   },
 

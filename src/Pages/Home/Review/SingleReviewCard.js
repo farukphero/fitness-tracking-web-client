@@ -3,7 +3,6 @@ import { MdOutlineRateReview } from "react-icons/md";
 
 const SingleReviewCard = ({ reviews }) => {
   const { name, id, img, review } = reviews;
-  console.log(reviews);
 
   return (
     <div className="card shadow-md shadow-green-600">
