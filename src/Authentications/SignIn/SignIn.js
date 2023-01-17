@@ -1,10 +1,13 @@
+import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 const SignIn = () => {
-  const { accountLogIn } = useContext(AuthContext);
+  const { accountLogIn, providerGoogleLogIn } = useContext(AuthContext);
+  const provider = new GoogleAuthProvider();
+
   const navigate = useNavigate()
   const {
     register,
@@ -20,6 +23,15 @@ const SignIn = () => {
       })
       .catch((error) => console.log(error.message));
   };
+
+  const handleGoogleLogin=()=>{
+    providerGoogleLogIn(provider)
+    .then((result) => {
+        const user = result.user;
+        navigate("/");
+      })
+      .catch((error) => console.log(error));
+  }
   return (
     <div className="grid md:grid-cols-2 gap-8 md:w-10/12 mx-auto md:my-20">
       <img
@@ -80,7 +92,7 @@ const SignIn = () => {
           />
           <div className="flex flex-col w-full border-opacity-50">
             <div className="divider text-white">OR</div>
-            <button className="btn btn-outline text-white hover:text-black hover:bg-gradient-to-r from-green-700 to-white hover:border-none w-full">
+            <button onClick={handleGoogleLogin} className="btn btn-outline text-white hover:text-black hover:bg-gradient-to-r from-green-700 to-white hover:border-none w-full">
               {/* <FcGoogle  className="mr-2 w-8 h-8"/>  */}
               Google
             </button>

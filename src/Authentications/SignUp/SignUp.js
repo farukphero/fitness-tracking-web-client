@@ -1,27 +1,43 @@
+import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 const SignUp = () => {
-  const { createUserByEmail } = useContext(AuthContext);
-  const { register, handleSubmit, formState: { errors } } = useForm();
- const navigate = useNavigate()
+  const { createUserByEmail,providerGoogleLogIn } = useContext(AuthContext);
+  const provider = new GoogleAuthProvider();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const navigate = useNavigate();
 
   const handleSignUp = (data) => {
-    console.log(data)
+    console.log(data);
     // setSignUpError("");
     createUserByEmail(data.email, data.password)
-    // console.log(data.email, data.password)
+      // console.log(data.email, data.password)
       .then((result) => {
         const user = result.user;
-        navigate('/')
-
+        console.log(user);
+        navigate("/");
       })
       .catch((error) => {
         // setSignUpError(error.message)
-        console.log(error)
+        console.log(error);
       });
+  };
+
+  const handleGoogleSignUp = () => {
+    providerGoogleLogIn(provider)
+      .then((result) => {
+        const user = result.user;
+        navigate("/");
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -47,7 +63,7 @@ const SignUp = () => {
               </h3>
               <hr />
 
-              <form onSubmit={handleSubmit(handleSignUp)}> 
+              <form onSubmit={handleSubmit(handleSignUp)}>
                 <div className="mb-1">
                   <label
                     htmlFor="email"
@@ -57,7 +73,7 @@ const SignUp = () => {
                   </label>
                   <input
                     placeholder="Your Name"
-                    {...register("name", { required: true })} 
+                    {...register("name", { required: true })}
                     type="text"
                     className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-gray-600 text-white rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                     id="email"
@@ -73,7 +89,7 @@ const SignUp = () => {
                   </label>
                   <input
                     placeholder="**********@gmail.com"
-                    {...register("email", { required: true })} 
+                    {...register("email", { required: true })}
                     type="email"
                     className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-gray-600 text-white rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                     id="email"
@@ -89,7 +105,7 @@ const SignUp = () => {
                   </label>
                   <input
                     placeholder="password"
-                   {...register("password", { required: true })}
+                    {...register("password", { required: true })}
                     type="password"
                     className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-gray-600 text-white rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                     name="password"
@@ -103,7 +119,7 @@ const SignUp = () => {
                 />
                 <div className="flex flex-col w-full border-opacity-50">
                   <div className="divider text-black">OR</div>
-                  <button className="btn btn-outline text-black hover:text-white hover:bg-gradient-to-r from-green-700 to-black hover:border-none w-full mb-12">
+                  <button onClick={handleGoogleSignUp} className="btn btn-outline text-black hover:text-white hover:bg-gradient-to-r from-green-700 to-black hover:border-none w-full mb-12">
                     {/* <FcGoogle  className="mr-2 w-8 h-8"/>  */}
                     Google
                   </button>

@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
+import Dashboardlayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
 import SignIn from "../../Authentications/SignIn/SignIn";
 import SignUp from "../../Authentications/SignUp/SignUp";
 import KeepTrack from "../../Layout/KeepTrack/KeepTrack";
@@ -42,6 +43,20 @@ export const router = createBrowserRouter([
       {
         path: "/Tutorials",
         element: <Tutorials></Tutorials>,
+      },
+      {
+        path: "/Dashboard",
+        element: <Dashboardlayout></Dashboardlayout>,
+        children: [
+          { path: "/Dashboard/userInfo", element: <UserInfo></UserInfo> },
+          {
+            path: "/Dashboard/setting",
+            element: <SettingAndPrivacy></SettingAndPrivacy>,
+          },
+          { path: "/Dashboard/report", element: <Report></Report> },
+          { path: "/Dashboard/event", element: <Event></Event> },
+          { path: "/Dashboard/support", element: <Support></Support> },
+        ],
       },
       {
         path: "/SignIn",
