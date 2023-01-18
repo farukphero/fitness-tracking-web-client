@@ -17,6 +17,7 @@ import Foods from "../../Pages/OtherPages/Foods/Foods";
 import Goals from "../../Pages/OtherPages/Goals/Goals";
 import Leaderboard from "../../Pages/OtherPages/Leaderboard/Leaderboard";
 import Tutorials from "../../Pages/OtherPages/Tutorials/Tutorials";
+import ServiceDetails from "../../Pages/Home/Services/ServiceDetails";
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/serviceDetails/:id",
+        element: <ServiceDetails></ServiceDetails>,
       },
       {
         path: "/Leaderboard",
