@@ -54,10 +54,12 @@ export const router = createBrowserRouter([
         element: <Tutorials></Tutorials>,
       },
       {
+ 
         path: "/UserDetails",
         element: <UserDetails></UserDetails>,
       },
       {
+ 
  
         path: "/Dashboard",
         element: <Dashboardlayout></Dashboardlayout>,
@@ -81,6 +83,10 @@ export const router = createBrowserRouter([
         path: "/SignUp",
         element: <SignUp></SignUp>,
       },
+ 
+      
+ 
+ 
     ],
   },
   {
