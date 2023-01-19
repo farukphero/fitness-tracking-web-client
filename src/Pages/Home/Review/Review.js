@@ -5,6 +5,7 @@ import image2 from "../../../assets/about/images/review2.jpg";
 import image3 from "../../../assets/about/images/review2.jpg";
 import image4 from "../../../assets/about/images/review4.jpg";
 import SingleReviewCard from "./SingleReviewCard";
+import "./Review.css";
 
 const Review = () => {
   const allReview = [
@@ -38,14 +39,17 @@ const Review = () => {
     },
   ];
   return (
-   <div className="mt-20">
-    <h2 className=" text-center text-3xl font-semibold py-5 text-white"> Reviews</h2>
-     <div className="grid grid-cols-1 lg:grid-cols-4 bg-gray-800 pl-8 pt-8 gap-4 pb-8 pr-8 ">
-      {allReview.map((reviews) => (
-        <SingleReviewCard reviews={reviews}></SingleReviewCard>
-      ))}
+    <div className="mt-20">
+      <h2 className=" text-center text-3xl font-semibold py-5 text-all-green">
+        {" "}
+        Reviews
+      </h2>
+      <div className="grid grid-cols-1 lg:grid-cols-4  bg-gray-800 pl-8 pt-8 gap-4 pb-8 pr-8 ">
+        {allReview.map((reviews) => (
+          <SingleReviewCard reviews={reviews}></SingleReviewCard>
+        ))}
+      </div>
     </div>
-   </div>
   );
 };
 

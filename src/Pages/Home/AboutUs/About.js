@@ -1,29 +1,38 @@
-import React from 'react';
-import AboutCarousel from './AboutCarousel';
+import React from "react";
+import image from "../../../assets/about_us.jpg";
+import "./About.css";
 
 const About = () => {
-    return (
-        <div className=' bg-gray-700 text-white'>
-            <div className='container mx-auto'>
-            <h3 className='text-4xl font-semibold text-center py-10'>About Our Website</h3>
-            <div className='grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 place-items-center'>
-                <div className=''>
-                    <AboutCarousel />
-                </div>
-                <div className=''>
-                    <p className='lg:text-xl p-5 h-3/4'><span>You can monitor and improve your daily life, activities, and health using this website.</span>
-                    <br/>
-                       <span> You set goals for your diet, sleep, and exercise using the same platform. We track your progress and will update you regularly on your progress.</span>
-                       <br/>
-                        <span>Finally, we will show you the percentage of your goal achieved after the deadline.</span>
-                        <br/>
-                        <span>We hope this site will significantly assist you in maintaining your health and daily activities.</span>
-                    </p>
-                </div>
-            </div>
+  return (
+    <div className="pt-16" id='about'>
+      <h1 className="text-center text-all-green text-4xl font-bold mb-6">
+        About Us
+      </h1>
+      <div className=" grid grid-cols-1 lg:grid-cols-2  gap-4 text-white">
+        <div>
+          <img className="w-full lg:w-4/5" src={image} alt=""></img>
         </div>
+        <div className="mt-2">
+          <h1 className="text-about">
+            {" "}
+            Fitness providers should operate in accordance with industry
+            standards, including the National Code of Practice for the Health
+            and Fitness Industry developed by AUSactive.In the whole city we are
+            build first Fitness center. Make sure the fitness centre caters for
+            the kinds of activities you like and that meet your personal fitness
+            goals – for example, personal training, free weights, aerobics
+            classes, Pilates and swimming.It is a health, recreational, and
+            social facility geared towards exercise, sports, and other physical
+            activities. It may be a for-profit commercial facility or a
+            community- or institutionally-supported center. A successful
+            facility will accommodate both the serious athlete and the casual
+            recreational user.
+          </h1>
+          <hr className=" w-full lg:w-3/4 mt-2"></hr>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default About;
