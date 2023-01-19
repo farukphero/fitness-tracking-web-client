@@ -3,6 +3,14 @@ import { createBrowserRouter } from "react-router-dom";
 
 import Dashboardlayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
 
+import SignIn from "../../Authentications/SignIn/SignIn";
+import SignUp from "../../Authentications/SignUp/SignUp";
+
+ 
+ 
+
+import Dashboardlayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
+
 
 import SignIn from "../../Authentications/SignIn/SignIn";
 import SignUp from "../../Authentications/SignUp/SignUp";
@@ -11,6 +19,7 @@ import SignUp from "../../Authentications/SignUp/SignUp";
 import Dashboardlayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
 import SignIn from "../../Authentications/SignIn/SignIn";
 import SignUp from "../../Authentications/SignUp/SignUp";
+ 
  
 import KeepTrack from "../../Layout/KeepTrack/KeepTrack";
 import Main from "../../Layout/Main/Main";
@@ -63,10 +72,12 @@ export const router = createBrowserRouter([
         element: <Tutorials></Tutorials>,
       },
       {
+ 
         path: "/UserDetails",
         element: <UserDetails></UserDetails>,
       },
       {
+ 
  
         path: "/Dashboard",
         element: <Dashboardlayout></Dashboardlayout>,
@@ -90,6 +101,10 @@ export const router = createBrowserRouter([
         path: "/SignUp",
         element: <SignUp></SignUp>,
       },
+ 
+      
+ 
+ 
     ],
   },
 
