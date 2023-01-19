@@ -1,0 +1,13 @@
+[
+  {
+    "email": "abc@gmail.com",
+    "date": "2023-01-22",
+    "activity": "walk",
+    "startTime": "17.50",
+    "endTime": "20.54",
+    "duraton": "3.4",
+    "distance": "7",
+    "calories": "",
+    "steps": ""
+  }
+]

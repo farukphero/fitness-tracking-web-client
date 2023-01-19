@@ -65,7 +65,7 @@ const ContactUs = () => {
                   </div>
                   <input
                     type="submit"
-                    value="Submit"
+                    defaultValue="Submit"
                     className="btn btn-accent text-white w-full"
                   />
                 </form>

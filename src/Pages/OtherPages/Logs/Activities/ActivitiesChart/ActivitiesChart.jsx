@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent, useContext } from "react";
 import {
   BarChart,
   Bar,
@@ -13,127 +13,145 @@ import {
 
 const data = [
   {
-    name: "Page A",
-    uv: 4000,
+    name: "12 AM",
+    uv: 10000,
     pv: 2400,
     amt: 2400,
   },
   {
-    name: "Page B",
+    name: "01 AM",
     uv: 3000,
     pv: 1398,
     amt: 2210,
   },
   {
-    name: "Page C",
+    name: "02 AM",
     uv: 2000,
     pv: 9800,
     amt: 2290,
   },
   {
-    name: "Page D",
+    name: "03 AM",
     uv: 2780,
     pv: 3908,
     amt: 2000,
   },
   {
-    name: "Page E",
+    name: "04 AM",
     uv: 1890,
     pv: 4800,
     amt: 2181,
   },
   {
-    name: "Page F",
+    name: "05 AM",
     uv: 2390,
     pv: 3800,
     amt: 2500,
   },
   {
-    name: "Page G",
+    name: "06 AM",
     uv: 3490,
     pv: 4300,
     amt: 2100,
   },
   {
-    name: "Page H",
+    name: "07 AM",
     uv: 4000,
     pv: 2400,
     amt: 2400,
   },
   {
-    name: "Page I",
+    name: "08 AM",
     uv: 3000,
     pv: 1398,
     amt: 2210,
   },
   {
-    name: "Page J",
+    name: "09 AM",
     uv: 2000,
     pv: 9800,
     amt: 2290,
   },
   {
-    name: "Page K",
+    name: "10 AM",
     uv: 2780,
     pv: 3908,
     amt: 2000,
   },
   {
-    name: "Page L",
+    name: "11 AM",
     uv: 1890,
     pv: 4800,
     amt: 2181,
   },
   {
-    name: "Page M",
+    name: "12 PM",
     uv: 2390,
     pv: 3800,
     amt: 2500,
   },
   {
-    name: "Page N",
+    name: "02 PM",
     uv: 3490,
     pv: 4300,
     amt: 2100,
   },
   {
-    name: "Page O",
+    name: "03 PM",
     uv: 4000,
     pv: 2400,
     amt: 2400,
   },
   {
-    name: "Page P",
+    name: "04 PM",
     uv: 3000,
     pv: 1398,
     amt: 2210,
   },
   {
-    name: "Page Q",
+    name: "05 PM",
     uv: 2000,
     pv: 9800,
     amt: 2290,
   },
   {
-    name: "Page R",
+    name: "06 PM",
     uv: 2780,
     pv: 3908,
     amt: 2000,
   },
   {
-    name: "Page S",
+    name: "07 PM",
     uv: 1890,
     pv: 4800,
     amt: 2181,
   },
   {
-    name: "Page T",
+    name: "08 PM",
     uv: 2390,
     pv: 3800,
     amt: 2500,
   },
   {
-    name: "Page U",
+    name: "09 PM",
+    uv: 3490,
+    pv: 4300,
+    amt: 2100,
+  },
+  {
+    name: "10 PM",
+    uv: 3490,
+    pv: 4300,
+    amt: 2100,
+  },
+  {
+    name: "11 PM",
+    uv: 3490,
+    pv: 4300,
+    amt: 2100,
+  },
+  {
+    name: "12 PM",
     uv: 3490,
     pv: 4300,
     amt: 2100,
@@ -161,7 +179,7 @@ const ActivitiesChart = () => {
           </BarChart>
         </ResponsiveContainer>
         <div className="divider mx-8"></div>
-        <div className="flex items-center justify-between mx-10">
+        <div className="flex capitalize font-bold items-center mb-5 justify-between mx-10">
           <h3>daily totals</h3>
           <h3>0 steps</h3>
           <h3>0 miles</h3>
