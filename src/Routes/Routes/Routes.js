@@ -16,11 +16,9 @@ import Foods from "../../Pages/OtherPages/Foods/Foods";
 import Goals from "../../Pages/OtherPages/Goals/Goals";
 import Leaderboard from "../../Pages/OtherPages/Leaderboard/Leaderboard";
 import Tutorials from "../../Pages/OtherPages/Tutorials/Tutorials";
- 
 import UserDetails from "../../Authentications/UserDetails/UserDetails";
- 
 import ServiceDetails from "../../Pages/Home/Services/ServiceDetails";
-import DashboardLayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
  
 
 export const router = createBrowserRouter([
@@ -35,7 +33,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/serviceDetails/:id",
-        element: <ServiceDetails></ServiceDetails>,
+        element: <PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>,
       },
       {
         path: "/Leaderboard",
@@ -53,16 +51,12 @@ export const router = createBrowserRouter([
         path: "/Tutorials",
         element: <Tutorials></Tutorials>,
       },
-      {
- 
-        path: "/UserDetails",
-        element: <UserDetails></UserDetails>,
-      },
+      
       {
  
  
         path: "/Dashboard",
-        element: <Dashboardlayout></Dashboardlayout>,
+        element: <PrivateRoute><Dashboardlayout></Dashboardlayout></PrivateRoute>,
         children: [
           { path: "/Dashboard/userInfo", element: <UserInfo></UserInfo> },
 
@@ -83,27 +77,14 @@ export const router = createBrowserRouter([
         path: "/SignUp",
         element: <SignUp></SignUp>,
       },
- 
-      
- 
- 
     ],
   },
+  
   {
-    path: "/Dashboard",
-    element: <DashboardLayout></DashboardLayout>,
-    children: [
-      { path: "/Dashboard/userInfo", element: <UserInfo></UserInfo> },
-      {
-        path: "/Dashboard/setting",
-        element: <SettingAndPrivacy></SettingAndPrivacy>,
-      },
-      { path: "/Dashboard/report", element: <Report></Report> },
-      { path: "/Dashboard/event", element: <Event></Event> },
-      { path: "/Dashboard/support", element: <Support></Support> },
-    ],
+ 
+    path: "/UserDetails",
+    element: <PrivateRoute><UserDetails></UserDetails></PrivateRoute>,
   },
-
   {
     path: "/KeepTrack",
     element: <KeepTrack></KeepTrack>,
