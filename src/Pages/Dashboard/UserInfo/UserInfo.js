@@ -6,11 +6,11 @@ import "./UserInfo.css";
 const UserInfo = () => {
   const { user } = useContext(AuthContext);
   return (
-    <div className="flex justify-center">
-      <div className="ml-16 mt-24  ">
-        <div>
+    <div className="flex ">
+      <div className="ml-10 lg:ml-40 mt-28 lg:mt-20">
+        <div className="lg:flex">
           <div className="avatar">
-            <div className="w-24 mb-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+            <div className="w-24 lg:w-40 lg:mr-24 mb-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
               <img src={image} alt="" />
             </div>
           </div>
@@ -22,7 +22,7 @@ const UserInfo = () => {
             <h1>Joining: 2th February</h1>
             <div className="mt-4 mb-8">
               <h1 className="mb-4  text-2xl">WorkFlow : </h1>
-              <div className="grid grid-cols-1 lg:grid-cols-3">
+              <div className="grid grid-cols-3 gap-10">
                 <div>
                   <h1 className="mb-2 font-bold">Diet</h1>
                   <div
