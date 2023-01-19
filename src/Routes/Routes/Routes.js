@@ -17,7 +17,7 @@ import Goals from "../../Pages/OtherPages/Goals/Goals";
 import Leaderboard from "../../Pages/OtherPages/Leaderboard/Leaderboard";
 import Tutorials from "../../Pages/OtherPages/Tutorials/Tutorials";
  
-import UserDetails from "../../Authentications/UserInfo/UserDetails";
+import UserDetails from "../../Authentications/UserDetails/UserDetails";
  
 import ServiceDetails from "../../Pages/Home/Services/ServiceDetails";
 import DashboardLayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";

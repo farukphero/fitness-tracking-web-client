@@ -1,13 +1,15 @@
 import { GoogleAuthProvider } from "firebase/auth";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
+import { FcGoogle } from 'react-icons/fc';
+
 
 const SignUp = () => {
   const { createUserByEmail,providerGoogleLogIn } = useContext(AuthContext);
   const provider = new GoogleAuthProvider();
-
+  const [signUpError, setSignUpError] = useState("")
   const {
     register,
     handleSubmit,
@@ -17,16 +19,16 @@ const SignUp = () => {
 
   const handleSignUp = (data) => {
     console.log(data);
-    // setSignUpError("");
+    setSignUpError("");
     createUserByEmail(data.email, data.password)
       // console.log(data.email, data.password)
       .then((result) => {
         const user = result.user;
         console.log(user);
-        navigate("/");
+        navigate("/UserDetails");
       })
       .catch((error) => {
-        // setSignUpError(error.message)
+        setSignUpError(error.message)
         console.log(error);
       });
   };
@@ -35,7 +37,7 @@ const SignUp = () => {
     providerGoogleLogIn(provider)
       .then((result) => {
         const user = result.user;
-        navigate("/");
+        navigate("/UserDetails");
       })
       .catch((error) => console.log(error));
   };
@@ -43,22 +45,21 @@ const SignUp = () => {
   return (
     <div>
       <div
-        className="hero md:py-20"
+        className="hero md:py-10"
         style={{
           backgroundImage: `url("https://media.istockphoto.com/id/1368151370/photo/user-typing-login-and-password-cyber-security-concept.jpg?b=1&s=170667a&w=0&k=20&c=wm6YUMs03Bup4_9XcQaX61L711qJxAUExEJp_PWO8gI=")`,
         }}
       >
-        <div className=" "></div>
-        <div className="hero-content text-center ">
-          <div className=" ">
-            <div className="rounded lg:w-[400px] bg-white px-5">
+        <div className="hero-content text-center rounded">
+          <div>
+            <div className="rounded lg:w-[400px] bg-gray-700 px-5">
               <div className="md:hidden flex justify-between mb-3 pt-3">
-                <Link to="/SignIn" className="text-xl text-black">
+                <Link to="/SignIn" className="text-xl ">
                   Sign In
                 </Link>
-                <h3 className=" text-xl text-black ">Sign Up</h3>
+                <h3 className=" text-xl">Sign Up</h3>
               </div>
-              <h3 className="hidden md:flex text-black text-2xl mb-3 pt-3">
+              <h3 className="hidden md:flex text-2xl mb-3 pt-3">
                 Create your Account
               </h3>
               <hr />
@@ -67,7 +68,7 @@ const SignUp = () => {
                 <div className="mb-1">
                   <label
                     htmlFor="email"
-                    className="inline-block mb-1 text-black font-medium mt-3"
+                    className="inline-block mb-1 font-medium mt-3"
                   >
                     Name
                   </label>
@@ -83,7 +84,7 @@ const SignUp = () => {
                 <div className="mb-1">
                   <label
                     htmlFor="email"
-                    className="inline-block mb-1 text-black font-medium"
+                    className="inline-block mb-1 font-medium"
                   >
                     E-mail
                   </label>
@@ -99,7 +100,7 @@ const SignUp = () => {
                 <div className="mb-1">
                   <label
                     htmlFor="email"
-                    className="inline-block mb-1 text-black font-medium"
+                    className="inline-block mb-1 font-medium"
                   >
                     Password
                   </label>
@@ -111,18 +112,16 @@ const SignUp = () => {
                     name="password"
                   />
                 </div>
+                <p className="text-red-400 mb-3">{signUpError}</p>
 
                 <input
                   type="submit"
                   value="Sign Up"
-                  className="btn btn-contact text-white "
+                  className="btn btn-contact bg-gray-900 "
                 />
-                <div className="flex flex-col w-full border-opacity-50">
-                  <div className="divider text-black">OR</div>
-                  <button onClick={handleGoogleSignUp} className="btn btn-outline text-black hover:text-white hover:bg-gradient-to-r from-green-700 to-black hover:border-none w-full mb-12">
-                    {/* <FcGoogle  className="mr-2 w-8 h-8"/>  */}
-                    Google
-                  </button>
+                <div className="flex flex-col w-full  ">
+                  <div className="divider  ">OR</div>
+                  <button>  <FcGoogle onClick={handleGoogleSignUp}   className="w-10 h-10 ml-28 md:ml-40 mb-12"/></button>
                 </div>
               </form>
             </div>

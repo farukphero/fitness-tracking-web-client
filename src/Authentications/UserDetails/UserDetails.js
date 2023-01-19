@@ -1,6 +1,5 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
 
 const UserDetails = () => {
     const { register, formState: { errors }, handleSubmit } = useForm()
@@ -63,9 +62,15 @@ const UserDetails = () => {
             <div className="items-center mx-auto text-black flex-shrink-0 w-1/2 ">
                 <form onSubmit={handleSubmit(handlDetails)}>
                     <div className="justify-center text-center">
-                        <p className='text-6xl font-bold text-white mb-4'>User Information</p>
-                        <input className='bg-gray-50 w-24 h-24 rounded-full' type="file" placeholder='photo' {...register("img")} />
-
+                        <p className='text-2xl font-semibold text-green-500 mb-4'> Provide your information </p>
+                        <input 
+                        className='hidden' 
+                        type="file"
+                        id="file"
+                        accept='image/*'
+                         placeholder='photo' {...register("img")} />
+                         <label htmlFor="file" className='btn text-white'>Upload a photo</label>
+                      
                     </div>
 
                     <div className="card-body">
@@ -92,8 +97,8 @@ const UserDetails = () => {
                                 <label className="label">
                                     <span className="label-text text-white">Birthday</span>
                                 </label>
-                                <input type="text" placeholder="Birthday"
-                                    {...register("birthday")} className="input input-bordered" />
+                                <input  {...register("birthday")}  type="date" name="" className="p-3 rounded" />
+                               
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -160,10 +165,10 @@ const UserDetails = () => {
                                     placeholder="City" className="input input-bordered" />
                             </div>
                         </div>
-                        <div className='grid sm:grid-cols-1 lg:grid-cols-2 gap-10'>
+                        <div className='grid sm:grid-cols-1 lg:grid-cols-2 gap-10 mb-3'>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text text-white">Current Adress</span>
+                                    <span className="label-text text-white">Current Address</span>
                                 </label>
                                 <input type="text"
                                     {...register("currentadress")}
@@ -171,14 +176,14 @@ const UserDetails = () => {
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text text-white">Permanent Adress</span>
+                                    <span className="label-text text-white">Permanent Address</span>
                                 </label>
                                 <input type="text"
                                     {...register("permanentadress")}
                                     placeholder="Postal-code,Village,City" className="input input-bordered" />
                             </div>
                         </div>
-                        <input className='btn btn-primary mt-3 w-full' type="submit" />
+                        <input className='btn btn-contact mt-5 w-full' type="submit" />
 
                     </div>
                 </form>
