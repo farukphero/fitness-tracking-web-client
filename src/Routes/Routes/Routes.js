@@ -1,11 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
-<<<<<<< HEAD
+
 import Dashboardlayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
 
-=======
+
 import SignIn from "../../Authentications/SignIn/SignIn";
 import SignUp from "../../Authentications/SignUp/SignUp";
->>>>>>> main
+
 import KeepTrack from "../../Layout/KeepTrack/KeepTrack";
 import Main from "../../Layout/Main/Main";
 import Event from "../../Pages/Dashboard/Event/Event";
@@ -20,6 +20,7 @@ import Foods from "../../Pages/OtherPages/Foods/Foods";
 import Goals from "../../Pages/OtherPages/Goals/Goals";
 import Leaderboard from "../../Pages/OtherPages/Leaderboard/Leaderboard";
 import Tutorials from "../../Pages/OtherPages/Tutorials/Tutorials";
+import UserDetails from "../../Authentications/UserInfo/UserDetails";
 
 export const router = createBrowserRouter([
   {
@@ -48,11 +49,15 @@ export const router = createBrowserRouter([
         element: <Tutorials></Tutorials>,
       },
       {
-<<<<<<< HEAD
+        path: "/UserDetails",
+        element: <UserDetails></UserDetails>,
+      },
+      {
         path: "/Dashboard",
         element: <Dashboardlayout></Dashboardlayout>,
         children: [
           { path: "/Dashboard/userInfo", element: <UserInfo></UserInfo> },
+
           {
             path: "/Dashboard/setting",
             element: <SettingAndPrivacy></SettingAndPrivacy>,
@@ -62,16 +67,6 @@ export const router = createBrowserRouter([
           { path: "/Dashboard/support", element: <Support></Support> },
         ],
       },
-=======
-        path: "/SignIn",
-        element: <SignIn></SignIn>,
-      },
-      {
-        path: "/SignUp",
-        element: <SignUp></SignUp>,
-      },
-      
->>>>>>> main
     ],
   },
 
