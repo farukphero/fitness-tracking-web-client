@@ -22,9 +22,9 @@ const Header = () => {
     },
     {
       _id: 1,
-      navigate: `/Goals`,
-      aria: `Goals`,
-      content: `Goals`,
+      navigate: `/logs/activities`,
+      aria: `Logs`,
+      content: `Logs`,
     },
     {
       _id: 2,
