@@ -55,13 +55,13 @@ const UserDetails = () => {
   };
 
   return (
-    <div className="py-10  bg-gray-600">
-      <div className="items-center mx-auto text-black flex-shrink-0 w-1/2 ">
+    <div className=" bg-black">
+      <div className="items-center mx-auto bg-gray-700 py-10 rounded flex-shrink-0 lg:w-1/2 ">
         <form onSubmit={handleSubmit(handleDetails)}>
           <div className="justify-center text-center">
             <p className="text-2xl font-semibold text-green-500 mb-4">
-              {" "}
-              Provide your information{" "}
+        
+            Please Provide your information{" "}
             </p>
             <input
               className="hidden"
@@ -86,7 +86,7 @@ const UserDetails = () => {
                   type="text"
                   {...register("firstName")}
                   placeholder="FirstName"
-                  className="input input-bordered"
+                  className="input input-bordered bg-gray-600"
                 />
               </div>
               <div className="form-control">
@@ -97,7 +97,7 @@ const UserDetails = () => {
                   type="text"
                   {...register("lastName")}
                   placeholder="LastName"
-                  className="input input-bordered"
+                  className="input input-bordered bg-gray-600"
                 />
               </div>
             </div>
@@ -110,7 +110,7 @@ const UserDetails = () => {
                   {...register("birthday")}
                   type="date"
                   name=""
-                  className="p-3 rounded"
+                  className="p-3 rounded bg-gray-600"
                 />
               </div>
               <div className="form-control">
@@ -121,7 +121,7 @@ const UserDetails = () => {
                   type="text"
                   {...register("age")}
                   placeholder="Age"
-                  className="input input-bordered"
+                  className="input input-bordered bg-gray-600"
                 />
               </div>
             </div>
@@ -134,7 +134,7 @@ const UserDetails = () => {
                   type="text"
                   {...register("height")}
                   placeholder="Height"
-                  className="input input-bordered"
+                  className="input input-bordered bg-gray-600"
                 />
               </div>
               <div className="form-control">
@@ -145,7 +145,7 @@ const UserDetails = () => {
                   type="text"
                   {...register("weight")}
                   placeholder="Weight"
-                  className="input input-bordered"
+                  className="input input-bordered bg-gray-600"
                 />
               </div>
             </div>
@@ -159,7 +159,7 @@ const UserDetails = () => {
                   type="text"
                   {...register("email")}
                   placeholder="email"
-                  className="input input-bordered"
+                  className="input input-bordered bg-gray-600"
                 />
               </div>
               <div className="form-control">
@@ -167,10 +167,10 @@ const UserDetails = () => {
                   <span className="label-text text-white">Phone</span>
                 </label>
                 <input
-                  type="number"
+                  type="text"
                   {...register("phone")}
                   placeholder="Phone"
-                  className="input input-bordered"
+                  className="input input-bordered bg-gray-600"
                 />
               </div>
             </div>
@@ -183,7 +183,7 @@ const UserDetails = () => {
                   type="text"
                   {...register("country")}
                   placeholder="Country"
-                  className="input input-bordered"
+                  className="input input-bordered bg-gray-600"
                 />
               </div>
               <div className="form-control">
@@ -194,7 +194,7 @@ const UserDetails = () => {
                   type="text"
                   {...register("city")}
                   placeholder="City"
-                  className="input input-bordered"
+                  className="input input-bordered bg-gray-600"
                 />
               </div>
             </div>
@@ -207,7 +207,7 @@ const UserDetails = () => {
                   type="text"
                   {...register("currentAddress")}
                   placeholder="Postal-code,Village,City"
-                  className="input input-bordered"
+                  className="input input-bordered bg-gray-600"
                 />
               </div>
               <div className="form-control">
@@ -220,7 +220,7 @@ const UserDetails = () => {
                   type="text"
                   {...register("permanentAddress")}
                   placeholder="Postal-code,Village,City"
-                  className="input input-bordered"
+                  className="input input-bordered bg-gray-600"
                 />
               </div>
             </div>
