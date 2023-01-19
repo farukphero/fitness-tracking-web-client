@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import logo from "../../../images/apple-touch-icon.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const {user, logOut} = useContext(AuthContext)
+
+  const handleLogOut=()=>{
+    logOut()
+    .then(()=>{})
+    .catch(error=>console.log(error))
+  }
 
   const navBar = [
     {
@@ -14,7 +22,7 @@ const Header = () => {
     },
     {
       _id: 1,
-      navigate: `/logs/activities`,
+      navigate: `/Logs/Activities`,
       aria: `Logs`,
       content: `Logs`,
     },
@@ -30,10 +38,16 @@ const Header = () => {
       aria: `Tutorials`,
       content: `Tutorials`,
     },
+    {
+      _id: 4,
+      navigate: `/Dashboard`,
+      aria: `Dashboard`,
+      content: `Dashboard`,
+    },
   ];
 
   return (
-    <div className="bg-gray-900 sticky top-0 z-10 bg-opacity-70">
+    <div className="bg-black sticky top-0 z-10 bg-opacity-70">
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
           <div className="flex items-center">
@@ -43,9 +57,9 @@ const Header = () => {
               title="Company"
               className="inline-flex items-center mr-8"
             >
-              <img className="h-8 w-8 rounded-md" src={logo} alt="" />
-              <h1 className="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
-                Fit<span className="text-red-500">Friend</span>
+              <img className="h-10 w-10 rounded-md" src={logo} alt="" />
+              <h1 className="ml-2 text-2xl font-bold tracking-wide text-gray-100 uppercase ">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-white">FitLessian </span>
               </h1>
             </Link>
             <ul className=" items-center hidden space-x-8 lg:flex">
@@ -64,9 +78,11 @@ const Header = () => {
             </ul>
           </div>
           <ul className="items-center hidden space-x-8 lg:flex">
-            <li>
+            {
+              user ? <button onClick={handleLogOut} className="inline-flex items-center justify-center h-10 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-green-700">Log Out</button> : <>
+                <li>
               <Link
-                href="/"
+                to="/SignIn"
                 aria-label="Sign in"
                 title="Sign in"
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
@@ -76,14 +92,16 @@ const Header = () => {
             </li>
             <li>
               <Link
-                href="/"
-                className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                to="/SignUp"
+                className="inline-flex items-center justify-center h-10 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-green-700"
                 aria-label="Sign up"
                 title="Sign up"
               >
                 Sign up
               </Link>
             </li>
+              </>
+            }
           </ul>
           <div className="lg:hidden">
             <button
@@ -109,7 +127,7 @@ const Header = () => {
             </button>
             {isMenuOpen && (
               <div className="absolute top-0 left-0 w-full">
-                <div className="p-5 bg-gray-500 border rounded shadow-sm">
+                <div className="p-5 bg-black  border rounded shadow-sm">
                   <div className="flex items-center justify-between mb-4">
                     <div>
                       <Link
@@ -118,9 +136,9 @@ const Header = () => {
                         title="Company"
                         className="inline-flex items-center"
                       >
-                        <img className="h-8 w-8 rounded-md" src={logo} alt="" />
+                        <img className="h-10 w-10 rounded-md" src={logo} alt="" />
                         <h1 className="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
-                          Fit<span className="text-red-500">Friend</span>
+                          FIT<span className="text-green-700">LESSIAN</span>
                         </h1>
                       </Link>
                     </div>
@@ -156,7 +174,7 @@ const Header = () => {
                       ))}
                       <li>
                         <Link
-                          href="/"
+                           to="/SignUp"
                           className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
                           aria-label="Sign up"
                           title="Sign up"

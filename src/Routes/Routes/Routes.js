@@ -1,7 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import KeepTrack from "../../Layout/KeepTrack/KeepTrack";
-import LogsLayout from "../../Layout/LogsLayout/LogsLayout";
 import Main from "../../Layout/Main/Main";
+import Event from "../../Pages/Dashboard/Event/Event";
+import Report from "../../Pages/Dashboard/Report/Report";
+import SettingAndPrivacy from "../../Pages/Dashboard/SettingAndPrivacy/SettingAndPrivacy";
+import Support from "../../Pages/Dashboard/Support/Support";
+import UserInfo from "../../Pages/Dashboard/UserInfo/UserInfo";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Home from "../../Pages/Home/Home/Home";
 import Community from "../../Pages/OtherPages/Community/Community";
@@ -12,8 +16,16 @@ import Sleep from "../../Pages/OtherPages/Logs/Sleep/Sleep";
 import Water from "../../Pages/OtherPages/Logs/Water/Water";
 import Weight from "../../Pages/OtherPages/Logs/Weight/Weight";
 import Tutorials from "../../Pages/OtherPages/Tutorials/Tutorials";
-import Food from "../../Pages/OtherPages/Logs/Food/Food/Food";
+
+import UserDetails from "../../Authentications/UserInfo/UserDetails";
+
+import ServiceDetails from "../../Pages/Home/Services/ServiceDetails";
+import Dashboardlayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
+import SignIn from "../../Authentications/SignIn/SignIn";
+import SignUp from "../../Authentications/SignUp/SignUp";
+import LogsLayout from "../../Layout/LogsLayout/LogsLayout";
 import Activities from "../../Pages/OtherPages/Logs/Activities/Activities/Activities";
+import Food from "../../Pages/OtherPages/Logs/Food/Food/Food";
 
 export const router = createBrowserRouter([
   {
@@ -24,6 +36,10 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/serviceDetails/:id",
+        element: <ServiceDetails></ServiceDetails>,
       },
       {
         path: "/Leaderboard",
@@ -44,27 +60,54 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: `/logs`,
+    path: "/UserDetails",
+    element: <UserDetails></UserDetails>,
+  },
+  {
+    path: "/Dashboard",
+    element: <Dashboardlayout></Dashboardlayout>,
+    children: [
+      { path: "/Dashboard/userInfo", element: <UserInfo></UserInfo> },
+
+      {
+        path: "/Dashboard/setting",
+        element: <SettingAndPrivacy></SettingAndPrivacy>,
+      },
+      { path: "/Dashboard/report", element: <Report></Report> },
+      { path: "/Dashboard/event", element: <Event></Event> },
+      { path: "/Dashboard/support", element: <Support></Support> },
+    ],
+  },
+  {
+    path: "/SignIn",
+    element: <SignIn></SignIn>,
+  },
+  {
+    path: "/SignUp",
+    element: <SignUp></SignUp>,
+  },
+  {
+    path: `/Logs`,
     element: <LogsLayout></LogsLayout>,
     children: [
       {
-        path: `/logs/activities`,
+        path: `/Logs/Activities`,
         element: <Activities></Activities>,
       },
       {
-        path: `/logs/food`,
+        path: `/Logs/Food`,
         element: <Food></Food>,
       },
       {
-        path: `/logs/water`,
-        element: <Water></Water>,
-      },
-      {
-        path: `/logs/weight`,
+        path: `/Logs/Water`,
         element: <Weight></Weight>,
       },
       {
-        path: `/logs/sleep`,
+        path: `/Logs/Weight`,
+        element: <Weight></Weight>,
+      },
+      {
+        path: `/Logs/Sleep`,
         element: <Sleep></Sleep>,
       },
     ],

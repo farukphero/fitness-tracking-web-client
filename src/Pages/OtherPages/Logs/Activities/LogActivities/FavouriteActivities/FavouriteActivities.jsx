@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
 const FavouriteActivities = () => {
-    return (
-        <>
+  return (
+    <>
       <div className="overflow-x-auto border border-gray-600 rounded-md p-3">
         <div className="flex items-center justify-between">
           <div>
@@ -41,7 +41,7 @@ const FavouriteActivities = () => {
         </table>
       </div>
     </>
-    );
+  );
 };
 
 export default FavouriteActivities;

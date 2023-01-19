@@ -5,10 +5,10 @@ const LogsNavbar = () => {
   const [activeState, setActiveState] = useState({
     active: null,
     navItems: [
-      { _id: 2, name: `food` },
-      { _id: 1, name: `activities` },
-      { _id: 3, name: `water` },
-      { _id: 4, name: `sleep` },
+      { _id: 2, name: `Food` },
+      { _id: 1, name: `Activities` },
+      { _id: 3, name: `Water` },
+      { _id: 4, name: `Sleep` },
     ],
   });
 
@@ -30,7 +30,7 @@ const LogsNavbar = () => {
   return (
     <div className=" flex items-center justify-center flex-wrap space-x-6 my-8 space-y-4 ">
       {activeState?.navItems.map((item, index) => (
-        <Link key={index} className="m-0 mt-4 ml-8" to={`/logs/${item.name}`}>
+        <Link key={index} className="m-0 mt-4 ml-8" to={`/Logs/${item.name}`}>
           <button
             onClick={() => selectActiveItem(index)}
             className={addStyles(index)}

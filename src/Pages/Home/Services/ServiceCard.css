@@ -1,0 +1,7 @@
+.btn-explore:hover {
+  background: transparent;
+  background-color: #05cc6c;
+  transition: color 0.7s ease-in-out;
+  color: black;
+  font-weight: bold;
+}

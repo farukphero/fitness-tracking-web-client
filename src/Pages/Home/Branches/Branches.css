@@ -3,13 +3,15 @@
   height: 104vh;
   margin-right: 1rem;
 }
+.bg-brance {
+  background-color: aquamarine;
+}
 
 @media only screen and (min-width: 1264px) {
   .map-container {
     height: 87vh;
   }
 }
-
 
 @media only screen and (min-width: 1365px) {
   .map-container {
