@@ -1,7 +1,32 @@
 import { createBrowserRouter } from "react-router-dom";
+<<<<<<< HEAD
 import Dashboardlayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
 import SignIn from "../../Authentications/SignIn/SignIn";
 import SignUp from "../../Authentications/SignUp/SignUp";
+=======
+ 
+
+import Dashboardlayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
+
+import SignIn from "../../Authentications/SignIn/SignIn";
+import SignUp from "../../Authentications/SignUp/SignUp";
+
+ 
+ 
+
+import Dashboardlayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
+
+
+import SignIn from "../../Authentications/SignIn/SignIn";
+import SignUp from "../../Authentications/SignUp/SignUp";
+ 
+
+import Dashboardlayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
+import SignIn from "../../Authentications/SignIn/SignIn";
+import SignUp from "../../Authentications/SignUp/SignUp";
+ 
+ 
+>>>>>>> b91644cf4a8615feb6fd724d987bafb7b83ade99
 import KeepTrack from "../../Layout/KeepTrack/KeepTrack";
 import Main from "../../Layout/Main/Main";
 import Event from "../../Pages/Dashboard/Event/Event";
@@ -58,10 +83,16 @@ export const router = createBrowserRouter([
         element: <Tutorials></Tutorials>,
       },
       {
+ 
         path: "/UserDetails",
         element: <UserDetails></UserDetails>,
       },
       {
+<<<<<<< HEAD
+=======
+ 
+ 
+>>>>>>> b91644cf4a8615feb6fd724d987bafb7b83ade99
         path: "/Dashboard",
         element: <Dashboardlayout></Dashboardlayout>,
         children: [
@@ -84,6 +115,10 @@ export const router = createBrowserRouter([
         path: "/SignUp",
         element: <SignUp></SignUp>,
       },
+ 
+      
+ 
+ 
     ],
   },
   {
