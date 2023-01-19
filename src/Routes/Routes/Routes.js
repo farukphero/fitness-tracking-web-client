@@ -1,26 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
- 
-
-import Dashboardlayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
-
-import SignIn from "../../Authentications/SignIn/SignIn";
-import SignUp from "../../Authentications/SignUp/SignUp";
-
- 
- 
-
-import Dashboardlayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
-
-
-import SignIn from "../../Authentications/SignIn/SignIn";
-import SignUp from "../../Authentications/SignUp/SignUp";
- 
-
 import Dashboardlayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
 import SignIn from "../../Authentications/SignIn/SignIn";
 import SignUp from "../../Authentications/SignUp/SignUp";
- 
- 
 import KeepTrack from "../../Layout/KeepTrack/KeepTrack";
 import Main from "../../Layout/Main/Main";
 import Event from "../../Pages/Dashboard/Event/Event";

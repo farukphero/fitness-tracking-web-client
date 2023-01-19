@@ -7,7 +7,7 @@ const UserDetails = () => {
     const imageHostkeyk = process.env.REACT_APP_IMG_KEY
 
     // rumel
-    const handlDetails = data => {
+    const handleDetails = data => {
 
         const image = data.img[0]
         console.log(image)
@@ -61,7 +61,7 @@ const UserDetails = () => {
 
 
             <div className="items-center mx-auto text-black flex-shrink-0 w-1/2 ">
-                <form onSubmit={handleSubmit(handlDetails)}>
+                <form onSubmit={handleSubmit(handleDetails)}>
                     <div className="justify-center text-center">
                         <p className='text-6xl font-bold text-white mb-4'>User Information</p>
                         <input className='bg-gray-50 w-24 h-24 rounded-full' type="file" placeholder='photo' {...register("img")} />
