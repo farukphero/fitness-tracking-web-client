@@ -5,22 +5,26 @@ import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 const SignUp = () => {
   const { createUserByEmail } = useContext(AuthContext);
-  const { register, handleSubmit, formState: { errors } } = useForm();
- const navigate = useNavigate()
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const navigate = useNavigate();
 
   const handleSignUp = (data) => {
-    console.log(data)
+    console.log(data);
     // setSignUpError("");
     createUserByEmail(data.email, data.password)
-    // console.log(data.email, data.password)
+      // console.log(data.email, data.password)
       .then((result) => {
         const user = result.user;
-        navigate('/')
-
+        console.log(user);
+        navigate("/");
       })
       .catch((error) => {
         // setSignUpError(error.message)
-        console.log(error)
+        console.log(error);
       });
   };
 
@@ -47,7 +51,7 @@ const SignUp = () => {
               </h3>
               <hr />
 
-              <form onSubmit={handleSubmit(handleSignUp)}> 
+              <form onSubmit={handleSubmit(handleSignUp)}>
                 <div className="mb-1">
                   <label
                     htmlFor="email"
@@ -57,7 +61,7 @@ const SignUp = () => {
                   </label>
                   <input
                     placeholder="Your Name"
-                    {...register("name", { required: true })} 
+                    {...register("name", { required: true })}
                     type="text"
                     className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-gray-600 text-white rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                     id="email"
@@ -73,7 +77,7 @@ const SignUp = () => {
                   </label>
                   <input
                     placeholder="**********@gmail.com"
-                    {...register("email", { required: true })} 
+                    {...register("email", { required: true })}
                     type="email"
                     className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-gray-600 text-white rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                     id="email"
@@ -89,7 +93,7 @@ const SignUp = () => {
                   </label>
                   <input
                     placeholder="password"
-                   {...register("password", { required: true })}
+                    {...register("password", { required: true })}
                     type="password"
                     className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-gray-600 text-white rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                     name="password"
