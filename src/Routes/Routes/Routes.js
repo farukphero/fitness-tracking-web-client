@@ -1,10 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
+<<<<<<< HEAD
 
 import Dashboardlayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
 
 import SignIn from "../../Authentications/SignIn/SignIn";
 import SignUp from "../../Authentications/SignUp/SignUp";
 
+=======
+import Dashboardlayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
+import SignIn from "../../Authentications/SignIn/SignIn";
+import SignUp from "../../Authentications/SignUp/SignUp";
+>>>>>>> 28dc4898bdc67c265bb1db6ac7757aca8be03547
 import KeepTrack from "../../Layout/KeepTrack/KeepTrack";
 import Main from "../../Layout/Main/Main";
 import Event from "../../Pages/Dashboard/Event/Event";
@@ -19,10 +25,17 @@ import Foods from "../../Pages/OtherPages/Foods/Foods";
 import Goals from "../../Pages/OtherPages/Goals/Goals";
 import Leaderboard from "../../Pages/OtherPages/Leaderboard/Leaderboard";
 import Tutorials from "../../Pages/OtherPages/Tutorials/Tutorials";
+<<<<<<< HEAD
 
 import UserDetails from "../../Authentications/UserInfo/UserDetails";
 
 import ServiceDetails from "../../Pages/Home/Services/ServiceDetails";
+=======
+import UserDetails from "../../Authentications/UserDetails/UserDetails";
+import ServiceDetails from "../../Pages/Home/Services/ServiceDetails";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+ 
+>>>>>>> 28dc4898bdc67c265bb1db6ac7757aca8be03547
 
 export const router = createBrowserRouter([
   {
@@ -36,7 +49,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/serviceDetails/:id",
-        element: <ServiceDetails></ServiceDetails>,
+        element: <PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>,
       },
       {
         path: "/Leaderboard",
@@ -54,13 +67,15 @@ export const router = createBrowserRouter([
         path: "/Tutorials",
         element: <Tutorials></Tutorials>,
       },
+      
       {
-        path: "/UserDetails",
-        element: <UserDetails></UserDetails>,
-      },
-      {
+<<<<<<< HEAD
+=======
+ 
+ 
+>>>>>>> 28dc4898bdc67c265bb1db6ac7757aca8be03547
         path: "/Dashboard",
-        element: <Dashboardlayout></Dashboardlayout>,
+        element: <PrivateRoute><Dashboardlayout></Dashboardlayout></PrivateRoute>,
         children: [
           { path: "/Dashboard/userInfo", element: <UserInfo></UserInfo> },
 
@@ -83,7 +98,12 @@ export const router = createBrowserRouter([
       },
     ],
   },
-
+  
+  {
+ 
+    path: "/UserDetails",
+    element: <PrivateRoute><UserDetails></UserDetails></PrivateRoute>,
+  },
   {
     path: "/KeepTrack",
     element: <KeepTrack></KeepTrack>,
