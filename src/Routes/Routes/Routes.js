@@ -1,5 +1,4 @@
 import { createBrowserRouter } from "react-router-dom";
-import Dashboardlayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
 import SignIn from "../../Authentications/SignIn/SignIn";
 import SignUp from "../../Authentications/SignUp/SignUp";
 import KeepTrack from "../../Layout/KeepTrack/KeepTrack";
@@ -16,10 +15,11 @@ import Foods from "../../Pages/OtherPages/Foods/Foods";
 import Goals from "../../Pages/OtherPages/Goals/Goals";
 import Leaderboard from "../../Pages/OtherPages/Leaderboard/Leaderboard";
 import Tutorials from "../../Pages/OtherPages/Tutorials/Tutorials";
-import UserDetails from "../../Authentications/UserDetails/UserDetails";
+import UserDetails from "../../Authentications/UserInfo/UserDetails";
 import ServiceDetails from "../../Pages/Home/Services/ServiceDetails";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
- 
+import DashboardLayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
+  
 
 export const router = createBrowserRouter([
   {
@@ -54,9 +54,8 @@ export const router = createBrowserRouter([
       
       {
  
- 
         path: "/Dashboard",
-        element: <PrivateRoute><Dashboardlayout></Dashboardlayout></PrivateRoute>,
+        element: <PrivateRoute> <DashboardLayout></DashboardLayout> </PrivateRoute>,
         children: [
           { path: "/Dashboard/userInfo", element: <UserInfo></UserInfo> },
 
