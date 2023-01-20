@@ -15,7 +15,7 @@ const Banner = () => {
             Stay Healthy Even If you Stay
             <span className="text-all-green"> At Home</span>
           </h1>
-          <div className="flex mt-8">
+          <div className="flex mt-8 md:ml-24">
             <NavHashLink smooth to='/#contact' className="btn btn-banner  font-bold">Contact</NavHashLink>
             <NavHashLink smooth to='/#about' className="btn btn-banner font-bold">About</NavHashLink>
           </div>
