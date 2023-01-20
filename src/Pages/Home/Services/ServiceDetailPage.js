@@ -9,7 +9,6 @@ const ServiceDetailPage = ({detail}) => {
             <p>{detail.tricks[0].heading}</p>
             <p className='text-2xl font-bold'>Top Tips for you:</p>
             {detail.tricks[1].points.map(d=><li key={d._id} point={d}><p><span className='font-bold text-2xl'>{d.point}</span> <span>{d.description}</span></p></li>)}
-            
         </div>
     );
 };

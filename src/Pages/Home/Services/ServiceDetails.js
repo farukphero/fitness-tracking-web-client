@@ -10,7 +10,7 @@ const ServiceDetails = () => {
     console.log(user?.user?.email)
     const [appUser, setAppUser] = useState({});
     console.log(appUser.age)
-    // if(isLoading)return <progress className="progress w-56"></progress>
+    
     
     useEffect(()=>{
         fetch(`http://localhost:5000/user/${user?.user?.email}`)
