@@ -4,7 +4,7 @@ import "./ServiceCard.css";
 
 const ServiceCard = ({ service }) => {
   const { _id, name, description, image } = service;
-  // console.log(service);
+  console.log(name);
   return (
     <div className="w-full my-10  shadow-xl image-full rounded relative">
       <figure>
@@ -15,6 +15,7 @@ const ServiceCard = ({ service }) => {
         />
       </figure>
       <div className="card-body" style={{ height: "300px" }}>
+        {/* <h2 className="card-title text-all-green font-semibold">{name}</h2> */}
         <h2 className="card-title text-all-green font-semibold">{name}</h2>
         <p>{description.slice(0, 170)}...</p>
         <div>
