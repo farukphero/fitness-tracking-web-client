@@ -11,7 +11,7 @@ const ServiceDetails = () => {
     const [appUser, setAppUser] = useState({});
     console.log(appUser.age)
     
-    
+    // d
     useEffect(()=>{
         fetch(`http://localhost:5000/user/${user?.user?.email}`)
         .then(res=> res.json())
