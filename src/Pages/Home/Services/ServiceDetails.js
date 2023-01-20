@@ -1,13 +1,30 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import ServiceDetailPage from './ServiceDetailPage';
 
 const ServiceDetails = () => {
     const location = useLocation();
-  
+    const user = useContext(AuthContext);
     const service = location.state?.from?.service;
+    console.log(user?.user?.email)
+    const [appUser, setAppUser] = useState({});
+    console.log(appUser.age)
+    // if(isLoading)return <progress className="progress w-56"></progress>
+    
+    useEffect(()=>{
+        fetch(`http://localhost:5000/user/${user?.user?.email}`)
+        .then(res=> res.json())
+        .then(data=> {
+            console.log(data)
+            setAppUser(data)
+        })
+    } ,[user?.user?.email])
+    
+    
 
-    const userAge = 11;
+    const userAge = parseFloat(appUser?.age);
+   
     return (
         <div className='text-white container mx-auto mt-10 mb-20'>
             {userAge < 10 && <p>No service for you.</p>}
