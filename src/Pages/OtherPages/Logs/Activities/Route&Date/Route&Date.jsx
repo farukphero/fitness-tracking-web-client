@@ -42,7 +42,7 @@ const RouteAndDate = () => {
             className="font-bold text-4xl rounded-md bg-gray-600 p-2"
           />
           <ReactDatePicker
-            className="rounded-md py-1 ml-2 px-3 focus:outline-none text-lg"
+            className="rounded-md text-black py-1 ml-2 px-3 focus:outline-none text-lg"
             selected={state}
             onChange={(date) => dispatch({ type: `CUSTOM`, payload: date })}
             isClearable

@@ -17,7 +17,7 @@ const FavouriteFoods = () => {
         </div>
         <table className="table w-full mt-3">
           <thead>
-            <tr>
+            <tr className="hover">
               <th>Name</th>
               <th>Job</th>
             </tr>

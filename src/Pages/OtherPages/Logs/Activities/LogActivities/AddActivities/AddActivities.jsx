@@ -1,14 +1,36 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { BiCycling, BiSwim } from "react-icons/bi";
 import { FaRunning, FaWalking } from "react-icons/fa";
 import { MdLocalActivity } from "react-icons/md";
+import { useUser } from "../../../../../../Contexts/AuthProvider/AuthProvider";
 
 const AddActivities = () => {
   const { register, handleSubmit } = useForm();
 
-  const handleActivityLogForm = (value) => {
-    console.log(value);
+  const { user } = useUser;
+
+  const handleActivityLogForm = ({
+    name,
+    date,
+    sTime,
+    duration,
+    distance,
+    text,
+  }) => {
+    const activity = {
+      email: user?.email,
+      activity_name: name,
+      activity_date: date,
+      start_time: sTime,
+      duration,
+      distance,
+    };
+
+    axios
+      .post(`http://localhost:5000/activities`, activity)
+      .then((res) => console.log(res));
   };
 
   const [logActivities, setLogActivities] = useState(false);
@@ -83,13 +105,25 @@ const AddActivities = () => {
               <div className="form-control flex flex-row w-full">
                 <label className="label w-4/12">
                   <span className="label-text capitalize font-lg text-xl">
-                    end time
+                    duration
                   </span>
                 </label>
                 <input
                   type="time"
                   className="input input-md input-bordered ml-5 w-full"
-                  {...register(`eTime`)}
+                  {...register(`duration`)}
+                />
+              </div>
+              <div className="form-control flex flex-row w-full">
+                <label className="label w-4/12">
+                  <span className="label-text capitalize font-lg text-xl">
+                    distance
+                  </span>
+                </label>
+                <input
+                  type="text"
+                  className="input input-md input-bordered ml-5 w-full"
+                  {...register(`distance`)}
                 />
               </div>
               <div className="form-control flex flex-row w-full">

@@ -1,13 +1,86 @@
 [
   {
-    "email": "abc@gmail.com",
-    "date": "2023-01-22",
+    "id": 1,
+    "email": "euhan@gmail.com",
+    "date": "2023-01-19",
     "activity": "walk",
-    "startTime": "17.50",
-    "endTime": "20.54",
-    "duraton": "3.4",
-    "distance": "7",
-    "calories": "",
-    "steps": ""
+    "startTime": "17.30",
+    "endTime": "18.30",
+    "duraton": "01:00",
+    "distance": "2",
+    "steps": "1020",
+    "calories": "35.7 cals"
+  },
+  {
+    "id": 2,
+    "email": "rumel@gmail.com",
+    "date": "2023-01-15",
+    "activity": "run",
+    "startTime": "11.50",
+    "endTime": "12.30",
+    "duraton": "00.40",
+    "distance": "2",
+    "steps": "3,189",
+    "calories": "244 cals"
+  },
+  {
+    "id": 3,
+    "email": "faruk@gmail.com",
+    "date": "2023-01-12",
+    "activity": "run",
+    "startTime": "08.20",
+    "endTime": "09.20",
+    "duraton": "01.00",
+    "distance": "2.5",
+    "steps": "3,987",
+    "calories": "365 cals"
+  },
+  {
+    "id": 4,
+    "email": "mahbubul@gmail.com",
+    "date": "2023-01-16",
+    "activity": "cycling",
+    "startTime": "06:00",
+    "endTime": "08:30",
+    "duraton": "02.30",
+    "distance": "5",
+    "steps": "N/A",
+    "calories": "456 cals"
+  },
+  {
+    "id": 5,
+    "email": "niaz@gmail.com",
+    "date": "2023-01-17",
+    "activity": "cycling",
+    "startTime": "10.10",
+    "endTime": "12.15",
+    "duraton": "02.05",
+    "distance": "4.5",
+    "steps": "N/A",
+    "calories": "380 cals"
+  },
+  {
+    "id": 6,
+    "email": "tahmina@gmail.com",
+    "date": "2023-01-13",
+    "activity": "swimming",
+    "startTime": "11:00",
+    "endTime": "12:30",
+    "duraton": "01:30",
+    "distance": "1",
+    "steps": "N/A",
+    "calories": "274 cals"
+  },
+  {
+    "id": 7,
+    "email": "tamanna@gmail.com",
+    "date": "2023-01-14",
+    "activity": "walk",
+    "startTime": "05:00",
+    "endTime": "06:30",
+    "duraton": "01:30",
+    "distance": "1.5",
+    "steps": "790",
+    "calories": "27.65 cals"
   }
 ]

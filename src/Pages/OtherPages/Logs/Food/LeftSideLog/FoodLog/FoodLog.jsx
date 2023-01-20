@@ -17,36 +17,36 @@ const FoodLog = () => {
         <form onSubmit={handleSubmit(handleFoodLogForm)}>
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-semibold capitalize text-2xl">
+              <span className="label-text text-white font-semibold capitalize text-2xl">
                 what did you eat?
               </span>
             </label>
             <input
               type="text"
-              className="input input-bordered focus:outline-none"
+              className="input bg-gray-500 input-bordered focus:outline-none"
               {...register(`foodName`)}
             />
           </div>
           <div className="flex items-center justify-between space-x-3">
             <div className="form-control basis-2/3">
               <label className="label">
-                <span className="label-text font-semibold text-2xl capitalize">
+                <span className="label-text text-white font-semibold text-2xl capitalize">
                   how much?
                 </span>
               </label>
               <input
                 type="text"
-                className="input input-md input-bordered focus:outline-none"
+                className="input input-md input-bordered bg-gray-500 focus:outline-none"
                 {...register(`amount`)}
               />
             </div>
             <div className="form-control basis-1/3">
               <label className="label">
-                <span className="label-text font-semibold capitalize text-2xl">
+                <span className="label-text font-semibold capitalize text-white text-2xl">
                   when?
                 </span>
               </label>
-              <select {...register(`time`)} className="select input-md select-bordered">
+              <select {...register(`time`)} className="select bg-gray-500 input-md select-bordered">
                 <option disabled selected>
                   Anytime
                 </option>
