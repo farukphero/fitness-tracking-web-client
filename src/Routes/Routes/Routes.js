@@ -19,6 +19,12 @@ import ServiceDetails from "../../Pages/Home/Services/ServiceDetails";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import DashboardLayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
 import UserDetails from "../../Authentications/UserDetails/UserDetails";
+import LogsLayout from "../../Layout/LogsLayout/LogsLayout/LogsLayout";
+import Activities from "../../Pages/OtherPages/Logs/Activities/Activities/Activities";
+import Food from "../../Pages/OtherPages/Logs/Food/Food/Food";
+import Weight from "../../Pages/OtherPages/Logs/Weight/Weight";
+import Sleep from "../../Pages/OtherPages/Logs/Sleep/Sleep";
+import Water from "../../Pages/OtherPages/Logs/Water/Water";
   
 
 export const router = createBrowserRouter([
@@ -38,10 +44,6 @@ export const router = createBrowserRouter([
       {
         path: "/Leaderboard",
         element: <Leaderboard></Leaderboard>,
-      },
-      {
-        path: "/Goals",
-        element: <Goals></Goals>,
       },
       {
         path: "/Community",
@@ -95,4 +97,32 @@ export const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/Logs",
+    element: <LogsLayout></LogsLayout>,
+    children: [
+      {
+        path: "/Logs/Activities",
+        element: <Activities></Activities>,
+      },
+      {
+        path: "/Logs/Food",
+        element: <Food></Food>,
+      },
+      {
+        path: "/Logs/Water",
+        element: <Water></Water>,
+      },
+      {
+        path: "/Logs/Weight",
+        element: <Weight></Weight>,
+      },
+      {
+        path: "/Logs/Sleep",
+        element: <Sleep></Sleep>,
+      },
+    ],
+  }
+ 
+
 ]);

@@ -10,15 +10,15 @@ const UserInfo = () => {
   const [userInfo, setUserInfo] = useState();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${user?.email}`)
+    fetch(`https://fitness-tracking-web-server.vercel.app/users/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setUserInfo(data));
   }, [user]);
   return (
     
-        <div className="lg:flex justify-start lg:w-[900px]">
+        <div className="lg:w-[900px]">
           <div className="avatar mr-10">
-            <div className="w-28 mb-8 ml-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+            <div className="w-28 lg:w-40 mb-10 ml-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
               <img src={userInfo?.picture} alt="" />
             </div>
           </div>
