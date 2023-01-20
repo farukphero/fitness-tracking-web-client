@@ -9,8 +9,7 @@ import { CgSupport } from "react-icons/cg";
  
 const DashboardLayout = () => {
   return (
-    <div>
-    <div>
+    
       <div className="drawer drawer-mobile">
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
 
@@ -88,8 +87,7 @@ const DashboardLayout = () => {
           </ul>
         </div>
       </div>
-    </div>
-  </div>
+    
   );
 };
 

@@ -9,7 +9,7 @@ const WaterModal = () => {
                 <div className="modal ">
                     <div className="modal-box relative bg-white h-screen">
                         <label htmlFor="water-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                       
+                        <h1 className="text-2xl font-bold text-black text-center">Must Drink 8 Liter Daily</h1>
                         <div>
                             <FaBeer></FaBeer>
                         </div>

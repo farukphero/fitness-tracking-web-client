@@ -2,8 +2,8 @@ import React from "react";
 
 const Report = () => {
   return (
-    <div className="mt-24">
-      <h1 className="text-5xl font-bold text-center text-green-700">
+    <div  >
+      <h1 className="text-5xl font-semibold h-96 items-start">
         Report is coming
       </h1>
     </div>

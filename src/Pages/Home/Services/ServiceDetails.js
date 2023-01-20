@@ -13,7 +13,7 @@ const ServiceDetails = () => {
     
     
     useEffect(()=>{
-        fetch(`http://localhost:5000/user/${user?.user?.email}`)
+        fetch(`http://localhost:5000/users/${user?.user?.email}`)
         .then(res=> res.json())
         .then(data=> {
             console.log(data)
@@ -21,7 +21,7 @@ const ServiceDetails = () => {
         })
     } ,[user?.user?.email])
     
-    
+    // const  userAge = 20
 
     const userAge = parseFloat(appUser?.age);
    

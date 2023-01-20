@@ -79,7 +79,7 @@ const Header = () => {
           </div>
           <ul className="items-center hidden space-x-8 lg:flex">
             {
-              user ? <button onClick={handleLogOut} className="inline-flex items-center justify-center h-10 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-green-700">Log Out</button> : <>
+              user ? <button onClick={handleLogOut} className="inline-flex items-center justify-center h-10 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-green-500">Log Out</button> : <>
                 <li>
               <Link
                 to="/SignIn"
@@ -93,7 +93,7 @@ const Header = () => {
             <li>
               <Link
                 to="/SignUp"
-                className="inline-flex items-center justify-center h-10 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-green-700"
+                className="inline-flex items-center justify-center h-10 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-green-500"
                 aria-label="Sign up"
                 title="Sign up"
               >

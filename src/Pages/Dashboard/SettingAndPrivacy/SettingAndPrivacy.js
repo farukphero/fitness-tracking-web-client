@@ -2,10 +2,10 @@ import React from "react";
 
 const SettingAndPrivacy = () => {
   return (
-    <div className="mt-24">
-      <h1 className="text-white text-5xl text-center">
+    <div >
+      <h1 className="text-white font-semibold  text-5xl h-96 items-start">
         Setting is coming brother!
-        {/* commit succes */}
+        
       </h1>
     </div>
   );
