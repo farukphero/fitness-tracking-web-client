@@ -1,5 +1,4 @@
 import { createBrowserRouter } from "react-router-dom";
-import Dashboardlayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
 import SignIn from "../../Authentications/SignIn/SignIn";
 import SignUp from "../../Authentications/SignUp/SignUp";
 import KeepTrack from "../../Layout/KeepTrack/KeepTrack";
@@ -16,11 +15,17 @@ import Foods from "../../Pages/OtherPages/Foods/Foods";
 import Goals from "../../Pages/OtherPages/Goals/Goals";
 import Leaderboard from "../../Pages/OtherPages/Leaderboard/Leaderboard";
 import Tutorials from "../../Pages/OtherPages/Tutorials/Tutorials";
- 
-import UserDetails from "../../Authentications/UserInfo/UserDetails";
- 
 import ServiceDetails from "../../Pages/Home/Services/ServiceDetails";
- 
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import DashboardLayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
+import UserDetails from "../../Authentications/UserDetails/UserDetails";
+import LogsLayout from "../../Layout/LogsLayout/LogsLayout/LogsLayout";
+import Activities from "../../Pages/OtherPages/Logs/Activities/Activities/Activities";
+import Food from "../../Pages/OtherPages/Logs/Food/Food/Food";
+import Weight from "../../Pages/OtherPages/Logs/Weight/Weight";
+import Sleep from "../../Pages/OtherPages/Logs/Sleep/Sleep";
+import Water from "../../Pages/OtherPages/Logs/Water/Water";
+  
 
 export const router = createBrowserRouter([
   {
@@ -34,15 +39,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/serviceDetails/:id",
-        element: <ServiceDetails></ServiceDetails>,
+        element: <PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>,
       },
       {
         path: "/Leaderboard",
         element: <Leaderboard></Leaderboard>,
-      },
-      {
-        path: "/Goals",
-        element: <Goals></Goals>,
       },
       {
         path: "/Community",
@@ -52,16 +53,11 @@ export const router = createBrowserRouter([
         path: "/Tutorials",
         element: <Tutorials></Tutorials>,
       },
+      
       {
- 
-        path: "/UserDetails",
-        element: <UserDetails></UserDetails>,
-      },
-      {
- 
  
         path: "/Dashboard",
-        element: <Dashboardlayout></Dashboardlayout>,
+        element: <PrivateRoute> <DashboardLayout></DashboardLayout> </PrivateRoute>,
         children: [
           { path: "/Dashboard/userInfo", element: <UserInfo></UserInfo> },
 
@@ -82,13 +78,14 @@ export const router = createBrowserRouter([
         path: "/SignUp",
         element: <SignUp></SignUp>,
       },
- 
-      
- 
- 
     ],
   },
-
+  
+  {
+ 
+    path: "/UserDetails",
+    element: <PrivateRoute><UserDetails></UserDetails></PrivateRoute>,
+  },
   {
     path: "/KeepTrack",
     element: <KeepTrack></KeepTrack>,
@@ -100,4 +97,32 @@ export const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/Logs",
+    element: <LogsLayout></LogsLayout>,
+    children: [
+      {
+        path: "/Logs/Activities",
+        element: <Activities></Activities>,
+      },
+      {
+        path: "/Logs/Food",
+        element: <Food></Food>,
+      },
+      {
+        path: "/Logs/Water",
+        element: <Water></Water>,
+      },
+      {
+        path: "/Logs/Weight",
+        element: <Weight></Weight>,
+      },
+      {
+        path: "/Logs/Sleep",
+        element: <Sleep></Sleep>,
+      },
+    ],
+  }
+ 
+
 ]);

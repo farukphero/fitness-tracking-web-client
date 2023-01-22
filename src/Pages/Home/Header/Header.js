@@ -22,9 +22,9 @@ const Header = () => {
     },
     {
       _id: 1,
-      navigate: `/Goals`,
-      aria: `Goals`,
-      content: `Goals`,
+      navigate: `/Logs/Activities`,
+      aria: `Logs`,
+      content: `Logs`,
     },
     {
       _id: 2,
@@ -47,7 +47,7 @@ const Header = () => {
   ];
 
   return (
-    <div className="bg-black sticky top-0 z-10 bg-opacity-70">
+    <div className="bg-black sticky top-0 z-50 bg-opacity-70">
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
           <div className="flex items-center">
@@ -79,7 +79,7 @@ const Header = () => {
           </div>
           <ul className="items-center hidden space-x-8 lg:flex">
             {
-              user ? <button onClick={handleLogOut} className="inline-flex items-center justify-center h-10 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-green-700">Log Out</button> : <>
+              user ? <button onClick={handleLogOut} className="inline-flex items-center justify-center h-10 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-green-500">Log Out</button> : <>
                 <li>
               <Link
                 to="/SignIn"
@@ -93,7 +93,7 @@ const Header = () => {
             <li>
               <Link
                 to="/SignUp"
-                className="inline-flex items-center justify-center h-10 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-green-700"
+                className="inline-flex items-center justify-center h-10 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-green-500"
                 aria-label="Sign up"
                 title="Sign up"
               >
