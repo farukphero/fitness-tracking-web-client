@@ -5,7 +5,7 @@ import Branches from '../Branches/Branches';
 import ContactUs from '../ContactUs/ContactUs';
 import Review from '../Review/Review';
 import Services from '../Services/Services';
-import Lorem from '../../../Lorem';
+import WeightCalculator from '../WeightCalculator/WeightCalculator';
  
  const Home = () => {
   return (
@@ -16,7 +16,7 @@ import Lorem from '../../../Lorem';
       <Review></Review>
       <Branches></Branches>
       <ContactUs></ContactUs>
-      <Lorem></Lorem>
+      <WeightCalculator></WeightCalculator>
     </div>
   );
  };
