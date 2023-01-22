@@ -11,7 +11,7 @@ const ServiceDetails = () => {
     const [appUser, setAppUser] = useState({});
     console.log(appUser.age)
     
-    
+    // d
     useEffect(()=>{
         fetch(`https://fitness-tracking-web-server.vercel.app/users/${user?.user?.email}`)
         .then(res=> res.json())

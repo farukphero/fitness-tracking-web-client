@@ -6,6 +6,10 @@ import ContactUs from '../ContactUs/ContactUs';
 import Review from '../Review/Review';
 import Services from '../Services/Services';
  
+import WeightCalculator from '../WeightCalculator/WeightCalculator';
+ 
+ 
+ 
  const Home = () => {
   return (
     <div className='w-11/12 mx-auto'>
@@ -15,6 +19,10 @@ import Services from '../Services/Services';
       <Review></Review>
       <Branches></Branches>
       <ContactUs></ContactUs>
+ 
+      <WeightCalculator></WeightCalculator>
+ 
+ 
     </div>
   );
  };
