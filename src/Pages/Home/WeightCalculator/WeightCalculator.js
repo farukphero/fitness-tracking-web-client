@@ -17,10 +17,18 @@ const WeightCalculator = () => {
       const idealWeight = 52 + 1.9 * (height - 60);
       setWeight(idealWeight);
     } else if (gender === "female") {
+ 
+      const idealWeight = 49 + (1.7 * (height - 60));
+      setWeight(idealWeight)
+    }
+
+  }
+ 
       const idealWeight = 49 + 1.7 * (height - 60);
       setWeight(idealWeight);
     }
   };
+ 
   return (
     <div className="my-10 flex w-10/12 mx-auto">
      <div className="w-full mt-20 mr-5">
@@ -36,6 +44,13 @@ const WeightCalculator = () => {
       </h3>
      </div>
       {/* input form */}
+ 
+      <form onSubmit={handleSubmit} className='border border-green-600 p-10 rounded mx-auto my-5 w-2/4 '>
+        {/* result */}
+        {weight > 0 && <p className='text-3xl text-center text-green-500'>Your Ideal weight is: {weight} kg</p>}
+        {weight < 0 && <p className='text-3xl text-center text-red-500'>Please provide positive number in input field</p>}
+
+ 
      <div className="w-full">
      <form
         onSubmit={handleSubmit}
@@ -52,6 +67,7 @@ const WeightCalculator = () => {
             Please provide positive number in input field
           </p>
         )}
+ 
         <div className="form-group flex justify-between mx-10 mt-5">
           <label for="age" className="mt-2">
             Age

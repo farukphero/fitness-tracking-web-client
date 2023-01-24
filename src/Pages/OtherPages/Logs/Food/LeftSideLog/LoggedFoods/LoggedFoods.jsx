@@ -1,6 +1,6 @@
 import React from "react";
 
-const LoggedFoods = () => {
+const LoggedFoods = ({logedFood}) => {
   return (
     <div>
     <h2 className="font-bold text-3xl my-3 capitalize">logged foods</h2>
@@ -8,7 +8,22 @@ const LoggedFoods = () => {
       <table className="table w-full">
         <thead>
           <tr>
-           
+ 
+            <th>Food Name</th>
+            <th>Amount</th>
+            <th>Calorey</th>
+            <th>time of intake</th>
+          </tr>
+        </thead>
+        <tbody>
+          {logedFood?.map(food=><tr className="hover" key={food.calorey}>
+            <th>{food.food}</th>
+            <td>{food.amount}</td>
+            <td>{food.calorey}</td>
+            <td>{food.time}</td>
+          </tr>)}
+       </tbody>
+ 
             <th className="bg-gray-200 text-black">Food Name</th>
             <th className="bg-gray-200 text-black">Amount</th>
             <th className="bg-gray-200 text-black">time of intake</th>
@@ -36,6 +51,7 @@ const LoggedFoods = () => {
             <td className="bg-white text-black">10.00 pm</td>
           </tr>
         </tbody>
+ 
       </table>
     </div>
   </div>
