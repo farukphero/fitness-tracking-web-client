@@ -12,7 +12,8 @@ import WeightCalculator from '../WeightCalculator/WeightCalculator';
  
  const Home = () => {
   return (
-    <div className='w-11/12 mx-auto'>
+    <div className='bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900'>
+      <div className='w-11/12 mx-auto '>
       <Banner></Banner>
       <Services />
       <About />
@@ -22,6 +23,7 @@ import WeightCalculator from '../WeightCalculator/WeightCalculator';
  
       <WeightCalculator></WeightCalculator>
  
+      </div>
  
     </div>
   );

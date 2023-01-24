@@ -9,11 +9,9 @@ module.exports = {
     themes: [
       {
         doctortheme:{
-          primary: "#CB40F5",
-
-          secondary: "#41e0ab",
-
-          accent: "#5C53FE",
+          primary: '#0FCFEC',
+          secondary: '#19D3AE',
+          accent: "#3A4256",
 
           neutral: "#2D1F38",
           "base-100": "#6B7280",
@@ -21,7 +19,7 @@ module.exports = {
 
           success: "#1A0939",
 
-          warning: "#6353FC",
+          warning: "#1E1842",
 
            baset: "#9C0EFF",
         }

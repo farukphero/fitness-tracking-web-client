@@ -1,6 +1,6 @@
 import React from "react";
-import ActivitiesChart from "../ActivitiesChart/ActivitiesChart";
-import ActivitiesHistory from "../ActivitiesHistory/ActivitiesHistory";
+import ActivitiesChart from "../ActivitiesChart/AcitvitiesChart";
+ import ActivitiesHistory from "../ActivitiesHistory/ActivitiesHistory";
 import DateProvider from "../DateProvider/DateProvider";
 import LogActivities from "../LogActivities/LogActivities/LogActivities";
 import RouteAndDate from "../Route&Date/Route&Date";
@@ -13,7 +13,7 @@ const Activities = () => {
         <RouteAndDate />
         <ActivitiesChart />
         <ActivitiesHistory/>
-        {/* <LogActivities /> */}
+        <LogActivities />
       </div>
     </DateProvider>
   );
