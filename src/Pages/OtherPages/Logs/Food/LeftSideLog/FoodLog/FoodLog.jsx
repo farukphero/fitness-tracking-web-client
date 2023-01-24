@@ -1,12 +1,16 @@
 import React from "react";
 import { useState } from "react";
 
-const FoodLog = () => {
+const FoodLog = ({logedFood, setLogedFood}) => {
   const [foodValue, setFoodValue] = useState('');
   const [foodData, setFoodData] = useState({});
   const [foodAmount, setFoodAmount] = useState('');
+  const [foodCalory, setFoodCalory] = useState('');
+  // const [logedFood, setLogedFood] = useState({});
+  console.log('calory', foodCalory)
   console.log(foodAmount)
   console.log(foodValue)
+  console.log('logFood', logedFood)
 
  const data = [
       {
@@ -51,6 +55,7 @@ const FoodLog = () => {
     if(event.target.value === ''){
       setFoodAmount('')
       setFoodData({})
+      setFoodCalory("")
     }
     
   }
@@ -67,8 +72,10 @@ const FoodLog = () => {
   const handleAmount =( a, foodValue )=>{
     if(!foodValue){
       setFoodAmount('')
+      setFoodCalory("")
     }
     setFoodAmount(a.amount)
+    setFoodCalory(a.calorey)
   }
 
   const handleFoodLogForm = (event) => {
@@ -76,7 +83,11 @@ const FoodLog = () => {
     const food = event.target.foodName.value;
     const amount = event.target.amount.value;
     const time = event.target.time.value;
-    console.log(food, amount, time)
+    const calorey = foodCalory;
+    const loged = {food:food, amount:amount, time:time, calorey:calorey}
+    // setLogedFood(loged)
+    setLogedFood([...logedFood, loged])
+    console.log(food, amount, time, calorey)
   };
 
   return (
