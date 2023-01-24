@@ -25,7 +25,10 @@ import Food from "../../Pages/OtherPages/Logs/Food/Food/Food";
 import Weight from "../../Pages/OtherPages/Logs/Weight/Weight";
 import Sleep from "../../Pages/OtherPages/Logs/Sleep/Sleep";
 import Water from "../../Pages/OtherPages/Logs/Water/Water";
-  
+import CommunityLaout from "../../Layout/CommunityLaout/CommunityLaout";
+import CommunityFeed from "../../Pages/OtherPages/Communityfeed/CommunityFeed";
+import CommunityPost from "../../Pages/OtherPages/CommunityPost/CommunityPost";
+
 
 export const router = createBrowserRouter([
   {
@@ -45,17 +48,32 @@ export const router = createBrowserRouter([
         path: "/Leaderboard",
         element: <Leaderboard></Leaderboard>,
       },
-      {
-        path: "/Community",
-        element: <Community></Community>,
-      },
+
       {
         path: "/Tutorials",
         element: <Tutorials></Tutorials>,
       },
-      
       {
- 
+        path: "/Community",
+        element: <CommunityLaout></CommunityLaout>,
+        children: [
+          {
+            path: "/Community/community",
+            element: <Community></Community>
+          },
+          {
+            path: "/Community/feed",
+            element: <CommunityFeed></CommunityFeed>
+          },
+          {
+            path: "/Community/post",
+            element: <CommunityPost></CommunityPost>
+          }
+
+        ]
+      },
+      {
+
         path: "/Dashboard",
         element: <PrivateRoute> <DashboardLayout></DashboardLayout> </PrivateRoute>,
         children: [
@@ -80,9 +98,9 @@ export const router = createBrowserRouter([
       },
     ],
   },
-  
+
   {
- 
+
     path: "/UserDetails",
     element: <PrivateRoute><UserDetails></UserDetails></PrivateRoute>,
   },
@@ -123,6 +141,6 @@ export const router = createBrowserRouter([
       },
     ],
   }
- 
+
 
 ]);
