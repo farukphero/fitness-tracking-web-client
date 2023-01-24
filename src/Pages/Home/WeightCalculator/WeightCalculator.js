@@ -20,7 +20,7 @@ const WeightCalculator = () => {
     } else if (gender === "female") {
       const idealWeight = 49 + (1.7 * (height - 60));
       setWeight(idealWeight)
-    } 
+    }
 
   }
   return (
@@ -29,9 +29,10 @@ const WeightCalculator = () => {
       <h3 className='text-xl'>The Ideal Weight Calculator computes ideal body weight (IBW) ranges based on height, gender, and age. The idea of finding the IBW using a formula has been sought after by many experts for a long time. Currently, there persist several popular formulas, and our Ideal Weight Calculator provides their results for side-to-side comparisons.</h3>
       {/* input form */}
       <form onSubmit={handleSubmit} className='border border-green-600 p-10 rounded mx-auto my-5 w-2/4 '>
-      {/* result */}
-      {weight > 0 && <p className='text-3xl text-center text-green-500'>Your Ideal weight is: {weight} kg</p>}
-      {weight < 0 && <p className='text-3xl text-center text-green-500'>Please provide positive number in input field</p>}
+        {/* result */}
+        {weight > 0 && <p className='text-3xl text-center text-green-500'>Your Ideal weight is: {weight} kg</p>}
+        {weight < 0 && <p className='text-3xl text-center text-red-500'>Please provide positive number in input field</p>}
+
         <div className="form-group flex justify-between mx-10 mt-5">
           <label for="age" className='mt-2'>Age</label>
           <input type="number" id="age" name="age" className='text-center mt-2 rounded bg-gray-600' />
