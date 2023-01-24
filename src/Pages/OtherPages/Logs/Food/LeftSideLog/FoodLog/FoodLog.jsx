@@ -5,30 +5,58 @@ const FoodLog = () => {
   const [foodValue, setFoodValue] = useState('');
   const [foodData, setFoodData] = useState({});
   const [foodAmount, setFoodAmount] = useState('');
-  // console.log(foodAmount)
+  console.log(foodAmount)
   console.log(foodValue)
 
  const data = [
       {
         category: "Beef & Veal Calories",
-        name: "beef",
+        name: "beeff",
         cal_per_oz: 48,
         per_serving: {
           type: "ounce",
           amount: 6,
           gram: 168
         },
-        amount :[{amount:"1 kg"}, {amount:"1 cup"}, {amount:"1 piece"}]
-        }
+        details :[{amount:"1 kg", calorey: "1000 cal"}, {amount:"1 cup", calory:"500 cal"}, {amount:"1 piece", calorey: "50 cal"}]
+        },
+        {
+          category: "Beef & Veal Calories",
+          name: "beef brisket",
+          cal_per_oz: 38,
+          per_serving: {
+            type: "piece",
+            amount: 1,
+            gram: 178
+          },
+          details :[{amount:"1 piece"}, {amount:"2 pieces"}, {amount:"3 pieces"}]
+        },
+        {
+          category: "Beef & Veal Calories",
+          name: "beef curry",
+          cal_per_oz: 38,
+          per_serving: {
+            type: "piece",
+            amount: 1,
+            gram: 178
+          },
+          details :[{amount:"1 plate"}, {amount:"2 plate"}, {amount:"3 plate"}]
+        },
     ]
     console.log(data)
+   
 
   const handleOnChange = event => {
     setFoodValue(event.target.value);
+    if(event.target.value === ''){
+      setFoodAmount('')
+      setFoodData({})
+    }
+    
   }
 
   const handleAmountChange = event =>{
-   
+   console.log(event.target.value)
   }
 
   const onSearch = searchTerm => {
@@ -36,17 +64,19 @@ const FoodLog = () => {
     setFoodData(searchTerm)
   }
 
-  const handleAmount = a =>{
-    if(foodValue){
-      setFoodAmount(a.amount)
-    }
-    else if(!foodValue){
+  const handleAmount =( a, foodValue )=>{
+    if(!foodValue){
       setFoodAmount('')
     }
+    setFoodAmount(a.amount)
   }
 
-  const handleFoodLogForm = (value) => {
-    console.log(value);
+  const handleFoodLogForm = (event) => {
+    event.preventDefault()
+    const food = event.target.foodName.value;
+    const amount = event.target.amount.value;
+    const time = event.target.time.value;
+    console.log(food, amount, time)
   };
 
   return (
@@ -55,7 +85,7 @@ const FoodLog = () => {
         <div className="flex items-center justify-between">
           <h2 className="font-bold text-4xl capitalize">food log</h2>
         </div>
-        <form>
+        <form onSubmit={handleFoodLogForm}>
           <div>
             <div className="form-control">
               <label className="label">
@@ -97,13 +127,13 @@ const FoodLog = () => {
                 type="text"
                 className="input input-md input-bordered bg-gray-500 focus:outline-none"
                 name="amount"
-                value={foodAmount}
+                value={foodValue && foodAmount }
                 onChange={handleAmountChange}
               />
             </div>
             <div>
-              {foodData?.amount?.map(a =><div className=" bg-slate-200 w-1/2"
-                 onClick={() => handleAmount(a)}
+              {foodData?.details?.map(a =><div className=" bg-slate-200 w-1/2"
+                 onClick={() => handleAmount(a,foodValue)}
                 key={a.amount}
               >
                  {!foodAmount &&  <p className="text-black p-3 mt-1">{a.amount}</p>}
