@@ -16,8 +16,8 @@ const Banner = () => {
             <span className="text-all-green"> At Home</span>
           </h1>
           <div className="flex mt-8 md:ml-24">
-            <NavHashLink smooth to='/#contact' className="btn btn-banner  font-bold">Contact</NavHashLink>
-            <NavHashLink smooth to='/#about' className="btn btn-banner font-bold">About</NavHashLink>
+            <NavHashLink smooth to='/#contact' className="btn btn-banner font-bold bg-gradient-to-r from-green-500 to-accent text-white">Contact</NavHashLink>
+            <NavHashLink smooth to='/#about' className="btn btn-banner font-bold bg-gradient-to-r from-green-500 to-accent text-white">About</NavHashLink>
           </div>
         </div>
         <div>

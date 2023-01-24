@@ -51,7 +51,7 @@ const UserDetails = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            navigate('/')
+            navigate('/Leaderboard')
             console.log(data);
           });
 

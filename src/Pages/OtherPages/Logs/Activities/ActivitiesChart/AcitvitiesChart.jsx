@@ -163,10 +163,10 @@ const ActivitiesChart = () => {
     <>
       <div className="border rounded-md border-gray-600 my-5 mx-8">
         <div className="ml-20 gap-x-4 my-5 flex ">
-          <button className="btn btn-outline text-white hover:bg-green-400 btn-sm">steps</button>
-          <button className="btn btn-outline text-white hover:bg-green-400 btn-sm">distance</button>
-          <button className="btn btn-outline text-white hover:bg-green-400 btn-sm">floors</button>
-          <button className="btn btn-outline text-white hover:bg-green-400 btn-sm">calouries burned</button>
+          <button className="btn btn-outline hover:text-white hover:bg-gradient-to-r hover:from-gray-800 hover:to-green-400  btn-sm">steps</button>
+          <button className="btn btn-outline text-white hover:text-white hover:bg-gradient-to-r hover:from-gray-800 hover:to-green-400  btn-sm">distance</button>
+          <button className="btn btn-outline text-white hover:text-white hover:bg-gradient-to-r hover:from-gray-800 hover:to-green-400  btn-sm">floors</button>
+          <button className="btn btn-outline text-white hover:text-white hover:bg-gradient-to-r hover:from-gray-800 hover:to-green-400  btn-sm">calouries burned</button>
         </div>
         <ResponsiveContainer width="100%" aspect={3}>
           <BarChart width={150} height={40} data={data}>

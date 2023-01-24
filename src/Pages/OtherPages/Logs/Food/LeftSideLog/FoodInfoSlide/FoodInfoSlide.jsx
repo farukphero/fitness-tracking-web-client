@@ -23,9 +23,9 @@ const FoodInfoSlide = () => {
           className="w-full"
         >
           <SwiperSlide>
-            <div className=" flex items-center justify-center space-x-6 capitalize text-center">
+            <div className="flex items-center justify-center space-x-6 capitalize text-center">
               <div className="avatar">
-                <div className="w-32">
+                <div className="w-12 md:w-32">
                   <img src={plate} alt="plate" />
                 </div>
               </div>

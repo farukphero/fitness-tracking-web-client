@@ -20,7 +20,7 @@ const SignIn = () => {
     accountLogIn(data.email, data.password)
       .then((result) => {
         const user = result.user;
-        navigate('/')
+        navigate('/Leaderboard')
       })
       .catch((error) => console.log(error.message));
   };
@@ -29,7 +29,7 @@ const SignIn = () => {
     providerGoogleLogIn(provider)
     .then((result) => {
         const user = result.user;
-        navigate("/");
+        navigate("/Leaderboard");
       })
       .catch((error) => console.log(error));
   }
@@ -43,7 +43,7 @@ const SignIn = () => {
       >
         <div className="hero-content text-center rounded">
           <div>
-            <div className="rounded lg:w-[400px] bg-gray-700 px-5">
+            <div className="rounded lg:w-[550px] bg-gradient-to-r from-gray-800 via-gray-700 to-gray-900 px-5">
               <div className="md:hidden flex justify-between mb-3 pt-3">
                 <h3 className=" text-xl"> Sign In </h3>
                 <Link to="/SignUp" className="text-xl ">
@@ -59,7 +59,7 @@ const SignIn = () => {
                 <div className="mb-1">
                   <label
                     htmlFor="email"
-                    className="inline-block mb-1 font-medium"
+                    className="inline-block mb-1 font-medium mt-3"
                   >
                     E-mail
                   </label>
@@ -91,12 +91,12 @@ const SignIn = () => {
                 <input
                   type="submit"
                   value="Sign In"
-                  className="btn btn-contact bg-gray-900 "
+                  className="btn w-full border-none bg-gradient-to-r from-gray-700 via-green-500 to-gray-700  text-white hover:bg-gradient-to-r hover:from-gray-800 hover:via-green-400 hover:to-gray-800 hover:text-black"
                 />
                 <div className="flex flex-col w-full ">
                   <div className="divider">OR</div>
                 
-                <button>  <FcGoogle onClick={handleGoogleLogin}  className="w-10 h-10 ml-28 md:ml-40 mb-12"/></button>
+                <button>  <FcGoogle onClick={handleGoogleLogin}  className="w-10 h-10 ml-32 md:ml-60 mb-12"/></button>
                 </div>
               </form>
             </div>
