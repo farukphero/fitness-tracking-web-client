@@ -16,9 +16,9 @@ const UserInfo = () => {
   }, [user]);
   return (
     
-        <div className="lg:w-[900px]">
-          <div className="avatar mr-10">
-            <div className="w-28 lg:w-40 mb-10 ml-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+        <div className="w-8/12 mx-auto my-20">
+          <div className="avatar">
+            <div className="w-28 lg:w-40 mb-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
               <img src={userInfo?.picture} alt="" />
             </div>
           </div>

@@ -5,7 +5,7 @@ import logo from "../../../images/apple-touch-icon.png";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logOut, userInfo } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleLogOut = () => {
@@ -15,7 +15,7 @@ const Navbar = () => {
       })
       .catch((error) => console.log(error));
   };
-
+  console.log(userInfo);
   const navBar = [
     {
       _id: 0,
@@ -41,12 +41,12 @@ const Navbar = () => {
       aria: `Tutorials`,
       content: `Tutorials`,
     },
-    {
-      _id: 4,
-      navigate: `/Dashboard`,
-      aria: `Dashboard`,
-      content: `Dashboard`,
-    },
+    // {
+    //   _id: 4,
+    //   navigate: `/Dashboard`,
+    //   aria: `Dashboard`,
+    //   content: `Dashboard`,
+    // },
   ];
 
   return (
@@ -84,22 +84,21 @@ const Navbar = () => {
           </div>
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
-                <img src="https://placeimg.com/80/80/people" alt=''/>
+              <div className="w-14 rounded-full">
+                <img src={userInfo.picture} alt="" />
               </div>
             </label>
             <ul
               tabIndex={0}
-              className="mt-3 p-5 shadow menu menu-compact dropdown-content bg-gradient-to-r from-black via-gray-700 to-black text-white hover:bg-gradient-to-r hover:from-gray-800 hover:via-teal-700 hover:to-gray-800 rounded-box w-52"
+              className="mt-5 p-5 shadow menu menu-compact dropdown-content bg-gradient-to-r from-gray-600 via-gray-700 to-gray-600 text-white hover:bg-gradient-to-r rounded-box w-52"
             >
               <li>
-                <Link to='' className="justify-between">
+                <Link to="/Dashboard/userInfo" className="justify-between">
                   Profile
-                  
                 </Link>
               </li>
               <li>
-                <Link to=''>Settings</Link>
+                <Link to="/Dashboard/setting">Settings</Link>
               </li>
 
               {user && (
@@ -155,6 +154,41 @@ const Navbar = () => {
                           FIT<span className="text-green-700">LESSIAN</span>
                         </h1>
                       </Link>
+                    </div>
+                    <div className="dropdown dropdown-end">
+                      <label
+                        tabIndex={0}
+                        className="btn btn-ghost btn-circle avatar bg-white"
+                      >
+                        <div className="w-14 rounded-full">
+                          <img src={userInfo.picture} alt="" />
+                        </div>
+                      </label>
+                      <ul
+                        tabIndex={0}
+                        className="mt-5 p-5 shadow menu menu-compact dropdown-content bg-gradient-to-r from-gray-600 via-gray-700 to-gray-600 text-white hover:bg-gradient-to-r rounded-box w-52"
+                      >
+                        <li>
+                          <Link
+                            to="/Dashboard/userInfo"
+                            className="justify-between"
+                          >
+                            Profile
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/Dashboard/setting">Settings</Link>
+                        </li>
+
+                        {user && (
+                          <button
+                            onClick={handleLogOut}
+                            className="inline-flex items-center justify-center h-10 px-6 font-medium tracking-wide  transition duration-200 rounded shadow-md border-none bg-gradient-to-r from-gray-700 via-teal-600 to-gray-700  text-white hover:bg-gradient-to-r hover:from-gray-800 hover:via-teal-700 hover:to-gray-800"
+                          >
+                            Log Out
+                          </button>
+                        )}
+                      </ul>
                     </div>
                     <div>
                       <button
