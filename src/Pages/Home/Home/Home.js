@@ -6,6 +6,7 @@ import ContactUs from '../ContactUs/ContactUs';
 import Review from '../Review/Review';
 import Services from '../Services/Services';
 import WeightCalculator from '../WeightCalculator/WeightCalculator';
+
  
  
  const Home = () => {
@@ -18,10 +19,8 @@ import WeightCalculator from '../WeightCalculator/WeightCalculator';
       <Review></Review>
       <Branches></Branches>
       <ContactUs></ContactUs>
- 
       <WeightCalculator></WeightCalculator>
- 
-      </div>
+   </div>
  
     </div>
   );

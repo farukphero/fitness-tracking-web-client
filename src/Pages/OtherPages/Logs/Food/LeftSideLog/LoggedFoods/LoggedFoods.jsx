@@ -1,6 +1,7 @@
 import React from "react";
 
 const LoggedFoods = ({logedFood}) => {
+  console.log(logedFood)
   return (
     <div>
     <h2 className="font-bold text-3xl my-3 capitalize">logged foods</h2>
@@ -22,34 +23,7 @@ const LoggedFoods = ({logedFood}) => {
             <td>{food.calorey}</td>
             <td>{food.time}</td>
           </tr>)}
-       </tbody>
-        <tbody>
-          <tr >
-            <th className="bg-white text-black">Amaranth Flakes Cereal</th>
-            <td className="bg-white text-black">200g</td>
-            <td className="bg-white text-black">3.00 pm</td>
-            <td className="bg-white text-black">3.00 pm</td>
-          </tr>
-          <tr >
-            <th className="bg-white text-black">Carrot</th>
-            <td className="bg-white text-black">350g</td>
-            <td className="bg-white text-black">7.00 am</td>
-            <td className="bg-white text-black">7.00 am</td>
-          </tr>
-          <tr >
-            <th className="bg-white text-black">100% Whole Wheat Bread</th>
-            <td className="bg-white text-black">500g</td>
-            <td className="bg-white text-black">7.20 pm</td>
-            <td className="bg-white text-black">7.20 pm</td>
-          </tr>
-          <tr>
-            <th className="bg-white text-black">Zucchini W/skin, Boiled, No Salt</th>
-            <td className="bg-white text-black">100g</td>
-            <td className="bg-white text-black">10.00 pm</td>
-            <td className="bg-white text-black">10.00 pm</td>
-          </tr>
-        </tbody>
- 
+       </tbody> 
       </table>
     </div>
   </div>
