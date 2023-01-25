@@ -3,7 +3,7 @@ import React from "react";
 const FavouriteFoods = () => {
   return (
     <section>
-      <div className="overflow-x-auto border rounded-md p-3 mr-5">
+      <div className="overflow-x-auto border rounded-md p-3">
         <div className="flex items-center justify-between">
           <div>
             <span className="font-semibold lg:text-3xl">

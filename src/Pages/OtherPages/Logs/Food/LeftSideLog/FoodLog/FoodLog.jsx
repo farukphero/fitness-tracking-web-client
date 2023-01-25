@@ -98,7 +98,7 @@ const FoodLog = () => {
           <input
             type="text"
 
-            className="input input-md input-bordered bg-white text-black focus:outline-none"
+            className="input input- input-bordered bg-white text-black focus:outline-none"
             // {...register(`amount`)}
           />
         </div>
