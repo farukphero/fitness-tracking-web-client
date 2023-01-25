@@ -1,35 +1,75 @@
+import axios from "axios";
 import React, { useState } from "react";
+import ReactDatePicker from "react-datepicker";
 import { useForm } from "react-hook-form";
 import { BiCycling, BiSwim } from "react-icons/bi";
 import { FaRunning, FaWalking } from "react-icons/fa";
 import { MdLocalActivity } from "react-icons/md";
- 
+import { useDate } from "../../DateProvider/DateProvider";
+import { useContext } from "react";
+import { AuthContext } from "../../../../../../Contexts/AuthProvider/AuthProvider";
+
 const AddActivities = () => {
   const { register, handleSubmit } = useForm();
+  const { state, dispatch } = useDate();
+  const {user} = useContext(AuthContext);  
+  const handleActivityLogForm = (data) => {
 
-  const handleActivityLogForm = ({
-    name,
-    date,
-    sTime,
-    duration,
-    distance,
-    text,
-  }) => {
+    const { name, sTime, duration, distance, unit, text, hour, minute, second, weight, parameter } = data;
+
+    // duration 
+    const hourToSecond = parseInt(hour) * 60 * 60;
+    const minuteToSecond = parseInt(minute) * 60;
+    const totalDurationSec = Math.round(hourToSecond + minuteToSecond + parseInt(second));
+
+
+    // distance 
+    let totalDistance;
+    if(unit === "Kilometers"){
+      totalDistance = parseInt(distance);
+    }else{
+      totalDistance = parseInt(distance) * 1.60934;
+    }
+
+    // weight 
+    let totalWeight;
+    if(parameter === `lbs`){
+      totalWeight = parseFloat(weight) * 0.453592;
+    } else{
+      totalWeight = parseFloat(weight);
+    }
+
+    // Calouries Calculations
+    console.log(totalDistance, totalWeight);
+    const calouries = Math.round(totalDistance * totalWeight * 1.036);
+    const calsPerKm = Math.round(weight * 1.036);
+    const calsPerMi = Math.round(1.60934 * totalWeight * 1.036);
+    const calsPerHour = Math.round((totalDistance * totalWeight * 1.036) * (3600 / duration));
+    const calsBurnRate = (unit  === `mile` ? calsPerMi : calsPerKm);
+
+    //steps calculation
+
+    const totalSteps = totalDistance * 1375;
+
     const activity = {
-     
+      activist: user?.email,
       activity_name: name,
-      activity_date: date,
+      activity_date: state,
       start_time: sTime,
       duration,
       distance,
+      calourie_burned: calouries,
+      steps: totalSteps,
+      notes: text,
     };
 
-    // axios
-    //   .post(`http://localhost:5000/activities`, activity)
-    //   .then((res) => console.log(res));
+
+    axios.post(`http://localhost:5000/activities`, {...activity})
+    .then(res => console.log(res))
+    .catch(err => console.log(err));
   };
 
-  const [logActivities, setLogActivities] = useState(false);
+  const [logActivities, setLogActivities] = useState(true);
   return (
     <div className="flex justify-between border border-gray-600 rounded-md p-6">
       <div className="basis-8/12">
@@ -74,18 +114,24 @@ const AddActivities = () => {
                   {...register(`name`)}
                 />
               </div>
+
               <div className="form-control flex flex-row w-full">
                 <label className="label w-4/12">
                   <span className="label-text capitalize font-lg text-xl">
                     date
                   </span>
                 </label>
-                <input
-                  type="date"
-                  className="input input-md input-bordered ml-5 w-full"
-                  {...register(`date`)}
-                />
+                <ReactDatePicker
+                  className="input input-md input-bordered w-full"
+                  selected={state}
+                  onChange={(date) =>
+                    dispatch({ type: `CUSTOM`, payload: date })
+                  }
+                  isClearable
+                  closeOnScroll={true}
+                ></ReactDatePicker>
               </div>
+
               <div className="form-control flex flex-row w-full">
                 <label className="label w-4/12">
                   <span className="label-text capitalize font-lg text-xl">
@@ -98,30 +144,81 @@ const AddActivities = () => {
                   {...register(`sTime`)}
                 />
               </div>
+
               <div className="form-control flex flex-row w-full">
                 <label className="label w-4/12">
                   <span className="label-text capitalize font-lg text-xl">
                     duration
                   </span>
                 </label>
-                <input
-                  type="time"
-                  className="input input-md input-bordered ml-5 w-full"
-                  {...register(`duration`)}
-                />
+                <div className="flex gap-x-2">
+                  <input
+                    type="text"
+                    placeholder="hours"
+                    className="input input-md input-bordered w-full"
+                    {...register(`hour`)}
+                  />
+                  <input
+                    type="text"
+                    placeholder="minutes"
+                    className="input input-md input-bordered w-full"
+                    {...register(`minute`)}
+                  />
+                  <input
+                    placeholder="seconds"
+                    type="text"
+                    className="input input-md input-bordered w-full"
+                    {...register(`second`)}
+                  />
+                </div>
               </div>
-              <div className="form-control flex flex-row w-full">
+
+              <div className="form-control flex flex-row w-11/12 mx-auto">
                 <label className="label w-4/12">
                   <span className="label-text capitalize font-lg text-xl">
                     distance
                   </span>
                 </label>
-                <input
-                  type="text"
-                  className="input input-md input-bordered ml-5 w-full"
-                  {...register(`distance`)}
-                />
+                <div className="flex gap-x-1 w-full justify-between">
+                  <input
+                    type="text"
+                    className="input input-md input-bordered w-full basis-1/2"
+                    {...register(`distance`)}
+                  />
+                  <select
+                    {...register(`unit`)}
+                    className="select bg-gray-500 input-md select-bordered basis-1/2 ml-5"
+                  >
+                    <option selected>Kilometers</option>
+                    <option>Miles</option>
+                    <option>Steps</option>
+                  </select>
+                </div>
               </div>
+
+
+              <div className="form-control flex flex-row w-11/12 mx-auto">
+                <label className="label w-4/12">
+                  <span className="label-text capitalize font-lg text-xl">
+                    weight
+                  </span>
+                </label>
+                <div className="flex gap-x-1 w-full justify-between">
+                  <input
+                    type="text"
+                    className="input input-md input-bordered w-full basis-1/2"
+                    {...register(`weight`)}
+                  />
+                  <select
+                    {...register(`parameter`)}
+                    className="select bg-gray-500 input-md select-bordered basis-1/2 ml-5"
+                  >
+                    <option selected>lbs</option>
+                    <option>kg</option>
+                  </select>
+                </div>
+              </div>
+
               <div className="form-control flex flex-row w-full">
                 <label className="label w-4/12">
                   <span className="label-text capitalize font-lg text-xl">
@@ -133,11 +230,13 @@ const AddActivities = () => {
                   className="textarea ml-5 w-full textarea-bordered h-24"
                 ></textarea>
               </div>
-              <input
-                type="submit"
-                defaultValue="submit"
-                className="btn w-32 ml-16 mt-6"
-              />
+              <div className="form-control flex flex-row w-full">
+                <input
+                  type="submit"
+                  defaultValue="submit"
+                  className="btn w-32 ml-16 mt-6"
+                />
+              </div>
             </form>
           </div>
         )}
