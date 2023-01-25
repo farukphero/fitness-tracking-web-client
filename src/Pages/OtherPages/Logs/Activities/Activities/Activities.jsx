@@ -1,9 +1,9 @@
 import React from "react";
 import ActivitiesChart from "../ActivitiesChart/ActivitiesChart";
-import ActivitiesHistory from "../ActivitiesHistory/ActivitiesHistory";
 import DateProvider from "../DateProvider/DateProvider";
 import LogActivities from "../LogActivities/LogActivities/LogActivities";
 import RouteAndDate from "../Route&Date/Route&Date";
+import ActivitiesHistory from "../ActivitiesHistory/ActivityHistory/ActivityHistory";
  
 
 const Activities = () => {
@@ -13,7 +13,7 @@ const Activities = () => {
         <RouteAndDate />
         <ActivitiesChart />
         <ActivitiesHistory/>
-        {/* <LogActivities /> */}
+        <LogActivities />
       </div>
     </DateProvider>
   );

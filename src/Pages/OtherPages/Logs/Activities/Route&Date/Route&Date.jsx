@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useDate } from "../DateProvider/DateProvider";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
+import { useDate } from "../DateProvider/DateProvider";
 
 const RouteAndDate = () => {
-  const { state, dispatch } = useDate();
+  const { state, dispatch } = useDate;
 
   return (
     <div>
