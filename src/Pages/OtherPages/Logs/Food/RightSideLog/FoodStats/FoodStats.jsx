@@ -9,31 +9,44 @@ const FoodStats = () => {
             <span className="font-semibold text-3xl">Foods</span>
           </div>
           <div className="flex space-x-3">
-            <button className="btn btn-sm bg-green-500 text-white">most logged</button>
-            <button className="btn btn-sm bg-green-500 text-white">recent</button>
+            <button className="btn btn-sm btn-outline hover:text-white hover:bg-gradient-to-r hover:from-gray-800 hover:to-green-500  text-white">
+              most logged
+            </button>
+            <button className="btn btn-sm btn-outline hover:text-white hover:bg-gradient-to-r hover:from-gray-800 hover:to-green-500  text-white">
+              recent
+            </button>
           </div>
         </div>
         <table className="table w-full mt-3">
-    
+        <thead>
+            <tr  >
+              <th className="bg-gray-200  text-black">Cals</th>
+              <th  className="bg-gray-200 text-black">Click on the item to log it</th>
+            </tr>
+          </thead>
           <tbody>
+          
             <tr>
-              <td>972 Cals</td>
-              <td>Kiwi Fruit, Raw (chinese Gooseberry)</td>
-            </tr>
-
-            <tr className="hover">
-              <td>327 Cals</td>
-              <td>Lime Juice</td>
+              <td className="bg-white text-black">972 Cals</td>
+              <td className="bg-white text-black">
+                Kiwi Fruit, Raw (chinese Gooseberry)
+              </td>
             </tr>
 
             <tr>
-              <td>472 Cals</td>
-              <td>Pure Whey Protein, Unflavored</td>
+              <td className="bg-white text-black">327 Cals</td>
+              <td className="bg-white text-black">Lime Juice</td>
+            </tr>
+
+            <tr>
+              <td className="bg-white text-black">472 Cals</td>
+              <td className="bg-white text-black">
+                Pure Whey Protein, Unflavored
+              </td>
             </tr>
           </tbody>
         </table>
       </div>
-
     </>
   );
 };

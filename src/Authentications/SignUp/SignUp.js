@@ -52,7 +52,7 @@ const SignUp = () => {
       >
         <div className="hero-content text-center rounded">
           <div>
-            <div className="rounded lg:w-[400px] bg-gray-700 px-5">
+            <div className="rounded lg:w-[500px] bg-gradient-to-r from-gray-800 via-gray-700 to-gray-900 px-5">
               <div className="md:hidden flex justify-between mb-3 pt-3">
                 <Link to="/SignIn" className="text-xl ">
                   Sign In
@@ -117,11 +117,11 @@ const SignUp = () => {
                 <input
                   type="submit"
                   value="Sign Up"
-                  className="btn btn-contact bg-gray-900 "
+                  className="btn w-full border-none bg-gradient-to-r from-gray-700 via-green-500 to-gray-700  text-white hover:bg-gradient-to-r hover:from-gray-800 hover:via-green-400 hover:to-gray-800 hover:text-black"
                 />
                 <div className="flex flex-col w-full  ">
                   <div className="divider  ">OR</div>
-                  <button>  <FcGoogle onClick={handleGoogleSignUp}   className="w-10 h-10 ml-28 md:ml-40 mb-12"/></button>
+                  <button>  <FcGoogle onClick={handleGoogleSignUp}   className="w-10 h-10 ml-32 md:ml-52 mb-12"/></button>
                 </div>
               </form>
             </div>

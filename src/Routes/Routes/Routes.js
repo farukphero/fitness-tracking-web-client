@@ -39,7 +39,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/serviceDetails/:id",
-        element: <PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>,
+        element:  <ServiceDetails></ServiceDetails>,
       },
       {
         path: "/Leaderboard",
@@ -54,11 +54,8 @@ export const router = createBrowserRouter([
         element: <Tutorials></Tutorials>,
       },
       
-      {
+  
  
-        path: "/Dashboard",
-        element: <PrivateRoute> <DashboardLayout></DashboardLayout> </PrivateRoute>,
-        children: [
           { path: "/Dashboard/userInfo", element: <UserInfo></UserInfo> },
 
           {
@@ -68,8 +65,8 @@ export const router = createBrowserRouter([
           { path: "/Dashboard/report", element: <Report></Report> },
           { path: "/Dashboard/event", element: <Event></Event> },
           { path: "/Dashboard/support", element: <Support></Support> },
-        ],
-      },
+        
+      
       {
         path: "/SignIn",
         element: <SignIn></SignIn>,

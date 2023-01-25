@@ -1,69 +1,74 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import logo from "../../../images/apple-touch-icon.png";
 
-const Header = () => {
+const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const {user, logOut} = useContext(AuthContext)
+  const { user, logOut, userInfo } = useContext(AuthContext);
+  const navigate = useNavigate();
 
-  const handleLogOut=()=>{
+  const handleLogOut = () => {
     logOut()
-    .then(()=>{})
-    .catch(error=>console.log(error))
-  }
-
-  // const navBar = [
-  //   {
-  //     _id: 0,
-  //     navigate: `/Leaderboard`,
-  //     title: `Leaderboard`,
-  //     content: `Leaderboard`,
-  //   },
-  //   {
-  //     _id: 1,
-  //     navigate: `/Logs/Activities`,
-  //     aria: `Logs`,
-  //     content: `Logs`,
-  //   },
-  //   {
-  //     _id: 2,
-  //     navigate: `/Community`,
-  //     aria: `Community`,
-  //     content: `Community`,
-  //   },
-  //   {
-  //     _id: 3,
-  //     navigate: `/Tutorials`,
-  //     aria: `Tutorials`,
-  //     content: `Tutorials`,
-  //   },
-  //   {
-  //     _id: 4,
-  //     navigate: `/Dashboard`,
-  //     aria: `Dashboard`,
-  //     content: `Dashboard`,
-  //   },
-  // ];
+      .then(() => {
+        navigate("/");
+      })
+      .catch((error) => console.log(error));
+  };
+  console.log(userInfo);
+  const navBar = [
+    {
+      _id: 0,
+      navigate: `/Leaderboard`,
+      title: `Leaderboard`,
+      content: `Leaderboard`,
+    },
+    {
+      _id: 1,
+      navigate: `/Logs/Activities`,
+      aria: `Logs`,
+      content: `Logs`,
+    },
+    {
+      _id: 2,
+      navigate: `/Community`,
+      aria: `Community`,
+      content: `Community`,
+    },
+    {
+      _id: 3,
+      navigate: `/Tutorials`,
+      aria: `Tutorials`,
+      content: `Tutorials`,
+    },
+    // {
+    //   _id: 4,
+    //   navigate: `/Dashboard`,
+    //   aria: `Dashboard`,
+    //   content: `Dashboard`,
+    // },
+  ];
 
   return (
-    <div className="bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 sticky top-0 z-50 bg-opacity-70">
+    <div className="bg-gradient-to-r from-gray-600 via-teal-600 to-gray-600 sticky top-0 z-50 bg-opacity-70">
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
           <div className="flex items-center">
             <Link
-              to="/"
+              to="/Leaderboard"
               aria-label="Company"
               title="Company"
               className="inline-flex items-center mr-8"
             >
               <img className="h-10 w-10 rounded-md" src={logo} alt="" />
               <h1 className="ml-2 text-2xl font-bold tracking-wide text-gray-100 uppercase ">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-white">FitLessian </span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-white">
+                  FitLessian{" "}
+                </span>
               </h1>
             </Link>
             <ul className=" items-center hidden space-x-8 lg:flex">
-              {/* {navBar.map((nav) => (
+              {navBar.map((nav) => (
                 <li key={nav._id}>
                   <Link
                     to={nav.navigate}
@@ -74,35 +79,39 @@ const Header = () => {
                     {nav.content}
                   </Link>
                 </li>
-              ))} */}
+              ))}
             </ul>
           </div>
-          <ul className="items-center hidden space-x-8 lg:flex">
-            {
-              user ? <button onClick={handleLogOut} className="inline-flex items-center justify-center h-10 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-green-500">Log Out</button> : <>
-                <li>
-              <Link
-                to="/SignIn"
-                aria-label="Sign in"
-                title="Sign in"
-                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-              >
-                Sign in
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/SignUp"
-                className="inline-flex items-center justify-center h-10 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-gradient-to-r from-green-500 to-secondary"
-                aria-label="Sign up"
-                title="Sign up"
-              >
-                Sign up
-              </Link>
-            </li>
-              </>
-            }
-          </ul>
+          <div className="dropdown dropdown-end">
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <div className="w-14 rounded-full">
+                <img src={userInfo?.picture} alt="" />
+              </div>
+            </label>
+            <ul
+              tabIndex={0}
+              className="mt-5 p-5 shadow menu menu-compact dropdown-content bg-gradient-to-r from-gray-600 via-gray-700 to-gray-600 text-white hover:bg-gradient-to-r rounded-box w-52"
+            >
+              <li>
+                <Link to="/Dashboard/userInfo" className="justify-between">
+                  Profile
+                </Link>
+              </li>
+              <li>
+                <Link to="/Dashboard/setting">Settings</Link>
+              </li>
+
+              {user && (
+                <button
+                  onClick={handleLogOut}
+                  className="inline-flex items-center justify-center h-10 px-6 font-medium tracking-wide  transition duration-200 rounded shadow-md border-none bg-gradient-to-r from-gray-700 via-teal-600 to-gray-700  text-white hover:bg-gradient-to-r hover:from-gray-800 hover:via-teal-700 hover:to-gray-800"
+                >
+                  Log Out
+                </button>
+              )}
+            </ul>
+          </div>
+
           <div className="lg:hidden">
             <button
               aria-label="Open Menu"
@@ -131,16 +140,55 @@ const Header = () => {
                   <div className="flex items-center justify-between mb-4">
                     <div>
                       <Link
-                        to="/"
+                        to="/Leaderboard"
                         aria-label="Company"
                         title="Company"
                         className="inline-flex items-center"
                       >
-                        <img className="h-10 w-10 rounded-md" src={logo} alt="" />
+                        <img
+                          className="h-10 w-10 rounded-md"
+                          src={logo}
+                          alt=""
+                        />
                         <h1 className="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
                           FIT<span className="text-green-700">LESSIAN</span>
                         </h1>
                       </Link>
+                    </div>
+                    <div className="dropdown dropdown-end">
+                      <label
+                        tabIndex={0}
+                        className="btn btn-ghost btn-circle avatar bg-white"
+                      >
+                        <div className="w-14 rounded-full">
+                          <img src={userInfo.picture} alt="" />
+                        </div>
+                      </label>
+                      <ul
+                        tabIndex={0}
+                        className="mt-5 p-5 shadow menu menu-compact dropdown-content bg-gradient-to-r from-gray-600 via-gray-700 to-gray-600 text-white hover:bg-gradient-to-r rounded-box w-52"
+                      >
+                        <li>
+                          <Link
+                            to="/Dashboard/userInfo"
+                            className="justify-between"
+                          >
+                            Profile
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/Dashboard/setting">Settings</Link>
+                        </li>
+
+                        {user && (
+                          <button
+                            onClick={handleLogOut}
+                            className="inline-flex items-center justify-center h-10 px-6 font-medium tracking-wide  transition duration-200 rounded shadow-md border-none bg-gradient-to-r from-gray-700 via-teal-600 to-gray-700  text-white hover:bg-gradient-to-r hover:from-gray-800 hover:via-teal-700 hover:to-gray-800"
+                          >
+                            Log Out
+                          </button>
+                        )}
+                      </ul>
                     </div>
                     <div>
                       <button
@@ -159,17 +207,7 @@ const Header = () => {
                     </div>
                   </div>
                   <nav>
-                   
-                        <Link
-                           to="/SignUp"
-                          className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                          aria-label="Sign up"
-                          title="Sign up"
-                        >
-                          Sign up
-                        </Link>
-                     
-                    {/* <ul className="space-y-4">
+                    <ul className="space-y-4">
                       {navBar.map((nav) => (
                         <li key={nav._id}>
                           <Link
@@ -182,17 +220,7 @@ const Header = () => {
                           </Link>
                         </li>
                       ))}
-                      <li>
-                        <Link
-                           to="/SignUp"
-                          className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                          aria-label="Sign up"
-                          title="Sign up"
-                        >
-                          Sign up
-                        </Link>
-                      </li>
-                    </ul> */}
+                    </ul>
                   </nav>
                 </div>
               </div>
@@ -204,4 +232,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Navbar;
