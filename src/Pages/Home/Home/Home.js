@@ -18,7 +18,6 @@ import WeightCalculator from '../WeightCalculator/WeightCalculator';
       <Review></Review>
       <Branches></Branches>
       <ContactUs></ContactUs>
- 
       <WeightCalculator></WeightCalculator>
  
       </div>
