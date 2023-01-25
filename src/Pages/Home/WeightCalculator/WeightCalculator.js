@@ -22,12 +22,6 @@ const WeightCalculator = () => {
       setWeight(idealWeight)
     }
 
-  }
- 
-      const idealWeight = 49 + 1.7 * (height - 60);
-      setWeight(idealWeight);
-    }
-  };
  
   return (
     <div className="my-10 flex w-10/12 mx-auto">
@@ -44,12 +38,6 @@ const WeightCalculator = () => {
       </h3>
      </div>
       {/* input form */}
- 
-      <form onSubmit={handleSubmit} className='border border-green-600 p-10 rounded mx-auto my-5 w-2/4 '>
-        {/* result */}
-        {weight > 0 && <p className='text-3xl text-center text-green-500'>Your Ideal weight is: {weight} kg</p>}
-        {weight < 0 && <p className='text-3xl text-center text-red-500'>Please provide positive number in input field</p>}
-
  
      <div className="w-full">
      <form
@@ -118,5 +106,5 @@ const WeightCalculator = () => {
     </div>
   );
 };
-
+}
 export default WeightCalculator;

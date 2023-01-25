@@ -27,8 +27,8 @@ const LoggedFoods = ({logedFood}) => {
             <th className="bg-gray-200 text-black">Food Name</th>
             <th className="bg-gray-200 text-black">Amount</th>
             <th className="bg-gray-200 text-black">time of intake</th>
-          </tr>
-        </thead>
+         
+        
         <tbody>
           <tr >
             <th className="bg-white text-black">Amaranth Flakes Cereal</th>

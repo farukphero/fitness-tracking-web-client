@@ -4,7 +4,7 @@ import RightSideLog from "../RightSideLog/RIghtSideLog/RightSideLog";
 
 const Food = () => {
   return (
-    <div className="flex flex-row w-11/12 mx-auto space-x-6">
+    <div className="flex flex-row w-11/12 mx-auto space-x-6 scale-75">
       <main className="w-8/12">
         <LeftSideLog></LeftSideLog>
       </main>
