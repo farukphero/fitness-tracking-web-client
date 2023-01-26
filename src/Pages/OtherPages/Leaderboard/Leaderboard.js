@@ -6,8 +6,13 @@ import WeightModal from './Modal/WeightModal/WeightModal';
 
 const Leaderboard = () => {
     return (
-        <div className='h-screen'>
-            <div className='grid grid-cols-4 gap-4 w-9/12 mx-auto my-20'>
+        <div className=''>
+            <div className='grid grid-cols-2 sm:grid-cols-4 gap-4 w-9/12 mx-auto my-20'>
+                <div className='bg-gray-800 rounded shadow-lg shadow-green-600'>
+                    <h1 className='text-2xl  text-center border-b my-3 border-gray-600 pb-2'>Recent Exercise</h1>
+                    <div className='text-8xl text-green-600 mt-12'><FaRunning className='mx-auto border-green-600 border rounded-full p-1'></FaRunning></div>
+                    <p></p>
+                </div>
                 <div className='grid grid-rows-2 gap-4'>
                     {/* food plan */}
                     <div className='bg-gray-800 rounded shadow-lg shadow-green-600 pt-5 '>
@@ -30,11 +35,7 @@ const Leaderboard = () => {
                         <WeightModal></WeightModal>
                     </div>
                 </div>
-                <div className='bg-gray-800 rounded shadow-lg shadow-green-600'>
-                    <h1 className='text-2xl  text-center border-b my-3 border-gray-600'>Recent Exercise</h1>
-                    <div className='text-8xl text-green-600 mt-12'><FaRunning className='mx-auto border-green-600 border rounded-full p-1'></FaRunning></div>
-                    <p></p>
-                </div>
+
 
                 <div className='grid grid-rows-2 gap-4 '>
                     <div className='bg-gray-800 rounded shadow-lg shadow-green-600 py-5'>
