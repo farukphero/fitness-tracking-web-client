@@ -40,6 +40,7 @@ import CommunityPost from "../../Pages/OtherPages/CommunityPost/CommunityPost";
 import CommunityFriend from "../../Pages/OtherPages/CommunityFriend/CommunityFriend";
 import CommunityGroup from "../../Pages/OtherPages/CommunityGroup/CommunityGroup";
 import ActivitiesHistoryDetails from "../../Pages/OtherPages/Logs/Activities/Activities/ActivitiesHistoryDetails/ActivitiesHistoryDetails";
+import AdminRoute from "../AdminRoute/AdminRoute";
 
  
 
@@ -98,7 +99,7 @@ export const router = createBrowserRouter([
  
       {
         path: "/AddTutorials",
-        element: <AddTutorials></AddTutorials>,
+        element: <AdminRoute><AddTutorials></AddTutorials></AdminRoute>,
       },
       {
         path: "/ActivitiesHistoryDetails",
@@ -146,10 +147,10 @@ export const router = createBrowserRouter([
 
       { path: "/Dashboard/userInfo", element: <UserInfo></UserInfo> },
 
-      {
-        path: "/Dashboard/setting",
-        element: <SettingAndPrivacy></SettingAndPrivacy>,
-      },
+      // {
+      //   path: "/Dashboard/setting",
+      //   element: <SettingAndPrivacy></SettingAndPrivacy>,
+      // },
  
       { path: "/Dashboard/report", element: <Report></Report> },
       { path: "/Dashboard/event", element: <Event></Event> },
@@ -214,8 +215,5 @@ export const router = createBrowserRouter([
     ],
  
   },
- 
-  }
-
- 
+  
 ]);

@@ -61,6 +61,7 @@ const Header = () => {
               <h1 className="ml-2 text-2xl font-bold tracking-wide text-gray-100 uppercase ">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-white">FitLessian </span>
               </h1>
+          
             </Link>
             <ul className=" items-center hidden space-x-8 lg:flex">
               {/* {navBar.map((nav) => (
@@ -75,8 +76,10 @@ const Header = () => {
                   </Link>
                 </li>
               ))} */}
+                 
             </ul>
           </div>
+          <p className="text-3xl font-medium hidden lg:flex">Track your health</p>
           <ul className="items-center hidden space-x-8 lg:flex">
             {
               user ? <button onClick={handleLogOut} className="inline-flex items-center justify-center h-10 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-green-500">Log Out</button> : <>
@@ -127,7 +130,7 @@ const Header = () => {
             </button>
             {isMenuOpen && (
               <div className="absolute top-0 left-0 w-full">
-                <div className="p-5 bg-black  border rounded shadow-sm">
+                <div className="p-5 bg-gradient-to-r from-black via-gray-700 to-black border rounded shadow-sm">
                   <div className="flex items-center justify-between mb-4">
                     <div>
                       <Link

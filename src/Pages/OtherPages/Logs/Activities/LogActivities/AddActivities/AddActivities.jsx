@@ -103,7 +103,7 @@ const AddActivities = () => {
               className="flex gap-y-3 flex-col mt-16"
             >
               <div className="form-control flex flex-row w-full">
-                <label className="label  w-24">
+                <label className="label  w-32">
                   <span className="label-text capitalize font-lg text-xl">
                     name
                   </span>
@@ -116,7 +116,7 @@ const AddActivities = () => {
               </div>
 
               <div className="form-control flex flex-row w-full">
-                <label className="label  w-24">
+                <label className="label  w-32">
                   <span className="label-text capitalize font-lg text-xl">
                     date
                   </span>
@@ -133,7 +133,7 @@ const AddActivities = () => {
               </div>
 
               <div className="form-control flex flex-row w-full">
-                <label className="label  w-24">
+                <label className="label  w-32">
                   <span className="label-text capitalize font-lg text-xl">
                     start time
                   </span>
@@ -146,7 +146,7 @@ const AddActivities = () => {
               </div>
 
               <div className="form-control flex flex-row w-full">
-                <label className="label  w-24">
+                <label className="label  w-32">
                   <span className="label-text capitalize font-lg text-xl ">
                     duration
                   </span>
@@ -155,7 +155,7 @@ const AddActivities = () => {
                   <input
                     type="text"
                     placeholder="hours"
-                    className="input input-md input-bordered w-full"
+                    className="input input-md input-bordered w-full lg:ml-4 ml-1"
                     {...register(`hour`)}
                   />
                   <input
@@ -174,20 +174,20 @@ const AddActivities = () => {
               </div>
 
               <div className="form-control flex flex-row">
-                <label className="label w-24">
-                  <span className="label-text capitalize font-lg text-xl ">
+                <label className="label w-32">
+                  <span className="label-text capitalize font-lg text-xl">
                     distance
                   </span>
                 </label>
                 <div className="flex">
                   <input
                     type="text"
-                    className="input input-bordered w-full "
+                    className="input input-bordered w-full lg:-ml-7 ml-1"
                     {...register(`distance`)}
                   />
                   <select
                     {...register(`unit`)}
-                    className="select bg-gray-500 input-md select-bordered ml-2"
+                    className="select bg-gray-500  select-bordered ml-2 "
                   >
                     <option selected>Kilometers</option>
                     <option>Miles</option>
@@ -198,7 +198,7 @@ const AddActivities = () => {
 
 
               <div className="form-control flex flex-row">
-                <label className="label w-24">
+                <label className="label w-32">
                   <span className="label-text capitalize font-lg text-xl">
                     weight
                   </span>
@@ -206,7 +206,7 @@ const AddActivities = () => {
                 <div className="flex gap-x-1 w-full justify-between">
                   <input
                     type="text"
-                    className="input input-md input-bordered w-full"
+                    className="input input-md input-bordered w-full -ml-1"
                     {...register(`weight`)}
                   />
                   <select
@@ -220,7 +220,7 @@ const AddActivities = () => {
               </div>
 
               <div className="form-control flex flex-row w-full">
-                <label className="label w-24">
+                <label className="label w-32">
                   <span className="label-text capitalize font-lg text-xl">
                     notes
                   </span>
