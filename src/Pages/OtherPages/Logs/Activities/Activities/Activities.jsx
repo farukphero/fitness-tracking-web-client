@@ -11,9 +11,9 @@ import ActivitiesChart from "../ActivitiesChart/AcitvitiesChart";
 const Activities = () => {
   return (
     <DateProvider>
-      <div className="w-11/12 mx-auto">
-        <RouteAndDate />
-        <ActivitiesChart />
+      <div className="lg:w-11/12 mx-auto scale-90 lg:scale-100">
+        <RouteAndDate  />
+        <ActivitiesChart className="w-full scale-100 lg:scale-100"/>
         <ActivitiesHistory/>
         <LogActivities />
       </div>
