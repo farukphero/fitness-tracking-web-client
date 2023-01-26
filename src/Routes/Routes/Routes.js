@@ -25,6 +25,8 @@ import Food from "../../Pages/OtherPages/Logs/Food/Food/Food";
 import Weight from "../../Pages/OtherPages/Logs/Weight/Weight";
 import Sleep from "../../Pages/OtherPages/Logs/Sleep/Sleep";
 import Water from "../../Pages/OtherPages/Logs/Water/Water";
+import AddTutorials from "../../Pages/OtherPages/Tutorials/AddTutorials/AddTutorials";
+import Tutorial from "../../Pages/OtherPages/Tutorials/Tutorial/Tutorial";
   
 
 export const router = createBrowserRouter([
@@ -52,6 +54,15 @@ export const router = createBrowserRouter([
       {
         path: "/Tutorials",
         element: <Tutorials></Tutorials>,
+      },
+      {
+        path: "/AddTutorials",
+        element: <AddTutorials></AddTutorials>,
+      },
+      {
+        path:'/singleCategory/:id',
+        loader:({params})=>fetch(`http://localhost:5000/singleCategory/${params.id}`),
+        element: <Tutorial></Tutorial>,
       },
       
   

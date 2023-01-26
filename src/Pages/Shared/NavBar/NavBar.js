@@ -41,12 +41,12 @@ const Navbar = () => {
       aria: `Tutorials`,
       content: `Tutorials`,
     },
-    // {
-    //   _id: 4,
-    //   navigate: `/Dashboard`,
-    //   aria: `Dashboard`,
-    //   content: `Dashboard`,
-    // },
+    {
+      _id: 4,
+      navigate: `/AddTutorials`,
+      aria: `AddTutorials`,
+      content: `AddTutorials`,
+    },
   ];
 
   return (
