@@ -27,7 +27,13 @@ import Sleep from "../../Pages/OtherPages/Logs/Sleep/Sleep";
 import Water from "../../Pages/OtherPages/Logs/Water/Water";
 import AddTutorials from "../../Pages/OtherPages/Tutorials/AddTutorials/AddTutorials";
 import Tutorial from "../../Pages/OtherPages/Tutorials/Tutorial/Tutorial";
-  
+import CommunityLaout from "../../Layout/CommunityLaout/CommunityLaout";
+import CommunityFeed from "../../Pages/OtherPages/Communityfeed/CommunityFeed";
+import CommunityPosted from "../../Pages/OtherPages/CommunityPosted/CommunityPosted";
+import CommunityPost from "../../Pages/OtherPages/CommunityPost/CommunityPost";
+import CommunityFriend from "../../Pages/OtherPages/CommunityFriend/CommunityFriend";
+import CommunityGrupe from "../../Pages/OtherPages/CommunityGrupe/CommunityGrupe";
+
 
 export const router = createBrowserRouter([
   {
@@ -41,16 +47,13 @@ export const router = createBrowserRouter([
       },
       {
         path: "/serviceDetails/:id",
-        element:  <ServiceDetails></ServiceDetails>,
+        element: <ServiceDetails></ServiceDetails>,
       },
       {
         path: "/Leaderboard",
         element: <Leaderboard></Leaderboard>,
       },
-      {
-        path: "/Community",
-        element: <Community></Community>,
-      },
+
       {
         path: "/Tutorials",
         element: <Tutorials></Tutorials>,
@@ -60,24 +63,55 @@ export const router = createBrowserRouter([
         element: <AddTutorials></AddTutorials>,
       },
       {
-        path:'/singleCategory/:id',
-        loader:({params})=>fetch(`http://localhost:5000/singleCategory/${params.id}`),
+        path: "/Community",
+        element: <CommunityLaout></CommunityLaout>,
+        children: [
+          {
+            path: "/Community/community",
+            element: <Community></Community>
+          },
+          {
+            path: "/Community/feed",
+            element: <CommunityFeed></CommunityFeed>
+          },
+          {
+            path: "/Community/post",
+            element: <CommunityPost></CommunityPost>
+          },
+          {
+            path: "/Community/posted",
+            element: <CommunityPosted></CommunityPosted>
+          },
+          {
+            path: "/Community/friend",
+            element: <CommunityFriend></CommunityFriend>
+          },
+          {
+            path: "/Community/grupe",
+            element: <CommunityGrupe></CommunityGrupe>
+          }
+
+        ]
+      },
+      {
+        path: '/singleCategory/:id',
+        loader: ({ params }) => fetch(`http://localhost:5000/singleCategory/${params.id}`),
         element: <Tutorial></Tutorial>,
       },
-      
-  
- 
-          { path: "/Dashboard/userInfo", element: <UserInfo></UserInfo> },
 
-          {
-            path: "/Dashboard/setting",
-            element: <SettingAndPrivacy></SettingAndPrivacy>,
-          },
-          { path: "/Dashboard/report", element: <Report></Report> },
-          { path: "/Dashboard/event", element: <Event></Event> },
-          { path: "/Dashboard/support", element: <Support></Support> },
-        
-      
+
+
+      { path: "/Dashboard/userInfo", element: <UserInfo></UserInfo> },
+
+      {
+        path: "/Dashboard/setting",
+        element: <SettingAndPrivacy></SettingAndPrivacy>,
+      },
+      { path: "/Dashboard/report", element: <Report></Report> },
+      { path: "/Dashboard/event", element: <Event></Event> },
+      { path: "/Dashboard/support", element: <Support></Support> },
+
+
       {
         path: "/SignIn",
         element: <SignIn></SignIn>,
@@ -88,9 +122,9 @@ export const router = createBrowserRouter([
       },
     ],
   },
-  
+
   {
- 
+
     path: "/UserDetails",
     element: <PrivateRoute><UserDetails></UserDetails></PrivateRoute>,
   },
@@ -131,6 +165,6 @@ export const router = createBrowserRouter([
       },
     ],
   }
- 
+
 
 ]);

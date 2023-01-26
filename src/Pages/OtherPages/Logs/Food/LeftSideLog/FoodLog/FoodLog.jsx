@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import { set } from "react-hook-form";
+import { useQuery } from "react-query";
 import { AuthContext } from "../../../../../../Contexts/AuthProvider/AuthProvider";
 
 const FoodLog = ({ logedFood, setLogedFood }) => {
@@ -44,7 +46,7 @@ const FoodLog = ({ logedFood, setLogedFood }) => {
     setFoodCalory(a.calorey)
   }
 
-
+ 
   const handleFoodLogForm = (event) => {
     event.preventDefault()
     const food = event.target.foodName.value;
@@ -63,20 +65,23 @@ const FoodLog = ({ logedFood, setLogedFood }) => {
                     .then(res=> res.json())
                     .then(result=>{
                         console.log(result)
-
-                        // setLogedFood([...logedFood, result])
                     })
-    // console.log(food, amount, time, calorey)
+  
   };
-  useState( ()=>{
-    fetch("http:localhost:5000/loggedFood/${user?.user?.email}")
-    .then(res=>res.json())
-    .then(data=>{
-      console.log(data)
-      setLogedFood([...logedFood, ...data])
-      // setLogedFood(data)
-    })
-  },[])
+
+const { isLoading, error, data:food, refetch } = useQuery({
+  queryKey: ['loggedFood/userEmail',],
+  queryFn: async () => {
+      const res = await fetch(`http://localhost:5000/loggedFood/${user?.user?.email}`);
+      const data = await res.json();
+       return setLogedFood(data)
+    }
+  })
+  refetch()
+
+if (isLoading) return <progress className="progress w-56"></progress>
+
+if (error) return 'An error has occurred: ' + error.message
 
   return (
     <div className="card-body border rounded-md">
@@ -118,7 +123,7 @@ const FoodLog = ({ logedFood, setLogedFood }) => {
 
             <div className="form-control basis-2/3">
               <label className="label">
-                <span className="label-text text-white font-semibold lg:text-2xl capitalize">
+                <span className="label-text bg-gray-500 text-white font-semibold lg:text-2xl capitalize">
                   how much?
                 </span>
               </label>
