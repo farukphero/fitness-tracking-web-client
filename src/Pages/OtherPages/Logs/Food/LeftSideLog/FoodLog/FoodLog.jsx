@@ -12,15 +12,15 @@ const FoodLog = ({ logedFood, setLogedFood }) => {
   const [foodCalory, setFoodCalory] = useState('');
   const [data, setData] = useState([]);
   const user = useContext(AuthContext);
-  console.log(logedFood)
+  // console.log(logedFood)
   // console.log(user.user.email)
 
-  useEffect(()=>{
+  useEffect(() => {
     fetch('http://localhost:5000/foods')
-    .then(res=>res.json())
-    .then(data=> setData(data))
-  } ,[])
-  console.log(data)
+      .then(res => res.json())
+      .then(data => setData(data))
+  }, [])
+  // console.log(data)
 
   const handleOnChange = event => {
     setFoodValue(event.target.value);
@@ -46,7 +46,7 @@ const FoodLog = ({ logedFood, setLogedFood }) => {
     setFoodCalory(a.calorey)
   }
 
- 
+
   const handleFoodLogForm = (event) => {
     event.preventDefault()
     const food = event.target.foodName.value;
@@ -54,34 +54,37 @@ const FoodLog = ({ logedFood, setLogedFood }) => {
     const time = event.target.time.value;
     const calorey = foodCalory;
     const userEmail = user?.user?.email;
-    const loged = { food: food, amount: amount, time: time, calorey: calorey, userEmail:userEmail }
-    fetch('http://localhost:5000/loggedFood',{
-                        method: 'POST',
-                        headers: {
-                            'content-type' : 'application/json'
-                        },
-                        body: JSON.stringify(loged)
-                    })
-                    .then(res=> res.json())
-                    .then(result=>{
-                        console.log(result)
-                    })
-  
+    const loged = { food: food, amount: amount, time: time, calorey: calorey, userEmail: userEmail }
+    fetch('http://localhost:5000/loggedFood', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(loged)
+    })
+      .then(res => res.json())
+      .then(result => {
+        console.log(result)
+        if(result.acknowledged){
+          refetch()
+        }
+      })
+
   };
 
-const { isLoading, error, data:food, refetch } = useQuery({
-  queryKey: ['loggedFood/userEmail',],
-  queryFn: async () => {
+  const { isLoading, error, data: food, refetch } = useQuery({
+    queryKey: ['loggedFood/userEmail',],
+    queryFn: async () => {
       const res = await fetch(`http://localhost:5000/loggedFood/${user?.user?.email}`);
       const data = await res.json();
-       return setLogedFood(data)
+      return setLogedFood(data)
     }
   })
   refetch()
 
-if (isLoading) return <progress className="progress w-56"></progress>
+  if (isLoading) return <progress className="progress w-56"></progress>
 
-if (error) return 'An error has occurred: ' + error.message
+  if (error) return 'An error has occurred: ' + error.message
 
   return (
     <div className="card-body border rounded-md">
@@ -137,7 +140,7 @@ if (error) return 'An error has occurred: ' + error.message
             <div>
               {foodData?.amount?.map(a => <div className=" bg-slate-200 w-1/2"
                 onClick={() => handleAmount(a, foodValue)}
-                key={a.amount}
+                key={a._id}
               >
                 {!foodAmount && <p className="text-black p-3 mt-1">{a.amount}</p>}
               </div>)}
