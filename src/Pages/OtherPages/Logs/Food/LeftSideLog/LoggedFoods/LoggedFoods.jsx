@@ -9,7 +9,7 @@ const LoggedFoods = ({ logedFood }) => {
     let total = (logedFood.reduce((sum, food) => sum + parseInt(food.calorey), 0));
     setResult(total);
   }, [logedFood]);
-
+// new pull
   const handleFavoriteFood =(food)=>{
     const favouriteFood = {food: food.food, amount: food.amount, calorey: food.calorey, time: food.time, userEmail: food.userEmail}
     console.log(favouriteFood)
