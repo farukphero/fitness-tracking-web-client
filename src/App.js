@@ -13,6 +13,8 @@ function App() {
  
       <RouterProvider router={router} />
     </div>
+    </div>
+
   );
 }
 
