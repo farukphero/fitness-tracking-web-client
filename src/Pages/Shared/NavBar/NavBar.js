@@ -1,7 +1,9 @@
 import React, { useContext, useState } from "react";
+import { NavLink } from "react-router-dom";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import logo from "../../../images/apple-touch-icon.png";
+import "./Navbar.css";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -67,21 +69,23 @@ const Navbar = () => {
                 </span>
               </h1>
             </Link>
-            <ul className=" items-center hidden space-x-8 lg:flex">
+            <ul className=" items-center hidden nav-item space-x-8 lg:flex relative">
               {navBar.map((nav) => (
                 <li key={nav._id}>
-                  <Link
+                  <NavLink
                     to={nav.navigate}
                     aria-label={nav.title}
                     title={nav.title}
-                    className="font-medium tracking-wide text-gray-100 transition-colors capitalize duration-200 hover:text-teal-accent-400"
+                    className="font-medium tracking-wide transition-colors capitalize duration-200 hover:text-teal-accent-400 nav-all"
                   >
                     {nav.content}
-                  </Link>
+                  </NavLink>
+                  <div className="line"></div>
                 </li>
               ))}
             </ul>
           </div>
+
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-14 rounded-full">

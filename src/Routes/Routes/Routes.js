@@ -5,7 +5,7 @@ import KeepTrack from "../../Layout/KeepTrack/KeepTrack";
 import Main from "../../Layout/Main/Main";
 import Event from "../../Pages/Dashboard/Event/Event";
 import Report from "../../Pages/Dashboard/Report/Report";
-import SettingAndPrivacy from "../../Pages/Dashboard/SettingAndPrivacy/SettingAndPrivacy";
+
 import Support from "../../Pages/Dashboard/Support/Support";
 import UserInfo from "../../Pages/Dashboard/UserInfo/UserInfo";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
@@ -25,7 +25,12 @@ import Food from "../../Pages/OtherPages/Logs/Food/Food/Food";
 import Weight from "../../Pages/OtherPages/Logs/Weight/Weight";
 import Sleep from "../../Pages/OtherPages/Logs/Sleep/Sleep";
 import Water from "../../Pages/OtherPages/Logs/Water/Water";
-  
+import Setting from "../../Pages/Dashboard/SettingAndPrivacy/Setting/Setting";
+import Plan from "../../Pages/Dashboard/SettingAndPrivacy/Plan/Plan";
+import Team from "../../Pages/Dashboard/SettingAndPrivacy/Team/Team";
+import Notification from "../../Pages/Dashboard/SettingAndPrivacy/Notification/Notification";
+import Intergration from "../../Pages/Dashboard/SettingAndPrivacy/Intergration/Intergration";
+import AuthProfile from "../../Pages/Dashboard/SettingAndPrivacy/AuthProfile/AuthProfile";
 
 export const router = createBrowserRouter([
   {
@@ -39,7 +44,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/serviceDetails/:id",
-        element:  <ServiceDetails></ServiceDetails>,
+        element: <ServiceDetails></ServiceDetails>,
       },
       {
         path: "/Leaderboard",
@@ -53,20 +58,38 @@ export const router = createBrowserRouter([
         path: "/Tutorials",
         element: <Tutorials></Tutorials>,
       },
-      
-  
- 
-          { path: "/Dashboard/userInfo", element: <UserInfo></UserInfo> },
 
-          {
-            path: "/Dashboard/setting",
-            element: <SettingAndPrivacy></SettingAndPrivacy>,
-          },
-          { path: "/Dashboard/report", element: <Report></Report> },
-          { path: "/Dashboard/event", element: <Event></Event> },
-          { path: "/Dashboard/support", element: <Support></Support> },
-        
-      
+      { path: "/Dashboard/userInfo", element: <UserInfo></UserInfo> },
+      {
+        path: "/Dashboard/setting/plan",
+        element: <Plan></Plan>,
+      },
+      {
+        path: "/Dashboard/setting/team",
+        element: <Team></Team>,
+      },
+      {
+        path: "/Dashboard/setting/notification",
+        element: <Notification></Notification>,
+      },
+      {
+        path: "/Dashboard/setting/integration",
+        element: <Intergration></Intergration>,
+      },
+      {
+        path: "/Dashboard/setting/authprofile",
+        element: <AuthProfile></AuthProfile>,
+      },
+
+      {
+        path: "/Dashboard/setting",
+        element: <Setting></Setting>,
+      },
+
+      { path: "/Dashboard/report", element: <Report></Report> },
+      { path: "/Dashboard/event", element: <Event></Event> },
+      { path: "/Dashboard/support", element: <Support></Support> },
+
       {
         path: "/SignIn",
         element: <SignIn></SignIn>,
@@ -77,11 +100,14 @@ export const router = createBrowserRouter([
       },
     ],
   },
-  
+
   {
- 
     path: "/UserDetails",
-    element: <PrivateRoute><UserDetails></UserDetails></PrivateRoute>,
+    element: (
+      <PrivateRoute>
+        <UserDetails></UserDetails>
+      </PrivateRoute>
+    ),
   },
   {
     path: "/KeepTrack",
@@ -119,7 +145,5 @@ export const router = createBrowserRouter([
         element: <Sleep></Sleep>,
       },
     ],
-  }
- 
-
+  },
 ]);
