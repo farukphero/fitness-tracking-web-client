@@ -50,7 +50,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-r from-gray-600 via-teal-600 to-gray-600 sticky top-0 z-50 bg-opacity-70">
+    <div className="bg-gradient-to-r from-gray-600 via-teal-700 to-gray-600 sticky top-0 z-50 bg-opacity-70">
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
           <div className="flex items-center">
@@ -82,7 +82,7 @@ const Navbar = () => {
               ))}
             </ul>
           </div>
-          <div className="dropdown dropdown-end">
+          <div className="dropdown dropdown-end  hidden lg:flex">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-14 rounded-full">
                 <img src={userInfo?.picture} alt="" />
@@ -136,60 +136,14 @@ const Navbar = () => {
             </button>
             {isMenuOpen && (
               <div className="absolute top-0 left-0 w-full">
-                <div className="p-5 bg-black  border rounded shadow-sm">
+                <div className="p-5 bg-gradient-to-r from-gray-700 via-teal-800 to-gray-700  border rounded shadow-sm">
                   <div className="flex items-center justify-between mb-4">
-                    <div>
-                      <Link
-                        to="/Leaderboard"
-                        aria-label="Company"
-                        title="Company"
-                        className="inline-flex items-center"
-                      >
-                        <img
-                          className="h-10 w-10 rounded-md"
-                          src={logo}
-                          alt=""
-                        />
-                        <h1 className="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
-                          FIT<span className="text-green-700">LESSIAN</span>
-                        </h1>
-                      </Link>
+                    <div className="flex">
+                      <h5 className="text-4xl">{userInfo.firstName} {userInfo.lastName}</h5>  
+                        <img className="h-14 w-14 rounded-full ml-5" src={userInfo?.picture} alt="" />
+                    
                     </div>
-                    <div className="dropdown dropdown-end">
-                      <label
-                        tabIndex={0}
-                        className="btn btn-ghost btn-circle avatar bg-white"
-                      >
-                        <div className="w-14 rounded-full">
-                          <img src={userInfo.picture} alt="" />
-                        </div>
-                      </label>
-                      <ul
-                        tabIndex={0}
-                        className="mt-5 p-5 shadow menu menu-compact dropdown-content bg-gradient-to-r from-gray-600 via-gray-700 to-gray-600 text-white hover:bg-gradient-to-r rounded-box w-52"
-                      >
-                        <li>
-                          <Link
-                            to="/Dashboard/userInfo"
-                            className="justify-between"
-                          >
-                            Profile
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/Dashboard/setting">Settings</Link>
-                        </li>
-
-                        {user && (
-                          <button
-                            onClick={handleLogOut}
-                            className="inline-flex items-center justify-center h-10 px-6 font-medium tracking-wide  transition duration-200 rounded shadow-md border-none bg-gradient-to-r from-gray-700 via-teal-600 to-gray-700  text-white hover:bg-gradient-to-r hover:from-gray-800 hover:via-teal-700 hover:to-gray-800"
-                          >
-                            Log Out
-                          </button>
-                        )}
-                      </ul>
-                    </div>
+                   
                     <div>
                       <button
                         aria-label="Close Menu"
@@ -207,9 +161,10 @@ const Navbar = () => {
                     </div>
                   </div>
                   <nav>
-                    <ul className="space-y-4">
+                    <ul className="space-y-4 text-center">
                       {navBar.map((nav) => (
-                        <li key={nav._id}>
+                        <li key={nav._id} 
+                        onClick={() => setIsMenuOpen(false)}>
                           <Link
                             to={nav.navigate}
                             aria-label={nav.title}
@@ -219,7 +174,29 @@ const Navbar = () => {
                             {nav.content}
                           </Link>
                         </li>
+                        
                       ))}
+                      <li>
+                          <Link
+                            to="/Dashboard/userInfo"
+                            className="justify-between"
+                            onClick={() => setIsMenuOpen(false)}
+                          >
+                            Profile
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/Dashboard/setting"  onClick={() => setIsMenuOpen(false)}>Settings</Link>
+                        </li>
+
+                        {user && (
+                          <button
+                            onClick={handleLogOut}
+                            className="inline-flex items-center justify-center h-10 px-6 font-medium tracking-wide  transition duration-200 rounded shadow-md border-none bg-gradient-to-r from-gray-700 via-teal-600 to-gray-700  text-white hover:bg-gradient-to-r hover:from-gray-800 hover:via-teal-700 hover:to-gray-800"
+                          >
+                            Log Out
+                          </button>
+                        )}
                     </ul>
                   </nav>
                 </div>
