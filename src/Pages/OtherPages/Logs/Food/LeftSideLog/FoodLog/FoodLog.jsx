@@ -126,7 +126,7 @@ const FoodLog = ({ logedFood, setLogedFood }) => {
 
             <div className="form-control basis-2/3">
               <label className="label">
-                <span className="label-text bg-gray-500 text-white font-semibold lg:text-2xl capitalize">
+                <span className="label-text text-white font-semibold lg:text-2xl capitalize">
                   how much?
                 </span>
               </label>
@@ -134,11 +134,11 @@ const FoodLog = ({ logedFood, setLogedFood }) => {
                 type="text"
                 name="amount"
                 value={foodValue && foodAmount}
-                className="input bg-gray-500 input-bordered focus:outline-none"
+                className="input bg-gray-500 input-bordered focus:outline-none w-72 lg:w-[510px]"
               />
             </div>
             <div>
-              {foodData?.amount?.map(a => <div className=" bg-slate-200 w-1/2"
+              {foodData?.amount?.map(a => <div className=" bg-slate-200"
                 onClick={() => handleAmount(a, foodValue)}
                 key={a._id}
               >
@@ -146,14 +146,14 @@ const FoodLog = ({ logedFood, setLogedFood }) => {
               </div>)}
             </div>
           </div>
-          <div className="form-control basis-1/3">
+          <div className="form-control">
 
-            <label className="label">
+            <label className="label w-2/3">
               <span className="label-text font-semibold capitalize text-white lg:text-2xl">
                 when?
               </span>
             </label> <select
-              name="time" className="select  bg-gray input-md select-bordered">
+              name="time" className="select select-bordered">
 
               <option disabled selected>
                 Anytime

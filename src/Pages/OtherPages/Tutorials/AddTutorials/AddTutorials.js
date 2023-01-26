@@ -73,7 +73,7 @@ const AddTutorials = () => {
             .then(res => res.json())
     })
     return (
-        <div className=' my-12 w-2/5 mx-auto '>
+        <div className=' my-12 w-4/5 lg:w-2/5 mx-auto '>
             <div className=''>
                 <div className=' text-center'>
                     <h1 className='text-center text-2xl font-bold my-3'>Add Tutorials</h1>
@@ -94,7 +94,7 @@ const AddTutorials = () => {
                             <input name='link' type="text" className='w-full bg-gray-800 text-center py-1 rounded' placeholder='Upload Video' required />
                         </label>
                         <div className='my-3'>
-                            <button type='submit' className='btn border-none text-white bg-gradient-to-r from-gray-700 via-green-500 to-gray-700  text-white hover:bg-gradient-to-r hover:from-gray-800 hover:via-green-400 hover:to-gray-800 hover:text-black mb-0'>Done</button>
+                            <button type='submit' className='btn border-none w-full text-white bg-gradient-to-r from-gray-700 via-green-500 to-gray-700 hover:bg-gradient-to-r hover:from-gray-800 hover:via-green-400 hover:to-gray-800 hover:text-black mb-0'>Done</button>
 
                         </div>
                     </form>
@@ -115,11 +115,11 @@ const AddTutorials = () => {
                                     accept="image/*"
                                     placeholder="photo"
                                 />
-                                <label htmlFor="file" className="btn bg-gray-800 text-white text-sm mr-2 my-4">
+                                <label htmlFor="file" className="btn border-none bg-gradient-to-r from-gray-900 via-gray-600 to-gray-900 text-white text-sm mr-2 my-4 lg:w-96">
                                     Thumbnail Image
                                 </label>
                                 <div className='text-center'>
-                                    <button type='submit' className='btn btn-outline hover:text-white hover:bg-gradient-to-r hover:from-gray-800 hover:to-green-400  text-white btn-sm'>Done</button>
+                                    <button type='submit' className='btn btn-outline w-full hover:text-white hover:bg-gradient-to-r hover:from-gray-800 hover:to-green-400  text-white btn-sm'>Done</button>
                                 </div>
                             </div>
                         </div>

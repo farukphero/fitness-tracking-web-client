@@ -104,7 +104,7 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
-                  <Link to="/Dashboard/setting">Settings</Link>
+                  <Link to="/Dashboard/Profile">Settings</Link>
                 </li>
 
                 {user && (

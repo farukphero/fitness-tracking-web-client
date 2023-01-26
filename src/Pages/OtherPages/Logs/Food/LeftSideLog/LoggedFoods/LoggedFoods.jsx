@@ -34,30 +34,30 @@ const LoggedFoods = ({ logedFood }) => {
           <thead>
             <tr>
 
-              <th>Food Name</th>
-              <th>Amount</th>
-              <th>Calorey</th>
-              <th>time of intake</th>
-              <th></th>
+              <th className="bg-gray-300 text-black text-lg">Food Name</th>
+              <th className="bg-gray-300 text-black text-lg">Amount</th>
+              <th className="bg-gray-300 text-black text-lg">Calorey</th>
+              <th className="bg-gray-300 text-black text-lg">time of intake</th>
+              <th className="bg-gray-300 text-black text-lg"></th>
             </tr>
           </thead>
           <tbody>
-            {logedFood?.map(food => <tr onClick={()=>handleFavoriteFood(food)} className="hover" key={food._id}>
-              <th>{food.food}</th>
-              <td>{food.amount}</td>
-              <td>{food.calorey}</td>
-              <td>{food.time}</td>
-              <td><button className="btn btn-xs">Add To Favourite</button></td>
+            {logedFood?.map(food => <tr onClick={()=>handleFavoriteFood(food)} key={food._id}>
+              <th className="bg-white text-black">{food.food}</th>
+              <td className="bg-white text-black">{food.amount}</td>
+              <td className="bg-white text-black">{food.calorey}</td>
+              <td className="bg-white text-black">{food.time}</td>
+              <td className="bg-white text-black"><button className="btn btn-xs text-white">Add To Favourite</button></td>
             </tr>
             )}
           </tbody>
           <tfoot>
             <tr>
-              <th>Total</th>
-              <th></th>
-              <th>{ result} cal</th>
-              <th></th>
-              <th></th>
+              <th className="text-black bg-gray-400 text-lg">Total</th>
+              <th className="text-black bg-gray-400 text-lg"></th>
+              <th className="text-black bg-gray-400 text-lg">{ result} cal</th>
+              <th className="text-black bg-gray-400 text-lg"></th>
+              <th className="text-black bg-gray-400 text-lg"></th>
             </tr>
           </tfoot>
 

@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import logo from "../../../images/apple-touch-icon.png";
+import { FaArrowRight } from 'react-icons/fa';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -59,7 +60,7 @@ const Header = () => {
             >
               <img className="h-10 w-10 rounded-md" src={logo} alt="" />
               <h1 className="ml-2 text-2xl font-bold tracking-wide text-gray-100 uppercase ">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-white">FitLessian </span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-white text-3xl">FitLessian </span>
               </h1>
           
             </Link>
@@ -79,7 +80,7 @@ const Header = () => {
                  
             </ul>
           </div>
-          <p className="text-3xl font-medium hidden lg:flex">Track your health</p>
+          <p className="text-3xl font-medium hidden lg:flex">Track your health <Link to='SignUp'><FaArrowRight className="ml-3 w-20 mt-2"/></Link> </p> 
           <ul className="items-center hidden space-x-8 lg:flex">
             {
               user ? <button onClick={handleLogOut} className="inline-flex items-center justify-center h-10 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-green-500">Log Out</button> : <>

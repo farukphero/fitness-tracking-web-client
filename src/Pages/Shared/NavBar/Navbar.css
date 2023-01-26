@@ -1,5 +1,9 @@
 .active {
-  background-color: rgb(11, 192, 153);
+  /* background-color: "bg-gradient-to-r from-gray via-green  to-gray"; */
+  /* background: rgb(2,0,36); */
+background: linear-gradient(90deg, rgb(110, 156, 173) 0%, #0dcf81 35%, rgb(135, 169, 182) 100%);
   padding: 10px 14px;
   border-radius: 4px;
+  color: black;
+  padding: 7px;
 }

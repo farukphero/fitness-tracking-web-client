@@ -41,6 +41,7 @@ import CommunityFriend from "../../Pages/OtherPages/CommunityFriend/CommunityFri
 import CommunityGroup from "../../Pages/OtherPages/CommunityGroup/CommunityGroup";
 import ActivitiesHistoryDetails from "../../Pages/OtherPages/Logs/Activities/Activities/ActivitiesHistoryDetails/ActivitiesHistoryDetails";
 import AdminRoute from "../AdminRoute/AdminRoute";
+import DashboardLayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
 
  
 
@@ -67,36 +68,7 @@ export const router = createBrowserRouter([
         path: "/Tutorials",
         element: <Tutorials></Tutorials>,
       },
- 
-
-      { path: "/Dashboard/userInfo", element: <UserInfo></UserInfo> },
-      {
-        path: "/Dashboard/setting/plan",
-        element: <Plan></Plan>,
-      },
-      {
-        path: "/Dashboard/setting/team",
-        element: <Team></Team>,
-      },
-      {
-        path: "/Dashboard/setting/notification",
-        element: <Notification></Notification>,
-      },
-      {
-        path: "/Dashboard/setting/integration",
-        element: <Intergration></Intergration>,
-      },
-      {
-        path: "/Dashboard/setting/authprofile",
-        element: <AuthProfile></AuthProfile>,
-      },
-
-      {
-        path: "/Dashboard/setting",
-        element: <Setting></Setting>,
-      },
-
- 
+      
       {
         path: "/AddTutorials",
         element: <AdminRoute><AddTutorials></AddTutorials></AdminRoute>,
@@ -137,6 +109,40 @@ export const router = createBrowserRouter([
 
         ]
       },
+      // {
+      //   path: "/Profile",
+      //   element: <DashboardLayout></DashboardLayout>,
+      //   children:[ 
+          
+      // { path: "/Dashboard/userInfo", element: <UserInfo></UserInfo> },
+      // {
+      //   path: "/Dashboard/plan",
+      //   element: <Plan></Plan>,
+      // },
+    //   {
+    //     path: "/Dashboard/team",
+    //     element: <Team></Team>,
+    //   },
+    //   {
+    //     path: "/Dashboard/notification",
+    //     element: <Notification></Notification>,
+    //   },
+    // { 
+    //     path: "/Dashboard/integration",
+    //     element: <Intergration></Intergration>,
+    //   },
+    //   {
+    //     path: "/Dashboard/authprofile",
+    //     element: <AuthProfile></AuthProfile>,
+    //   },
+
+      // {
+      //   path: "/Dashboard/Profile",
+      //   element: <Setting></Setting>,
+      // }
+
+        // ]
+      // },
       {
         path: '/singleCategory/:id',
         loader: ({ params }) => fetch(`http://localhost:5000/singleCategory/${params.id}`),
