@@ -4,8 +4,10 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import { FcGoogle } from 'react-icons/fc';
+import useTitle from "../../Hooks/useTitle/useTitle";
 
 const SignIn = () => {
+  useTitle("SignIn")
   const { accountLogIn, providerGoogleLogIn } = useContext(AuthContext);
   const provider = new GoogleAuthProvider();
 

@@ -6,14 +6,17 @@ import LogActivities from "../LogActivities/LogActivities/LogActivities";
 import RouteAndDate from "../Route&Date/Route&Date";
 import ActivitiesHistory from "../ActivitiesHistory/ActivityHistory/ActivityHistory";
 import ActivitiesChart from "../ActivitiesChart/AcitvitiesChart";
+import useTitle from "../../../../../Hooks/useTitle/useTitle";
  
 
 const Activities = () => {
+  useTitle("Log/Activities")
+
   return (
     <DateProvider>
-      <div className="w-11/12 mx-auto">
-        <RouteAndDate />
-        <ActivitiesChart />
+      <div className="lg:w-11/12 mx-auto scale-90 lg:scale-100">
+        <RouteAndDate  />
+        <ActivitiesChart className="w-full scale-100 lg:scale-100"/>
         <ActivitiesHistory/>
         <LogActivities />
       </div>

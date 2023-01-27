@@ -23,7 +23,7 @@ const WeightCalculator = () => {
     }
   }
   return (
-    <div className="my-10 flex w-10/12 mx-auto">
+    <div className="my-10 grid grid-cols-1 lg:grid-cols-2 w-10/12 mx-auto">
       <div className="w-full mt-20 mr-5">
         <h2 className=" text-3xl text-green-500">
           Ideal Weight Calculator
@@ -54,7 +54,7 @@ const WeightCalculator = () => {
             </p>
           )}
 
-          <div className="form-group flex justify-between mx-10 mt-5">
+          <div className="form-group flex justify-between lg:mx-10 mt-5">
             <label for="age" className="mt-2">
               Age
             </label>
@@ -65,7 +65,7 @@ const WeightCalculator = () => {
               className="text-center mt-2 rounded bg-gray-600"
             />
           </div>
-          <div className="form-group flex justify-between mx-10">
+          <div className="form-group flex justify-between lg:mx-10">
             <label for="gender">Gender</label>
             <select
               id="gender"
@@ -76,22 +76,22 @@ const WeightCalculator = () => {
               <option value="female">Female</option>
             </select>
           </div>
-          <div className="form-group flex justify-between mx-10">
+          <div className="form-group flex justify-between lg:mx-10">
             <label for="heightFt">Height (ft)</label>
             <input
               type="number"
               id="heightFt"
               name="heightFt"
-              className="text-center mt-2 rounded bg-gray-600"
+              className="text-center mt-2 rounded bg-gray-600 ml-2"
             />
           </div>
-          <div className="form-group flex justify-between mx-10 mb-10">
+          <div className="form-group flex justify-between lg:mx-10 mb-10">
             <label for="heightIn">Height (in)</label>
             <input
               type="number"
               id="heightIn"
               name="heightIn"
-              className="text-center mt-2 rounded bg-gray-600"
+              className="text-center mt-2 rounded bg-gray-600 ml-2"
             />
           </div>
           <input

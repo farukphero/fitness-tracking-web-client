@@ -161,12 +161,12 @@ const data = [
 const ActivitiesChart = () => {
   return (
     <>
-      <div className="border rounded-md border-gray-600 my-5 mx-8">
-        <div className="ml-20 gap-x-4 my-5 flex ">
-          <button className="btn btn-outline hover:text-white hover:bg-gradient-to-r hover:from-gray-800 hover:to-green-400  btn-sm">steps</button>
-          <button className="btn btn-outline text-white hover:text-white hover:bg-gradient-to-r hover:from-gray-800 hover:to-green-400  btn-sm">distance</button>
-          <button className="btn btn-outline text-white hover:text-white hover:bg-gradient-to-r hover:from-gray-800 hover:to-green-400  btn-sm">floors</button>
-          <button className="btn btn-outline text-white hover:text-white hover:bg-gradient-to-r hover:from-gray-800 hover:to-green-400  btn-sm">calouries burned</button>
+      <div className="border rounded-md border-gray-600 my-5 mx-8 w-full -ml-1 p-2">
+        <div className="lg:ml-20 ml-5 gap-x-4 my-5 lg:flex">
+          <button className="btn btn-outline hover:text-white hover:bg-gradient-to-r hover:from-gray-800 hover:to-green-400  btn-sm mr-5 text-white w-40">steps</button>
+          <button className="btn btn-outline text-white hover:text-white hover:bg-gradient-to-r hover:from-gray-800 hover:to-green-400  btn-sm w-40">distance</button> <br />
+          <button className="btn btn-outline text-white hover:text-white hover:bg-gradient-to-r hover:from-gray-800 hover:to-green-400  btn-sm mr-5 mt-5 lg:mt-0 w-40">floors</button>
+          <button className="btn btn-outline text-white hover:text-white hover:bg-gradient-to-r hover:from-gray-800 hover:to-green-400  btn-sm w-40 mb-5 lg:mb-0">calouries burned</button>
         </div>
         <ResponsiveContainer width="100%" aspect={3}>
           <BarChart width={150} height={40} data={data}>
@@ -179,7 +179,7 @@ const ActivitiesChart = () => {
           </BarChart>
         </ResponsiveContainer>
         <div className="divider mx-8"></div>
-        <div className="flex capitalize font-bold items-center mb-5 justify-between mx-10">
+        <div className="flex capitalize font-semibold items-center mb-5 justify-between mx-6 lg:mx-10">
           <h3>daily totals</h3>
           <h3>0 steps</h3>
           <h3>0 miles</h3>

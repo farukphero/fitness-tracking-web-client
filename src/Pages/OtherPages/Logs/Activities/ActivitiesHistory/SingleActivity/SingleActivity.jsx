@@ -14,10 +14,9 @@ const SingleActivity = ({activity}) => {
           <td>{activity?.duration ? activity?.duration : `N/A`}</td>
           <td>{activity?.calourie_burned ? activity?.calourie_burned : `N/A`}</td>
           <td>
-            {" "}
-            <Link>
+            <Link to='/ActivitiesHistoryDetails'>
               <button className="btn btn-xs">details</button>
-            </Link>{" "}
+            </Link>
           </td>
           <td>
             <RiDeleteBin5Fill className="text-2xl text-error" />{" "}

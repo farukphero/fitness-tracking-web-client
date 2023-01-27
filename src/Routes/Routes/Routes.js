@@ -5,19 +5,17 @@ import KeepTrack from "../../Layout/KeepTrack/KeepTrack";
 import Main from "../../Layout/Main/Main";
 import Event from "../../Pages/Dashboard/Event/Event";
 import Report from "../../Pages/Dashboard/Report/Report";
-import SettingAndPrivacy from "../../Pages/Dashboard/SettingAndPrivacy/SettingAndPrivacy";
+
 import Support from "../../Pages/Dashboard/Support/Support";
 import UserInfo from "../../Pages/Dashboard/UserInfo/UserInfo";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Home from "../../Pages/Home/Home/Home";
 import Community from "../../Pages/OtherPages/Community/Community";
 import Foods from "../../Pages/OtherPages/Foods/Foods";
-import Goals from "../../Pages/OtherPages/Goals/Goals";
 import Leaderboard from "../../Pages/OtherPages/Leaderboard/Leaderboard";
 import Tutorials from "../../Pages/OtherPages/Tutorials/Tutorials";
 import ServiceDetails from "../../Pages/Home/Services/ServiceDetails";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
-import DashboardLayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
 import UserDetails from "../../Authentications/UserDetails/UserDetails";
 import LogsLayout from "../../Layout/LogsLayout/LogsLayout/LogsLayout";
 import Activities from "../../Pages/OtherPages/Logs/Activities/Activities/Activities";
@@ -25,6 +23,14 @@ import Food from "../../Pages/OtherPages/Logs/Food/Food/Food";
 import Weight from "../../Pages/OtherPages/Logs/Weight/Weight";
 import Sleep from "../../Pages/OtherPages/Logs/Sleep/Sleep";
 import Water from "../../Pages/OtherPages/Logs/Water/Water";
+ 
+import Setting from "../../Pages/Dashboard/SettingAndPrivacy/Setting/Setting";
+import Plan from "../../Pages/Dashboard/SettingAndPrivacy/Plan/Plan";
+import Team from "../../Pages/Dashboard/SettingAndPrivacy/Team/Team";
+import Notification from "../../Pages/Dashboard/SettingAndPrivacy/Notification/Notification";
+import Intergration from "../../Pages/Dashboard/SettingAndPrivacy/Intergration/Intergration";
+import AuthProfile from "../../Pages/Dashboard/SettingAndPrivacy/AuthProfile/AuthProfile";
+ 
 import AddTutorials from "../../Pages/OtherPages/Tutorials/AddTutorials/AddTutorials";
 import Tutorial from "../../Pages/OtherPages/Tutorials/Tutorial/Tutorial";
 import CommunityLaout from "../../Layout/CommunityLaout/CommunityLaout";
@@ -32,8 +38,13 @@ import CommunityFeed from "../../Pages/OtherPages/Communityfeed/CommunityFeed";
 import CommunityPosted from "../../Pages/OtherPages/CommunityPosted/CommunityPosted";
 import CommunityPost from "../../Pages/OtherPages/CommunityPost/CommunityPost";
 import CommunityFriend from "../../Pages/OtherPages/CommunityFriend/CommunityFriend";
-import CommunityGrupe from "../../Pages/OtherPages/CommunityGrupe/CommunityGrupe";
+import CommunityGroup from "../../Pages/OtherPages/CommunityGroup/CommunityGroup";
+import ActivitiesHistoryDetails from "../../Pages/OtherPages/Logs/Activities/Activities/ActivitiesHistoryDetails/ActivitiesHistoryDetails";
+import AdminRoute from "../AdminRoute/AdminRoute";
+import DashboardLayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
+import WeightCalculator from "../../Pages/Home/WeightCalculator/WeightCalculator";
 
+ 
 
 export const router = createBrowserRouter([
   {
@@ -58,9 +69,19 @@ export const router = createBrowserRouter([
         path: "/Tutorials",
         element: <Tutorials></Tutorials>,
       },
+      
+      {
+        path: "/WeightCalculator",
+        element: <WeightCalculator></WeightCalculator>,
+      },
+      
       {
         path: "/AddTutorials",
-        element: <AddTutorials></AddTutorials>,
+        element: <AdminRoute><AddTutorials></AddTutorials></AdminRoute>,
+      },
+      {
+        path: "/ActivitiesHistoryDetails",
+        element: <ActivitiesHistoryDetails></ActivitiesHistoryDetails>,
       },
       {
         path: "/Community",
@@ -87,15 +108,47 @@ export const router = createBrowserRouter([
             element: <CommunityFriend></CommunityFriend>
           },
           {
-            path: "/Community/grupe",
-            element: <CommunityGrupe></CommunityGrupe>
-          }
+            path: "/Community/group",
+            element: <CommunityGroup></CommunityGroup>
+          },
+          
 
         ]
       },
+      // {
+      //   path: "/Profile",
+      //   element: <DashboardLayout></DashboardLayout>,
+      //   children:[ 
+          
+      // { path: "/Dashboard/userInfo", element: <UserInfo></UserInfo> },
+      {
+        path: "/Dashboard/Setting/plan",
+        element: <Plan></Plan>,
+      },
+      {
+        path: "/Dashboard/Setting/team",
+        element: <Team></Team>,
+      },
+      {
+        path: "/Dashboard/Setting/notification",
+        element: <Notification></Notification>,
+      },
+    { 
+        path: "/Dashboard/Setting/integration",
+        element: <Intergration></Intergration>,
+      },
+      {
+        path: "/Dashboard/authprofile",
+        element: <AuthProfile></AuthProfile>,
+      },
+
+      
+
+        // ]
+      // },
       {
         path: '/singleCategory/:id',
-        loader: ({ params }) => fetch(`http://localhost:5000/singleCategory/${params.id}`),
+        loader: ({ params }) => fetch(`https://fitness-tracking-web-server.vercel.app/singleCategory/${params.id}`),
         element: <Tutorial></Tutorial>,
       },
 
@@ -103,15 +156,19 @@ export const router = createBrowserRouter([
 
       { path: "/Dashboard/userInfo", element: <UserInfo></UserInfo> },
 
+      // {
+      //   path: "/Dashboard/setting",
+      //   element: <SettingAndPrivacy></SettingAndPrivacy>,
+      // },
       {
-        path: "/Dashboard/setting",
-        element: <SettingAndPrivacy></SettingAndPrivacy>,
+        path: "/Dashboard/Setting",
+        element: <Setting></Setting>,
       },
+ 
       { path: "/Dashboard/report", element: <Report></Report> },
       { path: "/Dashboard/event", element: <Event></Event> },
       { path: "/Dashboard/support", element: <Support></Support> },
-
-
+ 
       {
         path: "/SignIn",
         element: <SignIn></SignIn>,
@@ -124,9 +181,13 @@ export const router = createBrowserRouter([
   },
 
   {
-
+ 
     path: "/UserDetails",
-    element: <PrivateRoute><UserDetails></UserDetails></PrivateRoute>,
+    element: (
+      <PrivateRoute>
+        <UserDetails></UserDetails>
+      </PrivateRoute>
+    ),
   },
   {
     path: "/KeepTrack",
@@ -163,8 +224,9 @@ export const router = createBrowserRouter([
         path: "/Logs/Sleep",
         element: <Sleep></Sleep>,
       },
+     
     ],
-  }
-
-
+ 
+  },
+  
 ]);

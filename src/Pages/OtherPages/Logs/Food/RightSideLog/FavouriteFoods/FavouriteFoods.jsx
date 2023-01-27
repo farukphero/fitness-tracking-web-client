@@ -1,6 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useState } from "react";
+import { useQuery } from "react-query";
+import { AuthContext } from "../../../../../../Contexts/AuthProvider/AuthProvider";
 
 const FavouriteFoods = () => {
+  const [favouriteFood, setFavouriteFood] = useState([]);
+  const user = useContext(AuthContext)
+
+  const { isLoading, error, data:food, refetch } = useQuery({
+    queryKey: ['favouriteFood/userEmail',],
+    queryFn: async () => {
+      const res = await fetch(`https://fitness-tracking-web-server.vercel.app/favouriteFood/${user?.user?.email}`);
+      const data = await res.json();
+      return setFavouriteFood(data)
+    }
+  })
+  refetch()
+
+  if (isLoading) return <progress className="progress w-56"></progress>
+
+  if (error) return 'An error has occurred: ' + error.message
   return (
     <section>
       <div className="overflow-x-auto border rounded-md p-3">
@@ -19,31 +38,22 @@ const FavouriteFoods = () => {
             </button>
           </div>
         </div>
-       <div>
-       <table className="table w-full mt-3">
-          <thead>
-            <tr>
-              <th className="bg-gray-200  text-black">Cals</th>
-              <th className="bg-gray-200 text-black">Click on the item to log it</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td  className="bg-white text-black">232 Cals</td>
-              <td  className="bg-white text-black">Rice, brown, raw</td>
-            </tr>
-
-            <tr >
-              <td  className="bg-white  text-black">157 Cals</td>
-              <td  className="bg-white  text-black">Refried Beans</td>
-            </tr>
-            <tr>
-              <td  className="bg-white text-black">220 Cals</td>
-              <td  className="bg-white text-black">Cheese, Queso Asedero</td>
-            </tr>
-          </tbody>
-        </table>
-       </div>
+        <div>
+          <table className="table w-full mt-3">
+            <thead>
+              <tr>
+                <th className="bg-gray-200  text-black">Cals</th>
+                <th className="bg-gray-200 text-black">Click on the item to log it</th>
+              </tr>
+            </thead>
+            <tbody>
+              {favouriteFood?.map(food=><tr key={food._id}>
+                <td className="bg-white text-black">{food.calorey} Cals</td>
+                <td className="bg-white text-black">{food.food}</td>
+              </tr>)}
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
   );

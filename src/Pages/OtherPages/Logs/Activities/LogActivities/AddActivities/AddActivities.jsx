@@ -64,7 +64,7 @@ const AddActivities = () => {
     };
 
 
-    axios.post(`http://localhost:5000/activities`, {...activity})
+    axios.post(`https://fitness-tracking-web-server.vercel.app/activities`, {...activity})
     .then(res => console.log(res))
     .catch(err => console.log(err));
   };
@@ -100,23 +100,23 @@ const AddActivities = () => {
             </p>
             <form
               onSubmit={handleSubmit(handleActivityLogForm)}
-              className="flex gap-y-3 flex-col"
+              className="flex gap-y-3 flex-col mt-16"
             >
               <div className="form-control flex flex-row w-full">
-                <label className="label w-4/12">
+                <label className="label  w-32">
                   <span className="label-text capitalize font-lg text-xl">
                     name
                   </span>
                 </label>
                 <input
                   type="text"
-                  className="input input-md input-bordered ml-5 w-full"
+                  className="input input-md input-bordered w-full"
                   {...register(`name`)}
                 />
               </div>
 
               <div className="form-control flex flex-row w-full">
-                <label className="label w-4/12">
+                <label className="label  w-32">
                   <span className="label-text capitalize font-lg text-xl">
                     date
                   </span>
@@ -133,21 +133,21 @@ const AddActivities = () => {
               </div>
 
               <div className="form-control flex flex-row w-full">
-                <label className="label w-4/12">
+                <label className="label  w-32">
                   <span className="label-text capitalize font-lg text-xl">
                     start time
                   </span>
                 </label>
                 <input
                   type="time"
-                  className="input input-md input-bordered ml-5 w-full"
+                  className="input input-md input-bordered   w-full"
                   {...register(`sTime`)}
                 />
               </div>
 
               <div className="form-control flex flex-row w-full">
-                <label className="label w-4/12">
-                  <span className="label-text capitalize font-lg text-xl">
+                <label className="label  w-32">
+                  <span className="label-text capitalize font-lg text-xl ">
                     duration
                   </span>
                 </label>
@@ -155,7 +155,7 @@ const AddActivities = () => {
                   <input
                     type="text"
                     placeholder="hours"
-                    className="input input-md input-bordered w-full"
+                    className="input input-md input-bordered w-full lg:ml-4 ml-1"
                     {...register(`hour`)}
                   />
                   <input
@@ -173,21 +173,21 @@ const AddActivities = () => {
                 </div>
               </div>
 
-              <div className="form-control flex flex-row w-11/12 mx-auto">
-                <label className="label w-4/12">
+              <div className="form-control flex flex-row">
+                <label className="label w-32">
                   <span className="label-text capitalize font-lg text-xl">
                     distance
                   </span>
                 </label>
-                <div className="flex gap-x-1 w-full justify-between">
+                <div className="flex">
                   <input
                     type="text"
-                    className="input input-md input-bordered w-full basis-1/2"
+                    className="input input-bordered w-full lg:-ml-7 ml-1"
                     {...register(`distance`)}
                   />
                   <select
                     {...register(`unit`)}
-                    className="select bg-gray-500 input-md select-bordered basis-1/2 ml-5"
+                    className="select bg-gray-500  select-bordered ml-2 "
                   >
                     <option selected>Kilometers</option>
                     <option>Miles</option>
@@ -197,8 +197,8 @@ const AddActivities = () => {
               </div>
 
 
-              <div className="form-control flex flex-row w-11/12 mx-auto">
-                <label className="label w-4/12">
+              <div className="form-control flex flex-row">
+                <label className="label w-32">
                   <span className="label-text capitalize font-lg text-xl">
                     weight
                   </span>
@@ -206,12 +206,12 @@ const AddActivities = () => {
                 <div className="flex gap-x-1 w-full justify-between">
                   <input
                     type="text"
-                    className="input input-md input-bordered w-full basis-1/2"
+                    className="input input-md input-bordered w-full -ml-1"
                     {...register(`weight`)}
                   />
                   <select
                     {...register(`parameter`)}
-                    className="select bg-gray-500 input-md select-bordered basis-1/2 ml-5"
+                    className="select bg-gray-500 select-bordered ml-2"
                   >
                     <option selected>lbs</option>
                     <option>kg</option>
@@ -220,33 +220,33 @@ const AddActivities = () => {
               </div>
 
               <div className="form-control flex flex-row w-full">
-                <label className="label w-4/12">
+                <label className="label w-32">
                   <span className="label-text capitalize font-lg text-xl">
                     notes
                   </span>
                 </label>
                 <textarea
                   {...register(`text`)}
-                  className="textarea ml-5 w-full textarea-bordered h-24"
+                  className="textarea textarea-bordered h-24 w-full"
                 ></textarea>
               </div>
-              <div className="form-control flex flex-row w-full">
+              <div className="form-control flex flex-row">
                 <input
                   type="submit"
                   defaultValue="submit"
-                  className="btn w-32 ml-16 mt-6"
+                  className="btn w-full lg:w-96 ml-16 mt-6"
                 />
               </div>
             </form>
           </div>
         )}
       </div>
-      <div className="flex flex-col items-center basis-4/12">
+      <div className="flex flex-col items-center">
         <MdLocalActivity
           onClick={() => setLogActivities(!logActivities)}
           className="text-6xl cursor-pointer text-amber-400 font-bold"
         />
-        <h2>activity record</h2>
+        <h2>Activity record</h2>
       </div>
     </div>
   );

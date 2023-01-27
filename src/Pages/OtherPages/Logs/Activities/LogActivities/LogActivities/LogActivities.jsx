@@ -4,11 +4,11 @@ import FavouriteActivities from "../FavouriteActivities/FavouriteActivities";
 
 const LogActivities = () => {
   return (
-    <div className="flex flex-row w-full mt-8  space-x-8 px-10">
-      <main className="basis-8/12">
+    <div className="grid grid-cols-1 lg:grid-cols-2 w-full lg:mt-8 lg:space-x-8  lg:px-10 ">
+      <main className="basis-8/12  ">
         <AddActivities/>
       </main>
-      <aside className="basis-4/12 sticky top-0">
+      <aside className="lg:basis-4/12 w-full sticky top-0 mt-5 mr-5 ">
         <FavouriteActivities />
       </aside>
     </div>
