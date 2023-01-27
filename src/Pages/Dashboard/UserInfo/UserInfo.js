@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import image from "../../../assets/about/images/review2.jpg";
+
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import "./UserInfo.css";
 
@@ -49,7 +48,7 @@ const UserInfo = () => {
       .then((data) => console.log(data));
 
     console.log(newuserInfo);
-    // setUserInfo(newuserInfo);
+
     setUserInfo((prev) => {
       return {
         ...prev,
@@ -60,7 +59,7 @@ const UserInfo = () => {
   };
 
   useEffect(() => {
-    fetch(`https://fitness-tracking-web-server.vercel.app/users/${user?.email}`)
+    fetch(`http://localhost:5000/users/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setUserInfo(data));
   }, [user]);
@@ -190,60 +189,6 @@ const UserInfo = () => {
         </div>
       </div>
     </div>
-    // <div className="w-8/12 mx-auto my-20">
-    //   <div className="avatar">
-    //     <div className="w-28 lg:w-40 mb-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-    //       <img src={userInfo?.picture} alt="" />
-    //     </div>
-    //   </div>
-    //   <div className="text-white text-user-info">
-    //     <h1>
-    //       Name : {userInfo?.firstName} {userInfo?.lastName}
-    //     </h1>
-    //     <h1>Email : {userInfo?.email}</h1>
-    //     <h1>Birthday : {userInfo?.birthday}</h1>
-    //     <h1>Age : {userInfo?.age}</h1>
-    //     <h1>Address : {userInfo?.permanentAddress}</h1>
-    //     <h1>Phone : {userInfo?.phone}</h1>
-    //     <h1>City : {userInfo?.city}</h1>
-    //     <div className="ml-48">
-    //       <button className="btn btn-explore">Edit</button>
-    //     </div>
-
-    //     <div className="mt-4 mb-8">
-    //       <h1 className="mb-4  text-2xl text-green-400">WorkFlow : </h1>
-    //       <div className="grid grid-cols-3 gap-8">
-    //         <div>
-    //           <h1 className="mb-2 font-bold">Diet</h1>
-    //           <div
-    //             className="radial-progress bg-sky-600 progress-user text-black border-1 border-black"
-    //             style={{ "--value": 70 }}
-    //           >
-    //             70%
-    //           </div>
-    //         </div>
-    //         <div>
-    //           <h1 className="mb-2 font-bold">Exercise</h1>
-    //           <div
-    //             className="radial-progress bg-red-400 progress-user text-black border-2 border-black"
-    //             style={{ "--value": 40 }}
-    //           >
-    //             40%
-    //           </div>
-    //         </div>
-    //         <div>
-    //           <h1 className="mb-2 font-bold">Activities</h1>
-    //           <div
-    //             className="radial-progress bg-emerald-600 progress-user text-black border-2 border-black"
-    //             style={{ "--value": 50 }}
-    //           >
-    //             50%
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
   );
 };
 
