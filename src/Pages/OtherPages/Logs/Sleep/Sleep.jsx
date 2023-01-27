@@ -8,6 +8,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import useTitle from "../../../../Hooks/useTitle/useTitle";
 
 const data = [
   {
@@ -55,6 +56,7 @@ const data = [
 ];
 
 const Sleep = () => {
+  useTitle("Log/Sleep")
   return (
     <div className="">
       <div className="carousel w-full bg-warning py-20">

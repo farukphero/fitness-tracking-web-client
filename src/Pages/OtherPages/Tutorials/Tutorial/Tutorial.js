@@ -1,14 +1,16 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../../../../Hooks/useTitle/useTitle';
 
 
 const Tutorial = () => {
+    useTitle("Tutorial")
     const data = useLoaderData();
     // console.log(data);
     const { data: tutorials = [], refetch } = useQuery({
         queryKey: ['tutorials'],
-        queryFn: () => fetch(`http://localhost:5000/tutorials?category=${data?.category}`)
+        queryFn: () => fetch(`https://fitness-tracking-web-server.vercel.app/tutorials?category=${data?.category}`)
             .then(res => res.json())
             .then(data => {
                 // setLoading(false)

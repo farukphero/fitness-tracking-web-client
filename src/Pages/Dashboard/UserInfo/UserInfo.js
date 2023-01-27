@@ -1,8 +1,5 @@
-import { success } from "daisyui/src/colors";
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { toast } from "react-toastify";
-import image from "../../../assets/about/images/review2.jpg";
+
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import "./UserInfo.css";
 
@@ -36,11 +33,11 @@ const UserInfo = () => {
       phone,
       city,
     };
-    // console.log(JSON.stringify(newuserInfo));
-    // console.log(newuserInfo);
-    // console.log(user.email);
+    console.log(JSON.stringify(newuserInfo));
+    console.log(newuserInfo);
+    console.log(user.email);
 
-    fetch(`http://localhost:5000/users/edit/${user?.email}`, {
+    fetch(`https://fitness-tracking-web-server.vercel.app/users/edit/${user?.email}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -48,9 +45,9 @@ const UserInfo = () => {
       body: JSON.stringify(newuserInfo),
     })
       .then((res) => res.json())
-      .then((data) => toast.success("Edit success") );
+      .then((data) => console.log(data));
 
-    // console.log(newuserInfo);
+    console.log(newuserInfo);
     // setUserInfo(newuserInfo);
     setUserInfo((prev) => {
       return {

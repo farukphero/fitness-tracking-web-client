@@ -1,10 +1,12 @@
 import React from 'react';
 import { FaBeer, FaCloudsmith, FaUtensils, FaRunning, FaUsers } from "react-icons/fa";
+import useTitle from '../../../Hooks/useTitle/useTitle';
 import FoodPlanModal from './Modal/FoodPlanModal/FoodPlanModal';
 import WaterModal from './Modal/WaterModal/WaterModal';
 import WeightModal from './Modal/WeightModal/WeightModal';
 
 const Leaderboard = () => {
+    useTitle("Leaderboard")
     return (
         <div className=''>
             <div className='grid grid-cols-2 sm:grid-cols-4 gap-4 w-9/12 mx-auto my-20'>

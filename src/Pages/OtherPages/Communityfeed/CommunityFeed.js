@@ -2,9 +2,11 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
+import useTitle from '../../../Hooks/useTitle/useTitle';
 import CommunityPosted from '../CommunityPosted/CommunityPosted';
 
 const CommunityFeed = () => {
+    useTitle("Community")
     const { user, loading } = useContext(AuthContext)
     console.log(user)
     const imageHostkeyk = process.env.REACT_APP_IMG_KEY

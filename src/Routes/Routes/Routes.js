@@ -42,6 +42,7 @@ import CommunityGroup from "../../Pages/OtherPages/CommunityGroup/CommunityGroup
 import ActivitiesHistoryDetails from "../../Pages/OtherPages/Logs/Activities/Activities/ActivitiesHistoryDetails/ActivitiesHistoryDetails";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import DashboardLayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
+import WeightCalculator from "../../Pages/Home/WeightCalculator/WeightCalculator";
 
  
 
@@ -67,6 +68,11 @@ export const router = createBrowserRouter([
       {
         path: "/Tutorials",
         element: <Tutorials></Tutorials>,
+      },
+      
+      {
+        path: "/WeightCalculator",
+        element: <WeightCalculator></WeightCalculator>,
       },
       
       {
@@ -115,37 +121,34 @@ export const router = createBrowserRouter([
       //   children:[ 
           
       // { path: "/Dashboard/userInfo", element: <UserInfo></UserInfo> },
-      // {
-      //   path: "/Dashboard/plan",
-      //   element: <Plan></Plan>,
-      // },
-    //   {
-    //     path: "/Dashboard/team",
-    //     element: <Team></Team>,
-    //   },
-    //   {
-    //     path: "/Dashboard/notification",
-    //     element: <Notification></Notification>,
-    //   },
-    // { 
-    //     path: "/Dashboard/integration",
-    //     element: <Intergration></Intergration>,
-    //   },
-    //   {
-    //     path: "/Dashboard/authprofile",
-    //     element: <AuthProfile></AuthProfile>,
-    //   },
+      {
+        path: "/Dashboard/Setting/plan",
+        element: <Plan></Plan>,
+      },
+      {
+        path: "/Dashboard/Setting/team",
+        element: <Team></Team>,
+      },
+      {
+        path: "/Dashboard/Setting/notification",
+        element: <Notification></Notification>,
+      },
+    { 
+        path: "/Dashboard/Setting/integration",
+        element: <Intergration></Intergration>,
+      },
+      {
+        path: "/Dashboard/authprofile",
+        element: <AuthProfile></AuthProfile>,
+      },
 
-      // {
-      //   path: "/Dashboard/Profile",
-      //   element: <Setting></Setting>,
-      // }
+      
 
         // ]
       // },
       {
         path: '/singleCategory/:id',
-        loader: ({ params }) => fetch(`http://localhost:5000/singleCategory/${params.id}`),
+        loader: ({ params }) => fetch(`https://fitness-tracking-web-server.vercel.app/singleCategory/${params.id}`),
         element: <Tutorial></Tutorial>,
       },
 
@@ -157,6 +160,10 @@ export const router = createBrowserRouter([
       //   path: "/Dashboard/setting",
       //   element: <SettingAndPrivacy></SettingAndPrivacy>,
       // },
+      {
+        path: "/Dashboard/Setting",
+        element: <Setting></Setting>,
+      },
  
       { path: "/Dashboard/report", element: <Report></Report> },
       { path: "/Dashboard/event", element: <Event></Event> },

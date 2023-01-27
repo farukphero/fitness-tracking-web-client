@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import useTitle from "../../../../Hooks/useTitle/useTitle";
 
 const Setting = () => {
+  useTitle("Dashboard/Setting")
   return (
     <div>
       <div className="flex flex-col w-1/2 mx-auto mt-16 mb-16  ">

@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 
 import { BiLike, BiComment, BiMessage } from 'react-icons/bi'
 import { React } from 'react'
+import useTitle from '../../../Hooks/useTitle/useTitle';
 const CommunityPosted = () => {
-
+useTitle("CommunityFeed")
 
     return (
         <div className="card  mt-4 bg-base-100 shadow-xl">

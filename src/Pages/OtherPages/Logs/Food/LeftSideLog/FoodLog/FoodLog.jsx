@@ -16,7 +16,7 @@ const FoodLog = ({ logedFood, setLogedFood }) => {
   // console.log(user.user.email)
 
   useEffect(() => {
-    fetch('http://localhost:5000/foods')
+    fetch('https://fitness-tracking-web-server.vercel.app/foods')
       .then(res => res.json())
       .then(data => setData(data))
   }, [])
@@ -55,7 +55,7 @@ const FoodLog = ({ logedFood, setLogedFood }) => {
     const calorey = foodCalory;
     const userEmail = user?.user?.email;
     const loged = { food: food, amount: amount, time: time, calorey: calorey, userEmail: userEmail }
-    fetch('http://localhost:5000/loggedFood', {
+    fetch('https://fitness-tracking-web-server.vercel.app/loggedFood', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -75,7 +75,7 @@ const FoodLog = ({ logedFood, setLogedFood }) => {
   const { isLoading, error, data: food, refetch } = useQuery({
     queryKey: ['loggedFood/userEmail',],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/loggedFood/${user?.user?.email}`);
+      const res = await fetch(`https://fitness-tracking-web-server.vercel.app/loggedFood/${user?.user?.email}`);
       const data = await res.json();
       return setLogedFood(data)
     }
