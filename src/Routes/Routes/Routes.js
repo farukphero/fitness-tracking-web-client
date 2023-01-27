@@ -91,16 +91,16 @@ export const router = createBrowserRouter([
             path: "/Community/community",
             element: <Community></Community>
           },
-          {
-            path: "/Community/feed",
-            element: <CommunityFeed></CommunityFeed>
-          },
+          // {
+          //   path: "/Community",
+          //   element: <CommunityFeed></CommunityFeed>
+          // },
           {
             path: "/Community/post",
             element: <CommunityPost></CommunityPost>
           },
           {
-            path: "/Community/posted",
+            path: "/Community",
             element: <CommunityPosted></CommunityPosted>
           },
           {

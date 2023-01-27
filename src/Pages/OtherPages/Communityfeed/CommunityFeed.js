@@ -1,7 +1,16 @@
+import axios from 'axios';
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
+ 
+
+
+const CommunityFeed = () => {
+    const { user, userInfo } = useContext(AuthContext)
+    const navigate = useNavigate()
+    const imageHostkeyk = `e49a11b11d3bcadfe6ff2e14a831598a`
+ 
 import useTitle from '../../../Hooks/useTitle/useTitle';
 import CommunityPosted from '../CommunityPosted/CommunityPosted';
 
@@ -10,6 +19,7 @@ const CommunityFeed = () => {
     const { user, loading } = useContext(AuthContext)
     console.log(user)
     const imageHostkeyk = process.env.REACT_APP_IMG_KEY
+ 
     const { register, formState: { errors }, handleSubmit } = useForm()
     const PostButton = data => {
 
@@ -32,39 +42,36 @@ const CommunityFeed = () => {
 
                     console.log(imgData.data.url)
 
+
+                    const postData = {
+                        firstName: userInfo?.firstName,
+                        lastName: userInfo?.lastName,
+                        post: data.post,
+                        image: imgData.data.url,
+                        email: user?.email
+
+                    }
+                    // axios.post(`http://localhost:5000/post`, postData)
+                    //     .then(res => console.log(res.data))
+
+
+                    fetch('http://localhost:5000/post', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(postData)
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.acknowledged) {
+                                navigate("/Community")
+                            }
+                            console.log(data)
+                        })
+                    console.log(postData)
                 }
-
-                // const postData = {
-                //     post: data.post,
-                //     image: imgData.data.url,
-                //     username: user?.displayName,
-                //     email: user?.email
-
-                // }
-                // fetch('https://chat-six-ashen.vercel.app/post', {
-                //     method: 'POST',
-                //     headers: {
-                //         'content-type': 'application/json'
-                //     },
-                //     body: JSON.stringify(postData)
-                // })
-                //     .then(res => res.json())
-                //     .then(data => {
-                //         if (data.acknowledged) {
-                //             navigate('/media')
-                //             toast.success('Your post adedd on media')
-                //         }
-                //         console.log(data)
-
-
-                //     })
-                // console.log(postData)
             })
-
-
-
-
-
     }
 
     return (
@@ -72,17 +79,17 @@ const CommunityFeed = () => {
             <div className='items-center mb-4 justify-start flex gap-4'>
                 <div className="avatar">
                     <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-
+                        <img src={userInfo?.picture} alt="" />
                     </div>
                 </div>
                 <div>
-                    <h1>Sadekin Chowdhury</h1>
+                    <h1>{userInfo?.firstName}{userInfo?.lastName}</h1>
                 </div>
             </div>
             {/* <Link to={"Community/post"} className='btn btn-outline bg-accent-focus'>Start Writing</Link> */}
             <form onSubmit={handleSubmit(PostButton)}>
                 <div>
-                    <textarea className='w-full outline rounded-2xl' type='text' {...register("post", {
+                    <textarea className='w-full text-black outline rounded-2xl' type='text' {...register("post", {
 
                     })} placeholder='Write you article....' id="" cols="30" rows="10">
 
