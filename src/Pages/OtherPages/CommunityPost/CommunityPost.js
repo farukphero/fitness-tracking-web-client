@@ -12,20 +12,20 @@
 //     // const { register, formState: { errors }, handleSubmit } = useForm()
 //     // const PostButton = data => {
  
-import React, { useContext } from 'react';
-import { useForm } from 'react-hook-form';
-import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
-import useTitle from '../../../Hooks/useTitle/useTitle';
-import CommunityPosted from '../CommunityPosted/CommunityPosted';
+// import React, { useContext } from 'react';
+// import { useForm } from 'react-hook-form';
+// import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
+// import useTitle from '../../../Hooks/useTitle/useTitle';
+// import CommunityPosted from '../CommunityPosted/CommunityPosted';
 
 
-const CommunityPost = () => {
-    useTitle("CommunityPost")
-    const { user, loading } = useContext(AuthContext)
-    console.log(user)
-    const imageHostkeyk = process.env.REACT_APP_IMG_KEY
-    const { register, formState: { errors }, handleSubmit } = useForm()
-    const PostButton = data => {
+// const CommunityPost = () => {
+//     useTitle("CommunityPost")
+//     const { user, loading } = useContext(AuthContext)
+//     console.log(user)
+//     const imageHostkeyk = process.env.REACT_APP_IMG_KEY
+//     const { register, formState: { errors }, handleSubmit } = useForm()
+//     const PostButton = data => {
  
 
 //     //     console.log(data)

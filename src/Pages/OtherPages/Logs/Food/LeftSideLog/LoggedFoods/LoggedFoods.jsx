@@ -28,7 +28,7 @@ const LoggedFoods = ({ logedFood }) => {
   }
   return (
     <div>
-      <h2 className="font-bold text-3xl my-3 capitalize">logged foods</h2>
+      <h2 className="font-bold text-3xl my-3 capitalize mt-24 lg:mt-5">logged foods</h2>
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>

@@ -3,7 +3,7 @@ import React from "react";
 const FoodStats = () => {
   return (
     <>
-      <div className="overflow-x-auto border rounded-md p-3">
+      <div className="overflow-x-auto border rounded-md p-3 ">
         <div className="flex items-center justify-between">
           <div>
             <span className="font-semibold text-3xl">Foods</span>
