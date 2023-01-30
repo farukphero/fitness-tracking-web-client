@@ -46,9 +46,7 @@ const UserInfo = () => {
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
-
-    console.log(newuserInfo);
-    // setUserInfo(newuserInfo);
+  
     setUserInfo((prev) => {
       return {
         ...prev,
@@ -145,7 +143,7 @@ const UserInfo = () => {
                 <div className="ml-48">
                   <button
                     onClick={handleEdittoggle}
-                    className="btn btn-explore"
+                    className="btn btn-explore btn-outline"
                   >
                     Edit
                   </button>
