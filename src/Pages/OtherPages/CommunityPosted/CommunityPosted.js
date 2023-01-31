@@ -1,7 +1,6 @@
 import { React, useEffect, useState } from 'react'
 import CommunityPosteds from './CommunityPosteds';
 
- 
 const CommunityPosted = () => {
     const [posts, setPosts] = useState([])
     useEffect(() => {
@@ -13,18 +12,11 @@ const CommunityPosted = () => {
             })
 
     }, [])
- 
-import { Link } from 'react-router-dom';
 
-import { BiLike, BiComment, BiMessage } from 'react-icons/bi'
-import { React } from 'react'
-import useTitle from '../../../Hooks/useTitle/useTitle';
-const CommunityPosted = () => {
-useTitle("CommunityFeed")
- 
 
     return (
         <div>
+
             {
                 posts.map(post =>
                     <CommunityPosteds
@@ -39,5 +31,4 @@ useTitle("CommunityFeed")
         </div>
     );
 };
-
 export default CommunityPosted;

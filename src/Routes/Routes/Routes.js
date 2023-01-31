@@ -23,14 +23,14 @@ import Food from "../../Pages/OtherPages/Logs/Food/Food/Food";
 import Weight from "../../Pages/OtherPages/Logs/Weight/Weight";
 import Sleep from "../../Pages/OtherPages/Logs/Sleep/Sleep";
 import Water from "../../Pages/OtherPages/Logs/Water/Water";
- 
+
 import Setting from "../../Pages/Dashboard/SettingAndPrivacy/Setting/Setting";
 import Plan from "../../Pages/Dashboard/SettingAndPrivacy/Plan/Plan";
 import Team from "../../Pages/Dashboard/SettingAndPrivacy/Team/Team";
 import Notification from "../../Pages/Dashboard/SettingAndPrivacy/Notification/Notification";
 import Intergration from "../../Pages/Dashboard/SettingAndPrivacy/Intergration/Intergration";
 import AuthProfile from "../../Pages/Dashboard/SettingAndPrivacy/AuthProfile/AuthProfile";
- 
+
 import AddTutorials from "../../Pages/OtherPages/Tutorials/AddTutorials/AddTutorials";
 import Tutorial from "../../Pages/OtherPages/Tutorials/Tutorial/Tutorial";
 import CommunityLaout from "../../Layout/CommunityLaout/CommunityLaout";
@@ -44,7 +44,7 @@ import AdminRoute from "../AdminRoute/AdminRoute";
 import DashboardLayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
 import WeightCalculator from "../../Pages/Home/WeightCalculator/WeightCalculator";
 
- 
+
 
 export const router = createBrowserRouter([
   {
@@ -69,12 +69,12 @@ export const router = createBrowserRouter([
         path: "/Tutorials",
         element: <Tutorials></Tutorials>,
       },
-      
+
       {
         path: "/WeightCalculator",
         element: <WeightCalculator></WeightCalculator>,
       },
-      
+
       {
         path: "/AddTutorials",
         element: <AdminRoute><AddTutorials></AddTutorials></AdminRoute>,
@@ -111,7 +111,7 @@ export const router = createBrowserRouter([
             path: "/Community/group",
             element: <CommunityGroup></CommunityGroup>
           },
-          
+
 
         ]
       },
@@ -119,7 +119,7 @@ export const router = createBrowserRouter([
       //   path: "/Profile",
       //   element: <DashboardLayout></DashboardLayout>,
       //   children:[ 
-          
+
       // { path: "/Dashboard/userInfo", element: <UserInfo></UserInfo> },
       {
         path: "/Dashboard/Setting/plan",
@@ -133,7 +133,7 @@ export const router = createBrowserRouter([
         path: "/Dashboard/Setting/notification",
         element: <Notification></Notification>,
       },
-    { 
+      {
         path: "/Dashboard/Setting/integration",
         element: <Intergration></Intergration>,
       },
@@ -142,9 +142,9 @@ export const router = createBrowserRouter([
         element: <AuthProfile></AuthProfile>,
       },
 
-      
 
-        // ]
+
+      // ]
       // },
       {
         path: '/singleCategory/:id',
@@ -164,11 +164,11 @@ export const router = createBrowserRouter([
         path: "/Dashboard/Setting",
         element: <Setting></Setting>,
       },
- 
+
       { path: "/Dashboard/report", element: <Report></Report> },
       { path: "/Dashboard/event", element: <Event></Event> },
       { path: "/Dashboard/support", element: <Support></Support> },
- 
+
       {
         path: "/SignIn",
         element: <SignIn></SignIn>,
@@ -181,7 +181,7 @@ export const router = createBrowserRouter([
   },
 
   {
- 
+
     path: "/UserDetails",
     element: (
       <PrivateRoute>
@@ -224,9 +224,9 @@ export const router = createBrowserRouter([
         path: "/Logs/Sleep",
         element: <Sleep></Sleep>,
       },
-     
+
     ],
- 
+
   },
-  
+
 ]);
