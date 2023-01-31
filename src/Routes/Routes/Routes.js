@@ -23,14 +23,14 @@ import Food from "../../Pages/OtherPages/Logs/Food/Food/Food";
 import Weight from "../../Pages/OtherPages/Logs/Weight/Weight";
 import Sleep from "../../Pages/OtherPages/Logs/Sleep/Sleep";
 import Water from "../../Pages/OtherPages/Logs/Water/Water";
- 
+
 import Setting from "../../Pages/Dashboard/SettingAndPrivacy/Setting/Setting";
 import Plan from "../../Pages/Dashboard/SettingAndPrivacy/Plan/Plan";
 import Team from "../../Pages/Dashboard/SettingAndPrivacy/Team/Team";
 import Notification from "../../Pages/Dashboard/SettingAndPrivacy/Notification/Notification";
 import Intergration from "../../Pages/Dashboard/SettingAndPrivacy/Intergration/Intergration";
 import AuthProfile from "../../Pages/Dashboard/SettingAndPrivacy/AuthProfile/AuthProfile";
- 
+
 import AddTutorials from "../../Pages/OtherPages/Tutorials/AddTutorials/AddTutorials";
 import Tutorial from "../../Pages/OtherPages/Tutorials/Tutorial/Tutorial";
 import CommunityLaout from "../../Layout/CommunityLaout/CommunityLaout";
@@ -43,8 +43,8 @@ import ActivitiesHistoryDetails from "../../Pages/OtherPages/Logs/Activities/Act
 import AdminRoute from "../AdminRoute/AdminRoute";
 import DashboardLayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
 import WeightCalculator from "../../Pages/Home/WeightCalculator/WeightCalculator";
-
- 
+import Bmi from "../../Pages/Home/Calculator/Bmi/Bmi";
+import Bmr from "../../Pages/Home/Calculator/Bmr/Bmr";
 
 export const router = createBrowserRouter([
   {
@@ -69,15 +69,27 @@ export const router = createBrowserRouter([
         path: "/Tutorials",
         element: <Tutorials></Tutorials>,
       },
-      
+
       {
         path: "/WeightCalculator",
         element: <WeightCalculator></WeightCalculator>,
       },
-      
+      {
+        path: "/bmi",
+        element: <Bmi></Bmi>,
+      },
+      {
+        path: "/bmr",
+        element: <Bmr></Bmr>,
+      },
+
       {
         path: "/AddTutorials",
-        element: <AdminRoute><AddTutorials></AddTutorials></AdminRoute>,
+        element: (
+          <AdminRoute>
+            <AddTutorials></AddTutorials>
+          </AdminRoute>
+        ),
       },
       {
         path: "/ActivitiesHistoryDetails",
@@ -89,7 +101,7 @@ export const router = createBrowserRouter([
         children: [
           {
             path: "/Community/community",
-            element: <Community></Community>
+            element: <Community></Community>,
           },
           // {
           //   path: "/Community",
@@ -97,23 +109,21 @@ export const router = createBrowserRouter([
           // },
           {
             path: "/Community/post",
-            element: <CommunityPost></CommunityPost>
+            element: <CommunityPost></CommunityPost>,
           },
           {
             path: "/Community",
-            element: <CommunityPosted></CommunityPosted>
+            element: <CommunityPosted></CommunityPosted>,
           },
           {
             path: "/Community/friend",
-            element: <CommunityFriend></CommunityFriend>
+            element: <CommunityFriend></CommunityFriend>,
           },
           {
             path: "/Community/group",
-            element: <CommunityGroup></CommunityGroup>
+            element: <CommunityGroup></CommunityGroup>,
           },
-          
-
-        ]
+        ],
       },
       {
         path: "/Profile",
@@ -126,12 +136,25 @@ export const router = createBrowserRouter([
         element: <Setting></Setting>,
       },
       // {
-      //   path: "/Profile/Setting/plan",
-      //   element: <Plan></Plan>,
-      // },
-      // {
       //   path: "/Dashboard/Setting/team",
       //   element: <Team></Team>,
+      // },
+      // {
+      //   path: "/Dashboard/Setting/notification",
+      //   element: <Notification></Notification>,
+      // },
+    // { 
+    //     path: "/Dashboard/Setting/integration",
+    //     element: <Intergration></Intergration>,
+    //   },
+    //   {
+    //     path: "/Dashboard/authprofile",
+    //     element: <AuthProfile></AuthProfile>,
+    //   },
+
+      
+
+        // ]
       // },
     //   {
     //     path: "/Dashboard/Setting/notification",
@@ -151,25 +174,29 @@ export const router = createBrowserRouter([
         ]
       },
       {
-        path: '/singleCategory/:id',
-        loader: ({ params }) => fetch(`https://fitness-tracking-web-server.vercel.app/singleCategory/${params.id}`),
+        path: "/singleCategory/:id",
+        loader: ({ params }) =>
+          fetch(
+            `https://fitness-tracking-web-server.vercel.app/singleCategory/${params.id}`
+          ),
         element: <Tutorial></Tutorial>,
       },
 
-
-
-      { path: "/Dashboard/userInfo", element: <UserInfo></UserInfo> },
+      // { path: "/Dashboard/userInfo", element: <UserInfo></UserInfo> },
 
       // {
       //   path: "/Dashboard/setting",
       //   element: <SettingAndPrivacy></SettingAndPrivacy>,
       // },
-     
+      // {
+      //   path: "/Dashboard/Setting",
+      //   element: <Setting></Setting>,
+      // },
  
-      { path: "/Dashboard/report", element: <Report></Report> },
-      { path: "/Dashboard/event", element: <Event></Event> },
-      { path: "/Dashboard/support", element: <Support></Support> },
- 
+      // { path: "/Dashboard/report", element: <Report></Report> },
+      // { path: "/Dashboard/event", element: <Event></Event> },
+      // { path: "/Dashboard/support", element: <Support></Support> },
+
       {
         path: "/SignIn",
         element: <SignIn></SignIn>,
@@ -182,7 +209,6 @@ export const router = createBrowserRouter([
   },
 
   {
- 
     path: "/UserDetails",
     element: (
       <PrivateRoute>
@@ -225,9 +251,6 @@ export const router = createBrowserRouter([
         path: "/Logs/Sleep",
         element: <Sleep></Sleep>,
       },
-     
     ],
- 
   },
-  
 ]);

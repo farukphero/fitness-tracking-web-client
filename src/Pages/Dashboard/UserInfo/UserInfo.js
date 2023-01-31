@@ -88,7 +88,7 @@ const UserInfo = () => {
           <div className="text-white text-user-info relative">
             {isEditing ? (
               <form
-                className="flex flex-col  mr-20 gap-3 "
+                className="flex flex-col lg:w-96 gap-3 "
                 onSubmit={handleSubmit(handleEdit)}
               >
                 <div className="absolute -top-8 left-16 lg:left-[100px] mt-1">
@@ -109,7 +109,7 @@ const UserInfo = () => {
                     <ImFolderPlus className="h-6 w-7 p-1" />
                   </label>
                 </div>
-                <div className="flex lg:gap-8  -ml-28 lg:ml-0 gap-2 mt-3">
+                <div className="flex lg:gap-8 -ml-28 lg:ml-0 gap-2 mt-3">
                   <div>
                     <label>First name</label>
                     <input
@@ -180,7 +180,7 @@ const UserInfo = () => {
                     />
                   </div>
                 </div>
-                <div className="flex lg:gap-12 gap-2 mr-10">
+                <div className="flex lg:gap-12 gap-2 mr-20 w-56">
                   <button className="btn btn-explore bg-gradient-to-r from-gray-700 via-green-700 to-gray-700 btn-outline mt-5 w-full">
                     save
                   </button>
