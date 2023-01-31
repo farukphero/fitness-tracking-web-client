@@ -132,12 +132,12 @@ const Navbar = () => {
                 className="mt-16 p-5 shadow menu menu-compact dropdown-content bg-gradient-to-r from-gray-600 via-gray-700 to-gray-600 text-white hover:bg-gradient-to-r rounded-box w-52"
               >
                 <li className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
-                  <Link to="/Dashboard/userInfo" className="justify-between">
+                  <Link to="/Profile/userInfo" className="justify-between">
                     Profile
                   </Link>
                 </li>
                 <li className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
-                  <Link to="/Dashboard/setting">Settings</Link>
+                  <Link to="/Profile/setting">Settings</Link>
                 </li>
 
                 {user && (
@@ -265,7 +265,7 @@ const Navbar = () => {
             </div>
                         <li className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">
                           <Link
-                            to="/Dashboard/userInfo"
+                            to="/Profile/userInfo"
                             className="justify-between"
                             onClick={() => setIsMenuOpen(false)}
                           >
@@ -274,7 +274,7 @@ const Navbar = () => {
                         </li>
                         <li>
                           <Link
-                            to="/Dashboard/setting"
+                            to="/Profile/setting"
                             onClick={() => setIsMenuOpen(false)}
                           >
                             Settings

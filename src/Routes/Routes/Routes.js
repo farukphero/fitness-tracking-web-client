@@ -115,37 +115,41 @@ export const router = createBrowserRouter([
 
         ]
       },
-      // {
-      //   path: "/Profile",
-      //   element: <DashboardLayout></DashboardLayout>,
-      //   children:[ 
+      {
+        path: "/Profile",
+        element: <DashboardLayout></DashboardLayout>,
+        children:[ 
           
-      // { path: "/Dashboard/userInfo", element: <UserInfo></UserInfo> },
+      { path: "/Profile/userInfo", element: <UserInfo></UserInfo> },
       {
-        path: "/Dashboard/Setting/plan",
-        element: <Plan></Plan>,
+        path: "/Profile/Setting",
+        element: <Setting></Setting>,
       },
-      {
-        path: "/Dashboard/Setting/team",
-        element: <Team></Team>,
-      },
-      {
-        path: "/Dashboard/Setting/notification",
-        element: <Notification></Notification>,
-      },
-    { 
-        path: "/Dashboard/Setting/integration",
-        element: <Intergration></Intergration>,
-      },
-      {
-        path: "/Dashboard/authprofile",
-        element: <AuthProfile></AuthProfile>,
-      },
+      // {
+      //   path: "/Profile/Setting/plan",
+      //   element: <Plan></Plan>,
+      // },
+      // {
+      //   path: "/Dashboard/Setting/team",
+      //   element: <Team></Team>,
+      // },
+    //   {
+    //     path: "/Dashboard/Setting/notification",
+    //     element: <Notification></Notification>,
+    //   },
+    // { 
+    //     path: "/Dashboard/Setting/integration",
+    //     element: <Intergration></Intergration>,
+    //   },
+    //   {
+    //     path: "/Dashboard/authprofile",
+    //     element: <AuthProfile></AuthProfile>,
+    //   },
 
       
 
-        // ]
-      // },
+        ]
+      },
       {
         path: '/singleCategory/:id',
         loader: ({ params }) => fetch(`https://fitness-tracking-web-server.vercel.app/singleCategory/${params.id}`),
@@ -160,10 +164,7 @@ export const router = createBrowserRouter([
       //   path: "/Dashboard/setting",
       //   element: <SettingAndPrivacy></SettingAndPrivacy>,
       // },
-      {
-        path: "/Dashboard/Setting",
-        element: <Setting></Setting>,
-      },
+     
  
       { path: "/Dashboard/report", element: <Report></Report> },
       { path: "/Dashboard/event", element: <Event></Event> },
