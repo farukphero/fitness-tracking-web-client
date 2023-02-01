@@ -5,7 +5,7 @@ import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import { useDate } from "../DateProvider/DateProvider";
 
 const RouteAndDate = () => {
-  const { state, dispatch } = useDate;
+  const { state, dispatch } = useDate();
 
   return (
     <div>
@@ -46,8 +46,6 @@ const RouteAndDate = () => {
             selected={state}
             onChange={(date) => dispatch({ type: `CUSTOM`, payload: date })}
             isClearable
-            closeOnScroll={true}
-            placeholderText="i have been cleared!"
           ></ReactDatePicker>
           <AiOutlineRight
             onClick={() => dispatch({type: `TOMMOWROW`})}

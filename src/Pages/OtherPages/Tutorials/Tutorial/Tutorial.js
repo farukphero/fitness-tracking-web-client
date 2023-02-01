@@ -10,7 +10,7 @@ const Tutorial = () => {
     // console.log(data);
     const { data: tutorials = [], refetch } = useQuery({
         queryKey: ['tutorials'],
-        queryFn: () => fetch(`https://fitness-tracking-web-server.vercel.app/tutorials?category=${data?.category}`)
+        queryFn: () => fetch(`http://localhost:5000/tutorials?category=${data?.category}`)
             .then(res => res.json())
             .then(data => {
                 // setLoading(false)

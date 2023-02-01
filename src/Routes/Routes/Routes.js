@@ -6,21 +6,18 @@ import Main from "../../Layout/Main/Main";
 import Event from "../../Pages/Dashboard/Event/Event";
 import Report from "../../Pages/Dashboard/Report/Report";
 
+import UserDetails from "../../Authentications/UserDetails/UserDetails";
+import LogsLayout from "../../Layout/LogsLayout/LogsLayout/LogsLayout";
 import Support from "../../Pages/Dashboard/Support/Support";
 import UserInfo from "../../Pages/Dashboard/UserInfo/UserInfo";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Home from "../../Pages/Home/Home/Home";
+import ServiceDetails from "../../Pages/Home/Services/ServiceDetails";
 import Community from "../../Pages/OtherPages/Community/Community";
 import Foods from "../../Pages/OtherPages/Foods/Foods";
 import Leaderboard from "../../Pages/OtherPages/Leaderboard/Leaderboard";
-import Tutorials from "../../Pages/OtherPages/Tutorials/Tutorials";
-import ServiceDetails from "../../Pages/Home/Services/ServiceDetails";
-import PrivateRoute from "../PrivateRoute/PrivateRoute";
-import UserDetails from "../../Authentications/UserDetails/UserDetails";
-import LogsLayout from "../../Layout/LogsLayout/LogsLayout/LogsLayout";
 import Activities from "../../Pages/OtherPages/Logs/Activities/Activities/Activities";
 import Food from "../../Pages/OtherPages/Logs/Food/Food/Food";
-import Weight from "../../Pages/OtherPages/Logs/Weight/Weight";
 import Sleep from "../../Pages/OtherPages/Logs/Sleep/Sleep";
 import Water from "../../Pages/OtherPages/Logs/Water/Water";
 
@@ -34,18 +31,25 @@ import AuthProfile from "../../Pages/Dashboard/SettingAndPrivacy/AuthProfile/Aut
 import AddTutorials from "../../Pages/OtherPages/Tutorials/AddTutorials/AddTutorials";
 import Tutorial from "../../Pages/OtherPages/Tutorials/Tutorial/Tutorial";
 import CommunityLaout from "../../Layout/CommunityLaout/CommunityLaout";
-import CommunityFeed from "../../Pages/OtherPages/Communityfeed/CommunityFeed";
-import CommunityPosted from "../../Pages/OtherPages/CommunityPosted/CommunityPosted";
-import CommunityPost from "../../Pages/OtherPages/CommunityPost/CommunityPost";
+import WeightCalculator from "../../Pages/Home/WeightCalculator/WeightCalculator";
 import CommunityFriend from "../../Pages/OtherPages/CommunityFriend/CommunityFriend";
 import CommunityGroup from "../../Pages/OtherPages/CommunityGroup/CommunityGroup";
+import CommunityPost from "../../Pages/OtherPages/CommunityPost/CommunityPost";
+import CommunityPosted from "../../Pages/OtherPages/CommunityPosted/CommunityPosted";
 import ActivitiesHistoryDetails from "../../Pages/OtherPages/Logs/Activities/Activities/ActivitiesHistoryDetails/ActivitiesHistoryDetails";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import DashboardLayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
+ 
+import Bmi from "../../Pages/Home/Calculator/Bmi/Bmi";
+import Bmr from "../../Pages/Home/Calculator/Bmr/Bmr";
+import Weight from "../../Pages/OtherPages/Logs/Weight/Weight";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+ 
 import WeightCalculator from "../../Pages/Home/WeightCalculator/WeightCalculator";
 import Bmi from "../../Pages/Home/Calculator/Bmi/Bmi";
 import Bmr from "../../Pages/Home/Calculator/Bmr/Bmr";
 import WaterTracking from "../../Pages/Home/Calculator/WaterTracking/WaterTracking";
+ 
 
 export const router = createBrowserRouter([
   {
@@ -68,7 +72,7 @@ export const router = createBrowserRouter([
 
       {
         path: "/Tutorials",
-        element: <Tutorials></Tutorials>,
+        element: <Tutorial></Tutorial>,
       },
 
       {
@@ -83,10 +87,13 @@ export const router = createBrowserRouter([
         path: "/bmr",
         element: <Bmr></Bmr>,
       },
+ 
+ 
       {
         path: "water",
         element: <WaterTracking></WaterTracking>,
       },
+ 
 
       {
         path: "/AddTutorials",
@@ -244,7 +251,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/Logs/Weight",
-        element: <Weight></Weight>,
+        element: <Weight />,
       },
       {
         path: "/Logs/Sleep",

@@ -42,7 +42,7 @@ const UserDetails = () => {
           phone: data.phone,
           picture: imgData.data.url,
         };
-        fetch("https://fitness-tracking-web-server.vercel.app/users", {
+        fetch("http://localhost:5000/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
