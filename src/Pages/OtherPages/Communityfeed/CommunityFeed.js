@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import useTitle from '../../../Hooks/useTitle/useTitle';
+ 
 
 const CommunityFeed = () => {
 
@@ -11,6 +12,25 @@ const CommunityFeed = () => {
     const navigate = useNavigate()
     const imageHostkeyk = "e49a11b11d3bcadfe6ff2e14a831598a"
 
+ 
+ 
+
+
+const CommunityFeed = () => {
+    const { user, userInfo,loading } = useContext(AuthContext)
+    const navigate = useNavigate()
+    const imageHostkeyk = `e49a11b11d3bcadfe6ff2e14a831598a`
+ 
+ 
+ 
+
+ 
+    useTitle("Community")
+     
+    console.log(user)
+    // const imageHostkeyk = process.env.REACT_APP_IMG_KEY
+ 
+ 
     const { register, formState: { errors }, handleSubmit } = useForm()
     const PostButton = data => {
 
