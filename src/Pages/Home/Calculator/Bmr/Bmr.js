@@ -1,5 +1,10 @@
 import { useState } from "react";
+ 
 import working8 from "../../../../assets/working8.json";
+ 
+
+import working9 from "../../../../assets/working9.json";
+ 
 
 import Lottie from "lottie-react";
 
@@ -149,6 +154,7 @@ const Bmr = () => {
   }
 
   return (
+ 
     <div className="grid grid-cols-1 lg:grid-cols-2  mt-16 mb-44">
       {/* animation and type start here */}
       <div>
@@ -156,14 +162,37 @@ const Bmr = () => {
           <Lottie
             className="w-2/3"
             animationData={working8}
+ 
+    <div className="grid grid-cols-1 lg:grid-cols-2   mt-16 mb-44">
+      {/* animation and type start here */}
+      <div>
+        <div className="flex justify-center ">
+          <Lottie
+            className="w-3/4"
+            animationData={working9}
+ 
             loop={true}
           ></Lottie>
         </div>
       </div>
 
+ 
       <div className="mt-4 ml-24 lg:ml-2  ">
         {/* form start here */}
         <div id="bmrcalc">
+ 
+      <div
+        className="mt-4 ml-24 lg:ml-2  "
+        data-aos="fade-down"
+        data-aos-easing="linear"
+        data-aos-duration="1000"
+      >
+        {/* form start here */}
+        <div
+          id="bmrcalc"
+          className="box w-4/5 lg:w-2/3 px-8 pb-8 pt-14 rounded-lg"
+        >
+ 
           <div className="form">
             <h2 className="text-3xl font-bold">BMR CALCULATOR</h2>
             <h1 className="text-red-800 font-bold ">{resultError}</h1>
@@ -194,12 +223,20 @@ const Bmr = () => {
             </div>
             <div className="inputwrap">
               <label className="label text-2xl">Weight :</label>
+ 
               <label className="mr-2">
+ 
+              <label className="mr-8 lg:mr-2">
+ 
                 <input
                   type="radio"
                   checked={bmrData.weightType == "1"}
                   onChange={handleWeightTypeChange}
+ 
                   className="imperial mr-2"
+ 
+                  className="imperial mr-2 "
+ 
                   name="wrightT"
                   value="1"
                 />
@@ -235,7 +272,11 @@ const Bmr = () => {
               <input
                 type="number"
                 placeholder="feet"
+ 
                 className="heightFeet text-black input input-bordered  w-36 mr-2 "
+ 
+                className="heightFeet text-black input input-bordered  w-36 mr-2 mb-4 lg:mb-0 "
+ 
                 value={bmrData.heightFeet}
                 onChange={handleHeightFeetChange}
                 name="heightFeet"
