@@ -1,6 +1,20 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { AuthContext } from "../../../../../../Contexts/AuthProvider/AuthProvider";
+ 
+import DatePicker from "react-datepicker";
+import { FoodContext } from "../../../../../../Contexts/FoodProvider/FoodProvider";
+
+const FoodLog = ({ logedFood, setLogedFood, startDate, setStartDate, item, setItem, setShowForm , }) => {
+  // const [foodValue, setFoodValue] = useState('');
+  // const [foodData, setFoodData] = useState({});
+  // const [foodAmount, setFoodAmount] = useState('');
+  // const [foodCalory, setFoodCalory] = useState('');
+  // const [data, setData] = useState([]);
+
+  const {foodValue, setFoodValue, foodData, setFoodData, foodAmount, setFoodAmount, foodCalory, setFoodCalory, data, setData} = useContext(FoodContext);
+ 
+ 
 
 const FoodLog = ({ logedFood, setLogedFood }) => {
   const [foodValue, setFoodValue] = useState("");
@@ -8,10 +22,18 @@ const FoodLog = ({ logedFood, setLogedFood }) => {
   const [foodAmount, setFoodAmount] = useState("");
   const [foodCalory, setFoodCalory] = useState("");
   const [data, setData] = useState([]);
+ 
   const user = useContext(AuthContext);
   // console.log(logedFood)
   // console.log(user.user.email)
 
+//   const currentDate = new Date();
+// const year = currentDate.getFullYear();
+// const month = currentDate.getMonth();
+// const day = currentDate.getDate();
+
+// const currentDateOnly = new Date(year, month, day);
+// const [startDate, setStartDate] = useState(currentDateOnly);
   useEffect(() => {
     fetch("http://localhost:5000/foods")
       .then((res) => res.json())
@@ -49,6 +71,13 @@ const FoodLog = ({ logedFood, setLogedFood }) => {
     const time = event.target.time.value;
     const calorey = foodCalory;
     const userEmail = user?.user?.email;
+ 
+    const date = startDate.toLocaleDateString();
+    console.log(date)
+    const loged = { food: food, amount: amount, time: time, calorey: calorey, userEmail: userEmail, date: date }
+    fetch('https://fitness-tracking-web-server.vercel.app/loggedFood', {
+      method: 'POST',
+ 
     const loged = {
       food: food,
       amount: amount,
@@ -58,6 +87,7 @@ const FoodLog = ({ logedFood, setLogedFood }) => {
     };
     fetch("http://localhost:5000/loggedFood", {
       method: "POST",
+ 
       headers: {
         "content-type": "application/json",
       },
@@ -72,6 +102,12 @@ const FoodLog = ({ logedFood, setLogedFood }) => {
       });
   };
 
+ 
+  const { isLoading, error, data: food, refetch } = useQuery({
+    queryKey: ['loggedFood/userEmail', 'loggedFood/date'],
+    queryFn: async () => {
+      const res = await fetch(`http://localhost:5000/loggedFood/${user?.user?.email}?date=${startDate.toLocaleDateString()}`);
+ 
   const {
     isLoading,
     error,
@@ -83,6 +119,7 @@ const FoodLog = ({ logedFood, setLogedFood }) => {
       const res = await fetch(
         `http://localhost:5000/loggedFood/${user?.user?.email}`
       );
+ 
       const data = await res.json();
       return setLogedFood(data);
     },
@@ -93,10 +130,25 @@ const FoodLog = ({ logedFood, setLogedFood }) => {
 
   if (error) return "An error has occurred: " + error.message;
 
+  const handleFormClose = () => {
+    setItem(null);
+    setShowForm(false);
+  };
+
   return (
     <div className="card-body border rounded-md">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between w-full">
         <h2 className="font-bold lg:text-4xl capitalize">Food log</h2>
+        
+   <div>
+   <DatePicker className="font-bold w-2/4 lg:text-2xl capitalize bg-green-800"
+        name="date"
+        defaultValue='select'
+      selected={startDate}
+      // value={startDate}
+      onChange={date => setStartDate(date)}
+    />
+   </div>
       </div>
 
       <form onSubmit={handleFoodLogForm}>

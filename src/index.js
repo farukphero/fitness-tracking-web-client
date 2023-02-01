@@ -5,6 +5,8 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import AuthProvider from "./Contexts/AuthProvider/AuthProvider";
 import { QueryClient, QueryClientProvider } from "react-query";
+import FoodProvider from "./Contexts/FoodProvider/FoodProvider";
+// import "react-datepicker/dist/react-datepicker.css";
 
 const queryClient = new QueryClient()
 
@@ -12,9 +14,11 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-    <AuthProvider>
+   <FoodProvider>
+   <AuthProvider>
       <App />
     </AuthProvider>
+   </FoodProvider>
     </QueryClientProvider>
   </React.StrictMode>
 );
