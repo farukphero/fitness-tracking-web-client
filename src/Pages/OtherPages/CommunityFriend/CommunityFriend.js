@@ -1,7 +1,6 @@
 import React from 'react';
  
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import useTitle from '../../../Hooks/useTitle/useTitle';
 import CommunityFriends from './CommunityFriends';
 
@@ -9,7 +8,7 @@ const CommunityFriend = () => {
     useTitle("CommunityFriend")
     const [users, setUsers] = useState([])
     useEffect(() => {
-        fetch('https://fitness-tracking-web-server.vercel.app/users')
+        fetch('http://localhost:5000/users')
             .then(res => res.json())
             .then(data => {
                 setUsers(data)

@@ -37,7 +37,7 @@ const UserInfo = () => {
     console.log(newuserInfo);
     console.log(user.email);
 
-    fetch(`https://fitness-tracking-web-server.vercel.app/users/edit/${user?.email}`, {
+    fetch(`http://localhost:5000/users/edit/${user?.email}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -57,7 +57,7 @@ const UserInfo = () => {
   };
 
   useEffect(() => {
-    fetch(`https://fitness-tracking-web-server.vercel.app/users/${user?.email}`)
+    fetch(`http://localhost:5000/users/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setUserInfo(data));
   }, [user]);
