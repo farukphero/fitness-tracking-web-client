@@ -45,6 +45,7 @@ import DashboardLayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
 import WeightCalculator from "../../Pages/Home/WeightCalculator/WeightCalculator";
 import Bmi from "../../Pages/Home/Calculator/Bmi/Bmi";
 import Bmr from "../../Pages/Home/Calculator/Bmr/Bmr";
+import WaterTracking from "../../Pages/Home/Calculator/WaterTracking/WaterTracking";
 
 export const router = createBrowserRouter([
   {
@@ -81,6 +82,10 @@ export const router = createBrowserRouter([
       {
         path: "/bmr",
         element: <Bmr></Bmr>,
+      },
+      {
+        path: "water",
+        element: <WaterTracking></WaterTracking>,
       },
 
       {
@@ -128,50 +133,44 @@ export const router = createBrowserRouter([
       {
         path: "/Profile",
         element: <DashboardLayout></DashboardLayout>,
-        children:[ 
-          
-      { path: "/Profile/userInfo", element: <UserInfo></UserInfo> },
-      {
-        path: "/Profile/Setting",
-        element: <Setting></Setting>,
-      },
-      // {
-      //   path: "/Dashboard/Setting/team",
-      //   element: <Team></Team>,
-      // },
-      // {
-      //   path: "/Dashboard/Setting/notification",
-      //   element: <Notification></Notification>,
-      // },
-    // { 
-    //     path: "/Dashboard/Setting/integration",
-    //     element: <Intergration></Intergration>,
-    //   },
-    //   {
-    //     path: "/Dashboard/authprofile",
-    //     element: <AuthProfile></AuthProfile>,
-    //   },
+        children: [
+          { path: "/Profile/userInfo", element: <UserInfo></UserInfo> },
+          {
+            path: "/Profile/Setting",
+            element: <Setting></Setting>,
+          },
+          // {
+          //   path: "/Dashboard/Setting/team",
+          //   element: <Team></Team>,
+          // },
+          // {
+          //   path: "/Dashboard/Setting/notification",
+          //   element: <Notification></Notification>,
+          // },
+          // {
+          //     path: "/Dashboard/Setting/integration",
+          //     element: <Intergration></Intergration>,
+          //   },
+          //   {
+          //     path: "/Dashboard/authprofile",
+          //     element: <AuthProfile></AuthProfile>,
+          //   },
 
-      
-
-        // ]
-      // },
-    //   {
-    //     path: "/Dashboard/Setting/notification",
-    //     element: <Notification></Notification>,
-    //   },
-    // { 
-    //     path: "/Dashboard/Setting/integration",
-    //     element: <Intergration></Intergration>,
-    //   },
-    //   {
-    //     path: "/Dashboard/authprofile",
-    //     element: <AuthProfile></AuthProfile>,
-    //   },
-
-      
-
-        ]
+          // ]
+          // },
+          //   {
+          //     path: "/Dashboard/Setting/notification",
+          //     element: <Notification></Notification>,
+          //   },
+          // {
+          //     path: "/Dashboard/Setting/integration",
+          //     element: <Intergration></Intergration>,
+          //   },
+          //   {
+          //     path: "/Dashboard/authprofile",
+          //     element: <AuthProfile></AuthProfile>,
+          //   },
+        ],
       },
       {
         path: "/singleCategory/:id",
@@ -192,7 +191,7 @@ export const router = createBrowserRouter([
       //   path: "/Dashboard/Setting",
       //   element: <Setting></Setting>,
       // },
- 
+
       // { path: "/Dashboard/report", element: <Report></Report> },
       // { path: "/Dashboard/event", element: <Event></Event> },
       // { path: "/Dashboard/support", element: <Support></Support> },
