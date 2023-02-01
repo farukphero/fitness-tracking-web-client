@@ -1,15 +1,15 @@
-import { useQuery } from 'react-query';
 import React from 'react';
 import { FaArrowRight } from 'react-icons/fa';
+import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
-import "./Tutorial.css"
 import useTitle from '../../../Hooks/useTitle/useTitle';
+import "./Tutorial.css";
 
 const Tutorials = () => {
     useTitle("Tutorials")
     const { data: categories = [],  } = useQuery({
         queryKey: ['categories'],
-        queryFn: () => fetch(`https://fitness-tracking-web-server.vercel.app/categories`)
+        queryFn: () => fetch(`http://localhost:5000/categories`)
             .then(res => res.json())
     })
     console.log(categories)

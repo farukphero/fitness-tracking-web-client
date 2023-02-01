@@ -1,7 +1,7 @@
 import React from 'react';
 
 const CommunityFriends = ({ user }) => {
-    console.log(user)
+
     return (
 
         <div className="card w-64 h-96 bg-white shadow-xl">

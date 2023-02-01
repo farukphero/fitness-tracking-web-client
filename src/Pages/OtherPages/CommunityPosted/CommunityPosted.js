@@ -1,12 +1,17 @@
-import { React, useEffect, useState } from 'react'
+import { React, useEffect, useState } from 'react';
 import useTitle from '../../../Hooks/useTitle/useTitle';
 import CommunityPosteds from './CommunityPosteds';
  
+
+const CommunityPosted = () => {
+ 
+ 
  const CommunityPosted = () => {
     useTitle("CommunityFeed")
+ 
     const [posts, setPosts] = useState([])
     useEffect(() => {
-        fetch('https://fitness-tracking-web-server.vercel.app/post')
+        fetch('http://localhost:5000/post')
             .then(res => res.json())
             .then(data => {
                 setPosts(data)
@@ -15,10 +20,18 @@ import CommunityPosteds from './CommunityPosteds';
 
     }, [])
  
+
+
+    return (
+        <div>
+
+ 
+ 
  
 
     return (
         <div className='w-10/12 mx-auto'>
+ 
             {
                 posts.map(post =>
                     <CommunityPosteds
@@ -33,5 +46,4 @@ import CommunityPosteds from './CommunityPosteds';
         </div>
     );
 };
-
 export default CommunityPosted;

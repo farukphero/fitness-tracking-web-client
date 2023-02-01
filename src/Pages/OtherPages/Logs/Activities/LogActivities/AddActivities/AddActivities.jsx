@@ -1,41 +1,52 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import ReactDatePicker from "react-datepicker";
 import { useForm } from "react-hook-form";
 import { BiCycling, BiSwim } from "react-icons/bi";
 import { FaRunning, FaWalking } from "react-icons/fa";
 import { MdLocalActivity } from "react-icons/md";
-import { useDate } from "../../DateProvider/DateProvider";
-import { useContext } from "react";
 import { AuthContext } from "../../../../../../Contexts/AuthProvider/AuthProvider";
+import { useDate } from "../../DateProvider/DateProvider";
 
 const AddActivities = () => {
   const { register, handleSubmit } = useForm();
   const { state, dispatch } = useDate();
-  const {user} = useContext(AuthContext);  
+  const { user } = useContext(AuthContext);
   const handleActivityLogForm = (data) => {
+    const {
+      name,
+      sTime,
+      duration,
+      distance,
+      unit,
+      text,
+      hour,
+      minute,
+      second,
+      weight,
+      parameter,
+    } = data;
 
-    const { name, sTime, duration, distance, unit, text, hour, minute, second, weight, parameter } = data;
-
-    // duration 
+    // duration
     const hourToSecond = parseInt(hour) * 60 * 60;
     const minuteToSecond = parseInt(minute) * 60;
-    const totalDurationSec = Math.round(hourToSecond + minuteToSecond + parseInt(second));
+    const totalDurationSec = Math.round(
+      hourToSecond + minuteToSecond + parseInt(second)
+    );
 
-
-    // distance 
+    // distance
     let totalDistance;
-    if(unit === "Kilometers"){
+    if (unit === "Kilometers") {
       totalDistance = parseInt(distance);
-    }else{
+    } else {
       totalDistance = parseInt(distance) * 1.60934;
     }
 
-    // weight 
+    // weight
     let totalWeight;
-    if(parameter === `lbs`){
+    if (parameter === `lbs`) {
       totalWeight = parseFloat(weight) * 0.453592;
-    } else{
+    } else {
       totalWeight = parseFloat(weight);
     }
 
@@ -44,8 +55,10 @@ const AddActivities = () => {
     const calouries = Math.round(totalDistance * totalWeight * 1.036);
     const calsPerKm = Math.round(weight * 1.036);
     const calsPerMi = Math.round(1.60934 * totalWeight * 1.036);
-    const calsPerHour = Math.round((totalDistance * totalWeight * 1.036) * (3600 / duration));
-    const calsBurnRate = (unit  === `mile` ? calsPerMi : calsPerKm);
+    const calsPerHour = Math.round(
+      totalDistance * totalWeight * 1.036 * (3600 / duration)
+    );
+    const calsBurnRate = unit === `mile` ? calsPerMi : calsPerKm;
 
     //steps calculation
 
@@ -63,10 +76,10 @@ const AddActivities = () => {
       notes: text,
     };
 
-
-    axios.post(`https://fitness-tracking-web-server.vercel.app/activities`, {...activity})
-    .then(res => console.log(res))
-    .catch(err => console.log(err));
+    axios
+      .post(`http://localhost:5000/activities`, { ...activity })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
   };
 
   const [logActivities, setLogActivities] = useState(true);
@@ -195,7 +208,6 @@ const AddActivities = () => {
                   </select>
                 </div>
               </div>
-
 
               <div className="form-control flex flex-row">
                 <label className="label w-32">

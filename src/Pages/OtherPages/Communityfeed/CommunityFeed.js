@@ -1,9 +1,18 @@
-import axios from 'axios';
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import useTitle from '../../../Hooks/useTitle/useTitle';
+ 
+
+const CommunityFeed = () => {
+
+    const { user, userInfo } = useContext(AuthContext)
+    console.log(user)
+    const navigate = useNavigate()
+    const imageHostkeyk = "e49a11b11d3bcadfe6ff2e14a831598a"
+
+ 
  
 
 
@@ -20,6 +29,7 @@ const CommunityFeed = () => {
      
     console.log(user)
     // const imageHostkeyk = process.env.REACT_APP_IMG_KEY
+ 
  
     const { register, formState: { errors }, handleSubmit } = useForm()
     const PostButton = data => {
@@ -52,11 +62,11 @@ const CommunityFeed = () => {
                         email: user?.email
 
                     }
-                    // axios.post(`https://fitness-tracking-web-server.vercel.app/post`, postData)
+                    // axios.post(`http://localhost:5000/post`, postData)
                     //     .then(res => console.log(res.data))
 
 
-                    fetch('https://fitness-tracking-web-server.vercel.app/post', {
+                    fetch('http://localhost:5000/post', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'

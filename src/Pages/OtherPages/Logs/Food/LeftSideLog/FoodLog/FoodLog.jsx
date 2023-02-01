@@ -1,9 +1,7 @@
-import React, { useContext } from "react";
-import { useEffect } from "react";
-import { useState } from "react";
-import { set } from "react-hook-form";
+import React, { useContext, useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { AuthContext } from "../../../../../../Contexts/AuthProvider/AuthProvider";
+ 
 import DatePicker from "react-datepicker";
 import { FoodContext } from "../../../../../../Contexts/FoodProvider/FoodProvider";
 
@@ -15,6 +13,15 @@ const FoodLog = ({ logedFood, setLogedFood, startDate, setStartDate, item, setIt
   // const [data, setData] = useState([]);
 
   const {foodValue, setFoodValue, foodData, setFoodData, foodAmount, setFoodAmount, foodCalory, setFoodCalory, data, setData} = useContext(FoodContext);
+ 
+ 
+
+const FoodLog = ({ logedFood, setLogedFood }) => {
+  const [foodValue, setFoodValue] = useState("");
+  const [foodData, setFoodData] = useState({});
+  const [foodAmount, setFoodAmount] = useState("");
+  const [foodCalory, setFoodCalory] = useState("");
+  const [data, setData] = useState([]);
  
   const user = useContext(AuthContext);
   // console.log(logedFood)
@@ -28,77 +35,100 @@ const FoodLog = ({ logedFood, setLogedFood, startDate, setStartDate, item, setIt
 // const currentDateOnly = new Date(year, month, day);
 // const [startDate, setStartDate] = useState(currentDateOnly);
   useEffect(() => {
-    fetch('https://fitness-tracking-web-server.vercel.app/foods')
-      .then(res => res.json())
-      .then(data => setData(data))
-  }, [])
+    fetch("http://localhost:5000/foods")
+      .then((res) => res.json())
+      .then((data) => setData(data));
+  }, []);
   // console.log(data)
 
-  const handleOnChange = event => {
+  const handleOnChange = (event) => {
     setFoodValue(event.target.value);
-    if (event.target.value === '') {
-      setFoodAmount('')
-      setFoodData({})
-      setFoodCalory("")
+    if (event.target.value === "") {
+      setFoodAmount("");
+      setFoodData({});
+      setFoodCalory("");
     }
+  };
 
-  }
-
-  const onSearch = searchTerm => {
-    setFoodValue(searchTerm.name)
-    setFoodData(searchTerm)
-  }
+  const onSearch = (searchTerm) => {
+    setFoodValue(searchTerm.name);
+    setFoodData(searchTerm);
+  };
 
   const handleAmount = (a, foodValue) => {
     if (!foodValue) {
-      setFoodAmount('')
-      setFoodCalory("")
+      setFoodAmount("");
+      setFoodCalory("");
     }
-    setFoodAmount(a.amount)
-    setFoodCalory(a.calorey)
-  }
-
+    setFoodAmount(a.amount);
+    setFoodCalory(a.calorey);
+  };
 
   const handleFoodLogForm = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     const food = event.target.foodName.value;
     const amount = event.target.amount.value;
     const time = event.target.time.value;
     const calorey = foodCalory;
     const userEmail = user?.user?.email;
+ 
     const date = startDate.toLocaleDateString();
     console.log(date)
     const loged = { food: food, amount: amount, time: time, calorey: calorey, userEmail: userEmail, date: date }
     fetch('https://fitness-tracking-web-server.vercel.app/loggedFood', {
       method: 'POST',
+ 
+    const loged = {
+      food: food,
+      amount: amount,
+      time: time,
+      calorey: calorey,
+      userEmail: userEmail,
+    };
+    fetch("http://localhost:5000/loggedFood", {
+      method: "POST",
+ 
       headers: {
-        'content-type': 'application/json'
+        "content-type": "application/json",
       },
-      body: JSON.stringify(loged)
+      body: JSON.stringify(loged),
     })
-      .then(res => res.json())
-      .then(result => {
-        console.log(result)
-        if(result.acknowledged){
-          refetch()
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        if (result.acknowledged) {
+          refetch();
         }
-      })
-
+      });
   };
 
+ 
   const { isLoading, error, data: food, refetch } = useQuery({
     queryKey: ['loggedFood/userEmail', 'loggedFood/date'],
     queryFn: async () => {
       const res = await fetch(`http://localhost:5000/loggedFood/${user?.user?.email}?date=${startDate.toLocaleDateString()}`);
+ 
+  const {
+    isLoading,
+    error,
+    data: food,
+    refetch,
+  } = useQuery({
+    queryKey: ["loggedFood/userEmail"],
+    queryFn: async () => {
+      const res = await fetch(
+        `http://localhost:5000/loggedFood/${user?.user?.email}`
+      );
+ 
       const data = await res.json();
-      return setLogedFood(data)
-    }
-  })
-  refetch()
+      return setLogedFood(data);
+    },
+  });
+  refetch();
 
-  if (isLoading) return <progress className="progress w-56"></progress>
+  if (isLoading) return <progress className="progress w-56"></progress>;
 
-  if (error) return 'An error has occurred: ' + error.message
+  if (error) return "An error has occurred: " + error.message;
 
   const handleFormClose = () => {
     setItem(null);
@@ -138,21 +168,29 @@ const FoodLog = ({ logedFood, setLogedFood, startDate, setStartDate, item, setIt
             />
           </div>
           <div>
-            {data.filter(item => {
-              const searchTerm = foodValue.toLowerCase();
-              const foodName = item.name.toLowerCase();
-              return searchTerm && foodName.startsWith(searchTerm) && foodName !== searchTerm;
-            }).map(item => <div className=" bg-slate-200 w-1/2"
-              onClick={() => onSearch(item)}
-              key={item.name}
-            >
-              <p className="text-black p-3 mt-1">{item.name}</p>
-            </div>)}
+            {data
+              .filter((item) => {
+                const searchTerm = foodValue.toLowerCase();
+                const foodName = item.name.toLowerCase();
+                return (
+                  searchTerm &&
+                  foodName.startsWith(searchTerm) &&
+                  foodName !== searchTerm
+                );
+              })
+              .map((item) => (
+                <div
+                  className=" bg-slate-200 w-1/2"
+                  onClick={() => onSearch(item)}
+                  key={item.name}
+                >
+                  <p className="text-black p-3 mt-1">{item.name}</p>
+                </div>
+              ))}
           </div>
         </div>
         <div className="flex items-center justify-between space-x-3">
           <div>
-
             <div className="form-control basis-2/3">
               <label className="label">
                 <span className="label-text text-white font-semibold lg:text-2xl capitalize">
@@ -167,23 +205,26 @@ const FoodLog = ({ logedFood, setLogedFood, startDate, setStartDate, item, setIt
               />
             </div>
             <div>
-              {foodData?.amount?.map(a => <div className=" bg-slate-200"
-                onClick={() => handleAmount(a, foodValue)}
-                key={a._id}
-              >
-                {!foodAmount && <p className="text-black p-3 mt-1">{a.amount}</p>}
-              </div>)}
+              {foodData?.amount?.map((a) => (
+                <div
+                  className=" bg-slate-200"
+                  onClick={() => handleAmount(a, foodValue)}
+                  key={a._id}
+                >
+                  {!foodAmount && (
+                    <p className="text-black p-3 mt-1">{a.amount}</p>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
           <div className="form-control">
-
             <label className="label w-2/3">
               <span className="label-text font-semibold capitalize text-white lg:text-2xl">
                 when?
               </span>
-            </label> <select
-              name="time" className="select select-bordered">
-
+            </label>{" "}
+            <select name="time" className="select select-bordered">
               <option disabled selected>
                 Anytime
               </option>
@@ -197,13 +238,13 @@ const FoodLog = ({ logedFood, setLogedFood, startDate, setStartDate, item, setIt
           </div>
         </div>
         <div className="form-control mt-6">
-          <button className="btn w-full border-none bg-gradient-to-r from-gray-700 via-green-500 to-gray-700 text-white hover:bg-gradient-to-r hover:from-gray-800 hover:via-green-400 hover:to-gray-800 hover:text-black">Log</button>
+          <button className="btn w-full border-none bg-gradient-to-r from-gray-700 via-green-500 to-gray-700 text-white hover:bg-gradient-to-r hover:from-gray-800 hover:via-green-400 hover:to-gray-800 hover:text-black">
+            Log
+          </button>
         </div>
       </form>
     </div>
-
-
-  )
-}
+  );
+};
 
 export default FoodLog;
