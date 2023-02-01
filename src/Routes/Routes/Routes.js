@@ -46,9 +46,14 @@ import Weight from "../../Pages/OtherPages/Logs/Weight/Weight";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
  
 import WeightCalculator from "../../Pages/Home/WeightCalculator/WeightCalculator";
+ 
+
+
+ 
 import Bmi from "../../Pages/Home/Calculator/Bmi/Bmi";
 import Bmr from "../../Pages/Home/Calculator/Bmr/Bmr";
 import WaterTracking from "../../Pages/Home/Calculator/WaterTracking/WaterTracking";
+ 
  
 
 export const router = createBrowserRouter([
@@ -79,6 +84,7 @@ export const router = createBrowserRouter([
         path: "/WeightCalculator",
         element: <WeightCalculator></WeightCalculator>,
       },
+ 
       {
         path: "/bmi",
         element: <Bmi></Bmi>,
@@ -93,6 +99,7 @@ export const router = createBrowserRouter([
         path: "water",
         element: <WaterTracking></WaterTracking>,
       },
+ 
  
 
       {
@@ -135,6 +142,43 @@ export const router = createBrowserRouter([
             path: "/Community/group",
             element: <CommunityGroup></CommunityGroup>,
           },
+ 
+
+
+        ]
+      },
+      // {
+      //   path: "/Profile",
+      //   element: <DashboardLayout></DashboardLayout>,
+      //   children:[ 
+
+      // { path: "/Dashboard/userInfo", element: <UserInfo></UserInfo> },
+      {
+        path: "/Dashboard/Setting/plan",
+        element: <Plan></Plan>,
+      },
+      {
+        path: "/Dashboard/Setting/team",
+        element: <Team></Team>,
+      },
+      {
+        path: "/Dashboard/Setting/notification",
+        element: <Notification></Notification>,
+      },
+      {
+        path: "/Dashboard/Setting/integration",
+        element: <Intergration></Intergration>,
+      },
+      {
+        path: "/Dashboard/authprofile",
+        element: <AuthProfile></AuthProfile>,
+      },
+
+
+
+      // ]
+      // },
+ 
         ],
       },
       {
@@ -179,6 +223,7 @@ export const router = createBrowserRouter([
           //   },
         ],
       },
+ 
       {
         path: "/singleCategory/:id",
         loader: ({ params }) =>
@@ -194,6 +239,16 @@ export const router = createBrowserRouter([
       //   path: "/Dashboard/setting",
       //   element: <SettingAndPrivacy></SettingAndPrivacy>,
       // },
+ 
+      {
+        path: "/Dashboard/Setting",
+        element: <Setting></Setting>,
+      },
+
+      { path: "/Dashboard/report", element: <Report></Report> },
+      { path: "/Dashboard/event", element: <Event></Event> },
+      { path: "/Dashboard/support", element: <Support></Support> },
+ 
       // {
       //   path: "/Dashboard/Setting",
       //   element: <Setting></Setting>,
@@ -202,6 +257,7 @@ export const router = createBrowserRouter([
       // { path: "/Dashboard/report", element: <Report></Report> },
       // { path: "/Dashboard/event", element: <Event></Event> },
       // { path: "/Dashboard/support", element: <Support></Support> },
+ 
 
       {
         path: "/SignIn",
@@ -215,6 +271,7 @@ export const router = createBrowserRouter([
   },
 
   {
+ 
     path: "/UserDetails",
     element: (
       <PrivateRoute>
@@ -257,6 +314,15 @@ export const router = createBrowserRouter([
         path: "/Logs/Sleep",
         element: <Sleep></Sleep>,
       },
+ 
+
+    ],
+
+  },
+
+]);
+ 
     ],
   },
 ]);
+ 
