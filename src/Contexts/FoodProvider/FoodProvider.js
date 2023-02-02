@@ -11,7 +11,9 @@ const FoodProvider = ({ children }) => {
     const [foodAmount, setFoodAmount] = useState('');
     const [foodCalory, setFoodCalory] = useState('');
     const [data, setData] = useState([]);
-  
+    const [logedWater ,setLogedWater] = useState([]);
+  const [totalWater, setTotalWater] = useState(0);
+    
   const foodInfo = {
     logedFood,
     setLogedFood,
@@ -24,7 +26,11 @@ const FoodProvider = ({ children }) => {
     foodCalory, 
     setFoodCalory, 
     data, 
-    setData
+    setData,
+    logedWater,
+    setLogedWater,
+    totalWater,
+    setTotalWater
   };
   return (
     <FoodContext.Provider value={foodInfo}>{children}</FoodContext.Provider>
