@@ -14,6 +14,39 @@ const Header = () => {
     .catch(error=>console.log(error))
   }
 
+  // const navBar = [
+  //   {
+  //     _id: 0,
+  //     navigate: `/Leaderboard`,
+  //     title: `Leaderboard`,
+  //     content: `Leaderboard`,
+  //   },
+  //   {
+  //     _id: 1,
+  //     navigate: `/Logs/Activities`,
+  //     aria: `Logs`,
+  //     content: `Logs`,
+  //   },
+  //   {
+  //     _id: 2,
+  //     navigate: `/Community`,
+  //     aria: `Community`,
+  //     content: `Community`,
+  //   },
+  //   {
+  //     _id: 3,
+  //     navigate: `/Tutorials`,
+  //     aria: `Tutorials`,
+  //     content: `Tutorials`,
+  //   },
+  //   {
+  //     _id: 4,
+  //     navigate: `/Dashboard`,
+  //     aria: `Dashboard`,
+  //     content: `Dashboard`,
+  //   },
+  // ];
+
   return (
     <div className="bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 sticky top-0 z-50 bg-opacity-70">
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">

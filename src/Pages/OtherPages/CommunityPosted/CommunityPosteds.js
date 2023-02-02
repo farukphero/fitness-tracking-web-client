@@ -81,9 +81,53 @@ const CommunityPosteds = ({ post }) => {
             .then(data => setCommentget(data))
 
     }, [])
-  
- 
+    console.log(commentget)
+    return (
 
+
+        <div className="card  mt-4 bg-base-100 shadow-xl">
+            <div className="card-body">
+                <div className="avatar offline">
+                    <div className="w-16 rounded-full">
+                        <img alt='' src={userInfo?.picture} />
+
+                    </div>
+                    <span className='ml-3 font-bold'>{userInfo?.firstName}{userInfo?.lastName}</span>
+                </div>
+ 
+import React, { useContext, useEffect, useState } from "react";
+import CommunityPosted from "./CommunityPosted";
+import { BiLike, BiComment, BiMessage } from "react-icons/bi";
+import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
+import { Link } from "react-router-dom";
+const CommunityPosteds = ({ post }) => {
+  console.log(post);
+  const { user, userInfo } = useContext(AuthContext);
+
+  const [like, setLike] = useState(1);
+
+  const addlike = () => {
+    setLike(like + 1);
+    // const liked = {
+    //     like,
+    //     username: user?.displayName
+    // }
+
+    // fetch(`https://chat-six-ashen.vercel.app/post/${_id}`, {
+    //     method: 'PUT',
+    //     headers: {
+    //         'content-type': 'application/json'
+    //     },
+    //     body: JSON.stringify(liked)
+    // })
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         if (data.modifiedCount > 0) {
+
+    //             console.log(data)
+    //         }
+
+    //     })
   };
 
   return (
@@ -267,7 +311,7 @@ const CommunityPosteds = ({ post }) => {
         </div> */}
         {/* </div> */}
       </div>
-    
+    </div>
   );
  
 };

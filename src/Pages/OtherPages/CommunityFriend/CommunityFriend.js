@@ -4,6 +4,10 @@ import useTitle from '../../../Hooks/useTitle/useTitle';
 import { useEffect } from 'react';
 import { useState } from 'react';
  
+ 
+import { useEffect, useState } from 'react';
+import useTitle from '../../../Hooks/useTitle/useTitle';
+ 
 import CommunityFriends from './CommunityFriends';
 
 const CommunityFriend = () => {

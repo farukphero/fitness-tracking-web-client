@@ -5,6 +5,7 @@ import KeepTrack from "../../Layout/KeepTrack/KeepTrack";
 import Main from "../../Layout/Main/Main";
 import Event from "../../Pages/Dashboard/Event/Event";
 import Report from "../../Pages/Dashboard/Report/Report";
+
 import UserDetails from "../../Authentications/UserDetails/UserDetails";
 import LogsLayout from "../../Layout/LogsLayout/LogsLayout/LogsLayout";
 import Support from "../../Pages/Dashboard/Support/Support";
@@ -15,7 +16,8 @@ import ServiceDetails from "../../Pages/Home/Services/ServiceDetails";
 import Community from "../../Pages/OtherPages/Community/Community";
 import Foods from "../../Pages/OtherPages/Foods/Foods";
 import Leaderboard from "../../Pages/OtherPages/Leaderboard/Leaderboard";
- import Food from "../../Pages/OtherPages/Logs/Food/Food/Food";
+import Activities from "../../Pages/OtherPages/Logs/Activities/Activities/Activities";
+import Food from "../../Pages/OtherPages/Logs/Food/Food/Food";
 import Sleep from "../../Pages/OtherPages/Logs/Sleep/Sleep";
 import Water from "../../Pages/OtherPages/Logs/Water/Water";
 
@@ -42,9 +44,16 @@ import Bmi from "../../Pages/Home/Calculator/Bmi/Bmi";
 import Bmr from "../../Pages/Home/Calculator/Bmr/Bmr";
 import Weight from "../../Pages/OtherPages/Logs/Weight/Weight";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+ 
+import WeightCalculator from "../../Pages/Home/WeightCalculator/WeightCalculator";
+ 
+
+
+ 
+import Bmi from "../../Pages/Home/Calculator/Bmi/Bmi";
+import Bmr from "../../Pages/Home/Calculator/Bmr/Bmr";
 import WaterTracking from "../../Pages/Home/Calculator/WaterTracking/WaterTracking";
-import Activities from "../../Pages/OtherPages/Logs/Activities/Activities/Activities";
-   
+ 
  
 
 export const router = createBrowserRouter([
@@ -138,27 +147,32 @@ export const router = createBrowserRouter([
 
         ]
       },
-      
       // {
-      //   path: "/Dashboard/Setting/plan",
-      //   element: <Plan></Plan>,
-      // },
-      // {
-      //   path: "/Dashboard/Setting/team",
-      //   element: <Team></Team>,
-      // },
-      // {
-      //   path: "/Dashboard/Setting/notification",
-      //   element: <Notification></Notification>,
-      // },
-      // {
-      //   path: "/Dashboard/Setting/integration",
-      //   element: <Intergration></Intergration>,
-      // },
-      // {
-      //   path: "/Dashboard/authprofile",
-      //   element: <AuthProfile></AuthProfile>,
-      // },
+      //   path: "/Profile",
+      //   element: <DashboardLayout></DashboardLayout>,
+      //   children:[ 
+
+      // { path: "/Dashboard/userInfo", element: <UserInfo></UserInfo> },
+      {
+        path: "/Dashboard/Setting/plan",
+        element: <Plan></Plan>,
+      },
+      {
+        path: "/Dashboard/Setting/team",
+        element: <Team></Team>,
+      },
+      {
+        path: "/Dashboard/Setting/notification",
+        element: <Notification></Notification>,
+      },
+      {
+        path: "/Dashboard/Setting/integration",
+        element: <Intergration></Intergration>,
+      },
+      {
+        path: "/Dashboard/authprofile",
+        element: <AuthProfile></AuthProfile>,
+      },
 
 
 
@@ -167,14 +181,6 @@ export const router = createBrowserRouter([
  
         ],
       },
-
-      // {
-      //   path: "/Profile",
-      //   element: <DashboardLayout></DashboardLayout>,
-      //   children:[ 
-
-      // { path: "/Dashboard/userInfo", element: <UserInfo></UserInfo> },
-
       {
         path: "/Profile",
         element: <DashboardLayout></DashboardLayout>,
@@ -262,7 +268,7 @@ export const router = createBrowserRouter([
         element: <SignUp></SignUp>,
       },
     ],
- 
+  },
 
   {
  
@@ -314,7 +320,9 @@ export const router = createBrowserRouter([
 
   },
 
-)
+]);
  
-  
+    ],
+  },
+]);
  

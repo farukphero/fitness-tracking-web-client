@@ -1,5 +1,11 @@
 import { useState } from "react";
+ 
+import working8 from "../../../../assets/working8.json";
+ 
+
 import working9 from "../../../../assets/working9.json";
+ 
+
 import Lottie from "lottie-react";
 
 const Bmr = () => {
@@ -148,185 +154,190 @@ const Bmr = () => {
   }
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2   mt-16 mb-44"> 
-    {/* animation and type start here */}
-    <div>
-      <div className="flex justify-center ">
-        <Lottie
-          className="w-3/4"
-          animationData={working9}
-
-          loop={true}
-        ></Lottie>
+ 
+    <div className="grid grid-cols-1 lg:grid-cols-2  mt-16 mb-44">
+      {/* animation and type start here */}
+      <div>
+        <div className="flex justify-center">
+          <Lottie
+            className="w-2/3"
+            animationData={working8}
+ 
+    <div className="grid grid-cols-1 lg:grid-cols-2   mt-16 mb-44">
+      {/* animation and type start here */}
+      <div>
+        <div className="flex justify-center ">
+          <Lottie
+            className="w-3/4"
+            animationData={working9}
+ 
+            loop={true}
+          ></Lottie>
+        </div>
       </div>
-    </div>
 
-
-    <div className="mt-4 ml-24 lg:ml-2  ">
-      {/* form start here */}
-      <div id="bmrcalc">
-
-    <div
-      className="mt-4 ml-24 lg:ml-2  "
-      data-aos="fade-down"
-      data-aos-easing="linear"
-      data-aos-duration="1000"
-    >
-      {/* form start here */}
+ 
+      <div className="mt-4 ml-24 lg:ml-2  ">
+        {/* form start here */}
+        <div id="bmrcalc">
+ 
       <div
-        id="bmrcalc"
-        className="box w-4/5 lg:w-2/3 px-8 pb-8 pt-14 rounded-lg"
+        className="mt-4 ml-24 lg:ml-2  "
+        data-aos="fade-down"
+        data-aos-easing="linear"
+        data-aos-duration="1000"
       >
-
-        <div className="form">
-          <h2 className="text-3xl font-bold">BMR CALCULATOR</h2>
-          <h1 className="text-red-800 font-bold ">{resultError}</h1>
-          <div className="inputwrap">
-            <label className="label text-2xl">Gender :</label>
-            <label className="mr-2">
-              <input
-                type="radio"
-                checked={bmrData.gender == "1"}
-                onChange={handleGenderChange}
-                className="genderF mr-2"
-                name="gender"
-                value="1"
-              />
-              Female
-            </label>
-            <label>
-              <input
-                type="radio"
-                checked={bmrData.gender == "2"}
-                onChange={handleGenderChange}
-                className="genderM mr-2"
-                name="gender"
-                value="2"
-              />
-              Male
-            </label>
-          </div>
-          <div className="inputwrap">
-            <label className="label text-2xl">Weight :</label>
-
-            {/* <label className="mr-2"> */}
-
-            <label className="mr-8 lg:mr-2">
-
-              <input
-                type="radio"
-                checked={bmrData.weightType == "1"}
-                onChange={handleWeightTypeChange}
-
-                className="imperial mr-2"
-
-              
-
-                name="wrightT"
-                value="1"
-              />
-              Imperial (in lbs)
-            </label>
-            <label className="mr-2">
-              <input
-                type="radio"
-                checked={bmrData.weightType == "2"}
-                onChange={handleWeightTypeChange}
-                className="metric mr-2"
-                name="wrightT"
-                value="2"
-              />
-              Metric (in KG)
-            </label>
-            <input
-              type="text"
-              placeholder="Weight"
-              className=" weight input input-bordered w-32 "
-              value={bmrData.weight}
-              onChange={handleWeightChange}
-              name="weight"
-              min="0"
-              max="999"
-            />
-          </div>
-          <div className="inputwrap">
-            <label className="label text-2xl ">
-              Height in feet and inches :
-            </label>
-
-            <input
-              type="number"
-              placeholder="feet"
-
-              // className="heightFeet text-black input input-bordered  w-36 mr-2 "
-
-              className="heightFeet text-black input input-bordered  w-36 mr-2 mb-4 lg:mb-0 "
-
-              value={bmrData.heightFeet}
-              onChange={handleHeightFeetChange}
-              name="heightFeet"
-              min="0"
-              max="8"
-            />
-
-            <input
-              placeholder="inches"
-              className="heightInches text-black input input-bordered w-36 "
-              type="number"
-              value={bmrData.heightInches}
-              onChange={handleHeightInchesChange}
-              name="heightInches"
-              min="0"
-              max="11"
-            />
-          </div>
-          <div className="inputwrap">
-            <label className="label text-2xl">Age in years :</label>
-            <input
-              type="number"
-              placeholder="Age"
-              className="age input input-bordered w-44"
-              value={bmrData.age}
-              onChange={handleAgeChange}
-              name="age"
-              min="0"
-              max="120"
-            />
-          </div>
-
-          {/* modal start here */}
-          <label
-            htmlFor="my-modal-3"
-            type="button"
-            onClick={() => calculateBMR()}
-            className="btn mt-4 border-2 font-bold text-white bg-green-700  px-6 py-3 border-green-600 btn-explore  rounded-md"
-          >
-            Calculate BMR
-          </label>
-
-          <input type="checkbox" id="my-modal-3" className="modal-toggle" />
-          <div className="modal  bg-gradient-to-r from-gray-600 via-teal-700 to-gray-600">
-            <div className="modal-box relative  bg-gradient-to-r from-gray-600 via-teal-700 to-gray-600">
-              <label
-                htmlFor="my-modal-3"
-                className="btn btn-sm btn-circle absolute right-2 top-2"
-              >
-                ✕
+        {/* form start here */}
+        <div
+          id="bmrcalc"
+          className="box w-4/5 lg:w-2/3 px-8 pb-8 pt-14 rounded-lg"
+        >
+ 
+          <div className="form">
+            <h2 className="text-3xl font-bold">BMR CALCULATOR</h2>
+            <h1 className="text-red-800 font-bold ">{resultError}</h1>
+            <div className="inputwrap">
+              <label className="label text-2xl">Gender :</label>
+              <label className="mr-2">
+                <input
+                  type="radio"
+                  checked={bmrData.gender == "1"}
+                  onChange={handleGenderChange}
+                  className="genderF mr-2"
+                  name="gender"
+                  value="1"
+                />
+                Female
               </label>
-              <h1 className="text-1xl  font-bold">
-                Your BMR is :{resultBMR}
-              </h1>
-              <h3 className="font-bold">{resultSug}</h3>
+              <label>
+                <input
+                  type="radio"
+                  checked={bmrData.gender == "2"}
+                  onChange={handleGenderChange}
+                  className="genderM mr-2"
+                  name="gender"
+                  value="2"
+                />
+                Male
+              </label>
+            </div>
+            <div className="inputwrap">
+              <label className="label text-2xl">Weight :</label>
+ 
+              <label className="mr-2">
+ 
+              <label className="mr-8 lg:mr-2">
+ 
+                <input
+                  type="radio"
+                  checked={bmrData.weightType == "1"}
+                  onChange={handleWeightTypeChange}
+ 
+                  className="imperial mr-2"
+ 
+                  className="imperial mr-2 "
+ 
+                  name="wrightT"
+                  value="1"
+                />
+                Imperial (in lbs)
+              </label>
+              <label className="mr-2">
+                <input
+                  type="radio"
+                  checked={bmrData.weightType == "2"}
+                  onChange={handleWeightTypeChange}
+                  className="metric mr-2"
+                  name="wrightT"
+                  value="2"
+                />
+                Metric (in KG)
+              </label>
+              <input
+                type="text"
+                placeholder="Weight"
+                className=" weight input input-bordered w-32 "
+                value={bmrData.weight}
+                onChange={handleWeightChange}
+                name="weight"
+                min="0"
+                max="999"
+              />
+            </div>
+            <div className="inputwrap">
+              <label className="label text-2xl ">
+                Height in feet and inches :
+              </label>
+
+              <input
+                type="number"
+                placeholder="feet"
+ 
+                className="heightFeet text-black input input-bordered  w-36 mr-2 "
+ 
+                className="heightFeet text-black input input-bordered  w-36 mr-2 mb-4 lg:mb-0 "
+ 
+                value={bmrData.heightFeet}
+                onChange={handleHeightFeetChange}
+                name="heightFeet"
+                min="0"
+                max="8"
+              />
+
+              <input
+                placeholder="inches"
+                className="heightInches text-black input input-bordered w-36 "
+                type="number"
+                value={bmrData.heightInches}
+                onChange={handleHeightInchesChange}
+                name="heightInches"
+                min="0"
+                max="11"
+              />
+            </div>
+            <div className="inputwrap">
+              <label className="label text-2xl">Age in years :</label>
+              <input
+                type="number"
+                placeholder="Age"
+                className="age input input-bordered w-44"
+                value={bmrData.age}
+                onChange={handleAgeChange}
+                name="age"
+                min="0"
+                max="120"
+              />
+            </div>
+
+            {/* modal start here */}
+            <label
+              htmlFor="my-modal-3"
+              type="button"
+              onClick={() => calculateBMR()}
+              className="btn mt-4 border-2 font-bold text-white bg-green-700  px-6 py-3 border-green-600 btn-explore  rounded-md"
+            >
+              Calculate BMR
+            </label>
+
+            <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+            <div className="modal  bg-gradient-to-r from-gray-600 via-teal-700 to-gray-600">
+              <div className="modal-box relative  bg-gradient-to-r from-gray-600 via-teal-700 to-gray-600">
+                <label
+                  htmlFor="my-modal-3"
+                  className="btn btn-sm btn-circle absolute right-2 top-2"
+                >
+                  ✕
+                </label>
+                <h1 className="text-1xl  font-bold">
+                  Your BMR is :{resultBMR}
+                </h1>
+                <h3 className="font-bold">{resultSug}</h3>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  </div>
-  </div>
-   
-     
   );
 };
 
