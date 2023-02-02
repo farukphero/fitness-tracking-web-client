@@ -8,9 +8,12 @@ import { BsCalendarEvent } from "react-icons/bs";
 import { CgSupport } from "react-icons/cg";
 import { useContext } from "react";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
+import useAdmin from "../../Hooks/useAdmin/useAdmin";
+
 
 const DashboardLayout = () => {
-  const { userInfo } = useContext(AuthContext);
+  const { userInfo, user } = useContext(AuthContext);
+  const [isAdmin] = useAdmin(user?.email);
   return (
     <div className="drawer drawer-mobile">
       <input id="my-drawer" type="checkbox" className="drawer-toggle" />
@@ -34,12 +37,23 @@ const DashboardLayout = () => {
         <label htmlFor="my-drawer" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80 bg-gradient-to-r from-gray-700 to-green-800 ">
           <>
+           {
+            isAdmin &&  <li className="border-2  border-green-600 btn-explore rounded-md mb-2 ">
+            <Link
+              className="text-center ml-16 text-about font-semibold"
+              to="/Profile/AllUsers"
+            >
+              All Users
+              <FaRegUser></FaRegUser>
+            </Link>
+          </li>
+           }
             <li className="border-2  border-green-600 btn-explore rounded-md mb-2 ">
               <Link
                 className="text-center ml-16 text-about font-semibold"
                 to="/Profile/userInfo"
               >
-                UserInfo
+               Profile
                 <FaRegUser></FaRegUser>
               </Link>
             </li>

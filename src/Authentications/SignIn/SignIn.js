@@ -3,15 +3,16 @@ import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
-import { FcGoogle } from 'react-icons/fc';
+import { FcGoogle } from "react-icons/fc";
 import useTitle from "../../Hooks/useTitle/useTitle";
+import Loading from "../../Components/Loading/Loading";
 
 const SignIn = () => {
-  useTitle("SignIn")
+  useTitle("SignIn");
   const { accountLogIn, providerGoogleLogIn } = useContext(AuthContext);
   const provider = new GoogleAuthProvider();
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -22,19 +23,21 @@ const SignIn = () => {
     accountLogIn(data.email, data.password)
       .then((result) => {
         const user = result.user;
-        navigate('/Leaderboard')
+        <Loading></Loading>
+        navigate("/Leaderboard");
       })
       .catch((error) => console.log(error.message));
   };
 
-  const handleGoogleLogin=()=>{
+  const handleGoogleLogin = () => {
     providerGoogleLogIn(provider)
-    .then((result) => {
+      .then((result) => {
         const user = result.user;
+        <Loading></Loading>
         navigate("/Leaderboard");
       })
       .catch((error) => console.log(error));
-  }
+  };
   return (
     <div>
       <div
@@ -49,7 +52,7 @@ const SignIn = () => {
               <div className="md:hidden flex justify-between mb-3 pt-3">
                 <h3 className=" text-xl"> Sign In </h3>
                 <Link to="/SignUp" className="text-xl ">
-                 Sign Up
+                  Sign Up
                 </Link>
               </div>
               <h3 className="hidden md:flex text-2xl mb-3 pt-3">
@@ -97,8 +100,14 @@ const SignIn = () => {
                 />
                 <div className="flex flex-col w-full ">
                   <div className="divider">OR</div>
-                
-                <button>  <FcGoogle onClick={handleGoogleLogin}  className="w-10 h-10 ml-32 md:ml-60 mb-12"/></button>
+
+                  <button>
+                    {" "}
+                    <FcGoogle
+                      onClick={handleGoogleLogin}
+                      className="w-10 h-10 ml-32 md:ml-60 mb-12"
+                    />
+                  </button>
                 </div>
               </form>
             </div>

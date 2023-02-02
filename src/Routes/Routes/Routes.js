@@ -46,6 +46,7 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import WaterTracking from "../../Pages/Home/Calculator/WaterTracking/WaterTracking";
 import CommunityFeed from "../../Pages/OtherPages/Communityfeed/CommunityFeed";
 import Tutorials from "../../Pages/OtherPages/Tutorials/Tutorials";
+import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
  
  
 
@@ -148,6 +149,10 @@ export const router = createBrowserRouter([
           {
             path: "/Profile/Setting",
             element: <Setting></Setting>,
+          },
+          {
+            path: "/Profile/AllUsers",
+            element: <AdminRoute><AllUsers></AllUsers></AdminRoute>,
           },
         ],
       },

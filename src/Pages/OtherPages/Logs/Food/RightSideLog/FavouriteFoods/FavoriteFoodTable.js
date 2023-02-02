@@ -19,7 +19,7 @@ const FavoriteFoodTable = ({ food}) => {
 
   return (
 
-    <div className="table w-full mt-3">
+    <div className="table w-full mt-3 mb-1">
 
       <tr onClick={() => handleLogFood(food)}>
         <td className="bg-white text-black">{food.calorey} Cals</td>

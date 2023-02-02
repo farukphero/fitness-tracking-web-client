@@ -17,13 +17,13 @@ const CommunityLaout = () => {
   return (
     <div className="">
       <div className="">
-        <div className="bg-gradient-to-r from-gray-800 via-blue-600 to-gray-800 p-10">
+        <div className="bg-gradient-to-r from-green-800 via-green-500 to-green-800 p-10">
           <h1 className="text-sky-50 p-2 font-bold text-center text-5xl">
             Community
           </h1>
           <p className="text-black mb-2 text-center">What do you mean</p>
           {/* <img className="" src="https://i.ibb.co/mtb0P27/images-3.jpg" alt="" /> */}
-          <div className="flex w-full items-center">
+          <div className="flex w-10/12 mx-auto items-center">
             <input
               type="text"
               placeholder="Search"
@@ -39,40 +39,40 @@ const CommunityLaout = () => {
         </div>
         <div></div>
 
-       <div className="w-10/12 mx-auto">
-       <div className="grid grid-cols-3 lg:grid-cols-3 gap-3 mt-2 mb-3 mx-10">
-          <Link to={"/Community"} className="btn  btn-outline btn-info">
-           
-            <p className="text-white font-semibold text-3xl">
-         
-              <FaHome></FaHome>
-            </p>
-          </Link>
-          <Link
-            to={"/Community/friend"}
-            className="btn btn-outline btn-success"
-          >
-            <p className="text-white font-semibold text-3xl">
-              <FaUserFriends></FaUserFriends> 
-            </p>
-          </Link>
-          <Link to={"/Community/group"} className="btn btn-outline btn-warning">
-            <p className="text-white font-semibold text-3xl">
-            
-              <FaLayerGroup></FaLayerGroup> 
-            </p>
-          </Link>
+        <div className="w-10/12 mx-auto">
+          <div className="grid grid-cols-3 lg:grid-cols-3 gap-3 mt-2 mb-3 mx-10">
+            <Link to={"/Community"} className="btn  btn-outline btn-info">
+              <p className="text-white font-semibold text-3xl">
+                <FaHome></FaHome>
+              </p>
+            </Link>
+            <Link
+              to={"/Community/friend"}
+              className="btn btn-outline btn-success"
+            >
+              <p className="text-white font-semibold text-3xl">
+                <FaUserFriends></FaUserFriends>
+              </p>
+            </Link>
+            <Link
+              to={"/Community/group"}
+              className="btn btn-outline btn-warning"
+            >
+              <p className="text-white font-semibold text-3xl">
+                <FaLayerGroup></FaLayerGroup>
+              </p>
+            </Link>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 mt-2 mb-3 mx-10">
-            {/*  
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 mt-2 mb-3 mx-10">
+              {/*  
                         <Link to={"/Community"} className="btn  btn-outline btn-info"> <p className='text-white font-semibold text-3xl'>Feed</p></Link>
                         <Link to={"/Community/friend"} className="btn btn-outline btn-success"><p className='text-white font-semibold text-3xl'>Friend</p></Link>
                         <Link to={"/Community/group"} className="btn btn-outline btn-warning"><p className='text-white font-semibold text-3xl'>Group</p></Link>
  
   */}
+            </div>
           </div>
         </div>
-       </div>
         <div className="ml-4">
           <button>
             <CommunityModal>post</CommunityModal>{" "}
