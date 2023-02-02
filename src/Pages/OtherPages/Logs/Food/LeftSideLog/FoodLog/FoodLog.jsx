@@ -5,14 +5,14 @@ import { AuthContext } from "../../../../../../Contexts/AuthProvider/AuthProvide
 import DatePicker from "react-datepicker";
 import { FoodContext } from "../../../../../../Contexts/FoodProvider/FoodProvider";
 
-const FoodLog = ({ logedFood, setLogedFood, startDate, setStartDate, item, setItem, setShowForm , }) => {
+// const FoodLog = ({ logedFood, setLogedFood, startDate, setStartDate, item, setItem, setShowForm , }) => {
   // const [foodValue, setFoodValue] = useState('');
   // const [foodData, setFoodData] = useState({});
   // const [foodAmount, setFoodAmount] = useState('');
   // const [foodCalory, setFoodCalory] = useState('');
   // const [data, setData] = useState([]);
 
-  const {foodValue, setFoodValue, foodData, setFoodData, foodAmount, setFoodAmount, foodCalory, setFoodCalory, data, setData} = useContext(FoodContext);
+  // const {foodValue, setFoodValue, foodData, setFoodData, foodAmount, setFoodAmount, foodCalory, setFoodCalory, data, setData} = useContext(FoodContext);
  
  
 
@@ -72,19 +72,14 @@ const FoodLog = ({ logedFood, setLogedFood }) => {
     const calorey = foodCalory;
     const userEmail = user?.user?.email;
  
-    const date = startDate.toLocaleDateString();
-    console.log(date)
-    const loged = { food: food, amount: amount, time: time, calorey: calorey, userEmail: userEmail, date: date }
-    fetch('https://fitness-tracking-web-server.vercel.app/loggedFood', {
-      method: 'POST',
+    // const date = startDate.toLocaleDateString();
+    // console.log(date)
+    const loged = { food: food, amount: amount, time: time, calorey: calorey, userEmail: userEmail, 
+      // date: date 
+    }
+    // fetch('https://fitness-tracking-web-server.vercel.app/loggedFood', {
+    //   method: 'POST',
  
-    const loged = {
-      food: food,
-      amount: amount,
-      time: time,
-      calorey: calorey,
-      userEmail: userEmail,
-    };
     fetch("http://localhost:5000/loggedFood", {
       method: "POST",
  
@@ -103,10 +98,10 @@ const FoodLog = ({ logedFood, setLogedFood }) => {
   };
 
  
-  const { isLoading, error, data: food, refetch } = useQuery({
-    queryKey: ['loggedFood/userEmail', 'loggedFood/date'],
-    queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/loggedFood/${user?.user?.email}?date=${startDate.toLocaleDateString()}`);
+  // const { isLoading, error, data: food, refetch } = useQuery({
+  //   queryKey: ['loggedFood/userEmail', 'loggedFood/date'],
+  //   queryFn: async () => {
+  //     const res = await fetch(`http://localhost:5000/loggedFood/${user?.user?.email}?date=${startDate.toLocaleDateString()}`);
  
   const {
     isLoading,
@@ -131,8 +126,8 @@ const FoodLog = ({ logedFood, setLogedFood }) => {
   if (error) return "An error has occurred: " + error.message;
 
   const handleFormClose = () => {
-    setItem(null);
-    setShowForm(false);
+    // setItem(null);
+    // setShowForm(false);
   };
 
   return (
@@ -144,9 +139,9 @@ const FoodLog = ({ logedFood, setLogedFood }) => {
    <DatePicker className="font-bold w-2/4 lg:text-2xl capitalize bg-green-800"
         name="date"
         defaultValue='select'
-      selected={startDate}
+      // selected={startDate}
       // value={startDate}
-      onChange={date => setStartDate(date)}
+      // onChange={date => setStartDate(date)}
     />
    </div>
       </div>

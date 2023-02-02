@@ -1,35 +1,42 @@
-import React from 'react';
-import { useQuery } from 'react-query';
-import { useLoaderData } from 'react-router-dom';
-import useTitle from '../../../../Hooks/useTitle/useTitle';
-
+import React from "react";
+import { useQuery } from "react-query";
+import { useLoaderData } from "react-router-dom";
+import useTitle from "../../../../Hooks/useTitle/useTitle";
 
 const Tutorial = () => {
-    useTitle("Tutorial")
-    const data = useLoaderData();
-    // console.log(data);
-    const { data: tutorials = [], refetch } = useQuery({
-        queryKey: ['tutorials'],
-        queryFn: () => fetch(`http://localhost:5000/tutorials?category=${data?.category}`)
-            .then(res => res.json())
-            .then(data => {
-                // setLoading(false)
-                // console.log(data)
-                return data;
-            })
-    })
+  useTitle("Tutorial");
+  const data = useLoaderData();
+  // console.log(data);
+  const { data: tutorials = [], refetch } = useQuery({
+    queryKey: ["tutorials"],
+    queryFn: () =>
+      fetch(`http://localhost:5000/tutorials?category=${data?.category}`)
+        .then((res) => res.json())
+        .then((data) => {
+          // setLoading(false)
+          // console.log(data)
+          return data;
+        }),
+  });
 
-    return (
-        <div className='m-12'>
-            <div className='grid sm:grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-6'>
-                
-                {tutorials.map(tutorial =><div className=''>
-                    <iframe className='border' height="350px" width="350px" key={tutorial._id} src={tutorial.link}></iframe>
-                    <h1 className='text-center text-sm'>{tutorial.title}</h1>
-                </div>)}
-            </div>
-        </div>
-    );
+  return (
+    <div className="m-12">
+      <div className="grid sm:grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-6">
+        {tutorials.map((tutorial) => (
+          <div className="">
+            <iframe
+              className="border"
+              height="350px"
+              width="350px"
+              key={tutorial._id}
+              src={tutorial.link}
+            ></iframe>
+            <h1 className="text-center text-sm">{tutorial.title}</h1>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default Tutorial;

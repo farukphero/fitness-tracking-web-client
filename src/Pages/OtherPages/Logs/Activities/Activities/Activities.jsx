@@ -1,13 +1,11 @@
 import React from "react";
- 
- 
 import DateProvider from "../DateProvider/DateProvider";
 import LogActivities from "../LogActivities/LogActivities/LogActivities";
 import RouteAndDate from "../Route&Date/Route&Date";
 import ActivitiesHistory from "../ActivitiesHistory/ActivityHistory/ActivityHistory";
 import ActivitiesChart from "../ActivitiesChart/AcitvitiesChart";
 import useTitle from "../../../../../Hooks/useTitle/useTitle";
- 
+  
 
 const Activities = () => {
   useTitle("Log/Activities")

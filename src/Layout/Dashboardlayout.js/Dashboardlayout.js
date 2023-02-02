@@ -8,13 +8,17 @@ import { BsCalendarEvent } from "react-icons/bs";
 import { CgSupport } from "react-icons/cg";
 import { useContext } from "react";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
+import Navbar from "../../Pages/Shared/NavBar/NavBar";
+import Footer from "../../Pages/Shared/Footer/Footer";
 
 const DashboardLayout = () => {
   const { userInfo } = useContext(AuthContext);
   return (
+   <div>
+     <Navbar></Navbar>
     <div className="drawer drawer-mobile">
       <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-
+    
       <div className="drawer-content relative flex flex-col items-center justify-center">
         <Outlet></Outlet>
 
@@ -93,6 +97,8 @@ const DashboardLayout = () => {
         </ul>
       </div>
     </div>
+    <Footer></Footer>
+   </div>
   );
 };
 

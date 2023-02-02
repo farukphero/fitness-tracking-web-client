@@ -4,11 +4,7 @@ import CommunityPosteds from './CommunityPosteds';
  
 
 const CommunityPosted = () => {
- 
- 
- const CommunityPosted = () => {
     useTitle("CommunityFeed")
- 
     const [posts, setPosts] = useState([])
     useEffect(() => {
         fetch('http://localhost:5000/post')
@@ -19,14 +15,6 @@ const CommunityPosted = () => {
             })
 
     }, [])
- 
-
-
-    return (
-        <div>
-
- 
- 
  
 
     return (

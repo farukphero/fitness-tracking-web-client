@@ -39,14 +39,8 @@ const Bmi = () => {
         </div>
         <div className="mt-8 ml-24 lg:ml-2  ">
  
-      <div className="grid grid-cols-1 lg:grid-cols-2  mt-20 mb-44">
-        <div className="flex justify-center">
-          <Lottie
-            className="w-2/3"
-            animationData={working5}
-            loop={true}
-          ></Lottie>
-        </div>
+     
+       
 
         <div
           className="mt-8 ml-24 lg:ml-2 box rounded-lg w-1/2 px-8 pt-20 pb-4 lg:pb-0   "
@@ -84,7 +78,7 @@ const Bmi = () => {
 
               <a
                 href="#my-modal-2"
-                className="btn border-2 font-bold  bg-green-700  px-6 py-3 border-green-600 btn-explore  rounded-md "
+                className="btn border-2 font-bold  bg-green-700  px-6 py-3 mb-5 border-green-600 btn-explore  rounded-md "
                 onClick={handleBmi}
               >
                 Calculator
@@ -120,6 +114,8 @@ const Bmi = () => {
         </div>
       </div>
     </div>
+    </div>
+ 
   );
 };
 
