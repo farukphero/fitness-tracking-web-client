@@ -158,12 +158,12 @@ const myData = [
   },
 ];
 
-const DayChart = () => {
+const DayChart = ({data}) => {
   return (
     <ResponsiveContainer width="100%" aspect={3}>
       <BarChart width={150} height={40} data={myData}>
         <Bar dataKey="uv" fill="#8884d8" />
-        <CartesianGrid strokeDasharray="3 3" />
+        {/* <CartesianGrid strokeDasharray="3 3" /> */}
         <XAxis tick={{ stroke: `white` }} dataKey="name" />
         <YAxis tick={{ stroke: `yellow` }} />
         <Tooltip />

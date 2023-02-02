@@ -2,7 +2,7 @@ import React from "react";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
-const SingleActivity = ({activity}) => {
+const SingleActivity = ({ activity, setDeleteActivity }) => {
   return (
     <>
       <tbody>
@@ -12,14 +12,22 @@ const SingleActivity = ({activity}) => {
           <td>{activity?.steps ? activity?.steps : `N/A`}</td>
           <td>{activity?.distance}</td>
           <td>{activity?.duration ? activity?.duration : `N/A`}</td>
-          <td>{activity?.calourie_burned ? activity?.calourie_burned : `N/A`}</td>
           <td>
-            <Link to='/ActivitiesHistoryDetails'>
+            {activity?.calourie_burned ? activity?.calourie_burned : `N/A`}
+          </td>
+          <td>
+            <Link to="/ActivitiesHistoryDetails">
               <button className="btn btn-xs">details</button>
             </Link>
           </td>
           <td>
-            <RiDeleteBin5Fill className="text-2xl text-error" />{" "}
+              <label
+                onClick={() => setDeleteActivity(activity)}
+                htmlFor="ConfirmationModal"
+                className="btn btn-xs btn-error"
+              >
+                delete
+              </label>
           </td>
         </tr>
       </tbody>

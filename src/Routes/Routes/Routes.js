@@ -18,7 +18,6 @@ import Foods from "../../Pages/OtherPages/Foods/Foods";
 import Leaderboard from "../../Pages/OtherPages/Leaderboard/Leaderboard";
 import Activities from "../../Pages/OtherPages/Logs/Activities/Activities/Activities";
 import Food from "../../Pages/OtherPages/Logs/Food/Food/Food";
-import Sleep from "../../Pages/OtherPages/Logs/Sleep/Sleep";
 import Water from "../../Pages/OtherPages/Logs/Water/Water";
 
 import Setting from "../../Pages/Dashboard/SettingAndPrivacy/Setting/Setting";
@@ -43,6 +42,7 @@ import Bmi from "../../Pages/Home/Calculator/Bmi/Bmi";
 import Bmr from "../../Pages/Home/Calculator/Bmr/Bmr";
 import Weight from "../../Pages/OtherPages/Logs/Weight/Weight";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import Sleep from "../../Pages/OtherPages/Logs/Sleep/Sleep/Sleep";
 
 export const router = createBrowserRouter([
   {
@@ -241,7 +241,8 @@ export const router = createBrowserRouter([
       },
       {
         path: "/Logs/Sleep",
-        element: <Sleep></Sleep>,
+        element: <Sleep/>
+        ,
       },
     ],
   },

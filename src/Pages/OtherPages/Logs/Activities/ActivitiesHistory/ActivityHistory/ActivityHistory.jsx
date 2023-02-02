@@ -9,16 +9,56 @@ import { RiPinDistanceFill } from "react-icons/ri";
 import { VscReactions } from "react-icons/vsc";
 import { AuthContext } from "../../../../../../Contexts/AuthProvider/AuthProvider";
 import SingleActivity from "../SingleActivity/SingleActivity";
+import { useQuery } from "react-query";
+import Spinner from "../../../../../../Components/Spinner/Spinner";
+import { toast } from "react-hot-toast";
+import ConfirmationModal from "../../../../../Shared/ConfirmationModal/ConfirmationModal";
 
 const ActivitiesHistory = () => {
+  const [deleteActivity, setDeleteActivity] = useState(null);
   const { user } = useContext(AuthContext);
-  const [activities, setActivities] = useState([]);
 
-  useEffect(() => {
-    axios
-      .get(`http://localhost:5000/activities?activist=${user?.email}`)
-      .then((res) => setActivities(res?.data));
-  }, [user?.email]);
+  const {
+    data: activities,
+    isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: [`activities`, user?.email],
+    queryFn: async () => {
+      const res = await fetch(
+        `http://localhost:5000/activities?activist=${user?.email}`
+      );
+      const data = await res.json();
+      return data;
+    },
+  });
+
+  console.log(activities);
+
+  if (isLoading) {
+    <Spinner />;
+  }
+
+  const handleDeleteActivity = (activity) => {
+    fetch(`http://localhost:5000/activities/${activity._id}`, {
+      method: `DELETE`,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount > 0) {
+          toast.success(`you have successfully deleted an activity`);
+        }
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+    refetch();
+  };
+
+  const closeModal = () => {
+    setDeleteActivity(null);
+  }
 
   return (
     <div className="lg:mx-8 border p-4 rounded-md border-gray-600">
@@ -78,11 +118,25 @@ const ActivitiesHistory = () => {
               </th>
             </tr>
           </thead>
-          {activities.map((activity) => (
-            <SingleActivity activity={activity} key={activity._id} />
+          {activities?.map((activity) => (
+            <SingleActivity
+              activity={activity}
+              key={activity._id}
+              setDeleteActivity={setDeleteActivity}
+            />
           ))}
         </table>
       </div>
+      {deleteActivity && (
+        <ConfirmationModal
+          successAction={handleDeleteActivity}
+          modalData={deleteActivity}
+          closeModal={closeModal}
+          successButtonName={`delete`}
+          message={`if you delete we cannot recover the data`}
+          title={`are you sure you want to delete?`}
+        ></ConfirmationModal>
+      )}
     </div>
   );
 };

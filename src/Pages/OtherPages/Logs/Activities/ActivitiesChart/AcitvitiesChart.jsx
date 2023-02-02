@@ -39,8 +39,6 @@ const ActivitiesChart = () => {
     }
   }, [dayDistance, user?.email, data]);
 
-  console.log(dayDistance);
-  console.log(data);
 
   return (
     <>
