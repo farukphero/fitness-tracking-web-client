@@ -9,8 +9,6 @@ const FavouriteFoods = ({logedFood, setLogedFood}) => {
   
   const user = useContext(AuthContext)
  
-  const user = useContext(AuthContext);
- 
   const {
     isLoading,
     error,
@@ -76,9 +74,7 @@ const FavouriteFoods = ({logedFood, setLogedFood}) => {
                 <th className="bg-gray-200 text-black">
                   Click on the item to log it
                 </th>
-              </tr>
-            </thead>
-            <tbody>
+           
               {favouriteFood?.map((food) => (
                 <tr key={food._id}>
                   <td className="bg-white text-black">{food.calorey} Cals</td>
