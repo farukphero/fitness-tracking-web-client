@@ -95,6 +95,8 @@ const CommunityFeed = () => {
                 </div>
                 <div>
                     <input className='btn btn-accent' type="submit" />
+
+
                 </div>
             </form>
 

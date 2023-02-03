@@ -22,7 +22,7 @@ const CommunityFriend = () => {
     return (
         <div>
             <div>
-                <div className='items-center mt-4 ml-4 mb-4 justify-start flex gap-4'>
+                <div className='items-center mt-4 ml-6 mb-4 justify-start flex gap-4'>
                     <div className="avatar">
                         <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                             <img src={userInfo?.picture} alt="" />
@@ -34,7 +34,7 @@ const CommunityFriend = () => {
                 </div>
 
             </div>
-            <div className='grid ml-4 grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-4'>
+            <div className='grid   ml-4 grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-4'>
                 {
                     users.map(user =>
                         <CommunityFriends

@@ -23,11 +23,9 @@ const CommunityLaout = () => {
                     </div>
 
                 </div>
-                <div>
 
-                </div>
                 <nav>
-                    <div className='grid grid-cols-4 lg:grid-cols-4 gap-3 mt-2 mb-3 mx-10'>
+                    <div className='grid grid-cols-4 lg:grid-cols-4 gap-3 mt-2 mb-3'>
 
                         <Link to={"/Community"} className="btn  btn-outline btn-info"> <p className='text-white font-semibold text-3xl'> <FaHome></FaHome></p></Link>
                         <Link to={"/Community/friend"} className="btn btn-outline btn-success"><p className='text-white font-semibold text-3xl'><FaUserFriends></FaUserFriends> </p></Link>
@@ -37,8 +35,10 @@ const CommunityLaout = () => {
 
                     </div>
                 </nav>
-                <div className='ml-4'>
-                    <button><CommunityModal>post</CommunityModal> </button>
+                <div>
+                    <div className='ml-8'>
+                        <button><CommunityModal>post</CommunityModal> </button>
+                    </div>
                 </div>
 
                 <Outlet></Outlet>

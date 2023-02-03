@@ -12,7 +12,7 @@ const CommunityPosted = () => {
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/post');
             const data = await res.json()
-            refetch()
+
             return data;
         }
     })
@@ -23,30 +23,34 @@ const CommunityPosted = () => {
 
     return (
         <div>
-            <div className="card-body">
-                <div className="avatar offline">
-                    <div className="w-16 rounded-full">
-                        <img alt='' src={userInfo?.picture} />
 
-                    </div>
-                    <span className='ml-3 font-bold'>{userInfo?.firstName}{userInfo?.lastName}</span>
+            <div className="avatar  ml-8 mt-2">
+                <div className="w-16 rounded-full">
+                    <img alt='' src={userInfo?.picture} />
+
                 </div>
+                <span className='ml-3 font-bold'>{userInfo?.firstName}{userInfo?.lastName}</span>
+
 
 
 
             </div>
-            {
-                posts.map(post =>
-                    <CommunityPosteds
-                        key={post._id}
-                        post={post}
-                        refetch={refetch}
-                    >
+            <div>
 
-                    </CommunityPosteds>
 
-                )
-            }
+                {
+                    posts.map(post =>
+                        <CommunityPosteds
+                            key={post._id}
+                            post={post}
+                            refetch={refetch}
+                        >
+
+                        </CommunityPosteds>
+
+                    )
+                }
+            </div>
         </div>
     );
 };

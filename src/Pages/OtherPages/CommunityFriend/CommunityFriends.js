@@ -41,7 +41,7 @@ const CommunityFriends = ({ user }) => {
 
     return (
 
-        <div className="card w-64 h-96 bg-white shadow-xl">
+        <div className="card mx-auto w-64 h-96 bg-white shadow-xl">
 
             <figure className="">
                 <img src={user.picture} alt="" className="rounded-xl h-72 w-full" />
@@ -51,7 +51,7 @@ const CommunityFriends = ({ user }) => {
                 <h2 className="text-black font-semibold">{user?.firstName}{user?.lastName}</h2>
 
                 {
-                    postdata.acknowledged ? <> <button className='btn mt-2 mb-2 w-full bg-gradient-to-tr'>Fiends</button>  <button className="btn w-full btn-warning">Remove Friends</button></> : <><button onClick={handlAdd} className="btn mt-2 mb-2 w-full btn-primary">Add Friend</button>
+                    postdata.acknowledged ? <> <button className='btn mt-2 mb-2 w-full bg-gradient-to-tr'>Request Send</button>  <button className="btn w-full btn-warning">Remove Friends</button></> : <><button onClick={handlAdd} className="btn mt-2 mb-2 w-full btn-primary">Add Friend</button>
                         <button className="btn w-full btn-warning">Remove Friends</button></>
                 }
 

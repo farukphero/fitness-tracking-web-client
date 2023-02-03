@@ -7,28 +7,21 @@ import GetComment from './GetComment';
 
 import { useQuery } from 'react-query';
 const CommunityPosteds = ({ post, refetch }) => {
-
     refetch()
+
     const { liking, _id } = post
     const { user, userInfo } = useContext(AuthContext);
 
-
-
-
-
     const { data: commentget = [] } = useQuery({
-        queryKey: ['post/comment', post._id],
+        queryKey: ['post/comment', post?._id],
         queryFn: async () => {
-
-            const res = await fetch(`http://localhost:5000/post/comment/${post._id}`);
+            const res = await fetch(`http://localhost:5000/post/comment/${post?._id}`);
             const data = await res.json()
-            refetch()
+
             return data;
         }
+
     })
-
-
-
     const [like, setLike] = useState(liking + 1 || 1)
 
     const addlike = () => {
@@ -87,14 +80,14 @@ const CommunityPosteds = ({ post, refetch }) => {
 
             })
 
-
+        refetch()
 
     }
 
 
 
 
-
+    // refetch()
 
     // if (!commentget || loading) return "Loading..."
 
@@ -104,7 +97,7 @@ const CommunityPosteds = ({ post, refetch }) => {
 
 
 
-            <div className="card  mt-4 bg-base-100 shadow-xl">
+            <div className=" card mx-auto bg-base-100 shadow-xl">
                 <div className="card-body">
                     <div className="avatar offline">
                         <div className="w-16 rounded-full">
@@ -119,7 +112,7 @@ const CommunityPosteds = ({ post, refetch }) => {
                 </div>
 
 
-                <figure><img src={post?.image} alt="Shoes" /></figure>
+                <figure><img className='w-full' src={post?.image} alt="" /></figure>
                 <div className='p-5'>
                     <div>
                         <span className='flex items-center'>
@@ -128,7 +121,7 @@ const CommunityPosteds = ({ post, refetch }) => {
                     </div>
                     <hr />
 
-                    <div className='flex sm:mx-auto'>
+                    <div className='grid grid-cols-3 sm:mx-auto'>
                         <div>
                             <Link onClick={addlike} className='btn btn-ghost'><BiLike></BiLike>Like</Link>
                         </div>
