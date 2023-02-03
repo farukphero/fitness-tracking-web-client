@@ -4,7 +4,6 @@ import { router } from "./Routes/Routes/Routes";
 import { Toaster } from "react-hot-toast";
 import { useState } from "react";
 import { useEffect } from "react";
-import Spinner from "./Components/Spinner/Spinner";
 import Loading from "./Components/Loading/Loading";
 
 function App() {
@@ -13,7 +12,7 @@ function App() {
   useEffect(()=>{
     setTimeout(()=>{
       setIsLoading(false)
-    }, 2000)
+    }, 2500)
   })
   return (
  

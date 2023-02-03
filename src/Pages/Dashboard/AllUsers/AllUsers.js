@@ -56,8 +56,8 @@ const AllUsers = () => {
           {/* <!-- head --> */}
           <thead>
             <tr>
-              <th className='bg-gradient-to-r from-green-700 to-green-500 text-white text-lg'></th>
-              <th className='bg-gradient-to-r from-green-700 to-green-500 text-white text-lg'></th>
+              <th className='bg-gradient-to-r from-green-700 to-green-500 text-white text-lg'>SL</th>
+              <th className='bg-gradient-to-r from-green-700 to-green-500 text-white text-lg'>Users</th>
               <th className='bg-gradient-to-r from-green-700 to-green-500 text-white text-lg'>Name</th>
               <th className='bg-gradient-to-r from-green-700 to-green-500 text-white text-lg'>Email</th>
               <th className='bg-gradient-to-r from-green-700 to-green-500 text-white text-lg'>Admin </th>

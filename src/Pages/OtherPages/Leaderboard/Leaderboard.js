@@ -66,6 +66,7 @@ const Leaderboard = () => {
                         <h1>Weight</h1>
                     </div>
                 </div>
+                <p>dddddddddddd</p>
             </div>
         </div>
     );

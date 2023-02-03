@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import logo from "../../../images/apple-touch-icon.png";
 import { FaArrowRight } from 'react-icons/fa';
+import { TypeAnimation } from "react-type-animation";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -80,7 +81,27 @@ const Header = () => {
                  
             </ul>
           </div>
-          <p className="text-3xl font-medium hidden lg:flex">Track your health <Link to='SignUp'><FaArrowRight className="ml-3 w-20 mt-2"/></Link> </p> 
+          <TypeAnimation
+                className="text-5xl"
+                sequence={[
+                  "Track ", // Types 'One'
+                  2000, // Waits 1s
+                  "Track your health >", // Deletes 'One' and types 'Two'
+                  2000, // Waits 2s
+                  "Track your health >",
+                  2000, // Types 'Three' without deleting 'Two'
+                  () => {
+                    console.log("Done typing!"); // Place optional callbacks anywhere in the array
+                  },
+                ]}
+                wrapper="div"
+                cursor={true}
+                repeat={Infinity}
+                style={{ fontSize: "2em" }}
+                
+              />
+              {/* <Link to='SignUp'><FaArrowRight className="ml-3 w-20 mt-2"/></Link> 
+          <p className="text-3xl font-medium hidden lg:flex"></p>  */}
           <ul className="items-center hidden space-x-8 lg:flex">
             {
               user ? <button onClick={handleLogOut} className="inline-flex items-center justify-center h-10 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-green-500">Log Out</button> : <>
