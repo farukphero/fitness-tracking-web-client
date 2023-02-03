@@ -1,11 +1,10 @@
-import React, { PureComponent, useContext, useReducer, useState } from "react";
-import { useDate } from "../DateProvider/DateProvider";
 import { formatDistanceToNowStrict } from "date-fns";
-import { useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../../../Contexts/AuthProvider/AuthProvider";
+import { useDate } from "../DateProvider/DateProvider";
 import DayChart from "./DayChart/DayChart";
-import WeekChart from "./WeekChart/WeekChart";
 import MonthChart from "./MonthChart/MonthChart";
+import WeekChart from "./WeekChart/WeekChart";
 import YearChart from "./YearChart/YearChart";
 
 const ActivitiesChart = () => {
@@ -17,30 +16,30 @@ const ActivitiesChart = () => {
 
   useEffect(() => {
     if (dayDistance === `1 month`) {
-      fetch(`https://fitness-tracking-web-server.vercel.app/activities/30?activist=${user?.email}`)
+      fetch(`http://localhost:5000/activities/30?activist=${user?.email}`)
         .then((res) => res.json())
         .then((data) => setData(data));
       setShowChart(<MonthChart data={data} />);
     } else if (dayDistance === `7 days`) {
-      fetch(`https://fitness-tracking-web-server.vercel.app/activities/7?activist=${user?.email}`)
+      fetch(`http://localhost:5000/activities/7?activist=${user?.email}`)
         .then((res) => res.json())
         .then((data) => setData(data));
       setShowChart(<WeekChart data={data} />);
     } else if (dayDistance === `1 year`) {
-      fetch(`https://fitness-tracking-web-server.vercel.app/activities/365?activist=${user?.email}`)
+      fetch(`http://localhost:5000/activities/365?activist=${user?.email}`)
         .then((res) => res.json())
         .then((data) => setData(data));
       setShowChart(<YearChart data={data} />);
     } else {
-      fetch(`https://fitness-tracking-web-server.vercel.app/activities/1?activist=${user?.email}`)
+      fetch(`http://localhost:5000/activities/1?activist=${user?.email}`)
         .then((res) => res.json())
         .then((data) => setData(data));
       setShowChart(<DayChart data={data} />);
     }
   }, [dayDistance, user?.email, data]);
 
-  // console.log(dayDistance);
-  // console.log(data);
+  console.log(dayDistance);
+  console.log(data);
 
   return (
     <>

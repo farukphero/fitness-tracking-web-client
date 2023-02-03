@@ -1,7 +1,7 @@
-import { useQuery } from "react-query";
-import Spinner from "../../../../../../Components/Spinner/Spinner";
 import axios from "axios";
 import { useContext } from "react";
+import { useQuery } from "react-query";
+import Spinner from "../../../../../../Components/Spinner/Spinner";
 import { AuthContext } from "../../../../../../Contexts/AuthProvider/AuthProvider";
 
 export const WeekFetchingData = (link) => {
