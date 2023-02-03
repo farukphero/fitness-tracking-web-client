@@ -6,10 +6,10 @@ const ServiceCard = ({ service }) => {
   const { _id, name, description, image } = service;
   console.log(name);
   return (
-    <div className="w-full my-10  shadow-xl image-full rounded relative">
+    <div className="w-full my-10  shadow-xl image-full rounded relative transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 ">
       <figure>
         <img
-          className="w-full lg:h-60 md:h-auto"
+          className="w-full lg:h-60 md:h-auto "
           src={image}
           alt="service-card"
         />

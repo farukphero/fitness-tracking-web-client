@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import { FcGoogle } from 'react-icons/fc';
 import useTitle from "../../Hooks/useTitle/useTitle";
+import Loading from "../../Components/Loading/Loading";
 
 
 const SignUp = () => {
@@ -26,7 +27,7 @@ const SignUp = () => {
       // console.log(data.email, data.password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        <Loading></Loading>
         navigate("/UserDetails");
       })
       .catch((error) => {
@@ -39,6 +40,7 @@ const SignUp = () => {
     providerGoogleLogIn(provider)
       .then((result) => {
         const user = result.user;
+        <Loading></Loading>
         navigate("/UserDetails");
       })
       .catch((error) => console.log(error));

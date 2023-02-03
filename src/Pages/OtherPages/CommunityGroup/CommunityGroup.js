@@ -1,11 +1,11 @@
- import React from 'react'
-import useTitle from '../../../Hooks/useTitle/useTitle'
- 
- function CommunityGroup() {
-  useTitle("CommunityGroup")
-   return (
-     <div>CommunityGroup</div>
-   )
- }
- 
- export default CommunityGroup
+import React from 'react';
+
+const CommunityGroup = () => {
+  return (
+    <div>
+      <h1>Group</h1>
+    </div>
+  );
+};
+
+export default CommunityGroup;

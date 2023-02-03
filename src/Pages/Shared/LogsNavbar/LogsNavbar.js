@@ -23,7 +23,7 @@ const LogsNavbar = () => {
     if (activeState?.navItems[index]?._id === activeState?.active) {
       return `btn border-none bg-gradient-to-r from-success via-gray-600 to-warning text-white mb-0`;
     } else {
-      return `btn border-none text-white bg-gradient-to-r from-gray-400 via-gray-500 to-gray-400  text-white hover:bg-gradient-to-r  mb-0`;
+      return `btn btn-outline to-green-600  text-white hover:bg-gradient-to-r  mb-0`;
     }
   };
 
