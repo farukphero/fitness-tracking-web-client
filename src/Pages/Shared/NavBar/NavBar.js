@@ -100,11 +100,10 @@ const Navbar = () => {
                       </svg>
                     </p>
                     <ul className="p-2 bg-gradient-to-r from-gray-600 via-teal-700 to-gray-600">
- 
-                      <li>
+                      {/* <li>
                         <Link to="/WeightCalculator">Weight Calculator</Link>
-                      </li>
-                     
+                      </li> */}
+
                       <li>
                         <Link to="/bmi">BMI CALCULATOR</Link>
                       </li>
@@ -113,10 +112,12 @@ const Navbar = () => {
                       </li>
                       <li>
                         <Link to="/water">WATER TRACKING</Link>
- 
                       </li>
                       <li>
-                        <Link>Calory burn calculator </Link>
+                        <Link to="/blood">BLOOD MEASUREMENT</Link>
+                      </li>
+                      <li>
+                        <Link to="/protein">INTAKE PROTEIN</Link>
                       </li>
                     </ul>
                   </li>
