@@ -77,12 +77,12 @@ const FavouriteFoods = ({logedFood, setLogedFood}) => {
                   Click on the item to log it
                 </th> */}
            
-              {favouriteFood?.map((food) => (
+              {/* {favouriteFood?.map((food) => (
                 <tr key={food._id}>
                   <td className="bg-white text-black">{food.calorey} Cals</td>
-                  <td className="bg-white text-black">{food.food}</td>
-                </tr>
-              ))}
+                  <td className="bg-white text-black">{food.food}</td> */}
+                {/* </tr>
+              ))} */}
  
             </tbody>
           </table>

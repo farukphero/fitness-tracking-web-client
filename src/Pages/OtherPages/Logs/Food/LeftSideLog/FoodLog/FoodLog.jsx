@@ -28,7 +28,7 @@ const FoodLog = ({ logedFood, setLogedFood, startDate, setStartDate, item, setIt
 // const currentDateOnly = new Date(year, month, day);
 // const [startDate, setStartDate] = useState(currentDateOnly);
   useEffect(() => {
-    fetch('http://localhost:5000/foods')
+    fetch('https://fitness-tracking-web-server.vercel.app/foods')
       .then(res => res.json())
       .then(data => setData(data))
   }, [])

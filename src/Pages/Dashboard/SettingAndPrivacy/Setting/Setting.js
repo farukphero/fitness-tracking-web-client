@@ -6,7 +6,7 @@ const Setting = () => {
   useTitle("Dashboard/Setting")
   return (
     <div>
-      <div className="flex flex-col w-1/2 mx-auto mt-16 mb-16  ">
+      <div className="flex flex-col mx-auto -ml-32 -mt-16 mb-16  ">
         <Link
           className="border-2 px-6 py-2 text-center text-2xl font-bold border-green-600 btn-explore rounded-md mb-2"
           to="/dashboard/setting/plan"

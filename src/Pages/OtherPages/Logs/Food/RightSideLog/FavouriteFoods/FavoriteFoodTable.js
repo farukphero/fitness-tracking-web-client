@@ -25,7 +25,7 @@ const FavoriteFoodTable = ({ food}) => {
         <td className="bg-white text-black">{food.calorey} Cals</td>
         <td className="bg-white text-black">{food.food}</td>
         <td className="bg-white text-black">
-          <button className="btn btn-xs text-white" onClick={() => handleDelete(food)}>X</button>
+        <button className="btn btn-xs text-white" onClick={() => handleDelete(food)}>X</button>
         </td>
       </tr>
       {item && <InputForm item={item} setItem={setItem} />}

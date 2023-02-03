@@ -29,7 +29,7 @@ const SideForm1 = ({ setLogedWeight }) => {
   } = useQuery({
     queryKey: ["logedInfo", user?.email],
     queryFn: () =>
-      fetch(`http://localhost:5000/logedWeight?email=${user?.email}`)
+      fetch(`https://fitness-tracking-web-server.vercel.app/logedWeight?email=${user?.email}`)
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
@@ -55,7 +55,7 @@ const SideForm1 = ({ setLogedWeight }) => {
     const onlyWeight = {
       weight,
     };
-    fetch(`http://localhost:5000/logedWeight`, {
+    fetch(`https://fitness-tracking-web-server.vercel.app/logedWeight`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -63,9 +63,9 @@ const SideForm1 = ({ setLogedWeight }) => {
       body: JSON.stringify(weightInfo),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => refetch());
 
-    fetch(`http://localhost:5000/users/edit/${user?.email}`, {
+    fetch(`https://fitness-tracking-web-server.vercel.app/users/edit/${user?.email}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -73,17 +73,17 @@ const SideForm1 = ({ setLogedWeight }) => {
       body: JSON.stringify(onlyWeight),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => refetch());
 
     reset();
-    refetch();
+    
   };
 
   const presetWeight = logedInfo[0]?.weight;
 
   // delete loged weight
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/logedWeight/${id}`, {
+    fetch(`https://fitness-tracking-web-server.vercel.app/logedWeight/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -204,7 +204,7 @@ const SideForm1 = ({ setLogedWeight }) => {
                 onChange={(date) => setStartDate(date)}
               />
             </div>
-            <div className="btn btn-outline text-white bg-gradient-to-r from-gray-800 to-green-400  btn-sm  mt-3 w-full">
+            <div className="btn btn-outline bg-gradient-to-r from-gray-700 via-green-500 to-gray-700 text-white hover:bg-gradient-to-r hover:from-gray-800 hover:via-green-400 hover:to-gray-800 hover:text-black  btn-sm  mt-3 w-full">
               <button className="text-center">Log Weight</button>
             </div>
           </form>
@@ -262,7 +262,7 @@ const SideForm1 = ({ setLogedWeight }) => {
             </>
           ) : (
             <>
-              <div className="btn btn-outline text-white bg-gradient-to-r from-gray-800 to-green-400  btn-sm  mt-3 w-full">
+              <div className="btn btn-outline  bg-gradient-to-r from-gray-700 via-green-500 to-gray-700 text-white hover:bg-gradient-to-r hover:from-gray-800 hover:via-green-400 hover:to-gray-800 hover:text-black  btn-sm  mt-3 w-full">
                 <button className="text-center">
                   <label htmlFor="set-weight-goal-modal">
                     Set New Weight Goal
