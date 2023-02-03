@@ -17,6 +17,7 @@ const ActivitiesHistory = () => {
   const [deleteActivity, setDeleteActivity] = useState(null);
   const { user } = useContext(AuthContext);
 
+ 
   const {
     data: activities,
     isLoading,
@@ -61,6 +62,13 @@ const ActivitiesHistory = () => {
   const closeModal = () => {
     setDeleteActivity(null);
   };
+ 
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/activities?activist=${user?.email}`)
+      .then((res) => setActivities(res?.data));
+  }, [user?.email]);
+ 
 
   return (
     <div className="lg:mx-8 border p-4 rounded-md border-gray-600">

@@ -28,7 +28,7 @@ const FoodLog = ({ logedFood, setLogedFood, startDate, setStartDate, item, setIt
 // const currentDateOnly = new Date(year, month, day);
 // const [startDate, setStartDate] = useState(currentDateOnly);
   useEffect(() => {
-    fetch('https://fitness-tracking-web-server.vercel.app/foods')
+    fetch('http://localhost:5000/foods')
       .then(res => res.json())
       .then(data => setData(data))
   }, [])
@@ -66,10 +66,15 @@ const FoodLog = ({ logedFood, setLogedFood, startDate, setStartDate, item, setIt
     const time = event.target.time.value;
     const calorey = foodCalory;
     const userEmail = user?.user?.email;
+ 
+   
+   
+ 
     const date = startDate.toLocaleDateString();
     console.log(date)
     const loged = { food: food, amount: amount, time: time, calorey: calorey, userEmail: userEmail, date: date }
     fetch('https://fitness-tracking-web-server.vercel.app/loggedFood', {
+ 
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -89,7 +94,10 @@ const FoodLog = ({ logedFood, setLogedFood, startDate, setStartDate, item, setIt
   const { isLoading, error, data: food, refetch } = useQuery({
     queryKey: ['loggedFood/userEmail', 'loggedFood/date'],
     queryFn: async () => {
+ 
+ 
       const res = await fetch(`https://fitness-tracking-web-server.vercel.app/loggedFood/${user?.user?.email}?date=${startDate.toLocaleDateString()}`);
+ 
       const data = await res.json();
       return setLogedFood(data)
     }

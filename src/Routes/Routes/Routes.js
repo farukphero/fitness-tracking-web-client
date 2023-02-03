@@ -46,8 +46,13 @@ import WaterTracking from "../../Pages/Home/Calculator/WaterTracking/WaterTracki
 import CommunityFeed from "../../Pages/OtherPages/Communityfeed/CommunityFeed";
 import Tutorials from "../../Pages/OtherPages/Tutorials/Tutorials";
 import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
+ 
 import Sleep from "../../Pages/OtherPages/Logs/Sleep/Sleep/Sleep";
  
+ 
+ 
+import BloodTracking from "../../Pages/Home/Calculator/BloodTracking/BloodTracking";
+import Protein from "../../Pages/Home/Calculator/Protein/Protein";
  
 
 export const router = createBrowserRouter([
@@ -78,7 +83,7 @@ export const router = createBrowserRouter([
         path: "/WeightCalculator",
         element: <WeightCalculator></WeightCalculator>,
       },
- 
+
       {
         path: "/bmi",
         element: <Bmi></Bmi>,
@@ -87,14 +92,19 @@ export const router = createBrowserRouter([
         path: "/bmr",
         element: <Bmr></Bmr>,
       },
- 
- 
+
       {
         path: "water",
         element: <WaterTracking></WaterTracking>,
       },
- 
- 
+      {
+        path: "blood",
+        element: <BloodTracking></BloodTracking>,
+      },
+      {
+        path: "protein",
+        element: <Protein></Protein>,
+      },
 
       {
         path: "/AddTutorials",
@@ -118,7 +128,7 @@ export const router = createBrowserRouter([
           },
           {
             path: "/Community",
-            element: <CommunityFeed></CommunityFeed>
+            element: <CommunityFeed></CommunityFeed>,
           },
           {
             path: "/Community/post",
@@ -136,10 +146,7 @@ export const router = createBrowserRouter([
             path: "/Community/group",
             element: <CommunityGroup></CommunityGroup>,
           },
- 
-
-
-        ]
+        ],
       },
       {
         path: "/Profile",
@@ -152,17 +159,23 @@ export const router = createBrowserRouter([
           },
           {
             path: "/Profile/AllUsers",
-            element: <AdminRoute><AllUsers></AllUsers></AdminRoute>,
+            element: (
+              <AdminRoute>
+                <AllUsers></AllUsers>
+              </AdminRoute>
+            ),
           },
         ],
       },
- 
+
       {
+ 
         path: "/singleCategory/:id",
         loader: ({ params }) =>
           fetch(
             `https://fitness-tracking-web-server.vercel.app/singleCategory/${params.id}`
           ),
+ 
         element: <Tutorial></Tutorial>,
       },
 
@@ -172,7 +185,7 @@ export const router = createBrowserRouter([
       //   path: "/Dashboard/setting",
       //   element: <SettingAndPrivacy></SettingAndPrivacy>,
       // },
- 
+
       // {
       //   path: "/Dashboard/Setting",
       //   element: <Setting></Setting>,
@@ -181,7 +194,7 @@ export const router = createBrowserRouter([
       // { path: "/Dashboard/report", element: <Report></Report> },
       // { path: "/Dashboard/event", element: <Event></Event> },
       // { path: "/Dashboard/support", element: <Support></Support> },
- 
+
       // {
       //   path: "/Dashboard/Setting",
       //   element: <Setting></Setting>,
@@ -190,7 +203,6 @@ export const router = createBrowserRouter([
       // { path: "/Dashboard/report", element: <Report></Report> },
       // { path: "/Dashboard/event", element: <Event></Event> },
       // { path: "/Dashboard/support", element: <Support></Support> },
- 
 
       {
         path: "/SignIn",
@@ -204,7 +216,6 @@ export const router = createBrowserRouter([
   },
 
   {
- 
     path: "/UserDetails",
     element: (
       <PrivateRoute>
@@ -247,13 +258,7 @@ export const router = createBrowserRouter([
         path: "/Logs/Sleep",
         element: <Sleep/>,
       },
- 
-
     ],
-
   },
-
 ]);
- 
-   
  
