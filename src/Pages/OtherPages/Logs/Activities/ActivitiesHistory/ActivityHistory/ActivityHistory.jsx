@@ -1,5 +1,5 @@
-import axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
+import { toast } from "react-hot-toast";
 import { AiFillFire, AiOutlineCalendar } from "react-icons/ai";
 import { FaWalking } from "react-icons/fa";
 import { GiDuration } from "react-icons/gi";
@@ -7,12 +7,11 @@ import { IoFootstepsSharp } from "react-icons/io5";
 import { MdOutlinePendingActions } from "react-icons/md";
 import { RiPinDistanceFill } from "react-icons/ri";
 import { VscReactions } from "react-icons/vsc";
-import { AuthContext } from "../../../../../../Contexts/AuthProvider/AuthProvider";
-import SingleActivity from "../SingleActivity/SingleActivity";
 import { useQuery } from "react-query";
 import Spinner from "../../../../../../Components/Spinner/Spinner";
-import { toast } from "react-hot-toast";
+import { AuthContext } from "../../../../../../Contexts/AuthProvider/AuthProvider";
 import ConfirmationModal from "../../../../../Shared/ConfirmationModal/ConfirmationModal";
+import SingleActivity from "../SingleActivity/SingleActivity";
 
 const ActivitiesHistory = () => {
   const [deleteActivity, setDeleteActivity] = useState(null);
@@ -26,7 +25,7 @@ const ActivitiesHistory = () => {
     queryKey: [`activities`, user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/activities?activist=${user?.email}`
+        `https://fitness-tracking-web-server.vercel.app/activities?activist=${user?.email}`
       );
       const data = await res.json();
       return data;
@@ -40,9 +39,12 @@ const ActivitiesHistory = () => {
   }
 
   const handleDeleteActivity = (activity) => {
-    fetch(`http://localhost:5000/activities/${activity._id}`, {
-      method: `DELETE`,
-    })
+    fetch(
+      `https://fitness-tracking-web-server.vercel.app/activities/${activity._id}`,
+      {
+        method: `DELETE`,
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {
@@ -58,7 +60,7 @@ const ActivitiesHistory = () => {
 
   const closeModal = () => {
     setDeleteActivity(null);
-  }
+  };
 
   return (
     <div className="lg:mx-8 border p-4 rounded-md border-gray-600">

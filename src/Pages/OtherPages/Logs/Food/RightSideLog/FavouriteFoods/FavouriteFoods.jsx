@@ -15,7 +15,7 @@ const FavouriteFoods = () => {
     queryKey: ["favouriteFood/userEmail"],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/favouriteFood/${user?.user?.email}`
+        `https://fitness-tracking-web-server.vercel.app/favouriteFood/${user?.user?.email}`
       );
       const data = await res.json();
       return setFavouriteFood(data);

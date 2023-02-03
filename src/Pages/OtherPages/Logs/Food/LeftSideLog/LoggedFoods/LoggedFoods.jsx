@@ -21,7 +21,7 @@ const LoggedFoods = ({ logedFood }) => {
       userEmail: food.userEmail,
     };
     console.log(favouriteFood);
-    fetch("http://localhost:5000/favouriteFood", {
+    fetch("https://fitness-tracking-web-server.vercel.app/favouriteFood", {
       method: "POST",
       headers: {
         "content-type": "application/json",

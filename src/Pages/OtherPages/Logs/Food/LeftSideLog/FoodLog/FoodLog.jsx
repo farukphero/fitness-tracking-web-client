@@ -13,7 +13,7 @@ const FoodLog = ({ logedFood, setLogedFood }) => {
   // console.log(user.user.email)
 
   useEffect(() => {
-    fetch("http://localhost:5000/foods")
+    fetch("https://fitness-tracking-web-server.vercel.app/foods")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
@@ -56,7 +56,7 @@ const FoodLog = ({ logedFood, setLogedFood }) => {
       calorey: calorey,
       userEmail: userEmail,
     };
-    fetch("http://localhost:5000/loggedFood", {
+    fetch("https://fitness-tracking-web-server.vercel.app/loggedFood", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -81,7 +81,7 @@ const FoodLog = ({ logedFood, setLogedFood }) => {
     queryKey: ["loggedFood/userEmail"],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/loggedFood/${user?.user?.email}`
+        `https://fitness-tracking-web-server.vercel.app/loggedFood/${user?.user?.email}`
       );
       const data = await res.json();
       return setLogedFood(data);

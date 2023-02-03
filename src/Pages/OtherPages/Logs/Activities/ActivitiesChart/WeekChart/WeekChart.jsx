@@ -12,14 +12,59 @@ import {
 } from "recharts";
 
 const WeekChart = ({ data }) => {
-  // console.log(data);
-  const myData = {
-    name: "Fri Day",
-    date: "2023-01-26",
-    uv: 10000,
-    pv: 2400,
-    amt: 2400,
-  };
+
+
+  const myData = [
+    {
+      name: "Fri Day",
+      date: "2023-01-26",
+      uv: 10000,
+      pv: 2400,
+      amt: 2400,
+    },
+    {
+      name: "Fri Day",
+      date: "2023-01-26",
+      uv: 10000,
+      pv: 2400,
+      amt: 2400,
+    },
+    {
+      name: "Fri Day",
+      date: "2023-01-26",
+      uv: 10000,
+      pv: 2400,
+      amt: 2400,
+    },
+    {
+      name: "Fri Day",
+      date: "2023-01-26",
+      uv: 10000,
+      pv: 2400,
+      amt: 2400,
+    },
+    {
+      name: "Fri Day",
+      date: "2023-01-26",
+      uv: 10000,
+      pv: 2400,
+      amt: 2400,
+    },
+    {
+      name: "Fri Day",
+      date: "2023-01-26",
+      uv: 10000,
+      pv: 2400,
+      amt: 2400,
+    },
+    {
+      name: "Fri Day",
+      date: "2023-01-26",
+      uv: 10000,
+      pv: 2400,
+      amt: 2400,
+    },
+  ]
 
   console.log(myData.kv);
 

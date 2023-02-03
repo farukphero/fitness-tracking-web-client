@@ -38,12 +38,14 @@ import CommunityPosted from "../../Pages/OtherPages/CommunityPosted/CommunityPos
 import ActivitiesHistoryDetails from "../../Pages/OtherPages/Logs/Activities/Activities/ActivitiesHistoryDetails/ActivitiesHistoryDetails";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import DashboardLayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
+ 
 import Bmi from "../../Pages/Home/Calculator/Bmi/Bmi";
 import Bmr from "../../Pages/Home/Calculator/Bmr/Bmr";
 import Weight from "../../Pages/OtherPages/Logs/Weight/Weight";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import WaterTracking from "../../Pages/Home/Calculator/WaterTracking/WaterTracking";
 import Sleep from "../../Pages/OtherPages/Logs/Sleep/Sleep/Sleep";
-
+ 
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -80,6 +82,13 @@ export const router = createBrowserRouter([
         path: "/bmr",
         element: <Bmr></Bmr>,
       },
+ 
+ 
+      {
+        path: "water",
+        element: <WaterTracking></WaterTracking>,
+      },
+ 
 
       {
         path: "/AddTutorials",
