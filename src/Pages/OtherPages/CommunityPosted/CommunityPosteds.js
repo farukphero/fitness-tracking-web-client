@@ -3,38 +3,73 @@ import CommunityPosted from "./CommunityPosted";
 import { BiLike, BiComment, BiMessage } from "react-icons/bi";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import { Link } from "react-router-dom";
+import GetComment from "./GetComment";
 const CommunityPosteds = ({ post }) => {
-  console.log(post);
+  const { liking, _id } = post;
   const { user, userInfo } = useContext(AuthContext);
+  console.log(userInfo);
 
-  const [like, setLike] = useState(1);
+  const [like, setLike] = useState(liking + 1 || 1);
 
   const addlike = () => {
     setLike(like + 1);
-    // const liked = {
-    //     like,
-    //     username: user?.displayName
-    // }
+    const liked = {
+      like,
+      username: userInfo?.firstName,
+    };
+    setLike(like + 1);
 
-    // fetch(`https://chat-six-ashen.vercel.app/post/${_id}`, {
-    //     method: 'PUT',
-    //     headers: {
-    //         'content-type': 'application/json'
-    //     },
-    //     body: JSON.stringify(liked)
-    // })
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         if (data.modifiedCount > 0) {
-
-    //             console.log(data)
-    //         }
-
-    //     })
+    fetch(`https://fitness-tracking-web-server.vercel.app/post/${post?._id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(liked),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          console.log(data);
+        }
+      });
   };
 
+  const Addcomment = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const comment = form.comment.value;
+    const commentsData = {
+      comment: comment,
+      commentuser: userInfo?.firstName,
+      commentId: post._id,
+      photo: userInfo?.picture,
+    };
+
+    fetch(`https://fitness-tracking-web-server.vercel.app/post/comment/${_id}`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(commentsData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          console.log(data);
+        }
+      });
+
+    console.log(commentsData);
+  };
+  const [commentget, setCommentget] = useState([]);
+  useEffect(() => {
+    fetch(`https://fitness-tracking-web-server.vercel.app/post/comment/${post._id}`)
+      .then((res) => res.json())
+      .then((data) => setCommentget(data));
+  }, []);
+  console.log(commentget);
   return (
-    <div className="card  mt-4 bg-gradient-to-r from-gray-700 via-green-700 to-gray-700 shadow-xl">
+    <div className="card  mt-4 bg-base-100 shadow-xl">
       <div className="card-body">
         <div className="avatar offline">
           <div className="w-16 rounded-full">
@@ -56,16 +91,15 @@ const CommunityPosteds = ({ post }) => {
         <div>
           <span className="flex items-center">
             <BiLike></BiLike>
-            {like}
+            {liking}
           </span>
         </div>
         <hr />
 
-        <div className="flex sm:mx-auto">
+        <div className="flex mx-auto">
           <div>
-            <Link onClick={addlike} className="btn btn-ghost ">
-              <BiLike></BiLike>
-              <span></span>{" "}
+            <Link onClick={addlike} className="btn btn-ghost">
+              <BiLike></BiLike>Like
             </Link>
           </div>
           <div>
@@ -87,7 +121,7 @@ const CommunityPosteds = ({ post }) => {
             <img alt="" src={userInfo?.picture} />
           </div>
 
-          <form className="mt-5">
+          <form onSubmit={Addcomment} className="mt-5">
             <label for="chat" class="sr-only">
               Your message
             </label>
@@ -118,21 +152,9 @@ const CommunityPosteds = ({ post }) => {
           </form>
         </div>
 
-        {/* <div> */}
-        {/* <div className="flex p-3 bg-zinc-300 shadow-2xl shadow-gray-800 rounded-2xl items-center offline">
-
-            <div className='avatar mr-3'>
-
-                <div className="avatar w-7 h-1/2 rounded-full">
-                    <img alt='' src="https://placeimg.com/192/192/people" />
-                    <span className='ml-3 font-bold'> username</span>
-                </div>
-
-
-            </div>
-
-        </div> */}
-        {/* </div> */}
+        {commentget.map((comments) => (
+          <GetComment comments={comments} key={comments._id}></GetComment>
+        ))}
       </div>
     </div>
   );

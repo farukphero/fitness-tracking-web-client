@@ -3,6 +3,7 @@ import React, { createContext, useContext, useReducer } from "react";
 export const DATE_CONTEXT = createContext();
 
 const DateProvider = ({ children }) => {
+
   const initialDate = new Date();
 
   const DateReducer = (state, action) => {
@@ -12,9 +13,9 @@ const DateProvider = ({ children }) => {
       case `TODAY`:
         return new Date();
       case `TOMMOWROW`:
-        return new Date(state.getTime() + day);
+        return new Date(state.date.getTime() + day);
       case `YEASTARDAY`:
-        return new Date(state.getTime() - day);
+        return new Date(state.date.getTime() - day);
       case `WEEK`:
         return new Date(ms - day * 7);
       case `MONTH`:

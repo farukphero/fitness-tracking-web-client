@@ -10,7 +10,7 @@ const About = () => {
       </h1>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 text-white lg:w-11/12 mx-auto">
         <div>
-          <img className="w-full h-96 rounded" src={image} alt=""></img>
+          <img className="w-full h-96 rounded transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300" src={image} alt=""></img>
         </div>
         <div className="mt-3 lg:mt-7">
           <h1 className="text-about">

@@ -13,12 +13,12 @@ const Setting = () => {
         >
           Plan
         </Link>
-        <Link
+        {/* <Link
           className="border-2 px-6 py-2 text-center text-2xl font-bold border-green-600 btn-explore rounded-md mb-2"
           to="/dashboard/setting/team"
         >
           Team
-        </Link>
+        </Link> */}
         <Link
           className="border-2 px-6 py-2 text-2xl text-center font-bold border-green-600 btn-explore rounded-md mb-2"
           to="/dashboard/setting/notification"

@@ -1,16 +1,14 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
-import { FaWalking } from "react-icons/fa";
-import { IoFootstepsSharp } from "react-icons/io5";
-import { RiDeleteBin5Fill, RiPinDistanceFill } from "react-icons/ri";
-import { GiDuration } from "react-icons/gi";
-import { AiFillFire } from "react-icons/ai";
-import { VscReactions } from "react-icons/vsc";
-import { MdOutlinePendingActions } from "react-icons/md";
-import { AiOutlineCalendar } from "react-icons/ai";
 import axios from "axios";
-import SingleActivity from "../SingleActivity/SingleActivity";
+import React, { useContext, useEffect, useState } from "react";
+import { AiFillFire, AiOutlineCalendar } from "react-icons/ai";
+import { FaWalking } from "react-icons/fa";
+import { GiDuration } from "react-icons/gi";
+import { IoFootstepsSharp } from "react-icons/io5";
+import { MdOutlinePendingActions } from "react-icons/md";
+import { RiPinDistanceFill } from "react-icons/ri";
+import { VscReactions } from "react-icons/vsc";
 import { AuthContext } from "../../../../../../Contexts/AuthProvider/AuthProvider";
+import SingleActivity from "../SingleActivity/SingleActivity";
 
 const ActivitiesHistory = () => {
   const { user } = useContext(AuthContext);

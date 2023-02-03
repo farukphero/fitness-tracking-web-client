@@ -5,7 +5,7 @@ const CommunityModal = () => {
     return (
         <div>
             {/* The button to open modal */}
-            <label htmlFor="my-modal-3" className="btn">Post start</label>
+            <label htmlFor="my-modal-3" className="btn ml-32 lg:ml-40">Post start</label>
 
             {/* Put this part before </body> tag */}
             <input type="checkbox" id="my-modal-3" className="modal-toggle" />

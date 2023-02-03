@@ -1,9 +1,14 @@
 .active {
   /* background-color: "bg-gradient-to-r from-gray via-green  to-gray"; */
   /* background: rgb(2,0,36); */
-background: linear-gradient(90deg, rgb(110, 156, 173) 0%, #0dcf81 35%, rgb(135, 169, 182) 100%);
+  /* background: linear-gradient(90deg, rgb(110, 156, 173) 0%, #0dcf81 35%, rgb(135, 169, 182) 100%); */
+
+  text-decoration: underline;
+  text-decoration-color: gold;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 0.2rem;
   padding: 10px 14px;
   border-radius: 4px;
-  color: black;
+  color: white;
   padding: 7px;
 }
