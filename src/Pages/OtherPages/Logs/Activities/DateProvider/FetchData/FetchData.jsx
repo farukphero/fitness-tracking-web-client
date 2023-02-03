@@ -10,7 +10,7 @@ export const FetchingData = (link, email) => {
     queryKey: [`activities`, link, email],
     queryFn: async () => {
       const res = await axios.get(
-        `http://localhost:5000/activities/${link}?activist=${email}`
+        `https://fitness-tracking-web-server.vercel.app/activities/${link}?activist=${email}`
       );
       return res.data;
     },

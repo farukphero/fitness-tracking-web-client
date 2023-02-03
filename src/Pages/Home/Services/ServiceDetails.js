@@ -13,7 +13,7 @@ const ServiceDetails = () => {
     
     // d
     useEffect(()=>{
-        fetch(`http://localhost:5000/users/${user?.user?.email}`)
+        fetch(`https://fitness-tracking-web-server.vercel.app/users/${user?.user?.email}`)
         .then(res=> res.json())
         .then(data=> {
             console.log(data)

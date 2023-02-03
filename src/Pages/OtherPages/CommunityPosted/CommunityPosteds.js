@@ -19,7 +19,7 @@ const CommunityPosteds = ({ post }) => {
     };
     setLike(like + 1);
 
-    fetch(`http://localhost:5000/post/${post?._id}`, {
+    fetch(`https://fitness-tracking-web-server.vercel.app/post/${post?._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -45,7 +45,7 @@ const CommunityPosteds = ({ post }) => {
       photo: userInfo?.picture,
     };
 
-    fetch(`http://localhost:5000/post/comment/${_id}`, {
+    fetch(`https://fitness-tracking-web-server.vercel.app/post/comment/${_id}`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -63,7 +63,7 @@ const CommunityPosteds = ({ post }) => {
   };
   const [commentget, setCommentget] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/post/comment/${post._id}`)
+    fetch(`https://fitness-tracking-web-server.vercel.app/post/comment/${post._id}`)
       .then((res) => res.json())
       .then((data) => setCommentget(data));
   }, []);

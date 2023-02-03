@@ -4,7 +4,7 @@ import { AuthContext } from '../../../../../../Contexts/AuthProvider/AuthProvide
 const FavoriteFoodTable = ({ food}) => {
   const [item, setItem] = useState(null);
  const handleDelete = (food) => {
-    fetch(`http://localhost:5000/favoriteFood/${food._id}`, {
+    fetch(`https://fitness-tracking-web-server.vercel.app/favoriteFood/${food._id}`, {
       method: 'DELETE'
     })
       .then(res => res.json())
@@ -94,7 +94,7 @@ console.log(data)
     const loged = { food: food, amount: amount, time: time, calorey: calorey, userEmail: user?.user?.email, date: startDate.toLocaleDateString() }
     console.log(loged)
 
-    fetch('http://localhost:5000/loggedFood', {
+    fetch('https://fitness-tracking-web-server.vercel.app/loggedFood', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

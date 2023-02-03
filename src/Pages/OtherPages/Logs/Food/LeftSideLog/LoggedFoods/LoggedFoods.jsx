@@ -37,7 +37,7 @@ const LoggedFoods = ({ logedFood, result, setResult, startDate, setStartDate }) 
   }
 
   const handleDeleteLogFood = (food) =>{
-    fetch(`http://localhost:5000/loggedFood/${food._id}`, { 
+    fetch(`https://fitness-tracking-web-server.vercel.app/loggedFood/${food._id}`, { 
             method: 'DELETE' 
         })
             .then(res=>res.json())

@@ -89,7 +89,7 @@ const FoodLog = ({ logedFood, setLogedFood, startDate, setStartDate, item, setIt
   const { isLoading, error, data: food, refetch } = useQuery({
     queryKey: ['loggedFood/userEmail', 'loggedFood/date'],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/loggedFood/${user?.user?.email}?date=${startDate.toLocaleDateString()}`);
+      const res = await fetch(`https://fitness-tracking-web-server.vercel.app/loggedFood/${user?.user?.email}?date=${startDate.toLocaleDateString()}`);
       const data = await res.json();
       return setLogedFood(data)
     }

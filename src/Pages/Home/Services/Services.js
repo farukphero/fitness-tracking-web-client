@@ -6,7 +6,7 @@ const Services = () => {
   const [servicesData, setServiceData] = useState([])
 
   useEffect(() => {
-      fetch('http://localhost:5000/services')
+      fetch('https://fitness-tracking-web-server.vercel.app/services')
       .then(res=> res.json())
       .then(data=> {
           console.log(data)

@@ -37,7 +37,7 @@ const CommunityFeed = () => {
             image: imgData.data.url,
             email: user?.email,
           };
-          fetch("http://localhost:5000/post", {
+          fetch("https://fitness-tracking-web-server.vercel.app/post", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
