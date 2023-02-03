@@ -76,10 +76,12 @@ const AddActivities = () => {
       notes: text,
     };
 
+ 
     axios
       .post(`https://fitness-tracking-web-server.vercel.app/activities`, { ...activity })
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
+ 
   };
 
   const [logActivities, setLogActivities] = useState(true);
