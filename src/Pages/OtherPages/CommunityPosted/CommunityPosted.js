@@ -6,7 +6,7 @@ import CommunityPosteds from './CommunityPosteds';
     useTitle("CommunityFeed")
     const [posts, setPosts] = useState([])
     useEffect(() => {
-        fetch('https://fitness-tracking-web-server.vercel.app/post')
+        fetch('http://localhost:5000/post')
             .then(res => res.json())
             .then(data => {
                 setPosts(data)

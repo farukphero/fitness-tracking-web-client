@@ -18,7 +18,7 @@ const ActivitiesHistory = () => {
 
   useEffect(() => {
     axios
-      .get(`https://fitness-tracking-web-server.vercel.app/activities?activist=${user?.email}`)
+      .get(`http://localhost:5000/activities?activist=${user?.email}`)
       .then((res) => setActivities(res?.data));
   }, [user?.email]);
 

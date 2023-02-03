@@ -13,7 +13,7 @@ const LoggedFoods = ({ logedFood }) => {
   const handleFavoriteFood =(food)=>{
     const favouriteFood = {food: food.food, amount: food.amount, calorey: food.calorey, time: food.time, userEmail: food.userEmail}
     console.log(favouriteFood)
-    fetch('https://fitness-tracking-web-server.vercel.app/favouriteFood', {
+    fetch('http://localhost:5000/favouriteFood', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

@@ -52,11 +52,11 @@ const CommunityFeed = () => {
                         email: user?.email
 
                     }
-                    // axios.post(`https://fitness-tracking-web-server.vercel.app/post`, postData)
+                    // axios.post(`http://localhost:5000/post`, postData)
                     //     .then(res => console.log(res.data))
 
 
-                    fetch('https://fitness-tracking-web-server.vercel.app/post', {
+                    fetch('http://localhost:5000/post', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
