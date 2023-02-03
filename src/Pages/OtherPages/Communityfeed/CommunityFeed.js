@@ -37,6 +37,7 @@ const CommunityFeed = () => {
                     const postData = {
                         firstName: userInfo?.firstName,
                         lastName: userInfo?.lastName,
+                        userimage: userInfo?.picture,
                         post: data.post,
                         image: imgData.data.url,
                         email: user?.email

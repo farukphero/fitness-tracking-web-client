@@ -43,6 +43,7 @@ import ActivitiesHistoryDetails from "../../Pages/OtherPages/Logs/Activities/Act
 import AdminRoute from "../AdminRoute/AdminRoute";
 import DashboardLayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
 import WeightCalculator from "../../Pages/Home/WeightCalculator/WeightCalculator";
+import Chat from "../../Pages/OtherPages/Chat/Chat";
 
 
 
@@ -91,10 +92,10 @@ export const router = createBrowserRouter([
             path: "/Community/community",
             element: <Community></Community>
           },
-          // {
-          //   path: "/Community",
-          //   element: <CommunityFeed></CommunityFeed>
-          // },
+          {
+            path: "/Community/chat",
+            element: <Chat></Chat>
+          },
           {
             path: "/Community/post",
             element: <CommunityPost></CommunityPost>

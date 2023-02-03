@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const GetComment = ({ comments }) => {
-
+const GetComment = ({ comments, refetch }) => {
+    refetch()
     const { commentuser, comment, photo } = comments;
 
     return (
