@@ -82,7 +82,7 @@ const WeightGoalModal = ({ logedInfo, setRestWeight,setWeightGoal }) => {
                                     max: { value: 350, message: "Must be a valid weight greater than 2.5 kg and less than 350 kg" }
                                 })} /><span>kg</span>
                             </div>
-                            {errors.expectedWeight && <p className='font-bold text-red-900'>{errors.expectedWeight.message}</p>}
+                            {errors.expectedWeight && <p className='font-semibold text-red-300'>{errors.expectedWeight.message}</p>}
                         </div>
                         <div className="modal-action">
                             <button>

@@ -21,36 +21,36 @@ const UserInfo = () => {
     setIsEditing((prev) => !prev);
   };
  
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const form = event.target;
-    const firstName = form.firstName.value;
-    const lastName = form.lastName.value;
-    const birthday = form.birthday.value;
-    const age = form.age.value;
-    const permanentAddress = form.permanentAddress.value;
-    const phone = form.phone.value;
-    const city = form.city.value;
+  // const handleSubmitt = (event) => {
+  //   event.preventDefault();
+  //   const form = event.target;
+  //   const firstName = form.firstName.value;
+  //   const lastName = form.lastName.value;
+  //   const birthday = form.birthday.value;
+  //   const age = form.age.value;
+  //   const permanentAddress = form.permanentAddress.value;
+  //   const phone = form.phone.value;
+  //   const city = form.city.value;
 
-    const newuserInfo = {
-      firstName,
-      lastName,
-      birthday,
-      age,
-      permanentAddress,
-      phone,
-      city,
-    };
-    console.log(JSON.stringify(newuserInfo));
-    console.log(newuserInfo);
-    console.log(user.email);
+  //   const newuserInfo = {
+  //     firstName,
+  //     lastName,
+  //     birthday,
+  //     age,
+  //     permanentAddress,
+  //     phone,
+  //     city,
+  //   };
+  //   console.log(JSON.stringify(newuserInfo));
+  //   console.log(newuserInfo);
+  //   console.log(user.email);
 
-    fetch(`http://localhost:5000/users/edit/${user?.email}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newuserInfo),
+  //   fetch(`http://localhost:5000/users/edit/${user?.email}`, {
+  //     method: "PATCH",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(newuserInfo),
  
   const handleEdit = (data) => {
     // event.preventDefault();
