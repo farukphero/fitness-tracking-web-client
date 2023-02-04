@@ -32,8 +32,6 @@ const ActivitiesHistory = () => {
     },
   });
 
-  console.log(activities);
-
   if (isLoading) {
     <Spinner />;
   }
