@@ -2,11 +2,15 @@ import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
-
+import { format } from "date-fns";
+import { DayPicker } from "react-day-picker";
 
 const UserDetails = () => {
-  const {user}= useContext(AuthContext)
-  const navigate = useNavigate()
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const [selected, setSelected] = React.useState(new Date());
+
+  const date = format(selected, "P");
   const {
     register,
     formState: { errors },
@@ -15,7 +19,7 @@ const UserDetails = () => {
 
   const handleDetails = (data) => {
     const image = data.img[0];
-    console.log(image);
+    // console.log(image);
     const formData = new FormData();
     formData.append("image", image);
     const url = `https://api.imgbb.com/1/upload?key=726066e8927dabeb69cd327602b061ef`;
@@ -34,6 +38,7 @@ const UserDetails = () => {
           lastName: data.lastName,
           email: data.email,
           age: data.age,
+          weight: data.weight,
           currentAddress: data.currentAddress,
           permanentAddress: data.permanentAddress,
           birthday: data.birthday,
@@ -41,6 +46,8 @@ const UserDetails = () => {
           city: data.city,
           phone: data.phone,
           picture: imgData.data.url,
+          gender: data.gender,
+          postDate: date,
         };
         fetch("https://fitness-tracking-web-server.vercel.app/users", {
           method: "POST",
@@ -51,7 +58,7 @@ const UserDetails = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            navigate('/Leaderboard')
+            navigate("/Leaderboard");
             console.log(data);
           });
 
@@ -65,8 +72,7 @@ const UserDetails = () => {
         <form onSubmit={handleSubmit(handleDetails)}>
           <div className="justify-center text-center">
             <p className="text-2xl font-semibold text-green-500 mb-4">
-        
-            Please Provide your information{" "}
+              Please Provide your information{" "}
             </p>
             <input
               className="hidden"
@@ -80,7 +86,12 @@ const UserDetails = () => {
               Upload a photo
             </label>
           </div>
-
+          <DayPicker
+            mode="single"
+            selected={selected}
+            onSelect={setSelected}
+            className="hidden"
+          />
           <div className="card-body">
             <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-10">
               <div className="form-control">
@@ -152,6 +163,19 @@ const UserDetails = () => {
                   placeholder="Weight"
                   className="input input-bordered bg-gray-600"
                 />
+              </div>
+              <div>
+                <select
+                  {...register("gender", { required: true })}
+                  className="select select-bordered w-full max-w-xs"
+                >
+                  <option disabled selected>
+                    Gender
+                  </option>
+                  <option>Male</option>
+                  <option>Female</option>
+                  <option>Others</option>
+                </select>
               </div>
             </div>
 

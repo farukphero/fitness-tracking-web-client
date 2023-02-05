@@ -8,6 +8,7 @@ import { AuthContext } from "../../../../../Contexts/AuthProvider/AuthProvider";
 import { FaRegTrashAlt, FaPen } from "react-icons/fa";
 import WeightGoalModal from "../Modal/WeightGoalModal";
 import { toast } from "react-hot-toast";
+
 const SideForm1 = ({ setLogedWeight }) => {
   const { user } = useContext(AuthContext);
   const {
