@@ -35,7 +35,9 @@ const Protein = () => {
             data-aos-duration="1000"
           >
             <div className="text-white flex flex-col justify-center gap-4 ">
-              <h1 className="text-2xl font-bold text-white">Intake of Blood</h1>
+              <h1 className="text-2xl font-bold text-white">
+                Intake of Protein
+              </h1>
 
               <div className="input-container">
                 <input
