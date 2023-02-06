@@ -2,13 +2,13 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  content: [],content: [
+  content: [], content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
-  daisyui:{
+  daisyui: {
     themes: [
       {
-        doctortheme:{
+        doctortheme: {
           primary: '#0FCFEC',
           secondary: '#19D3AE',
           accent: "#3A4256",
@@ -21,7 +21,7 @@ module.exports = {
 
           warning: "#1E1842",
 
-           baset: "#9C0EFF",
+          baset: "#9C0EFF",
         }
       }
     ]

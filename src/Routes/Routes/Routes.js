@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, useLocation } from "react-router-dom";
 import SignIn from "../../Authentications/SignIn/SignIn";
 import SignUp from "../../Authentications/SignUp/SignUp";
 import KeepTrack from "../../Layout/KeepTrack/KeepTrack";
@@ -46,16 +46,16 @@ import WaterTracking from "../../Pages/Home/Calculator/WaterTracking/WaterTracki
 import CommunityFeed from "../../Pages/OtherPages/Communityfeed/CommunityFeed";
 import Tutorials from "../../Pages/OtherPages/Tutorials/Tutorials";
 import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
- 
 import Sleep from "../../Pages/OtherPages/Logs/Sleep/Sleep/Sleep";
- 
- 
- 
 import BloodTracking from "../../Pages/Home/Calculator/BloodTracking/BloodTracking";
 import Protein from "../../Pages/Home/Calculator/Protein/Protein";
- 
+import Faqs from "../../Pages/Faq/Faqs";
+
+
+
 
 export const router = createBrowserRouter([
+
   {
     path: "/",
     element: <Main></Main>,
@@ -64,6 +64,10 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/faq",
+        element: <Faqs></Faqs>,
       },
       {
         path: "/serviceDetails/:id",
@@ -169,13 +173,13 @@ export const router = createBrowserRouter([
       },
 
       {
- 
+
         path: "/singleCategory/:id",
         loader: ({ params }) =>
           fetch(
             `https://fitness-tracking-web-server.vercel.app/singleCategory/${params.id}`
           ),
- 
+
         element: <Tutorial></Tutorial>,
       },
 
@@ -256,9 +260,9 @@ export const router = createBrowserRouter([
       },
       {
         path: "/Logs/Sleep",
-        element: <Sleep/>,
+        element: <Sleep />,
       },
     ],
   },
 ]);
- 
+

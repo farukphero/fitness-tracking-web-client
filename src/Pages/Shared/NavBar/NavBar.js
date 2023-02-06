@@ -41,6 +41,12 @@ const Navbar = () => {
     },
     {
       _id: 3,
+      navigate: `/faq`,
+      aria: `Faq`,
+      content: `Faq`,
+    },
+    {
+      _id: 4,
       navigate: `/Tutorials`,
       aria: `Tutorials`,
       content: `Tutorials`,

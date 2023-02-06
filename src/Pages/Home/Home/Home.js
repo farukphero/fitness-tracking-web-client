@@ -9,6 +9,7 @@ import ContactUs from "../ContactUs/ContactUs";
 import Review from "../Review/Review";
 import Services from "../Services/Services";
 import Leaderboard from "../../../Pages/OtherPages/Leaderboard/Leaderboard";
+import FeatureClass from "../FeaturClass/FeatureClass";
 
 const Home = () => {
   useTitle("Home");
@@ -24,6 +25,7 @@ const Home = () => {
             <Services />
             <About />
             <Review></Review>
+            <FeatureClass></FeatureClass>
             <Branches></Branches>
             <ContactUs></ContactUs>
             {/* <WeightCalculator></WeightCalculator> */}
