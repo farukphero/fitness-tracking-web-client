@@ -62,7 +62,7 @@ const UserDetails = () => {
             console.log(data);
           });
 
-        console.log(Details);
+        // console.log(Details);
       });
   };
 
