@@ -256,7 +256,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/Logs/Sleep",
-        element: <Sleep/>,
+        element: <Sleep />,
       },
     ],
   },

@@ -1,5 +1,8 @@
+ 
+import React, { useContext, useState, useEffect } from "react";
+ 
 import axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
+ 
 import { toast } from "react-hot-toast";
 import { AiFillFire, AiOutlineCalendar } from "react-icons/ai";
 import { FaWalking } from "react-icons/fa";
@@ -33,8 +36,6 @@ const ActivitiesHistory = () => {
     },
   });
 
-  console.log(activities);
-
   if (isLoading) {
     <Spinner />;
   }
@@ -62,6 +63,7 @@ const ActivitiesHistory = () => {
   const closeModal = () => {
     setDeleteActivity(null);
   };
+ 
  
   // useEffect(() => {
   //   axios
