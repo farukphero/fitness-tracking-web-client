@@ -6,6 +6,7 @@ import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
 import useTitle from "../../Hooks/useTitle/useTitle";
 import Loading from "../../Components/Loading/Loading";
+import { toast } from "react-hot-toast";
 
 const SignIn = () => {
   useTitle("SignIn");
@@ -24,6 +25,7 @@ const SignIn = () => {
       .then((result) => {
         const user = result.user;
         <Loading></Loading>
+        toast.success("Sign In success")
         navigate("/Leaderboard");
       })
       .catch((error) => console.log(error.message));
@@ -34,6 +36,7 @@ const SignIn = () => {
       .then((result) => {
         const user = result.user;
         <Loading></Loading>
+        toast.success("Sign In success")
         navigate("/Leaderboard");
       })
       .catch((error) => console.log(error));

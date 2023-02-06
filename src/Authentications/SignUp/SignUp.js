@@ -6,6 +6,7 @@ import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import { FcGoogle } from 'react-icons/fc';
 import useTitle from "../../Hooks/useTitle/useTitle";
 import Loading from "../../Components/Loading/Loading";
+import { toast } from "react-hot-toast";
 
 
 const SignUp = () => {
@@ -28,6 +29,7 @@ const SignUp = () => {
       .then((result) => {
         const user = result.user;
         <Loading></Loading>
+        toast.success("Welcome to FITLESSIAN")
         navigate("/UserDetails");
       })
       .catch((error) => {
@@ -41,6 +43,7 @@ const SignUp = () => {
       .then((result) => {
         const user = result.user;
         <Loading></Loading>
+        toast.success("Welcome to FITLESSIAN")
         navigate("/UserDetails");
       })
       .catch((error) => console.log(error));

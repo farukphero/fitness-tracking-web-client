@@ -1,4 +1,8 @@
+ 
 import React, { useContext, useState, useEffect } from "react";
+ 
+import axios from "axios";
+ 
 import { toast } from "react-hot-toast";
 import { AiFillFire, AiOutlineCalendar } from "react-icons/ai";
 import { FaWalking } from "react-icons/fa";
@@ -16,7 +20,6 @@ import SingleActivity from "../SingleActivity/SingleActivity";
 const ActivitiesHistory = () => {
   const [deleteActivity, setDeleteActivity] = useState(null);
   const { user } = useContext(AuthContext);
-
  
   const {
     data: activities,
@@ -60,6 +63,13 @@ const ActivitiesHistory = () => {
   const closeModal = () => {
     setDeleteActivity(null);
   };
+ 
+ 
+  // useEffect(() => {
+  //   axios
+  //     .get(`https://fitness-tracking-web-server.vercel.app/activities?activist=${user?.email}`)
+  //     .then((res) => setActivities(res?.data));
+  // }, [user?.email]);
  
 
   return (

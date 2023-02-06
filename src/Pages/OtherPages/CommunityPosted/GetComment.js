@@ -1,22 +1,29 @@
-import React from "react";
+import React, { useState } from 'react';
 
-const GetComment = ({ comments }) => {
-  const { commentuser, comment, photo } = comments;
+const GetComment = ({ comments, refetch }) => {
+    refetch()
+    const { commentuser, comment, photo } = comments;
 
-  return (
-    <div className="card lg:w-1/2 p-8 mt-4  grid sm:grid-cols-1 lg:grid-cols-2 position  shadow-xl shadow-amber-600">
-      <div className="top-1/3 bg-base-100 flex py-5">
-        <div className="flex avatar w-12 ml-3">
-          <img className="w-10 h-10 rounded-full" src={photo} alt="" />{" "}
-          <p className="ml-3 font-semibold text-xl">{commentuser}</p>
-          <br />
+    return (
+        <div className="flex gap-4">
+            <div className='top-1/3 bg-base-100 flex py-5'>
+                <div className='ml-3'>
+                    <img className='w-16 h-16 rounded-full' src={photo} alt="" /> <p className='ml-3 font-semibold text-xl'></p>
+                    <br />
+
+                </div>
+
+
+
+            </div>
+            <div className="bg-slate-100 h-1/2 p-3 mt-2 rounded-2xl">
+                <p className='text-2xl text-black font-semibold'> {commentuser}</p>
+                <p className='text-black'>{comment}</p>
+
+            </div>
+
         </div>
-      </div>
-      <div className="">
-        <p>{comment}</p>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default GetComment;

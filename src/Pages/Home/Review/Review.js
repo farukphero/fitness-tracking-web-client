@@ -39,10 +39,15 @@ const Review = () => {
     },
   ];
   return (
-    <div className="mt-20">
+    <div
+      className="mt-20"
+      data-aos="fade-up"
+      data-aos-easing="linear"
+      data-aos-duration="2000"
+    >
       <h2 className=" text-center text-3xl font-semibold py-5 text-all-green">
         {" "}
-        Reviews
+        Users Reviews
       </h2>
       <div className="grid grid-cols-1 lg:grid-cols-4  bg-gray-800 pl-8 pt-8 gap-4 pb-8 pr-8 ">
         {allReview.map((reviews) => (

@@ -7,6 +7,7 @@ import AuthProvider from "./Contexts/AuthProvider/AuthProvider";
 import { QueryClient, QueryClientProvider } from "react-query";
 import FoodProvider from "./Contexts/FoodProvider/FoodProvider";
 // import "react-datepicker/dist/react-datepicker.css";
+import 'react-day-picker/dist/style.css';
 
 const queryClient = new QueryClient()
 
