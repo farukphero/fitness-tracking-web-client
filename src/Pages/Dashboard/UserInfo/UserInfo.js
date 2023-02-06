@@ -20,6 +20,7 @@ const UserInfo = () => {
   const handleEdittoggle = () => {
     setIsEditing((prev) => !prev);
   };
+
   const handleEdit = (data) => {
     // event.preventDefault();
 
@@ -51,13 +52,16 @@ const UserInfo = () => {
         console.log(newUserInfo);
         // console.log(user.email);
 
-        fetch(`https://fitness-tracking-web-server.vercel.app/users/edit/${user?.email}`, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(newUserInfo),
-        })
+        fetch(
+          `https://fitness-tracking-web-server.vercel.app/users/edit/${user?.email}`,
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newUserInfo),
+          }
+        )
           .then((res) => res.json())
           .then((data) => console.log(data));
 
@@ -105,7 +109,7 @@ const UserInfo = () => {
                     htmlFor="file"
                     className="flex btn btn-xs font-bold text-xs btn-outline btn-explore text-white"
                   >
-                    <small> Upload Photo</small> 
+                    <small> Upload Photo</small>
                     <ImFolderPlus className="h-6 w-7 p-1" />
                   </label>
                 </div>

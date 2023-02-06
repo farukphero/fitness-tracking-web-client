@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { toast } from "react-hot-toast";
 import { AiFillFire, AiOutlineCalendar } from "react-icons/ai";
 import { FaWalking } from "react-icons/fa";
@@ -17,6 +17,7 @@ const ActivitiesHistory = () => {
   const [deleteActivity, setDeleteActivity] = useState(null);
   const { user } = useContext(AuthContext);
 
+ 
   const {
     data: activities,
     isLoading,
@@ -59,6 +60,7 @@ const ActivitiesHistory = () => {
   const closeModal = () => {
     setDeleteActivity(null);
   };
+ 
 
   return (
     <div className="lg:mx-8 border p-4 rounded-md border-gray-600">

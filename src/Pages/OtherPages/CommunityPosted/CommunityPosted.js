@@ -1,6 +1,8 @@
-import { React, useEffect, useState } from "react";
-import useTitle from "../../../Hooks/useTitle/useTitle";
-import CommunityPosteds from "./CommunityPosteds";
+ 
+import { React, useEffect, useState } from 'react'
+import useTitle from '../../../Hooks/useTitle/useTitle';
+import CommunityPosteds from './CommunityPosteds';
+ 
 
 const CommunityPosted = () => {
   useTitle("CommunityFeed");
