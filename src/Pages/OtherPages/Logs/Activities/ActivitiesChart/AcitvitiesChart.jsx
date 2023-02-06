@@ -42,7 +42,7 @@ const ActivitiesChart = () => {
       )
         .then((res) => res.json())
         .then((data) => setData(data));
-      setShowChart(<YearChart data={data} />);
+      setShowChart(<YearChart focus={focus} setTotal={setTotal} data={data} />);
     } else {
       fetch(
         `https://fitness-tracking-web-server.vercel.app/activities/1?activist=${user?.email}`
