@@ -4,15 +4,28 @@ import "./About.css";
 
 const About = () => {
   return (
-    <div className="pt-16" id='about'>
+    <div className="pt-16" id="about">
       <h1 className="text-center text-all-green text-4xl font-semibold mb-6">
         About Us
       </h1>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 text-white lg:w-11/12 mx-auto">
         <div>
-          <img className="w-full h-96 rounded transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300" src={image} alt=""></img>
+          <img
+            className="w-full h-96 rounded"
+            data-aos="fade-up"
+            data-aos-easing="linear"
+            data-aos-duration="2000"
+            src={image}
+            alt=""
+          ></img>
+          {/* hover for image - transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 */}
         </div>
-        <div className="mt-3 lg:mt-7">
+        <div
+          className="mt-3 lg:mt-7"
+          data-aos="fade-up"
+          data-aos-easing="linear"
+          data-aos-duration="2000"
+        >
           <h1 className="text-about">
             Fitness providers should operate in accordance with industry
             standards, including the National Code of Practice for the Health
@@ -22,10 +35,7 @@ const About = () => {
             goals – for example, personal training, free weights, aerobics
             classes, Pilates and swimming.It is a health, recreational, and
             social facility geared towards exercise, sports, and other physical
-            activities. It may be a for-profit commercial facility or a
-            community- or institutionally-supported center. A successful
-            facility will accommodate both the serious athlete and the casual
-            recreational user.
+            activities.
           </h1>
           <hr className=" w-full lg:w-3/4 mt-2"></hr>
           <div className="flex items-center mt-4 space-x-4">

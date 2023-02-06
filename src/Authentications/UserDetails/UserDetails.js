@@ -74,7 +74,7 @@ const UserDetails = () => {
         <form onSubmit={handleSubmit(handleDetails)}>
           <div className="justify-center text-center">
             <p className="text-2xl font-semibold text-green-500 mb-4">
-              Please Provide your information{" "}
+              Please Provide your information
             </p>
             <input
               className="hidden"

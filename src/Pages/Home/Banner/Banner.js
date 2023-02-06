@@ -6,23 +6,49 @@ import "swiper/css/pagination";
 import undraw1 from "../../../assets/undraw_indoor_bike_pwa4 (1).svg";
 import "./Banner.css";
 
+import lott21 from "../../../assets/working21 (1).json";
+
+import lott23 from "../../../assets/working21 (3).json";
+
+import Lottie from "lottie-react";
+
 const Banner = () => {
   return (
-    <div >
+    <div>
       <div className=" grid grid-cols-1 lg:grid-cols-2 pb-8 md:pt-16">
         <div className=" justify-center  text-center">
-          <h1 className="text-5xl banner-text text-white mt-8 md:mt-24">
-            Stay Healthy Even If you Stay
+          <h1 className="text-5xl font-bold banner-text text-white mt-8 md:mt-24">
+            Stay Healthy Even If you <br />
+            Stay
             <span className="text-all-green"> At Home</span>
           </h1>
-          <div className="flex mt-8 md:ml-24">
-            <NavHashLink smooth to='/#contact' className="btn btn-banner font-bold bg-gradient-to-r from-green-500 to-accent text-white">Contact</NavHashLink>
-            <NavHashLink smooth to='/#about' className="btn btn-banner font-bold bg-gradient-to-r from-green-500 to-accent text-white">About</NavHashLink>
+          <p className="mt-4 text-gray-400">
+            Achieve Your Training Goals With The Right Plan, Not With A Luck.
+          </p>
+          <div className="flex flex-row gap-4 mt-6 justify-center items-center">
+            <NavHashLink smooth to="/#contact">
+              {" "}
+              <button className="border-2 px-8 py-3 border-green-600 btn-explore font-bold  rounded-md ">
+                Contact
+              </button>
+            </NavHashLink>
+            <NavHashLink smooth to="/#about">
+              {" "}
+              <button className="btn-explore-about border-2 px-8 py-3 border-green-600 rounded-md ">
+                About
+              </button>
+            </NavHashLink>
           </div>
         </div>
         <div>
-        <img className="w-full mt-8 md:mt-0 rounded-md h-3/4" src={undraw1} alt=""></img>
-      </div>
+          <div className="flex justify-center ">
+            <Lottie
+              className="w-4/5"
+              animationData={lott23}
+              loop={true}
+            ></Lottie>
+          </div>
+        </div>
       </div>
     </div>
   );
