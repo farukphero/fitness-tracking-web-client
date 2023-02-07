@@ -6,11 +6,16 @@ import { format } from "date-fns";
 import { DayPicker } from "react-day-picker";
 
 const UserDetails = () => {
-  const { user } = useContext(AuthContext);
-  const navigate = useNavigate();
+ 
+  const { user } = useContext(AuthContext)
+  const navigate = useNavigate()
+ 
+ 
+ 
   const [selected, setSelected] = React.useState(new Date());
 
   const date = format(selected, "P");
+ 
   const {
     register,
     formState: { errors },
@@ -45,9 +50,13 @@ const UserDetails = () => {
           country: data.country,
           city: data.city,
           phone: data.phone,
+          weight: data.weight,
           picture: imgData.data.url,
+ 
+ 
           gender: data.gender,
           postDate: date,
+ 
         };
         fetch("https://fitness-tracking-web-server.vercel.app/users", {
           method: "POST",
@@ -74,7 +83,12 @@ const UserDetails = () => {
         <form onSubmit={handleSubmit(handleDetails)}>
           <div className="justify-center text-center">
             <p className="text-2xl font-semibold text-green-500 mb-4">
+ 
+
+          
+ 
               Please Provide your information
+ 
             </p>
             <input
               className="hidden"

@@ -253,6 +253,7 @@ export const router = createBrowserRouter([
       {
         path: "/Logs/Weight",
         element: <Weight />,
+        
       },
       {
         path: "/Logs/Sleep",
