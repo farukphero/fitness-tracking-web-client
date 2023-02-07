@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { ImFolderPlus } from "react-icons/im";
 
+
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import "./UserInfo.css";
 
@@ -11,6 +12,7 @@ const UserInfo = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
+
   const { user } = useContext(AuthContext);
 
   const [userInfo, setUserInfo] = useState({});
@@ -79,6 +81,7 @@ const UserInfo = () => {
           phone: data.phone,
           city: data.city,
           picture: imgData.data.url,
+          
         };
         console.log(JSON.stringify(newUserInfo));
         console.log(newUserInfo);
@@ -211,6 +214,7 @@ const UserInfo = () => {
                       // name="city"
                       {...register("city", { required: true })}
                     />
+                    
                   </div>
                 </div>
                 <div className="flex lg:gap-12 gap-2 mr-20 w-56">
