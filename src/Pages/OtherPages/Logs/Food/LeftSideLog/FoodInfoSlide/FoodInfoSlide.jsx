@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Mousewheel, Keyboard } from "swiper";
 import "swiper/css";
@@ -9,12 +9,42 @@ import timer from "../../../../../../images/timer.png";
 import { AiTwotoneFire } from "react-icons/ai";
 import { ImSpoonKnife } from "react-icons/im";
 import DatePicker from "react-datepicker";
+import { AuthContext } from "../../../../../../Contexts/AuthProvider/AuthProvider";
 
 const swiperContent = [{}];
 
-const shouldEaten = 2000;
-
 const FoodInfoSlide = ({result, startDate, setStartDate}) => {
+  const user = useContext(AuthContext);
+  console.log(user)
+const [weightGoal, setWeightGoal] = useState([]);
+  useEffect(()=>{
+    fetch(`http://localhost:5000/weightGoal?email=${user?.user?.email}`)
+    .then(res=>res.json())
+    .then(data=>{
+      console.log(data)
+      setWeightGoal(data)
+    })
+  } , [user?.user?.email])
+  const userBmr = (user) =>{
+   
+      if(user?.userInfo?.gender === 'Male'){
+        return 88.36 + (13.4 * parseInt(user?.userInfo?.weight)) + (4.8 *( 5.5 * 30.48)) - (5.7 * parseInt(user?.userInfo?.age))
+      }
+      else if(user?.userInfo?.gender === 'female'){
+        return 447.6 + (9.2 * parseInt(user?.userInfo?.weight)) + (3.1 *( 5.5 * 30.48)) - (4.3 * parseInt(user?.userInfo?.age))
+      }
+    
+  }
+  const gainWeight = parseInt(weightGoal[0]?.expectedWeight) - parseInt(user?.userInfo?.age);
+  console.log(weightGoal)
+  const day = 45;
+  const extraCalorey = (7700 * gainWeight) / day;
+  const bmr = userBmr(user)
+  const TEE = 2200;
+  const pal = TEE / bmr;
+  const dailyCaloryRequirementMaintanance = (pal * bmr);
+  const dailyCaloryRequirementGain = parseInt(dailyCaloryRequirementMaintanance + extraCalorey);
+  // console.log(dailyCaloryRequirementGain)
   return (
     <>
     <div className="flex justify-between">
@@ -47,7 +77,7 @@ const FoodInfoSlide = ({result, startDate, setStartDate}) => {
                   <img src={plate} alt="plate" />
                 </div>
               </div>
-              <h2 className="font-bold text-xl">today i can still eat <span className="text-green-500">{shouldEaten - result}</span> cals</h2>
+              <h2 className="font-bold text-xl">today you can still eat <span className="text-green-500">{dailyCaloryRequirementGain - result}</span> cals</h2>
             </div>
           </SwiperSlide>
           <SwiperSlide>
@@ -79,7 +109,7 @@ const FoodInfoSlide = ({result, startDate, setStartDate}) => {
               </div>
             </div>
           </SwiperSlide>
-          <SwiperSlide>
+          {/* <SwiperSlide>
           <div className="pb-10 text-center">
               <h3 className="text-2xl">Plan Summary</h3>
             </div>
@@ -101,13 +131,13 @@ const FoodInfoSlide = ({result, startDate, setStartDate}) => {
                   <div className="flex space-x-3 items-center">
                     <ImSpoonKnife className="text-gray-100 text-2xl" />
                     <h2 className="capitalize text-xl">
-                      eaten : <span className="font-semibold">0 calories</span>
+                      eaten : <span className="font-semibold"> <span className="font-semibold"><span className="text-green-500">{result}</span> calories</span></span>
                     </h2>
                   </div>
                 </div>
               </div>
             </div>
-          </SwiperSlide>
+          </SwiperSlide> */}
         </Swiper>
       </div>
     </>
