@@ -10,6 +10,7 @@ import Review from "../Review/Review";
 import Services from "../Services/Services";
 import Leaderboard from "../../../Pages/OtherPages/Leaderboard/Leaderboard";
 import FeatureClass from "../FeaturClass/FeatureClass";
+import Goals from "../Goals/Goals";
 
 const Home = () => {
   useTitle("Home");
@@ -24,6 +25,7 @@ const Home = () => {
             <Banner></Banner>
             <Services />
             <About />
+            <Goals></Goals>
             <Review></Review>
             <FeatureClass></FeatureClass>
             <Branches></Branches>

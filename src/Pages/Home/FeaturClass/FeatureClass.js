@@ -45,7 +45,7 @@ const FeatureClass = () => {
     return (
         <div className='mt-8 p-10'>
             <p className='text-4xl font-bold text-white text-center mb-4'>Whats Your Questions</p>
-            <div className="hero">
+            <div className="">
                 <div className="hero-content flex-col lg:flex-row">
                     <img className='w-1/2' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbfdqBE5E2BUtdUp2BfKUKYpv82WfPyAZpvw&usqp=CAU" alt='' />
                     <div>
