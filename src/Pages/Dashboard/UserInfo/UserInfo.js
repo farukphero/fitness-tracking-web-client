@@ -22,38 +22,7 @@ const UserInfo = () => {
   const handleEdittoggle = () => {
     setIsEditing((prev) => !prev);
   };
- 
-  // const handleSubmitt = (event) => {
-  //   event.preventDefault();
-  //   const form = event.target;
-  //   const firstName = form.firstName.value;
-  //   const lastName = form.lastName.value;
-  //   const birthday = form.birthday.value;
-  //   const age = form.age.value;
-  //   const permanentAddress = form.permanentAddress.value;
-  //   const phone = form.phone.value;
-  //   const city = form.city.value;
 
-  //   const newuserInfo = {
-  //     firstName,
-  //     lastName,
-  //     birthday,
-  //     age,
-  //     permanentAddress,
-  //     phone,
-  //     city,
-  //   };
-  //   console.log(JSON.stringify(newuserInfo));
-  //   console.log(newuserInfo);
-  //   console.log(user.email);
-
-  //   fetch(`https://fitness-tracking-web-server.vercel.app/users/edit/${user?.email}`, {
-  //     method: "PATCH",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(newuserInfo),
- 
   const handleEdit = (data) => {
     // event.preventDefault();
 
@@ -66,7 +35,6 @@ const UserInfo = () => {
     fetch(url, {
       method: "POST",
       body: formData,
- 
     })
       .then((res) => res.json())
       .then((imgData) => {
@@ -87,13 +55,16 @@ const UserInfo = () => {
         console.log(newUserInfo);
         // console.log(user.email);
 
-        fetch(`https://fitness-tracking-web-server.vercel.app/users/edit/${user?.email}`, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(newUserInfo),
-        })
+        fetch(
+          `https://fitness-tracking-web-server.vercel.app/users/edit/${user?.email}`,
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newUserInfo),
+          }
+        )
           .then((res) => res.json())
           .then((data) => console.log(data));
 
@@ -141,7 +112,7 @@ const UserInfo = () => {
                     htmlFor="file"
                     className="flex btn btn-xs font-bold text-xs btn-outline btn-explore text-white"
                   >
-                    <small> Upload Photo</small> 
+                    <small> Upload Photo</small>
                     <ImFolderPlus className="h-6 w-7 p-1" />
                   </label>
                 </div>

@@ -3,7 +3,13 @@ import "./Contact.css";
 
 const ContactUs = () => {
   return (
-    <section id='contact' className="mt-12">
+    <section
+      id="contact"
+      className="mt-12"
+      data-aos="fade-up"
+      data-aos-easing="linear"
+      data-aos-duration="2000"
+    >
       <h2 className="text-3xl lg:text-4xl text-all-green font-semibold text-center pt-10">
         Get In Touch{" "}
       </h2>

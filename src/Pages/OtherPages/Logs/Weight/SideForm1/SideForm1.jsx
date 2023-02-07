@@ -6,8 +6,12 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../../../Contexts/AuthProvider/AuthProvider";
 import { toast } from "react-hot-toast";
 
+ 
 
-const SideForm1 = ({setLogedData,refetch}) => {
+const SideForm1 = ({setLogedData,refetch,setLogedWeight}) => {
+ 
+ 
+ 
   const { user } = useContext(AuthContext);
   const {
     register,
