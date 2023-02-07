@@ -2,11 +2,11 @@ import React, { useContext, useState } from "react";
 import { useQuery } from "react-query";
 import { AuthContext } from "../../../../../../Contexts/AuthProvider/AuthProvider";
 import FavoriteFoodTable from "./FavoriteFoodTable";
+import InputForm from "./InputForm";
 
 const FavouriteFoods = ({logedFood, setLogedFood}) => {
   const [favouriteFood, setFavouriteFood] = useState([]);
- 
-  
+  const [item, setItem] = useState(null);
   const user = useContext(AuthContext)
  
   const {
@@ -32,11 +32,6 @@ const FavouriteFoods = ({logedFood, setLogedFood}) => {
 
  
   if (error) return 'An error has occurred: ' + error.message
-  
-
-  
- 
-  if (error) return "An error has occurred: " + error.message;
  
   return (
     <section>
@@ -47,21 +42,12 @@ const FavouriteFoods = ({logedFood, setLogedFood}) => {
               Favourite  Foods
             </span>
           </div>
-          {/* <div className="flex space-x-3">
-            <button className="btn btn-sm btn-outline   hover:text-white hover:bg-gradient-to-r hover:from-gray-800 hover:to-green-500   text-white">
-              Foods
-            </button>
-            <button className="btn btn-sm  btn-outline  hover:text-white hover:bg-gradient-to-r hover:from-gray-800 hover:to-green-500  text-white">
-              Meals
-            </button>
-          </div> */}
-        </div>
+          </div>
         <div>
           <table className="table w-full mt-3">
             <thead>
               <tr>
                 <th className="bg-gray-200  text-black">Cals</th>
- 
                 <th className="bg-gray-200 text-black">Click on the item to log it</th>
                 <th className="bg-gray-200 text-black"></th>
               </tr>
@@ -71,20 +57,12 @@ const FavouriteFoods = ({logedFood, setLogedFood}) => {
               logedFood={logedFood} 
               setLogedFood={setLogedFood}
               key={food._id}
-              food={food}></FavoriteFoodTable>)}
- 
-                {/* <th className="bg-gray-200 text-black">
-                  Click on the item to log it
-                </th> */}
-           
-              {/* {favouriteFood?.map((food) => (
-                <tr key={food._id}>
-                  <td className="bg-white text-black">{food.calorey} Cals</td>
-                  <td className="bg-white text-black">{food.food}</td> */}
-                {/* </tr>
-              ))} */}
- 
-            </tbody>
+              food={food}
+              setItem={setItem}></FavoriteFoodTable>)}
+              </tbody>
+            <div >
+            {item && <InputForm item={item} setItem={setItem} />}
+            </div>
           </table>
         </div>
       </div>
