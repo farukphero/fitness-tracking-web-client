@@ -29,7 +29,7 @@ const ActivitiesHistory = () => {
     queryKey: [`activities`, user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `https://fitness-tracking-web-server.vercel.app/activities?activist=${user?.email}`
+        `http://localhost:5000/activities?activist=${user?.email}`
       );
       const data = await res.json();
       return data;
@@ -42,7 +42,7 @@ const ActivitiesHistory = () => {
 
   const handleDeleteActivity = (activity) => {
     fetch(
-      `https://fitness-tracking-web-server.vercel.app/activities/${activity._id}`,
+      `http://localhost:5000/activities/${activity._id}`,
       {
         method: `DELETE`,
       }
@@ -67,7 +67,7 @@ const ActivitiesHistory = () => {
  
   // useEffect(() => {
   //   axios
-  //     .get(`https://fitness-tracking-web-server.vercel.app/activities?activist=${user?.email}`)
+  //     .get(`http://localhost:5000/activities?activist=${user?.email}`)
   //     .then((res) => setActivities(res?.data));
   // }, [user?.email]);
  

@@ -10,7 +10,7 @@ const CommunityFriend = () => {
     const { userInfo } = useContext(AuthContext)
     const [users, setUsers] = useState([])
     useEffect(() => {
-        fetch('https://fitness-tracking-web-server.vercel.app/users')
+        fetch('http://localhost:5000/usersWithoutPresent')
             .then(res => res.json())
             .then(data => {
                 setUsers(data)
@@ -24,13 +24,13 @@ const CommunityFriend = () => {
             <div>
                 <div className='items-center mt-4 ml-6 mb-4 justify-start flex gap-4'>
                     <div className="avatar">
-                        <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                        {/* <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                             <img src={userInfo?.picture} alt="" />
-                        </div>
+                        </div> */}
                     </div>
-                    <div>
+                    {/* <div>
                         <h1 className='text-2xl font-semibold'>{userInfo?.firstName}{userInfo?.lastName}</h1>
-                    </div>
+                    </div> */}
                 </div>
 
             </div>

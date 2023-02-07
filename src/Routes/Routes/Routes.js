@@ -173,7 +173,7 @@ export const router = createBrowserRouter([
         path: "/singleCategory/:id",
         loader: ({ params }) =>
           fetch(
-            `https://fitness-tracking-web-server.vercel.app/singleCategory/${params.id}`
+            `http://localhost:5000/singleCategory/${params.id}`
           ),
  
         element: <Tutorial></Tutorial>,

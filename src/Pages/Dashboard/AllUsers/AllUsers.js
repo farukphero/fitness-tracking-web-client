@@ -7,7 +7,7 @@ const AllUsers = () => {
     const { isLoading, error, data:allUsers=[],refetch } = useQuery({
         queryKey: ['repoData'],
         queryFn: () =>
-          fetch('https://fitness-tracking-web-server.vercel.app/users').then(
+          fetch('http://localhost:5000/users').then(
             (res) => res.json(),
           ),
       })
@@ -18,7 +18,7 @@ const AllUsers = () => {
     
 
       const handleAdmin = (id) => {
-        fetch(`https://fitness-tracking-web-server.vercel.app/users/admin/${id}`, {
+        fetch(`http://localhost:5000/users/admin/${id}`, {
           method: "PUT",
           headers: {
             authorization: `bearer ${localStorage.getItem("accessToken")}`,
@@ -36,7 +36,7 @@ const AllUsers = () => {
       const handleDelete = (id) => {
         const proceed = window.confirm("Are you sure?");
         if (proceed) {
-          fetch(`https://fitness-tracking-web-server.vercel.app/users/${id}`, {
+          fetch(`http://localhost:5000/users/${id}`, {
             method: "DELETE",
           })
             .then((res) => res.json())

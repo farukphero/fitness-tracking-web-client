@@ -120,8 +120,8 @@ const SideForm2 = ({ setGoalSetData }) => {
                             onChange={(date) => setStartDate(date)}
                         />
                     </div>
-                    <div className="btn btn-outline bg-gradient-to-r from-gray-700 via-green-500 to-gray-700 text-white hover:bg-gradient-to-r hover:from-gray-800 hover:via-green-400 hover:to-gray-800 hover:text-black  btn-sm  mt-3 w-full">
-                        <button className="text-center">Submit</button>
+                    <div className="">
+                        <button className="text-center btn btn-outline bg-gradient-to-r from-gray-700 via-green-500 to-gray-700 text-white hover:bg-gradient-to-r hover:from-gray-800 hover:via-green-400 hover:to-gray-800 hover:text-black  btn-sm  mt-3 w-full">Submit</button>
 
                     </div>
 

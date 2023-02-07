@@ -41,7 +41,7 @@ const InputForm = ({item, setItem}) => {
       const loged = { food: food, amount: amount, time: time, calorey: calorey, userEmail: user?.user?.email, date: startDate.toLocaleDateString() }
       console.log(loged)
   
-      fetch('https://fitness-tracking-web-server.vercel.app/loggedFood', {
+      fetch('http://localhost:5000/loggedFood', {
         method: 'POST',
         headers: {
           'content-type': 'application/json'

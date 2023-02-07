@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { ImFolderPlus } from "react-icons/im";
 
-
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import "./UserInfo.css";
 
@@ -49,14 +48,13 @@ const UserInfo = () => {
           phone: data.phone,
           city: data.city,
           picture: imgData.data.url,
-          
         };
         console.log(JSON.stringify(newUserInfo));
         console.log(newUserInfo);
         // console.log(user.email);
 
         fetch(
-          `https://fitness-tracking-web-server.vercel.app/users/edit/${user?.email}`,
+          `http://localhost:5000/users/edit/${user?.email}`,
           {
             method: "PUT",
             headers: {
@@ -79,7 +77,7 @@ const UserInfo = () => {
   };
 
   useEffect(() => {
-    fetch(`https://fitness-tracking-web-server.vercel.app/users/${user?.email}`)
+    fetch(`http://localhost:5000/users/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setUserInfo(data));
   }, [user]);
@@ -185,7 +183,6 @@ const UserInfo = () => {
                       // name="city"
                       {...register("city", { required: true })}
                     />
-                    
                   </div>
                 </div>
                 <div className="flex lg:gap-12 gap-2 mr-20 w-56">
