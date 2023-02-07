@@ -2,6 +2,7 @@ import { da } from 'date-fns/locale';
 import React, { useContext } from 'react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 
 const Faqs = () => {
@@ -14,7 +15,9 @@ const Faqs = () => {
 
         const askDetails = {
             ask: data.msg,
-            user: user?.email
+            user: user?.email,
+            Name: data?.name,
+            Email: data?.email
         }
 
         fetch("http://localhost:5000/questions", {
@@ -105,28 +108,50 @@ const Faqs = () => {
             </div>
 
 
+            {/* The button to open modal */}
+            <label htmlFor="my-modal-6" className="btn">Ask Your Questions</label>
 
-            <div className="hero">
+            {/* Put this part before </body> tag */}
+            <input type="checkbox" id="my-modal-6" className="modal-toggle" />
+            <div className="modal modal-bottom sm:modal-middle">
+                <div className="modal-box">
 
+                    <div className="card-body">
+                        <div className="modal-action">
+                            <label htmlFor="my-modal-6" className="">X</label>
 
-
-                <div className="card-body">
-                    <p className='text-4xl mb-5 text-white font-bold '>Ask You Quetions</p>
-                    <form onSubmit={handleSubmit(handlask)}>
-
-                        <div className="form-control">
-
-                            <textarea  {...register("msg", { required: true })} className='input h-36 text-white input-bordered' id="" cols="30" placeholder='Ask your questions' rows="10"></textarea>
                         </div>
+                        <p className='text-4xl mb-5 text-white font-bold '>Ask You Quetions</p>
+                        <form onSubmit={handleSubmit(handlask)}>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Name</span>
+                                </label>
+                                <input type="text" {...register("name", { required: true })} placeholder="Name" className="input input-bordered" />
+                            </div>
+                            <div className="form-control mb-3">
+                                <label className="label">
+                                    <span className="label-text">Email</span>
+                                </label>
+                                <input type="text" {...register("email", { required: true })} placeholder="email" className="input input-bordered" />
+                            </div>
+                            <div className="form-control mb-3">
 
-                        <div className="form-control mt-6">
-                            <button type='submit' className="btn btn-outline bg-gray-900">Ask</button>
-                        </div>
-                    </form>
+                                <textarea  {...register("msg", { required: true })} className='input h-36 text-white input-bordered' id="" cols="30" placeholder='Ask your questions' rows="10"></textarea>
+                            </div>
+                            <div className="form-control mb-3">
+                                <button className='btn btn-outline bg-gray-900 w-full'>Submit</button>
+                            </div>
+
+
+
+
+                        </form>
+                    </div>
+
                 </div>
-
-
             </div>
+
         </div>
 
 

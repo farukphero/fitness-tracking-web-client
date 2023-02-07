@@ -25,9 +25,9 @@ const Goals = () => {
 
 
     return (
-        <div className='mx-auto mt-12 py-7  w-2/3'>
+        <div className='mx-auto items-center justify-center mt-12 py-7  w-2/3'>
 
-            <div className='text-center mb-10'>
+            <div className='text-center  mb-10'>
                 <p className='text-5xl text-orange-400 font-bold mb-5'>The Tools for Your Goals</p>
                 <p className=' text-center'>Trying to lose weight, tone up,lower your BMI,or invest in your </p>
 
@@ -41,7 +41,7 @@ const Goals = () => {
                         className=""
                     >
                         <div className=''>
-                            <img className='bg-slate-400 rounded-full p-4' src={goal.img} alt="" />
+                            <img className='bg-slate-400 rounded-full items-center justify-center p-4' src={goal.img} alt="" />
                         </div>
                         <div className='mt-6 mb-2 text-2xl font-semibold'>
                             <p>{goal.title}</p>
