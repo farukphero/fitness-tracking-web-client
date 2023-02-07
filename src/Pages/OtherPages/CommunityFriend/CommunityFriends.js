@@ -17,8 +17,11 @@ const CommunityFriends = ({ user }) => {
       rcvdata: userInfo?._id,
       name: userInfo?.firstName,
       photo: userInfo?.picture,
+      senderEmail:userInfo.email,
+      receiverEmail:user.email,
+      accepted: false,
     };
-    fetch("http://localhost:5000/friend", {
+    fetch("http://localhost:5000/friendRequest", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
