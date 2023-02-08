@@ -11,6 +11,7 @@ import Services from "../Services/Services";
 import Leaderboard from "../../../Pages/OtherPages/Leaderboard/Leaderboard";
 import FeatureClass from "../FeaturClass/FeatureClass";
 import Goals from "../Goals/Goals";
+import NeqBlog from "../NewBLog/NeqBlog";
 
 const Home = () => {
   useTitle("Home");
@@ -27,6 +28,7 @@ const Home = () => {
             <About />
             <Goals></Goals>
             <Review></Review>
+            <NeqBlog></NeqBlog>
             <FeatureClass></FeatureClass>
             <Branches></Branches>
             <ContactUs></ContactUs>

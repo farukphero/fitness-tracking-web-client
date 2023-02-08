@@ -50,6 +50,7 @@ import Sleep from "../../Pages/OtherPages/Logs/Sleep/Sleep/Sleep";
 import BloodTracking from "../../Pages/Home/Calculator/BloodTracking/BloodTracking";
 import Protein from "../../Pages/Home/Calculator/Protein/Protein";
 import Faqs from "../../Pages/Faq/Faqs";
+import BlogDetails from "../../Pages/Home/BlogDetails/BlogDetails";
 
 
 
@@ -68,6 +69,10 @@ export const router = createBrowserRouter([
       {
         path: "/faq",
         element: <Faqs></Faqs>,
+      },
+      {
+        path: "/blogdetails",
+        element: <BlogDetails></BlogDetails>,
       },
       {
         path: "/serviceDetails/:id",
