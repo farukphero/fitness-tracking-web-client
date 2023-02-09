@@ -7,20 +7,21 @@ import { useContext } from 'react';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 
 const CommunityFriend = () => {
-    const { userInfo } = useContext(AuthContext)
+    const { user,userInfo } = useContext(AuthContext)
     const [users, setUsers] = useState([])
     useEffect(() => {
-        fetch('https://fitness-tracking-web-server.vercel.app/users')
+        fetch('http://localhost:5000/usersWithoutPresent')
             .then(res => res.json())
             .then(data => {
-                setUsers(data)
+                const result = data.filter(users =>  user.email !== users.email);
+                setUsers(result)
                 console.log(users)
             })
 
     }, [])
 
     return (
-        <div>
+        <div className='w-10/12 mx-auto'>
             <div>
                 <div className='items-center mt-4 ml-6 mb-4 justify-start flex gap-4'>
                     <div className="avatar">
@@ -34,7 +35,7 @@ const CommunityFriend = () => {
                 </div>
 
             </div>
-            <div className='grid mx-auto ml-4 grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-4'>
+            <div className='grid mx-auto ml-4 grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-4'>
                 {
                     users.map(user =>
                         <CommunityFriends

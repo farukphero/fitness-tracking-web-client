@@ -14,7 +14,7 @@ export const WeekFetchingData = (link) => {
     queryKey: [`activities`, user?.email],
     queryFn: async () => {
       const res = await axios.get(
-        `https://fitness-tracking-web-server.vercel.app/activities/${link}?activist=${user?.email}`
+        `http://localhost:5000/activities/${link}?activist=${user?.email}`
       );
       return res.data;
     },

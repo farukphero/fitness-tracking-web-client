@@ -1,5 +1,5 @@
 import { GoogleAuthProvider } from "firebase/auth";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
@@ -12,6 +12,7 @@ const SignIn = () => {
   useTitle("SignIn");
   const { accountLogIn, providerGoogleLogIn } = useContext(AuthContext);
   const provider = new GoogleAuthProvider();
+  const [signInError, setSignInError] = useState('')
 
   const navigate = useNavigate();
   const {
@@ -25,10 +26,11 @@ const SignIn = () => {
       .then((result) => {
         const user = result.user;
         <Loading></Loading>
+        setSignInError()
         toast.success("Sign In success")
         navigate("/Leaderboard");
       })
-      .catch((error) => console.log(error.message));
+      .catch((error) => setSignInError(error.message));
   };
 
   const handleGoogleLogin = () => {
@@ -36,10 +38,11 @@ const SignIn = () => {
       .then((result) => {
         const user = result.user;
         <Loading></Loading>
+        setSignInError()
         toast.success("Sign In success")
         navigate("/Leaderboard");
       })
-      .catch((error) => console.log(error));
+      .catch((error) => setSignInError(error));
   };
   return (
     <div>
@@ -95,7 +98,7 @@ const SignIn = () => {
                     name="password"
                   />
                 </div>
-
+                 <p className="text-red-500 my-2">{signInError}</p>
                 <input
                   type="submit"
                   value="Sign In"

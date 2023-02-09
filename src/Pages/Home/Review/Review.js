@@ -45,7 +45,7 @@ const Review = () => {
       data-aos-easing="linear"
       data-aos-duration="2000"
     >
-      <h2 className=" text-center text-3xl font-semibold py-5 text-all-green">
+      <h2 className=" text-center text-4xl font-semibold py-5 mb-8 text-all-green">
         {" "}
         Users Reviews
       </h2>

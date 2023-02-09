@@ -78,7 +78,7 @@ const AddActivities = () => {
 
  
     axios
-      .post(`https://fitness-tracking-web-server.vercel.app/activities`, {
+      .post(`http://localhost:5000/activities`, {
         ...activity,
       })
       .then((res) => console.log(res))
