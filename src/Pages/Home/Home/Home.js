@@ -9,6 +9,7 @@ import ContactUs from "../ContactUs/ContactUs";
 import Review from "../Review/Review";
 import Services from "../Services/Services";
 import Leaderboard from "../../../Pages/OtherPages/Leaderboard/Leaderboard";
+import Blog from "../Blog/Blog";
 
 const Home = () => {
   useTitle("Home");
@@ -27,6 +28,7 @@ const Home = () => {
             <Branches></Branches>
             <ContactUs></ContactUs>
             {/* <WeightCalculator></WeightCalculator> */}
+            <Blog></Blog>
           </div>
         </div>
       )}

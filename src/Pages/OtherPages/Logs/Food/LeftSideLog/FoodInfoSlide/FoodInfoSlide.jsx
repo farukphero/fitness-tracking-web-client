@@ -15,10 +15,12 @@ const swiperContent = [{}];
 
 const FoodInfoSlide = ({result, startDate, setStartDate}) => {
   const user = useContext(AuthContext);
-  console.log(user)
+ 
 const [weightGoal, setWeightGoal] = useState([]);
+console.log(weightGoal)
   useEffect(()=>{
     fetch(`http://localhost:5000/weightGoal?email=${user?.user?.email}`)
+    // fetch(`http://localhost:5000/weightGoal?email=tahminakhatun5447@gmail.com`)
     .then(res=>res.json())
     .then(data=>{
       console.log(data)
@@ -35,9 +37,19 @@ const [weightGoal, setWeightGoal] = useState([]);
       }
     
   }
-  const gainWeight = parseInt(weightGoal[0]?.expectedWeight) - parseInt(user?.userInfo?.age);
-  console.log(weightGoal)
-  const day = 45;
+
+  useState(()=>{
+    fetch(`http://localhost:5000/activities/7?email=${user?.user?.email}`)
+    .then(res=>res.json())
+    .then(data=>{
+      console.log(data)
+    })
+  },[])
+  // const gainWeight = parseInt(weightGoal[0]?.expectedWeight) - parseInt(user?.userInfo?.age);
+  const gainWeight = parseInt(weightGoal[0]?.expectedWeight);
+  console.log(gainWeight)
+  // const day = 45;
+  const day = parseInt(weightGoal[0]?.days);
   const extraCalorey = (7700 * gainWeight) / day;
   const bmr = userBmr(user)
   const TEE = 2200;
@@ -77,7 +89,9 @@ const [weightGoal, setWeightGoal] = useState([]);
                   <img src={plate} alt="plate" />
                 </div>
               </div>
-              <h2 className="font-bold text-xl">today you can still eat <span className="text-green-500">{dailyCaloryRequirementGain - result}</span> cals</h2>
+              <h2 className="font-bold text-xl">today you can still eat <span className="text-green-500">
+                {dailyCaloryRequirementGain ? dailyCaloryRequirementGain - result : TEE}
+                </span> cals</h2>
             </div>
           </SwiperSlide>
           <SwiperSlide>
