@@ -5,13 +5,13 @@ import "./About.css";
 const About = () => {
   return (
     <div className="pt-16" id="about">
-      <h1 className="text-center text-all-green text-4xl font-semibold mb-6">
+      <h1 className="text-center text-all-green text-4xl font-semibold mb-10">
         About Us
       </h1>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 text-white lg:w-11/12 mx-auto">
         <div>
           <img
-            className="w-full h-96 rounded"
+            className="w-full  h-80 rounded"
             data-aos="fade-up"
             data-aos-easing="linear"
             data-aos-duration="2000"
