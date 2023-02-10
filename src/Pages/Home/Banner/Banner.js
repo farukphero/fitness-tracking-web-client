@@ -28,13 +28,13 @@ const Banner = () => {
           <div className="flex flex-row gap-4 mt-6 justify-center items-center">
             <NavHashLink smooth to="/#contact">
               {" "}
-              <button className="border-2 px-8 py-3 border-green-600 btn-explore font-bold  rounded-md ">
+              <button className="border-2 px-8 py-3 border-green-600 btn bg-secondary hover:bg-secondary text-black rounded-md ">
                 Contact
               </button>
             </NavHashLink>
             <NavHashLink smooth to="/#about">
               {" "}
-              <button className="btn-explore-about border-2 px-8 py-3 border-green-600 rounded-md ">
+              <button className="btn bg-secondary hover:bg-secondary text-black border-2 px-8 py-3   rounded-md ">
                 About
               </button>
             </NavHashLink>

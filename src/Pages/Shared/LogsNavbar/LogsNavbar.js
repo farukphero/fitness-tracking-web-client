@@ -21,9 +21,9 @@ const LogsNavbar = () => {
 
   const addStyles = (index) => {
     if (activeState?.navItems[index]?._id === activeState?.active) {
-      return `btn border-none bg-gradient-to-r from-success via-gray-600 to-warning text-white mb-0`;
+      return `border-none bg-secondary text-black mb-0 px-3 py-1 rounded`;
     } else {
-      return `btn btn-outline to-green-600  text-white hover:bg-gradient-to-r  mb-0`;
+      return `border-2 px-3 py-1 rounded mb-0`;
     }
   };
 

@@ -10,13 +10,13 @@ const ContactUs = () => {
       data-aos-easing="linear"
       data-aos-duration="2000"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 border border-green-500 p-10">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 border border-green-500 p-7">
         <div>
           <h2 className="text-3xl lg:text-4xl text-all-green font-semibold text-center pt-10">
-            Get In Touch{" "}
+            Get In Touch 
           </h2>
           <p className="text-white text-center lg:w-11/12 mx-auto pt-2 ">
-            {" "}
+            
             Great genius takes shape by contact with another great genius, <span className="flex lg:hidden">but,
             less by assimilation than by friction.</span>
           </p>
@@ -69,7 +69,7 @@ const ContactUs = () => {
             <input
               type="submit"
               value="Submit"
-              className="btn w-full btn-explore-about border-2  border-green-600 rounded-md"
+              className="btn bg-secondary hover:bg-secondary text-black w-full border-2  border-green-600 rounded-md"
             />
           </form>
         </div>
