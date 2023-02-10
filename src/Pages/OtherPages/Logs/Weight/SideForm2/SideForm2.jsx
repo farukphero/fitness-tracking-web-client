@@ -32,6 +32,20 @@ const SideForm2 = ({ setGoalSetData }) => {
             date
         }
 
+
+        fetch(
+            `http://localhost:5000/weightGoal/${user?.email}`,
+            {
+              method: "PATCH",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(goalInfo),
+            }
+          )
+            .then((res) => res.json())
+            .then((data) => console.log(data));
+
         setGoalSetData(goalInfo)
         reset();
 

@@ -10,7 +10,7 @@ const CommunityFriend = () => {
     const { user,userInfo } = useContext(AuthContext)
     const [users, setUsers] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/usersWithoutPresent')
+        fetch('http://localhost:5000/users')
             .then(res => res.json())
             .then(data => {
                 const result = data.filter(users =>  user.email !== users.email);
@@ -19,6 +19,7 @@ const CommunityFriend = () => {
             })
 
     }, [])
+    console.log(users);
 
     return (
         <div className='w-10/12 mx-auto'>
