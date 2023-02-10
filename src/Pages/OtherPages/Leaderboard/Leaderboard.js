@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaBeer, FaCloudsmith, FaUtensils, FaRunning, FaUsers } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 import useTitle from '../../../Hooks/useTitle/useTitle';
 import FoodPlanModal from './Modal/FoodPlanModal/FoodPlanModal';
 import WaterModal from './Modal/WaterModal/WaterModal';
@@ -23,9 +24,10 @@ const Leaderboard = () => {
                         <h1 className='text-xl text-center'>Food Plan</h1>
                         <p className='text-center text-gray-400 text-sm'>Set your daily calorie estimate.</p>
                         <div className='text-center mt-4 mb-12'>
-                            <label htmlFor="food-modal" className="px-4 py-2 bg-green-700 rounded-full text-white ">Start Now</label>
+                            <Link to=""> <button className="px-4 py-2 bg-green-700 rounded-full text-white">Start Now</button></Link>
+                            {/* <label htmlFor="food-modal" className="px-4 py-2 bg-green-700 rounded-full text-white "></label> */}
                         </div>
-                        <FoodPlanModal></FoodPlanModal>
+                        {/* <FoodPlanModal></FoodPlanModal> */}
                     </div>
 
                     <div className='bg-gray-800 rounded shadow-lg shadow-green-600 py-5'>
@@ -33,7 +35,7 @@ const Leaderboard = () => {
                         <h1 className='text-center text-2xl'>Weight Goal</h1>
                         <p className='text-center text-gray-400 text-sm'>Have a weight goal?</p>
                         <div className='text-center mt-4 mb-12'>
-                            <label htmlFor="weight-modal" className="px-4 py-2 bg-green-700 rounded-full text-white ">Start Now</label>
+                            <label htmlFor="weight-modal" className="px-4 py-2 bg-green-700 rounded-full text-white btn ">Start Now</label>
                         </div>
                         <WeightModal></WeightModal>
                     </div>
@@ -58,10 +60,12 @@ const Leaderboard = () => {
                 </div>
 
                 <div className='grid grid-rows-2 gap-4'>
-                    <div className='bg-gray-800 rounded shadow-lg shadow-green-600 py-5'>
-                        <div className='text-green-600 text-8xl'><FaUsers className='mx-auto'></FaUsers></div>
-                        <p className='text-sm text-gray-400 text-center'>Do more fun with your friends!</p>
-                    </div>
+                    <Link to="/Community" className='bg-gray-800 rounded shadow-lg shadow-green-600 py-5'>
+                        <div className=''>
+                            <div className='text-green-600 text-8xl'><FaUsers className='mx-auto'></FaUsers></div>
+                            <p className='text-sm text-gray-400 text-center'>Do more fun with your friends!</p>
+                        </div>
+                    </Link>
                     <div className='bg-gray-800 rounded shadow-lg shadow-green-600 p-2'>
                         <h1>Weight</h1>
                     </div>

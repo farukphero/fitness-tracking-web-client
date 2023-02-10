@@ -32,8 +32,12 @@ const SideForm2 = ({ setGoalSetData }) => {
             date
         }
 
+ 
+
+        
         fetch(
             `https://fitness-tracking-web-server.vercel.app/weightGoal/${user?.email}`,
+ 
             {
               method: "PATCH",
               headers: {

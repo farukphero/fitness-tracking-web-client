@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
 import useTitle from '../../../../Hooks/useTitle/useTitle';
-import {ResponsiveContainer,LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip,Legend } from 'recharts';
 
 import WeightSummery from './WeightSummery/WeightSummery';
 import { useQuery } from 'react-query';
 import { AuthContext } from '../../../../Contexts/AuthProvider/AuthProvider';
+import WeightGoalChart from './WeightGoalChart/WeightGoalChart';
 
 const Weight = () => {
     useTitle("Log/Weight")
-    const {user}=useContext(AuthContext)  
+    const {user}=useContext(AuthContext) 
 
     const {
         data: logedInfo = [],
@@ -35,27 +35,7 @@ const Weight = () => {
 
         <div className='w-11/12 mx-auto'>
 
-            <div className='bg-white '>
-
-
-                <ResponsiveContainer  width="100%" aspect={3}>
-                    <LineChart
-                        className='bg-white mx-auto mb-12'
-                        width={150}
-                        height={40}
-                        data={data}
-                        
-                        
-                    >
-                        <CartesianGrid strokeDasharray="1" />
-                        <XAxis dataKey="date" />
-                        <YAxis/>
-                        <Tooltip />
-                        <Line type="monotone" dataKey="weight" stroke="#2D9F4C" fill="#8884d8" />
-                    </LineChart>
-                </ResponsiveContainer>
-
-            </div>
+           <WeightGoalChart data={data}></WeightGoalChart>
             {/* <SideForm1 setLogedWeight={setLogedWeight}></SideForm1> */}
             <WeightSummery refetch={refetch}></WeightSummery>
 

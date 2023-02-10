@@ -5,22 +5,79 @@ import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 
 const CommunityFriends = ({ user }) => {
   const { userInfo } = useContext(AuthContext);
-  console.log(userInfo);
-  const [data, setData] = useState("");
+  // console.log(userInfo);
+  // const [data, setData] = useState("");
   const [postData, setPostData] = useState("");
-
+  const [sendTo,setSendTo]=useState([])
+  // const [sendFrom,setSendFrom]=useState("")
+  console.log(sendTo)
+ 
   const handleSendRequest = async () => {
-    setData("add");
+    // setData("add");
 
     const friendData = {
-      friend: data,
-      rcvdata: userInfo?._id,
-      name: userInfo?.firstName,
-      photo: userInfo?.picture,
-      senderEmail:userInfo.email,
-      receiverEmail:user.email,
+      // rcvdata: userInfo?._id,
+      // name: userInfo?.firstName,
+      // photo: userInfo?.picture,
+      senderEmail: userInfo?.email,
+      receiverEmail: user?.email,
       accepted: false,
     };
+ 
+    setSendTo((exgistingEmail)=>[...exgistingEmail,user?.eamil])
+    // setSendFrom(user?.email)
+    // fetch("http://localhost:5000/friendRequest", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(friendData),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => console.log(data));
+
+// email will be add (send to) array for sender person:
+    // fetch(`http://localhost:5000/user/${userInfo?.email}`, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(user?.email),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => console.log(data));
+    
+
+// email will be add (send from) array for receiver person:
+    // fetch(`http://localhost:5000/user/${user?.email}`, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(userInfo?.email),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => console.log(data));
+
+
+
+
+    // fetch("http://localhost:5000/friendRequest", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(friendData),
+    // })
+    //   .then((res) => res.json())
+    //   .then((postData) => {
+    //     if (postData.acknowledged) {
+    //       setPostData(postData);
+    //     }
+    //     console.log(postData);
+    //   });
+
+ 
     fetch("https://fitness-tracking-web-server.vercel.app/friendRequest", {
       method: "POST",
       headers: {
@@ -36,6 +93,7 @@ const CommunityFriends = ({ user }) => {
         console.log(postData);
       });
     console.log(friendData);
+ 
   };
 
   return (
@@ -48,8 +106,17 @@ const CommunityFriends = ({ user }) => {
         <h2 className="text-black font-semibold">
           {user?.firstName} {user?.lastName}
         </h2>
+        <button
+          onClick={handleSendRequest}
+          className="btn mt-2 mb-2 w-full btn-primary"
+        >
+          Add Friend
+        </button>
 
-        {postData.acknowledged ? (
+
+
+
+        {/* {postData.acknowledged ? (
           <>
          
             <button className="btn mt-2 mb-2 w-full bg-gradient-to-tr">
@@ -67,7 +134,7 @@ const CommunityFriends = ({ user }) => {
             </button>
             <button className="btn w-full btn-warning">Remove Friends</button>
           </>
-        )}
+        )} */}
       </div>
     </div>
   );

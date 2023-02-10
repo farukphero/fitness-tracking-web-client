@@ -7,6 +7,7 @@ import {
     signOut,
 } from "firebase/auth";
 import React, { createContext, useEffect, useState } from "react";
+import { useQuery } from "react-query";
 import { app } from "../../Firebase/firebase.config";
 
 export const AuthContext = createContext();
@@ -42,7 +43,6 @@ const AuthProvider = ({ children }) => {
       .then((res) => res.json())
       .then((data) => setUserInfo(data));
   }, [user?.email]);
-
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -53,6 +53,20 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
+  const {
+    data: weightLoggedInfo = [],
+    refetch,
+    isLoading,
+} = useQuery({
+    queryKey: ["loggedInfo", user?.email],
+    queryFn: () =>
+        fetch(`http://localhost:5000/logedWeight?email=${user?.email}`)
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                return data;
+            }),
+});
 
   const authInfo = {
     user,
@@ -62,6 +76,7 @@ const AuthProvider = ({ children }) => {
     logOut,
     providerGoogleLogIn,
     userInfo,
+    weightLoggedInfo
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
