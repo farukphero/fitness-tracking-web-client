@@ -18,7 +18,6 @@ const Activities = () => {
         <ActivitiesChart className="w-full scale-100 lg:scale-100" />
         <LogActivities />
         <GeoLocation />
-        <ActivitiesHistory />
       </div>
     </DateProvider>
   );

@@ -90,7 +90,7 @@ const AddActivities = () => {
   return (
     <div className="flex justify-between border border-gray-600 rounded-md p-6">
       <div className="basis-8/12">
-        <h2 className="font-bold text-3xl">log activities</h2>
+        <h2 className="font-bold text-3xl">Log activities</h2>
         {logActivities === false ? (
           <div>
             <div>

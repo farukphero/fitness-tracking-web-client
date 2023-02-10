@@ -119,7 +119,7 @@ const Faqs = () => {
                         </div>
 
                         <div className="form-control mt-6">
-                            <button type='submit' className="btn btn-outline bg-gray-900">Ask</button>
+                            <button type='submit' className="btn btn-outline bg-gradient-to-r from-green-500 to-primary">Ask</button>
                         </div>
                     </form>
                 </div>

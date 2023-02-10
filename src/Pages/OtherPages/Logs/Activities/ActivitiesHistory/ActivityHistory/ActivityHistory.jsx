@@ -1,8 +1,4 @@
- 
-import React, { useContext, useState, useEffect } from "react";
- 
-import axios from "axios";
- 
+import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import { AiFillFire, AiOutlineCalendar } from "react-icons/ai";
 import { FaWalking } from "react-icons/fa";
@@ -73,7 +69,7 @@ const ActivitiesHistory = () => {
  
 
   return (
-    <div className="lg:mx-8 border p-4 rounded-md border-gray-600">
+    <div className="mt-2 border p-4 rounded-md border-gray-600">
       <h2 className="font-bold text-3xl">Activity History</h2>
       <p className="my-3">You have not logged any activities</p>
       <div className="overflow-x-auto">
