@@ -36,7 +36,7 @@ const Home = () => {
             <ContactUs></ContactUs>
             <Faqs></Faqs>
             {/* <WeightCalculator></WeightCalculator> */}
-           
+ 
           </div>
         </div>
       )}
