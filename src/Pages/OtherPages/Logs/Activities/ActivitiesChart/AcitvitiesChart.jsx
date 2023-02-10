@@ -24,28 +24,28 @@ const ActivitiesChart = () => {
   useEffect(() => {
     if (dayDistance === `1 month`) {
  
-      fetch(`http://localhost:5000/activities/30?activist=${user?.email}`)
+      fetch(`https://fitness-tracking-web-server.vercel.app/activities/30?activist=${user?.email}`)
  
         .then((res) => res.json())
         .then((data) => setData(data));
       setShowChart(<MonthChart focus={focus} setTotal={setTotal} data={data} />);
     } else if (dayDistance === `7 days`) {
  
-      fetch(`http://localhost:5000/activities/7?activist=${user?.email}`)
+      fetch(`https://fitness-tracking-web-server.vercel.app/activities/7?activist=${user?.email}`)
  
         .then((res) => res.json())
         .then((data) => setData(data));
       setShowChart(<WeekChart focus={focus} setTotal={setTotal} data={data} />);
     } else if (dayDistance === `1 year`) {
  
-      fetch(`http://localhost:5000/activities/365?activist=${user?.email}`)
+      fetch(`https://fitness-tracking-web-server.vercel.app/activities/365?activist=${user?.email}`)
  
         .then((res) => res.json())
         .then((data) => setData(data));
       setShowChart(<YearChart focus={focus} setTotal={setTotal} data={data} />);
     } else {
  
-      fetch(`http://localhost:5000/activities/1?activist=${user?.email}`)
+      fetch(`https://fitness-tracking-web-server.vercel.app/activities/1?activist=${user?.email}`)
  
         .then((res) => res.json())
         .then((data) => setData(data));
@@ -59,26 +59,26 @@ const ActivitiesChart = () => {
         <div className="lg:ml-20 ml-5 gap-x-4 my-5 lg:flex">
           <button
             onClick={() => setFocus(`steps`)}
-            className="btn btn-outline hover:text-white hover:bg-gradient-to-r hover:from-gray-800 hover:to-green-400  btn-sm mr-5 text-white w-40"
+            className="btn btn-outline text-black border-2  border-green-600 rounded-md  btn-sm mr-5   w-40"
           >
             steps
           </button>
           <button
             onClick={() => setFocus(`distance`)}
-            className="btn btn-outline text-white hover:text-white hover:bg-gradient-to-r hover:from-gray-800 hover:to-green-400  btn-sm w-40"
+            className="btn btn-outline border-2 text-black border-green-600 rounded-md  btn-sm mr-5   w-40"
           >
             distance
           </button>{" "}
           <br />
           <button
             onClick={() => setFocus(`floors`)}
-            className="btn btn-outline text-white hover:text-white hover:bg-gradient-to-r hover:from-gray-800 hover:to-green-400  btn-sm mr-5 mt-5 lg:mt-0 w-40"
+            className="btn btn-outline  border-2 text-black border-green-600 rounded-md  btn-sm mr-5   w-40"
           >
             floors
           </button>
           <button
             onClick={() => setFocus(`calouries_burned`)}
-            className="btn btn-outline text-white hover:text-white hover:bg-gradient-to-r hover:from-gray-800 hover:to-green-400  btn-sm w-40 mb-5 lg:mb-0"
+            className="btn btn-outline  border-2 text-black border-green-600 rounded-md  btn-sm mr-5   w-40"
           >
             calouries burned
           </button>

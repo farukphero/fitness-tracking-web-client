@@ -28,7 +28,7 @@ const FoodLog = ({ logedFood, setLogedFood, startDate, setStartDate, item, setIt
 // const currentDateOnly = new Date(year, month, day);
 // const [startDate, setStartDate] = useState(currentDateOnly);
   useEffect(() => {
-    fetch('http://localhost:5000/foods')
+    fetch('https://fitness-tracking-web-server.vercel.app/foods')
       .then(res => res.json())
       .then(data => setData(data))
   }, [])
@@ -73,7 +73,7 @@ const FoodLog = ({ logedFood, setLogedFood, startDate, setStartDate, item, setIt
     const date = startDate.toLocaleDateString();
     console.log(date)
     const loged = { food: food, amount: amount, time: time, calorey: calorey, userEmail: userEmail, date: date }
-    fetch('http://localhost:5000/loggedFood', {
+    fetch('https://fitness-tracking-web-server.vercel.app/loggedFood', {
  
       method: 'POST',
       headers: {
@@ -96,7 +96,7 @@ const FoodLog = ({ logedFood, setLogedFood, startDate, setStartDate, item, setIt
     queryFn: async () => {
  
  
-      const res = await fetch(`http://localhost:5000/loggedFood/${user?.user?.email}?date=${startDate.toLocaleDateString()}`);
+      const res = await fetch(`https://fitness-tracking-web-server.vercel.app/loggedFood/${user?.user?.email}?date=${startDate.toLocaleDateString()}`);
  
       const data = await res.json();
       return setLogedFood(data)
@@ -205,7 +205,7 @@ const FoodLog = ({ logedFood, setLogedFood, startDate, setStartDate, item, setIt
           </div>
         </div>
         <div className="form-control mt-6">
-          <button className="btn w-full border-none bg-gradient-to-r from-gray-700 via-green-500 to-gray-700 text-white hover:bg-gradient-to-r hover:from-gray-800 hover:via-green-400 hover:to-gray-800 hover:text-black">Log</button>
+          <button className="btn bg-secondary hover:bg-secondary text-black w-full border-2  border-green-600 rounded-md">Log</button>
         </div>
       </form>
     </div>

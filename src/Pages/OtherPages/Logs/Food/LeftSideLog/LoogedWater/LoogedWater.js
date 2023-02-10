@@ -11,7 +11,7 @@ const LoogedWater = ({ startDate, setStartDate }) => {
     const { isLoading, error, data: water, refetch } = useQuery({
         queryKey: ['loggedFood/userEmail', 'loggedWater/date'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/loggedWater/${user?.user?.email}?date=${startDate.toLocaleDateString()}`);
+            const res = await fetch(`https://fitness-tracking-web-server.vercel.app/loggedWater/${user?.user?.email}?date=${startDate.toLocaleDateString()}`);
             const data = await res.json();
             return setLogedWater(data)
         }
@@ -28,7 +28,7 @@ const LoogedWater = ({ startDate, setStartDate }) => {
     if (error) return 'An error has occurred: ' + error.message
 
     const handleDeleteWater = (water) => {
-        fetch(`http://localhost:5000/loggedWater/${water._id}`, {
+        fetch(`https://fitness-tracking-web-server.vercel.app/loggedWater/${water._id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

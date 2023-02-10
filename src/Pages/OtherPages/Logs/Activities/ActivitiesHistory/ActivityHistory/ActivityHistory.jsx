@@ -1,8 +1,4 @@
- 
-import React, { useContext, useState, useEffect } from "react";
- 
-import axios from "axios";
- 
+import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import { AiFillFire, AiOutlineCalendar } from "react-icons/ai";
 import { FaWalking } from "react-icons/fa";
@@ -29,7 +25,7 @@ const ActivitiesHistory = () => {
     queryKey: [`activities`, user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/activities?activist=${user?.email}`
+        `https://fitness-tracking-web-server.vercel.app/activities?activist=${user?.email}`
       );
       const data = await res.json();
       return data;
@@ -42,7 +38,7 @@ const ActivitiesHistory = () => {
 
   const handleDeleteActivity = (activity) => {
     fetch(
-      `http://localhost:5000/activities/${activity._id}`,
+      `https://fitness-tracking-web-server.vercel.app/activities/${activity._id}`,
       {
         method: `DELETE`,
       }
@@ -67,13 +63,13 @@ const ActivitiesHistory = () => {
  
   // useEffect(() => {
   //   axios
-  //     .get(`http://localhost:5000/activities?activist=${user?.email}`)
+  //     .get(`https://fitness-tracking-web-server.vercel.app/activities?activist=${user?.email}`)
   //     .then((res) => setActivities(res?.data));
   // }, [user?.email]);
  
 
   return (
-    <div className="lg:mx-8 border p-4 rounded-md border-gray-600">
+    <div className="mt-2 border p-4 rounded-md border-gray-600">
       <h2 className="font-bold text-3xl">Activity History</h2>
       <p className="my-3">You have not logged any activities</p>
       <div className="overflow-x-auto">

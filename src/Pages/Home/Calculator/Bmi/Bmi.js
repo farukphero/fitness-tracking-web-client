@@ -60,7 +60,7 @@ const Bmi = () => {
               type="text"
               className="input   w-full max-w-xs"
               onChange={(e) => setHeight(e.target.value)}
-              placeholder="height in fut"
+              placeholder="height in fit"
             />
  
             {/* <input

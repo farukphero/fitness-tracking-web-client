@@ -22,7 +22,7 @@ const LoggedFoods = ({ logedFood, result, setResult, startDate, setStartDate }) 
   const handleFavoriteFood =(food)=>{
     const favouriteFood = {food: food.food, amount: food.amount, calorey: food.calorey, time: food.time, userEmail: food.userEmail, date: food.date}
     console.log(favouriteFood)
-    fetch('http://localhost:5000/favouriteFood', {
+    fetch('https://fitness-tracking-web-server.vercel.app/favouriteFood', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -37,7 +37,7 @@ const LoggedFoods = ({ logedFood, result, setResult, startDate, setStartDate }) 
   }
 
   const handleDeleteLogFood = (food) =>{
-    fetch(`http://localhost:5000/loggedFood/${food._id}`, { 
+    fetch(`https://fitness-tracking-web-server.vercel.app/loggedFood/${food._id}`, { 
             method: 'DELETE' 
         })
             .then(res=>res.json())

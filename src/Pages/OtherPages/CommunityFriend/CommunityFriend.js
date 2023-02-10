@@ -10,7 +10,9 @@ const CommunityFriend = () => {
     const { user,userInfo } = useContext(AuthContext)
     const [users, setUsers] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/users')
+ 
+        fetch('https://fitness-tracking-web-server.vercel.app/usersWithoutPresent')
+ 
             .then(res => res.json())
             .then(data => {
                 const result = data.filter(users =>  user.email !== users.email);

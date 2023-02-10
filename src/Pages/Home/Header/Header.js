@@ -35,13 +35,12 @@ const Header = () => {
             
           </div>
           <TypeAnimation
-                className="text-5xl"
                 sequence={[
-                  "Track your health", // Types 'One'
+                  "START YOUR JOURNEY TODAY", // Types 'One'
                   2000, // Waits 1s
-                  "Fit your body", // Deletes 'One' and types 'Two'
+                  " START YOUR JOURNEY TODAY ", // Deletes 'One' and types 'Two'
                   2000, // Waits 2s
-                  "Go to sign up ->",
+                  "START YOUR JOURNEY TODAY",
                   2000, // Types 'Three' without deleting 'Two'
                   () => {
                     console.log("Done typing!"); // Place optional callbacks anywhere in the array
@@ -50,7 +49,7 @@ const Header = () => {
                 wrapper="div"
                 cursor={true}
                 repeat={Infinity}
-                style={{ fontSize: "2em" }}
+                style={{ fontSize: "1.2em" }}
                 
               />
               {/* <Link to='SignUp'><FaArrowRight className="ml-3 w-20 mt-2"/></Link> 

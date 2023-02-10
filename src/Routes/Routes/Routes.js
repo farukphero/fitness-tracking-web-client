@@ -53,6 +53,7 @@ import Sleep from "../../Pages/OtherPages/Logs/Sleep/Sleep/Sleep";
  
 import BloodTracking from "../../Pages/Home/Calculator/BloodTracking/BloodTracking";
 import Protein from "../../Pages/Home/Calculator/Protein/Protein";
+import BlogDetails from "../../Pages/Home/Blog/BlogDetails";
  
 
 export const router = createBrowserRouter([
@@ -173,7 +174,7 @@ export const router = createBrowserRouter([
         path: "/singleCategory/:id",
         loader: ({ params }) =>
           fetch(
-            `http://localhost:5000/singleCategory/${params.id}`
+            `https://fitness-tracking-web-server.vercel.app/singleCategory/${params.id}`
           ),
  
         element: <Tutorial></Tutorial>,
@@ -212,6 +213,10 @@ export const router = createBrowserRouter([
         path: "/SignUp",
         element: <SignUp></SignUp>,
       },
+      {
+        path: "/blog/:id",
+        element: <BlogDetails></BlogDetails>
+      }
     ],
   },
 

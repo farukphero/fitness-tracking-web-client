@@ -18,7 +18,7 @@ const InputForm = ({item, setItem}) => {
     const [startDate, setStartDate] = useState(currentDateOnly);
   
     useEffect(() => {
-      fetch(`http://localhost:5000/favouriteFoods/${item.food}`)
+      fetch(`https://fitness-tracking-web-server.vercel.app/favouriteFoods/${item.food}`)
         .then(res => res.json())
         .then(data => {
           setData(data)
@@ -41,7 +41,7 @@ const InputForm = ({item, setItem}) => {
       const loged = { food: food, amount: amount, time: time, calorey: calorey, userEmail: user?.user?.email, date: startDate.toLocaleDateString() }
       console.log(loged)
   
-      fetch('http://localhost:5000/loggedFood', {
+      fetch('https://fitness-tracking-web-server.vercel.app/loggedFood', {
         method: 'POST',
         headers: {
           'content-type': 'application/json'

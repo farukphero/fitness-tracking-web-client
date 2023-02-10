@@ -23,6 +23,7 @@ const CommunityFriends = ({ user }) => {
       receiverEmail: user?.email,
       accepted: false,
     };
+ 
     setSendTo((exgistingEmail)=>[...exgistingEmail,user?.eamil])
     // setSendFrom(user?.email)
     // fetch("http://localhost:5000/friendRequest", {
@@ -76,6 +77,23 @@ const CommunityFriends = ({ user }) => {
     //     console.log(postData);
     //   });
 
+ 
+    fetch("https://fitness-tracking-web-server.vercel.app/friendRequest", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(friendData),
+    })
+      .then((res) => res.json())
+      .then((postData) => {
+        if (postData.acknowledged) {
+          setPostData(postData);
+        }
+        console.log(postData);
+      });
+    console.log(friendData);
+ 
   };
 
   return (
