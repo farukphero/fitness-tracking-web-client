@@ -15,7 +15,7 @@ const Services = () => {
   }, [])
 
   return (
-    <div className=" text-white">
+    <div className=" text-white mt-12">
       <div className="container mx-auto py-10">
         <h1 className="text-4xl text-all-green text-center mb-3 font-semibold">
           Our Services

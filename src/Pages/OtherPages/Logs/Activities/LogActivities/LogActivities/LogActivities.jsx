@@ -1,4 +1,5 @@
 import React from "react";
+import ActivitiesHistory from "../../ActivitiesHistory/ActivityHistory/ActivityHistory";
 import AddActivities from "../AddActivities/AddActivities";
 import FavouriteActivities from "../FavouriteActivities/FavouriteActivities";
 
@@ -10,6 +11,7 @@ const LogActivities = () => {
       </main>
       <aside className="lg:basis-4/12 w-full sticky top-0 mt-5 mr-5 ">
         <FavouriteActivities />
+        <ActivitiesHistory/>
       </aside>
     </div>
   );

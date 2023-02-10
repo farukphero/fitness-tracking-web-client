@@ -90,7 +90,7 @@ const AddActivities = () => {
   return (
     <div className="flex justify-between border border-gray-600 rounded-md p-6">
       <div className="basis-8/12">
-        <h2 className="font-bold text-3xl">log activities</h2>
+        <h2 className="font-bold text-3xl">Log activities</h2>
         {logActivities === false ? (
           <div>
             <div>
@@ -250,7 +250,7 @@ const AddActivities = () => {
                 <input
                   type="submit"
                   defaultValue="submit"
-                  className="btn w-full border-none bg-gradient-to-r from-gray-700 via-green-500 to-gray-700 text-white hover:bg-gradient-to-r hover:from-gray-800 hover:via-green-400 hover:to-gray-800 hover:text-black mt-3"
+                  className="btn bg-secondary hover:bg-secondary text-black w-full border-2  border-green-600 rounded-md"
                 />
               </div>
             </form>

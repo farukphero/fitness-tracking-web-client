@@ -97,7 +97,7 @@ const SideForm1 = ({setLogedData,refetch,setLogedWeight}) => {
             />
           </div>
           <div className="">
-            <button className="text-center btn btn-outline bg-gradient-to-r from-teal-600 via-teal-400 to-teal-600 text-white  btn-sm  mt-3 w-full">Log Weight</button>
+            <button className="btn bg-secondary hover:bg-secondary text-black w-full border-2  border-green-600 rounded-md btn-sm mt-2">Log Weight</button>
           </div>
         </form>
       </div>

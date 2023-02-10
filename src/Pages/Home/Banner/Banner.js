@@ -6,7 +6,7 @@ import "swiper/css/pagination";
 import undraw1 from "../../../assets/undraw_indoor_bike_pwa4 (1).svg";
 import "./Banner.css";
 
-import lott21 from "../../../assets/working21 (1).json";
+import lott21 from "../../../images/staggered_push_ups (1).json";
 
 import lott23 from "../../../assets/working21 (3).json";
 
@@ -15,11 +15,11 @@ import Lottie from "lottie-react";
 const Banner = () => {
   return (
     <div>
-      <div className=" grid grid-cols-1 lg:grid-cols-2 pb-8 md:pt-16">
+      <div className=" grid grid-cols-1 lg:grid-cols-2 pb-8 md:pt-16 w-11/12 mx-auto">
         <div className=" justify-center  text-center">
-          <h1 className="text-5xl font-bold banner-text text-white mt-8 md:mt-24">
-            Stay Healthy Even If you <br />
-            Stay
+          <h1 className="text-5xl font-bold banner-text text-white mt-8 md:mt-24 w-11/12">
+            Stay Healthy Even If you  <br />
+            Stay 
             <span className="text-all-green"> At Home</span>
           </h1>
           <p className="mt-4 text-gray-400">
@@ -28,23 +28,23 @@ const Banner = () => {
           <div className="flex flex-row gap-4 mt-6 justify-center items-center">
             <NavHashLink smooth to="/#contact">
               {" "}
-              <button className="border-2 px-8 py-3 border-green-600 btn-explore font-bold  rounded-md ">
+              <button className="border-2 px-8 py-3 border-green-600 btn bg-secondary hover:bg-secondary text-black rounded-md ">
                 Contact
               </button>
             </NavHashLink>
             <NavHashLink smooth to="/#about">
               {" "}
-              <button className="btn-explore-about border-2 px-8 py-3 border-green-600 rounded-md ">
+              <button className="btn bg-secondary hover:bg-secondary text-black border-2 px-8 py-3   rounded-md ">
                 About
               </button>
             </NavHashLink>
           </div>
         </div>
         <div>
-          <div className="flex justify-center ">
+          <div className="flex justify-center -mt-10">
             <Lottie
-              className="w-4/5"
-              animationData={lott23}
+              className="w-4/5 scale-110"
+              animationData={lott21}
               loop={true}
             ></Lottie>
           </div>
