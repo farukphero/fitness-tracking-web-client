@@ -26,7 +26,7 @@ const CommunityFriends = ({ user }) => {
  
     setSendTo((exgistingEmail)=>[...exgistingEmail,user?.eamil])
     // setSendFrom(user?.email)
-    // fetch("http://localhost:5000/friendRequest", {
+    // fetch("https://fitness-tracking-web-server.vercel.app/friendRequest", {
     //   method: "POST",
     //   headers: {
     //     "Content-Type": "application/json",
@@ -37,7 +37,7 @@ const CommunityFriends = ({ user }) => {
     //   .then((data) => console.log(data));
 
 // email will be add (send to) array for sender person:
-    // fetch(`http://localhost:5000/user/${userInfo?.email}`, {
+    // fetch(`https://fitness-tracking-web-server.vercel.app/user/${userInfo?.email}`, {
     //   method: "POST",
     //   headers: {
     //     "Content-Type": "application/json",
@@ -49,7 +49,7 @@ const CommunityFriends = ({ user }) => {
     
 
 // email will be add (send from) array for receiver person:
-    // fetch(`http://localhost:5000/user/${user?.email}`, {
+    // fetch(`https://fitness-tracking-web-server.vercel.app/user/${user?.email}`, {
     //   method: "POST",
     //   headers: {
     //     "Content-Type": "application/json",
@@ -62,7 +62,7 @@ const CommunityFriends = ({ user }) => {
 
 
 
-    // fetch("http://localhost:5000/friendRequest", {
+    // fetch("https://fitness-tracking-web-server.vercel.app/friendRequest", {
     //   method: "POST",
     //   headers: {
     //     "Content-Type": "application/json",
@@ -106,20 +106,20 @@ const CommunityFriends = ({ user }) => {
         <h2 className="text-black font-semibold">
           {user?.firstName} {user?.lastName}
         </h2>
-        <button
+        {/* <button
           onClick={handleSendRequest}
           className="btn mt-2 mb-2 w-full btn-primary"
         >
           Add Friend
-        </button>
+        </button> */}
 
 
 
 
-        {/* {postData.acknowledged ? (
+        {postData.acknowledged ? (
           <>
          
-            <button className="btn mt-2 mb-2 w-full bg-gradient-to-tr">
+            <button className="py-3 rounded-md font-semibold px-5 mt-2 mb-2 w-full bg-secondary text-black">
               Request sent
             </button> 
             <button className="btn w-full btn-warning">Remove Friends</button>
@@ -134,7 +134,7 @@ const CommunityFriends = ({ user }) => {
             </button>
             <button className="btn w-full btn-warning">Remove Friends</button>
           </>
-        )} */}
+        )}
       </div>
     </div>
   );

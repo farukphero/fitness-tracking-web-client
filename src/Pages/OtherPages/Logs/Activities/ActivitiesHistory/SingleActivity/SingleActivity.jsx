@@ -7,7 +7,7 @@ const SingleActivity = ({ activity, setDeleteActivity }) => {
     <>
       <tbody>
         <tr>
-          <th className="font-normal">Jan 20, 10:00AM</th>
+          <th className="font-normal">{activity?.activity_date?.slice(0, 10)}</th>
           <td>{activity?.activity_name}</td>
           <td>{activity?.steps ? activity?.steps : `N/A`}</td>
           <td>{activity?.distance}</td>
@@ -17,14 +17,14 @@ const SingleActivity = ({ activity, setDeleteActivity }) => {
           </td>
           <td>
             <Link to="/ActivitiesHistoryDetails">
-              <button className="btn btn-xs">details</button>
+              <button className="btn btn-xs btn-outline">details</button>
             </Link>
           </td>
           <td>
               <label
                 onClick={() => setDeleteActivity(activity)}
                 htmlFor="ConfirmationModal"
-                className="btn btn-xs btn-error"
+                className="btn btn-xs bg-secondary text-black hover:bg-secondary border-none"
               >
                 delete
               </label>

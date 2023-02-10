@@ -35,6 +35,7 @@ const Header = () => {
             
           </div>
           <TypeAnimation
+          className="hidden lg:flex"
                 sequence={[
                   "START YOUR JOURNEY TODAY", // Types 'One'
                   2000, // Waits 1s

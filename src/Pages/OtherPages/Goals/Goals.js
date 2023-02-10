@@ -29,13 +29,14 @@ const Goals = () => {
     <div
     data-aos="fade-up"
     data-aos-easing="linear"
-    data-aos-duration="2000" className="mx-auto items-center justify-center mt-12 py-7  w-2/3">
-      <div className="text-center  lg:mb-16">
+    data-aos-duration="2000" className="mx-auto items-center justify-center mt-12 py-7  lg:w-2/3">
+      <div className="text-center lg:mb-16">
         <p className="text-5xl text-green-400 font-semibold mb-5">
           The Tools for Your Goals
         </p>
         <p className=" text-center">
-          Trying to lose weight, tone up,lower your BMI,or invest in your{" "}
+          Trying to lose weight, tone up,lower your BMI,or invest in your 
+          
         </p>
 
         <p> overall health?We give you the right features to get there.</p>

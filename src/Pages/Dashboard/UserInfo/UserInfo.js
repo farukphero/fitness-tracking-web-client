@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { ImFolderPlus } from "react-icons/im";
+import { Link } from "react-router-dom";
 
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import "./UserInfo.css";
@@ -53,13 +54,16 @@ const UserInfo = () => {
         console.log(newUserInfo);
         // console.log(user.email);
 
-        fetch(`https://fitness-tracking-web-server.vercel.app/users/edit/${user?.email}`, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(newUserInfo),
-        })
+        fetch(
+          `https://fitness-tracking-web-server.vercel.app/users/edit/${user?.email}`,
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newUserInfo),
+          }
+        )
           .then((res) => res.json())
           .then((data) => console.log(data));
 
@@ -161,7 +165,7 @@ const UserInfo = () => {
                 {bmi}
               </span>
               <div className="grid w-24 h-24 bg-gradient-to-r from-gray-600 via-teal-700 to-gray-600   place-items-center">
-                BMI
+                <Link to="/bmi"> BMI</Link>
               </div>
             </div>
 
@@ -194,19 +198,19 @@ const UserInfo = () => {
                 1457.25
               </span>
               <div className="grid w-24 h-24 bg-gradient-to-r from-gray-600 via-teal-700 to-gray-600   place-items-center">
-                BMR
+              <Link to='/bmr'> BMR</Link> 
               </div>
             </div>
             <div className="indicator mt-4">
               <span className="indicator-item badge bg-white text-2xl px-4 py-4 badge-primary">
-                {water}L
+                {/* {water} */}
+                1.667L
               </span>
               <div className="grid w-24 h-24 pl-4 bg-gradient-to-r from-gray-600 via-teal-700 to-gray-600 place-items-center">
                 Intake Water
               </div>
             </div>
           </div>
-           
         </div>
         <div>
           <div className="avatar mr-10">

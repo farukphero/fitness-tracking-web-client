@@ -20,7 +20,7 @@ const WeightModal = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/weightGoal?email=${user?.email}`)
+        fetch(`https://fitness-tracking-web-server.vercel.app/weightGoal?email=${user?.email}`)
             .then((res) => res.json())
             .then((data) => setWeightGoal(data));
     }, [user?.email]);
