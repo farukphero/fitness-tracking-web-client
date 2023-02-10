@@ -17,7 +17,7 @@ const FoodInfoSlide = ({result, startDate, setStartDate}) => {
   const user = useContext(AuthContext);
  
 const [weightGoal, setWeightGoal] = useState([]);
-console.log(weightGoal)
+console.log(user)
   useEffect(()=>{
     fetch(`http://localhost:5000/weightGoal?email=${user?.user?.email}`)
     // fetch(`http://localhost:5000/weightGoal?email=tahminakhatun5447@gmail.com`)
@@ -38,18 +38,18 @@ console.log(weightGoal)
     
   }
 
-  useState(()=>{
-    fetch(`http://localhost:5000/activities/7?email=${user?.user?.email}`)
+  useEffect(()=>{
+    fetch(`http://localhost:5000/activities/1?email=${user?.user?.email}`)
     .then(res=>res.json())
     .then(data=>{
-      console.log(data)
+      // console.log(data)
     })
-  },[])
+  },[user?.user?.email])
   // const gainWeight = parseInt(weightGoal[0]?.expectedWeight) - parseInt(user?.userInfo?.age);
   const gainWeight = parseInt(weightGoal[0]?.expectedWeight);
-  console.log(gainWeight)
   // const day = 45;
   const day = parseInt(weightGoal[0]?.days);
+  // console.log(day)
   const extraCalorey = (7700 * gainWeight) / day;
   const bmr = userBmr(user)
   const TEE = 2200;

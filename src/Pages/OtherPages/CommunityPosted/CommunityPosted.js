@@ -10,7 +10,7 @@ const CommunityPosted = () => {
     const { data: posts = [], refetch } = useQuery({
         queryKey: ['posts'],
         queryFn: async () => {
-            const res = await fetch('https://fitness-tracking-web-server.vercel.app/post');
+            const res = await fetch('http://localhost:5000/post');
             const data = await res.json()
 
             return data;

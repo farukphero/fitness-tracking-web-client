@@ -8,9 +8,11 @@ import { DayPicker } from "react-day-picker";
 const UserDetails = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
+
   const [selected, setSelected] = React.useState(new Date());
 
   const date = format(selected, "P");
+
   const {
     register,
     formState: { errors },
@@ -39,6 +41,7 @@ const UserDetails = () => {
           email: data.email,
           age: data.age,
           weight: data.weight,
+          height:data.height,
           currentAddress: data.currentAddress,
           permanentAddress: data.permanentAddress,
           birthday: data.birthday,
@@ -46,10 +49,12 @@ const UserDetails = () => {
           city: data.city,
           phone: data.phone,
           picture: imgData.data.url,
+          sendFrom: [],
+          sendTo: [],
           gender: data.gender,
           postDate: date,
         };
-        fetch("https://fitness-tracking-web-server.vercel.app/users", {
+        fetch("http://localhost:5000/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -67,9 +72,12 @@ const UserDetails = () => {
   };
 
   return (
-    <div className="hero"  style={{
-      backgroundImage: `url("https://media.istockphoto.com/id/1368151370/photo/user-typing-login-and-password-cyber-security-concept.jpg?b=1&s=170667a&w=0&k=20&c=wm6YUMs03Bup4_9XcQaX61L711qJxAUExEJp_PWO8gI=")`,
-    }}>
+    <div
+      className="hero"
+      style={{
+        backgroundImage: `url("https://media.istockphoto.com/id/1368151370/photo/user-typing-login-and-password-cyber-security-concept.jpg?b=1&s=170667a&w=0&k=20&c=wm6YUMs03Bup4_9XcQaX61L711qJxAUExEJp_PWO8gI=")`,
+      }}
+    >
       <div className="items-center mx-auto bg-gray-700 py-10 rounded flex-shrink-0 lg:w-1/2 ">
         <form onSubmit={handleSubmit(handleDetails)}>
           <div className="justify-center text-center">
