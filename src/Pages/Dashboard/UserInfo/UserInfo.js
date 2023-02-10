@@ -328,7 +328,7 @@ const UserInfo = () => {
 
             <div>
               <h1 className="text-2xl mb-4">Health Activities:</h1>
-              <div className="flex flex-col lg:flex-row gap-6">
+              <div className="flex flex-col lg:flex-row gap-6 mb-8">
                 <div className="indicator mt-4">
                   <span className="indicator-item badge bg-white text-2xl px-4 py-4 badge-primary">
                     {bmi}
@@ -353,6 +353,8 @@ const UserInfo = () => {
                     Include Blood
                   </div>
                 </div>
+              </div>
+              <div className="flex flex-col lg:flex-row gap-6">
                 <div className="indicator mt-4">
                   <span className="indicator-item badge bg-white text-2xl px-4 py-4 badge-primary">
                     {protein}G
