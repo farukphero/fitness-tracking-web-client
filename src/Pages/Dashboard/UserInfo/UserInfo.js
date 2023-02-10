@@ -53,7 +53,7 @@ const UserInfo = () => {
         console.log(newUserInfo);
         // console.log(user.email);
 
-        fetch(`http://localhost:5000/users/edit/${user?.email}`, {
+        fetch(`https://fitness-tracking-web-server.vercel.app/users/edit/${user?.email}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
@@ -74,7 +74,7 @@ const UserInfo = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${user?.email}`)
+    fetch(`https://fitness-tracking-web-server.vercel.app/users/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setUserInfo(data));
   }, [user]);
@@ -153,6 +153,61 @@ const UserInfo = () => {
   return (
     <div className="w-8/12 mx-auto my-20 -mt-5 lg:mt-20 scale-75 lg:scale-100">
       <div className="lg:w-[900px] ">
+        <div className="-ml-24 ">
+          <h1 className="text-2xl mb-4">Health Activities:</h1>
+          <div className="grid grid-cols-3 lg:grid-cols-5">
+            <div className="indicator mt-4">
+              <span className="indicator-item badge bg-white text-2xl px-4 py-4 badge-primary">
+                {bmi}
+              </span>
+              <div className="grid w-24 h-24 bg-gradient-to-r from-gray-600 via-teal-700 to-gray-600   place-items-center">
+                BMI
+              </div>
+            </div>
+
+            <div className="indicator mt-4">
+              <span className="indicator-item badge bg-white text-2xl px-4 py-4 badge-primary">
+                {blood}L
+              </span>
+              <div className="grid w-24 h-24 pl-4 bg-gradient-to-r from-gray-600 via-teal-700 to-gray-600   place-items-center">
+                Include Blood
+              </div>
+            </div>
+            <div className="indicator mt-4">
+              <span className="indicator-item badge bg-white text-2xl px-4 py-4 badge-primary">
+                {protein}G
+              </span>
+              <div className="grid w-24 h-24 pl-4 bg-gradient-to-r from-gray-600 via-teal-700 to-gray-600   place-items-center">
+                Intake Protein
+              </div>
+            </div>
+            <div className="indicator mt-4">
+              <span className="indicator-item badge bg-white text-2xl px-4 py-4 badge-primary">
+                {/* {calculateBMR({
+                  age: userInfo?.age,
+                  gender: userInfo?.gender,
+                  heightFeet: userInfo.height?.split(".")[0],
+                  heightInches: userInfo.height?.split(".")[1],
+                  weight: userInfo?.weight,
+                  weightType: 1,
+                })} */}
+                1457.25
+              </span>
+              <div className="grid w-24 h-24 bg-gradient-to-r from-gray-600 via-teal-700 to-gray-600   place-items-center">
+                BMR
+              </div>
+            </div>
+            <div className="indicator mt-4">
+              <span className="indicator-item badge bg-white text-2xl px-4 py-4 badge-primary">
+                {water}L
+              </span>
+              <div className="grid w-24 h-24 pl-4 bg-gradient-to-r from-gray-600 via-teal-700 to-gray-600 place-items-center">
+                Intake Water
+              </div>
+            </div>
+          </div>
+           
+        </div>
         <div>
           <div className="avatar mr-10">
             <div className="w-28 lg:w-32 mb-10 ml-16 lg:ml-24 lg:mt-20 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
@@ -292,94 +347,6 @@ const UserInfo = () => {
                 </div>
               </>
             )}
-
-            {/* <div className="mt-4 mb-8">
-              <h1 className="mb-4  text-2xl text-green-400">WorkFlow : </h1>
-              <div className="grid grid-cols-3 gap-8">
-                <div>
-                  <h1 className="mb-2 font-bold">Diet</h1>
-                  <div
-                    className="radial-progress bg-sky-600 progress-user text-black border-1 border-black"
-                    style={{ "--value": 70 }}
-                  >
-                    70%
-                  </div>
-                </div>
-                <div>
-                  <h1 className="mb-2 font-bold">Exercise</h1>
-                  <div
-                    className="radial-progress bg-red-400 progress-user text-black border-2 border-black"
-                    style={{ "--value": 40 }}
-                  >
-                    40%
-                  </div>
-                </div>
-                <div>
-                  <h1 className="mb-2 font-bold">Activities</h1>
-                  <div
-                    className="radial-progress bg-emerald-600 progress-user text-black border-2 border-black"
-                    style={{ "--value": 50 }}
-                  >
-                    50%
-                  </div>
-                </div>
-              </div>
-            </div> */}
-
-            <div>
-              <h1 className="text-2xl mb-4">Health Activities:</h1>
-              <div className="flex flex-col lg:flex-row gap-6 mb-8">
-                <div className="indicator mt-4">
-                  <span className="indicator-item badge bg-white text-2xl px-4 py-4 badge-primary">
-                    {bmi}
-                  </span>
-                  <div className="grid w-24 h-24 bg-gradient-to-r from-gray-600 via-teal-700 to-gray-600   place-items-center">
-                    BMI
-                  </div>
-                </div>
-                <div className="indicator mt-4">
-                  <span className="indicator-item badge bg-white text-2xl px-4 py-4 badge-primary">
-                    {water}L
-                  </span>
-                  <div className="grid w-24 h-24 pl-4 bg-gradient-to-r from-gray-600 via-teal-700 to-gray-600   place-items-center">
-                    Intake Water
-                  </div>
-                </div>
-                <div className="indicator mt-4">
-                  <span className="indicator-item badge bg-white text-2xl px-4 py-4 badge-primary">
-                    {blood}L
-                  </span>
-                  <div className="grid w-24 h-24 pl-4 bg-gradient-to-r from-gray-600 via-teal-700 to-gray-600   place-items-center">
-                    Include Blood
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-col lg:flex-row gap-6">
-                <div className="indicator mt-4">
-                  <span className="indicator-item badge bg-white text-2xl px-4 py-4 badge-primary">
-                    {protein}G
-                  </span>
-                  <div className="grid w-24 h-24 pl-4 bg-gradient-to-r from-gray-600 via-teal-700 to-gray-600   place-items-center">
-                    Intake Protein
-                  </div>
-                </div>
-                <div className="indicator mt-4">
-                  <span className="indicator-item badge bg-white text-2xl px-4 py-4 badge-primary">
-                    {calculateBMR({
-                      age: userInfo?.age,
-                      gender: userInfo?.gender,
-                      heightFeet: userInfo.height?.split(".")[0],
-                      heightInches: userInfo.height?.split(".")[1],
-                      weight: userInfo?.weight,
-                      weightType: 1,
-                    })}
-                  </span>
-                  <div className="grid w-24 h-24 bg-gradient-to-r from-gray-600 via-teal-700 to-gray-600   place-items-center">
-                    BMR
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>

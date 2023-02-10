@@ -21,7 +21,7 @@ const CommunityFriends = ({ user }) => {
       receiverEmail:user.email,
       accepted: false,
     };
-    fetch("http://localhost:5000/friendRequest", {
+    fetch("https://fitness-tracking-web-server.vercel.app/friendRequest", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

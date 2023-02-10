@@ -11,7 +11,7 @@ const Tutorial = () => {
     queryKey: ["tutorials"],
     queryFn: () =>
       fetch(
-        `http://localhost:5000/tutorials?category=${data?.category}`
+        `https://fitness-tracking-web-server.vercel.app/tutorials?category=${data?.category}`
       )
         .then((res) => res.json())
         .then((data) => {

@@ -22,20 +22,20 @@ const Banner = () => {
             Stay 
             <span className="text-all-green"> At Home</span>
           </h1>
-          <p className="mt-4 text-gray-400">
+          <p className="mt-4 text-gray-300">
             Achieve Your Training Goals With The Right Plan, Not With A Luck.
           </p>
           <div className="flex flex-row gap-4 mt-6 justify-center items-center">
             <NavHashLink smooth to="/#contact">
               {" "}
-              <button className="border-2 px-8 py-3 border-green-600 btn bg-secondary hover:bg-secondary text-black rounded-md ">
-                Contact
+              <button className="py-3 px-6 font-semibold bg-secondary hover:bg-secondary text-black rounded-md no-underline">
+                CONTACT
               </button>
             </NavHashLink>
             <NavHashLink smooth to="/#about">
               {" "}
-              <button className="btn bg-secondary hover:bg-secondary text-black border-2 px-8 py-3   rounded-md ">
-                About
+              <button className=" py-3 px-6 font-semibold bg-secondary hover:bg-secondary text-black  rounded-md ">
+                ABOUT
               </button>
             </NavHashLink>
           </div>

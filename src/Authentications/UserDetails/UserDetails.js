@@ -54,7 +54,7 @@ const UserDetails = () => {
           gender: data.gender,
           postDate: date,
         };
-        fetch("http://localhost:5000/users", {
+        fetch("https://fitness-tracking-web-server.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",

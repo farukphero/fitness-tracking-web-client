@@ -20,8 +20,8 @@ const [weightGoal, setWeightGoal] = useState([]);
  
  
   useEffect(()=>{
-    fetch(`http://localhost:5000/weightGoal?email=${user?.user?.email}`)
-    // fetch(`http://localhost:5000/weightGoal?email=tahminakhatun5447@gmail.com`)
+    fetch(`https://fitness-tracking-web-server.vercel.app/weightGoal?email=${user?.user?.email}`)
+    // fetch(`https://fitness-tracking-web-server.vercel.app/weightGoal?email=tahminakhatun5447@gmail.com`)
     .then(res=>res.json())
     .then(data=>{
       console.log(data)
@@ -41,7 +41,7 @@ const [weightGoal, setWeightGoal] = useState([]);
 
  
   useEffect(()=>{
-    fetch(`http://localhost:5000/activities/1?email=${user?.user?.email}`)
+    fetch(`https://fitness-tracking-web-server.vercel.app/activities/1?email=${user?.user?.email}`)
     .then(res=>res.json())
     .then(data=>{
       // console.log(data)
@@ -54,7 +54,7 @@ const [weightGoal, setWeightGoal] = useState([]);
   // console.log(day)
  
   useState(()=>{
-    fetch(`http://localhost:5000/activities/7?email=${user?.user?.email}`)
+    fetch(`https://fitness-tracking-web-server.vercel.app/activities/7?email=${user?.user?.email}`)
     .then(res=>res.json())
     .then(data=>{
       console.log(data)
