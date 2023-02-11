@@ -22,8 +22,8 @@ const CommunityFriend = () => {
   // console.log(users?.accepted);
 
   return (
-    <div className="w-10/12 mx-auto">
-      <div>
+    <div className=" ">
+      {/* <div>
         <div className="items-center mt-4 ml-6 mb-4 justify-start flex gap-4">
           <div className="avatar">
             <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
@@ -37,8 +37,8 @@ const CommunityFriend = () => {
             </h1>
           </div>
         </div>
-      </div>
-      <div className="grid mx-auto ml-4 grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-4">
+      </div> */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mt-28 mx-5">
         {usersWithoutPresent.map((user) => (
           <CommunityFriends
             key={user._id}

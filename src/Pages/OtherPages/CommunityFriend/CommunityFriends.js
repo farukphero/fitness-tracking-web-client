@@ -4,7 +4,7 @@ import { useState } from "react";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 
 const CommunityFriends = ({ user, reload, setReload }) => {
-  const { userInfo } = useContext(AuthContext);
+  const { userInfo, loading } = useContext(AuthContext);
   // console.log(userInfo);
   // const [data, setData] = useState("");
   const [postData, setPostData] = useState("");
@@ -107,7 +107,7 @@ const CommunityFriends = ({ user, reload, setReload }) => {
       });
   };
   return (
-    <div className="card w-64 h-96 bg-white shadow-xl">
+    <div className="card bg-white shadow-xl">
       <figure className="">
         <img src={user.picture} alt="" className="rounded-xl h-72 w-full" />
       </figure>
@@ -137,7 +137,10 @@ const CommunityFriends = ({ user, reload, setReload }) => {
             onClick={handleSendRequest}
             className="py-3 rounded-md font-semibold px-5 mt-2 mb-2 w-full bg-secondary text-black"
           >
-            Add Friend
+            {
+              loading ? "Sending" : " Add Friend"
+            }
+           
           </button>
         )}
       </div>

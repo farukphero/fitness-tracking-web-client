@@ -120,27 +120,27 @@ export const router = createBrowserRouter([
         element: <ActivitiesHistoryDetails></ActivitiesHistoryDetails>,
       },
       {
-        path: "/Community",
+        path: "/Community/AllUsers",
         element: <CommunityLaout></CommunityLaout>,
         children: [
+          // {
+          //   path: "/Community/community",
+          //   element: <Community></Community>,
+          // },
+          // {
+          //   path: "/Community",
+          //   element: <CommunityFeed></CommunityFeed>,
+          // },
+          // {
+          //   path: "/Community/post",
+          //   element: <CommunityPost></CommunityPost>,
+          // },
+          // {
+          //   path: "/Community",
+          //   element: <CommunityPosted></CommunityPosted>,
+          // },
           {
-            path: "/Community/community",
-            element: <Community></Community>,
-          },
-          {
-            path: "/Community",
-            element: <CommunityFeed></CommunityFeed>,
-          },
-          {
-            path: "/Community/post",
-            element: <CommunityPost></CommunityPost>,
-          },
-          {
-            path: "/Community",
-            element: <CommunityPosted></CommunityPosted>,
-          },
-          {
-            path: "/Community/friend",
+            path: "/Community/AllUsers",
             element: <CommunityFriend></CommunityFriend>,
           },
           {
