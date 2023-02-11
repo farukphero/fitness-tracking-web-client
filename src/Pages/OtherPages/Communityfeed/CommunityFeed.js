@@ -7,14 +7,14 @@ import useTitle from '../../../Hooks/useTitle/useTitle';
 const CommunityFeed = () => {
 
     const { user, userInfo } = useContext(AuthContext)
-    console.log(user)
+    // console.log(user)
     const navigate = useNavigate()
     const imageHostkeyk = "e49a11b11d3bcadfe6ff2e14a831598a"
 
     const { register, formState: { errors }, handleSubmit } = useForm()
     const PostButton = data => {
 
-        console.log(data)
+        // console.log(data)
         const image = data.img[0]
 
         const formData = new FormData()

@@ -43,6 +43,7 @@ const AuthProvider = ({ children }) => {
       .then((res) => res.json())
       .then((data) => setUserInfo(data));
   }, [user?.email]);
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -63,7 +64,7 @@ const AuthProvider = ({ children }) => {
         fetch(`https://fitness-tracking-web-server.vercel.app/logedWeight?email=${user?.email}`)
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
+                // console.log(data);
                 return data;
             }),
 });
