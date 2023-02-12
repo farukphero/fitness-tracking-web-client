@@ -45,6 +45,12 @@ const Navbar = () => {
       aria: `Tutorials`,
       content: `Tutorials`,
     },
+    {
+      _id: 3,
+      navigate: `/Friends`,
+      aria: `Friends`,
+      content: `Friends`,
+    },
   ];
 
   return (

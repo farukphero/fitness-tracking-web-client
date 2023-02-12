@@ -1,24 +1,18 @@
 import React, { useContext } from "react";
 
 import { useState } from "react";
+import { toast } from "react-hot-toast";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 
 const CommunityFriends = ({ user, reload, setReload }) => {
-  const { userInfo, loading } = useContext(AuthContext);
-  // console.log(userInfo);
-  // const [data, setData] = useState("");
-  const [postData, setPostData] = useState("");
+  const { userInfo } = useContext(AuthContext);
+  // const [postData, setPostData] = useState("");
   const [sendTo, setSendTo] = useState([]);
-  // const [sendFrom,setSendFrom]=useState("")
-  // console.log(sendTo);
+  const [loading, setLoading] = useState(true)
+  const [accept, setAccept] = useState(false)
 
   const handleSendRequest = async () => {
-    // setData("add");
-
     const friendData = {
-      // rcvdata: userInfo?._id,
-      // name: userInfo?.firstName,
-      // photo: userInfo?.picture,
       senderEmail: userInfo?.email,
       receiverEmail: user?.email,
       accepted: false,
@@ -35,34 +29,28 @@ const CommunityFriends = ({ user, reload, setReload }) => {
     })
       .then((res) => res.json())
       .then((postData) => {
+        setLoading(false)
         if (postData.acknowledged) {
-          setPostData(postData);
-          // setReload(!reload);
+          // setPostData(postData);
         }
-        // console.log(postData);
       });
-    // console.log(friendData);
   };
   const checkRequest = (userEmail) => {
-    // console.log(user.sendFrom, user.sendTo);
     const isSend = user?.sendTo?.find((request) => request === userEmail);
     const isFrom = user?.sendFrom?.find((request) => request === userEmail);
+    // const accept = user?.accepted?.find((request) => request === userEmail);
     if (isSend) {
       return "From";
     } else if (isFrom) {
       return "Send";
-    } else if (!isSend && isFrom) {
-      return "Friend";
-    } else {
+    } 
+    else {
       return "No";
     }
   };
 
   const handleCancelRequest = () => {
     const friendData = {
-      // rcvdata: userInfo?._id,
-      // name: userInfo?.firstName,
-      // photo: userInfo?.picture,
       senderEmail: userInfo?.email,
       receiverEmail: user?.email,
       accepted: false,
@@ -78,16 +66,20 @@ const CommunityFriends = ({ user, reload, setReload }) => {
       .then((res) => res.json())
       .then((postData) => {
         if (postData.acknowledged) {
-          setPostData(postData);
+           toast.success("cancel")
           setReload(!reload);
         }
-        // console.log(postData);
       });
   };
   const handleAcceptRequest = () => {
     const friendData = {
       senderEmail: userInfo?.email,
+      firstName: userInfo?.firstName,
+      receiverPicture: userInfo?.picture,
+      lastName : userInfo?.lastName,
       receiverEmail: user?.email,
+      displayName:user?.firstName + user.lastName,
+      senderPicture: user?.picture
     };
 
     fetch("http://localhost:5000/acceptFriendRequest", {
@@ -100,16 +92,16 @@ const CommunityFriends = ({ user, reload, setReload }) => {
       .then((res) => res.json())
       .then((postData) => {
         if (postData.acknowledged) {
-          setPostData(postData);
+          // setPostData(postData);
+          setAccept(true)
           setReload(!reload);
         }
-        // console.log(postData);
       });
   };
   return (
     <div className="card bg-white shadow-xl">
       <figure className="">
-        <img src={user.picture} alt="" className="rounded-xl h-72 w-full" />
+        <img src={user.picture} alt="" className="rounded-xl h-52 w-full" />
       </figure>
 
       <div className="p-3 items-center text-center">
@@ -121,28 +113,40 @@ const CommunityFriends = ({ user, reload, setReload }) => {
             onClick={handleCancelRequest}
             className="py-3 rounded-md font-semibold px-5 mt-2 mb-2 w-full bg-secondary text-black"
           >
-            Cancel Request
+              Cancel Request
           </button>
         )}
         {checkRequest(userInfo?.email) === "From" && (
+         <>
           <button
             onClick={handleAcceptRequest}
             className="py-3 rounded-md font-semibold px-5 mt-2 mb-2 w-full bg-secondary text-black"
           >
             Accept Request
           </button>
+          <button
+            onClick={handleCancelRequest}
+            className="py-3 rounded-md font-semibold px-5 mt-2 mb-2 w-full bg-secondary text-black"
+          >
+            Cancel Request
+          </button></>
         )}
         {checkRequest(userInfo?.email) === "No" && (
           <button
             onClick={handleSendRequest}
             className="py-3 rounded-md font-semibold px-5 mt-2 mb-2 w-full bg-secondary text-black"
           >
-            {
-              loading ? "Sending" : " Add Friend"
-            }
-           
+             Add Friend
           </button>
         )}
+        {/* {checkRequest(userInfo?.email) === "Friend" (
+          <button
+            onClick={handleAcceptRequest}
+            className="py-3 rounded-md font-semibold px-5 mt-2 mb-2 w-full bg-secondary text-black"
+          >
+             Friend
+          </button>
+        )} */}
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import {
     signInWithEmailAndPassword,
     signInWithPopup,
     signOut,
+    updateProfile,
 } from "firebase/auth";
 import React, { createContext, useEffect, useState } from "react";
 import { useQuery } from "react-query";
@@ -28,6 +29,10 @@ const AuthProvider = ({ children }) => {
   const providerGoogleLogIn = (provider) => {
     setLoading(true);
     return signInWithPopup(auth, provider);
+  };
+  const updateUser = (profile) => {
+    setLoading(true);
+    return updateProfile(auth.currentUser, profile)
   };
 
   const logOut = () => {
@@ -74,6 +79,7 @@ const AuthProvider = ({ children }) => {
     loading,
     createUserByEmail,
     accountLogIn,
+    updateUser,
     logOut,
     providerGoogleLogIn,
     userInfo,

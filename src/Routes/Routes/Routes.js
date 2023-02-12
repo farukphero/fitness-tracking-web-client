@@ -54,6 +54,8 @@ import Sleep from "../../Pages/OtherPages/Logs/Sleep/Sleep/Sleep";
 import BloodTracking from "../../Pages/Home/Calculator/BloodTracking/BloodTracking";
 import Protein from "../../Pages/Home/Calculator/Protein/Protein";
 import BlogDetails from "../../Pages/Home/Blog/BlogDetails";
+import Friends from "../../Pages/OtherPages/CommunityFriend/Friends/Friends";
+import Friend from "../../Pages/OtherPages/CommunityFriend/Friends/Friend";
  
 
 export const router = createBrowserRouter([
@@ -120,7 +122,7 @@ export const router = createBrowserRouter([
         element: <ActivitiesHistoryDetails></ActivitiesHistoryDetails>,
       },
       {
-        path: "/Community/AllUsers",
+        path: "/Community",
         element: <CommunityLaout></CommunityLaout>,
         children: [
           // {
@@ -212,6 +214,14 @@ export const router = createBrowserRouter([
       {
         path: "/SignUp",
         element: <SignUp></SignUp>,
+      },
+      {
+        path: "/Friends",
+        element: <Friends></Friends>,
+      },
+      {
+        path: "/Friends/Friend",
+        element: <Friend></Friend>,
       },
       {
         path: "/blog/:id",
