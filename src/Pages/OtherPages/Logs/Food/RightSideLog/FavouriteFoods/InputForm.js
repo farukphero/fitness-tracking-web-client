@@ -66,7 +66,7 @@ const InputForm = ({item, setItem}) => {
         <div className='flex justify-end'>
           <button className="btn btn-xs text-white mt-2" onClick={handleCloseForm}>X</button>
         </div>
-        <div className="form-control">
+        <div className="">
           <label className="label">
             <span className="label-text text-white font-semibold capitalize text-2xl">
               what did you eat?
@@ -83,7 +83,7 @@ const InputForm = ({item, setItem}) => {
       <div className=" items-center justify-between space-x-3">
         <div>
 
-          <div className="form-control basis-2/3">
+          <div className=" basis-2/3">
             <label className="label">
               <span className="label-text text-white font-semibold lg:text-2xl capitalize">
                 how much?
@@ -94,7 +94,8 @@ const InputForm = ({item, setItem}) => {
               name="amount"
               value={foodAmount}
 
-              className="input bg-gray-500 input-bordered focus:outline-none w-72 lg:w-[510px]"
+              className="input bg-gray-500 input-bordered focus:outline-none w-full"
+              // className="input bg-gray-500 input-bordered focus:outline-none w-72 lg:w-[510px]"
             />
           </div>
           <div>
@@ -102,7 +103,7 @@ const InputForm = ({item, setItem}) => {
             {!foodAmount && <p  className="text-black p-3 mt-1">{a.amount}</p>}
             </div>)}
           </div></div>
-        <div className="form-control"><label className="label ">
+        <div className=""><label className="label ">
             <span className="label-text font-semibold capitalize text-white lg:text-2xl">
               when?
             </span>
@@ -119,7 +120,7 @@ const InputForm = ({item, setItem}) => {
           </select>
         </div>
       </div>
-      <div className="form-control mt-6">
+      <div className=" mt-6">
         <button className="btn w-full border-none bg-gradient-to-r from-gray-700 via-green-500 to-gray-700 text-white hover:bg-gradient-to-r hover:from-gray-800 hover:via-green-400 hover:to-gray-800 hover:text-black">Log</button>
       </div>
     </form>
