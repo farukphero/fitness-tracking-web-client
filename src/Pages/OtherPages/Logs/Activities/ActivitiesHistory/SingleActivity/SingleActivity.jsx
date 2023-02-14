@@ -17,14 +17,14 @@ const SingleActivity = ({ activity, setDeleteActivity }) => {
           </td>
           <td>
             <Link to="/ActivitiesHistoryDetails">
-              <button className="btn btn-xs">details</button>
+              <button className="btn btn-xs btn-outline">details</button>
             </Link>
           </td>
           <td>
               <label
                 onClick={() => setDeleteActivity(activity)}
                 htmlFor="ConfirmationModal"
-                className="btn btn-xs btn-error"
+                className="btn btn-xs bg-secondary text-black hover:bg-secondary border-none"
               >
                 delete
               </label>

@@ -7,7 +7,7 @@ const FavouriteActivities = () => {
         <div className="flex items-center justify-between">
           <div>
             <span className="font-semibold text-3xl">
-              Favourite <br /> Activities
+              Favorite  Activities
             </span>
           </div>
           <div className="flex space-x-3">

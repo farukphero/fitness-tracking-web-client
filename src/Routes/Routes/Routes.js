@@ -51,7 +51,11 @@ import Sleep from "../../Pages/OtherPages/Logs/Sleep/Sleep/Sleep";
 
 import BloodTracking from "../../Pages/Home/Calculator/BloodTracking/BloodTracking";
 import Protein from "../../Pages/Home/Calculator/Protein/Protein";
+import BlogDetails from "../../Pages/Home/Blog/BlogDetails";
+import Friends from "../../Pages/OtherPages/CommunityFriend/Friends/Friends";
+import Friend from "../../Pages/OtherPages/CommunityFriend/Friends/Friend";
 import AllActivities from "../../Pages/OtherPages/AllActivities/AllActivities/AllActivities";
+ 
 
 export const router = createBrowserRouter([
   {
@@ -120,24 +124,24 @@ export const router = createBrowserRouter([
         path: "/Community",
         element: <CommunityLaout></CommunityLaout>,
         children: [
+          // {
+          //   path: "/Community/community",
+          //   element: <Community></Community>,
+          // },
+          // {
+          //   path: "/Community",
+          //   element: <CommunityFeed></CommunityFeed>,
+          // },
+          // {
+          //   path: "/Community/post",
+          //   element: <CommunityPost></CommunityPost>,
+          // },
+          // {
+          //   path: "/Community",
+          //   element: <CommunityPosted></CommunityPosted>,
+          // },
           {
-            path: "/Community/community",
-            element: <Community></Community>,
-          },
-          {
-            path: "/Community",
-            element: <CommunityFeed></CommunityFeed>,
-          },
-          {
-            path: "/Community/post",
-            element: <CommunityPost></CommunityPost>,
-          },
-          {
-            path: "/Community",
-            element: <CommunityPosted></CommunityPosted>,
-          },
-          {
-            path: "/Community/friend",
+            path: "/Community/AllUsers",
             element: <CommunityFriend></CommunityFriend>,
           },
           {

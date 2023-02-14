@@ -34,7 +34,7 @@ const SideForm1 = ({setLogedData,refetch,setLogedWeight}) => {
       email: user?.email,
     };
     
-    fetch(`http://localhost:5000/logedWeight`, {
+    fetch(`https://fitness-tracking-web-server.vercel.app/logedWeight`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -91,13 +91,13 @@ const SideForm1 = ({setLogedData,refetch,setLogedWeight}) => {
               <span className="label-text">DATE</span>
             </label>
             <DatePicker
-              className="bg-gray-600 rounded mb-2 text-center text-green-600"
+              className="bg-gray-600 rounded mb-2 text-center text-white"
               selected={startDate}
               onChange={(date) => setStartDate(date)}
             />
           </div>
-          <div className="btn btn-outline bg-gradient-to-r from-gray-700 via-green-500 to-gray-700 text-white hover:bg-gradient-to-r hover:from-gray-800 hover:via-green-400 hover:to-gray-800 hover:text-black  btn-sm  mt-3 w-full">
-            <button className="text-center">Log Weight</button>
+          <div className="">
+            <button className="btn bg-secondary hover:bg-secondary text-black w-full border-2  border-green-600 rounded-md btn-sm mt-2">Log Weight</button>
           </div>
         </form>
       </div>

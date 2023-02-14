@@ -63,7 +63,7 @@ const FavoriteFoodTable = ({ food, item, setItem}) => {
 
 
 //   useEffect(() => {
-//     fetch(`http://localhost:5000/favouriteFoods/${item.food}`)
+//     fetch(`https://fitness-tracking-web-server.vercel.app/favouriteFoods/${item.food}`)
 //       .then(res => res.json())
 //       .then(data => {
 //         setData(data)

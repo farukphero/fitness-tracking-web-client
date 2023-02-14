@@ -95,7 +95,7 @@ const AddTutorials = () => {
                             <input name='link' type="text" className='w-full bg-gray-800 text-center py-1 rounded' placeholder='Upload Video' required />
                         </label>
                         <div className='my-3'>
-                            <button type='submit' className='btn border-none w-full text-white bg-gradient-to-r from-gray-700 via-green-500 to-gray-700 hover:bg-gradient-to-r hover:from-gray-800 hover:via-green-400 hover:to-gray-800 hover:text-black mb-0'>Done</button>
+                            <button type='submit' className='btn bg-secondary hover:bg-secondary text-black w-full border-2  border-green-600 rounded-md '>Done</button>
 
                         </div>
                     </form>
@@ -120,7 +120,7 @@ const AddTutorials = () => {
                                     Thumbnail Image
                                 </label>
                                 <div className='text-center'>
-                                    <button type='submit' className='btn btn-outline w-full hover:text-white hover:bg-gradient-to-r hover:from-gray-800 hover:to-green-400  text-white btn-sm'>Done</button>
+                                    <button type='submit' className='btn bg-secondary hover:bg-secondary text-black w-full border-2  border-green-600 rounded-md btn-sm'>Done</button>
                                 </div>
                             </div>
                         </div>

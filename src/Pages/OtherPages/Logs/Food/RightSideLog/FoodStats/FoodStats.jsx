@@ -30,7 +30,7 @@ const FoodStats = () => {
     queryFn: async () => {
  
       const res = await fetch(
-        `http://localhost:5000/foods/seven/${user?.user?.email}`
+        `https://fitness-tracking-web-server.vercel.app/foods/seven/${user?.user?.email}`
       );
  
       const data = await res.json();

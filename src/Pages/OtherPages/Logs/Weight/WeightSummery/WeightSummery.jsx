@@ -40,7 +40,7 @@ const WeightSummery = ({setLogedWeight,refetch}) => {
                             {
                             (goalSetData.goalType === "Gain") && ((oneDayWeight.toFixed(2)) > 0.18) ?
                             <>
-                                <p className='text-red-900 text-center font-bold'>You want to gain {oneDayWeight.toFixed(2)} kg in one day, But it is harmful to your health. We recommend that you will gain 0.07 kg to 0.14 kg in one day. That means 0.5 kg to 1 kg per week.
+                                <p className='text-red-400 text-center font-bold'>You want to gain {oneDayWeight.toFixed(2)} kg in one day, But it is harmful to your health. We recommend that you will gain 0.07 kg to 0.14 kg in one day. That means 0.5 kg to 1 kg per week.
                                 </p>
                             </> :
                             <>
