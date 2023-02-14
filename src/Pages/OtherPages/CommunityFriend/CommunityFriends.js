@@ -1,84 +1,62 @@
 import React, { useContext } from "react";
 
 import { useState } from "react";
+import { toast } from "react-hot-toast";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 
-const CommunityFriends = ({ user }) => {
+const CommunityFriends = ({ user, reload, setReload }) => {
   const { userInfo } = useContext(AuthContext);
-  // console.log(userInfo);
-  // const [data, setData] = useState("");
-  const [postData, setPostData] = useState("");
-  const [sendTo,setSendTo]=useState([])
-  // const [sendFrom,setSendFrom]=useState("")
-  console.log(sendTo)
- 
-  const handleSendRequest = async () => {
-    // setData("add");
+  // const [postData, setPostData] = useState("");
+  const [sendTo, setSendTo] = useState([]);
+  const [loading, setLoading] = useState(true)
+  const [accept, setAccept] = useState(false)
 
+  const handleSendRequest = async () => {
     const friendData = {
-      // rcvdata: userInfo?._id,
-      // name: userInfo?.firstName,
-      // photo: userInfo?.picture,
       senderEmail: userInfo?.email,
       receiverEmail: user?.email,
       accepted: false,
     };
- 
-    setSendTo((exgistingEmail)=>[...exgistingEmail,user?.eamil])
-    // setSendFrom(user?.email)
-    // fetch("https://fitness-tracking-web-server.vercel.app/friendRequest", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(friendData),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => console.log(data));
 
-// email will be add (send to) array for sender person:
-    // fetch(`https://fitness-tracking-web-server.vercel.app/user/${userInfo?.email}`, {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(user?.email),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => console.log(data));
-    
+    setSendTo((exgistingEmail) => [...exgistingEmail, user?.eamil]);
 
-// email will be add (send from) array for receiver person:
-    // fetch(`https://fitness-tracking-web-server.vercel.app/user/${user?.email}`, {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(userInfo?.email),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => console.log(data));
+    fetch("http://localhost:5000/friendRequest", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(friendData),
+    })
+      .then((res) => res.json())
+      .then((postData) => {
+        setLoading(false)
+        if (postData.acknowledged) {
+          // setPostData(postData);
+        }
+      });
+  };
+  const checkRequest = (userEmail) => {
+    const isSend = user?.sendTo?.find((request) => request === userEmail);
+    const isFrom = user?.sendFrom?.find((request) => request === userEmail);
+    // const accept = user?.accepted?.find((request) => request === userEmail);
+    if (isSend) {
+      return "From";
+    } else if (isFrom) {
+      return "Send";
+    } 
+    else {
+      return "No";
+    }
+  };
 
+  const handleCancelRequest = () => {
+    const friendData = {
+      senderEmail: userInfo?.email,
+      receiverEmail: user?.email,
+      accepted: false,
+    };
 
-
-
-    // fetch("https://fitness-tracking-web-server.vercel.app/friendRequest", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(friendData),
-    // })
-    //   .then((res) => res.json())
-    //   .then((postData) => {
-    //     if (postData.acknowledged) {
-    //       setPostData(postData);
-    //     }
-    //     console.log(postData);
-    //   });
-
- 
-    fetch("https://fitness-tracking-web-server.vercel.app/friendRequest", {
+    fetch("http://localhost:5000/cancelFriendRequest", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -88,53 +66,87 @@ const CommunityFriends = ({ user }) => {
       .then((res) => res.json())
       .then((postData) => {
         if (postData.acknowledged) {
-          setPostData(postData);
+           toast.success("cancel")
+          setReload(!reload);
         }
-        console.log(postData);
       });
-    console.log(friendData);
- 
   };
+  const handleAcceptRequest = () => {
+    const friendData = {
+      senderEmail: userInfo?.email,
+      firstName: userInfo?.firstName,
+      receiverPicture: userInfo?.picture,
+      lastName : userInfo?.lastName,
+      receiverEmail: user?.email,
+      displayName:user?.firstName + user.lastName,
+      senderPicture: user?.picture
+    };
 
+    fetch("http://localhost:5000/acceptFriendRequest", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(friendData),
+    })
+      .then((res) => res.json())
+      .then((postData) => {
+        if (postData.acknowledged) {
+          // setPostData(postData);
+          setAccept(true)
+          setReload(!reload);
+        }
+      });
+  };
   return (
-    <div className="card w-64 h-96 bg-white shadow-xl">
+    <div className="card bg-white shadow-xl">
       <figure className="">
-        <img src={user.picture} alt="" className="rounded-xl h-72 w-full" />
+        <img src={user.picture} alt="" className="rounded-xl h-52 w-full" />
       </figure>
 
       <div className="p-3 items-center text-center">
         <h2 className="text-black font-semibold">
           {user?.firstName} {user?.lastName}
         </h2>
-        {/* <button
-          onClick={handleSendRequest}
-          className="btn mt-2 mb-2 w-full btn-primary"
-        >
-          Add Friend
-        </button> */}
-
-
-
-
-        {postData.acknowledged ? (
-          <>
-         
-            <button className="py-3 rounded-md font-semibold px-5 mt-2 mb-2 w-full bg-secondary text-black">
-              Request sent
-            </button> 
-            <button className="btn w-full btn-warning">Remove Friends</button>
-          </>
-        ) : (
-          <>
-            <button
-              onClick={handleSendRequest}
-              className="btn mt-2 mb-2 w-full btn-primary"
-            >
-              Add Friend
-            </button>
-            <button className="btn w-full btn-warning">Remove Friends</button>
-          </>
+        {checkRequest(userInfo?.email) === "Send" && (
+          <button
+            onClick={handleCancelRequest}
+            className="py-3 rounded-md font-semibold px-5 mt-2 mb-2 w-full bg-secondary text-black"
+          >
+              Cancel Request
+          </button>
         )}
+        {checkRequest(userInfo?.email) === "From" && (
+         <>
+          <button
+            onClick={handleAcceptRequest}
+            className="py-3 rounded-md font-semibold px-5 mt-2 mb-2 w-full bg-secondary text-black"
+          >
+            Accept Request
+          </button>
+          <button
+            onClick={handleCancelRequest}
+            className="py-3 rounded-md font-semibold px-5 mt-2 mb-2 w-full bg-secondary text-black"
+          >
+            Cancel Request
+          </button></>
+        )}
+        {checkRequest(userInfo?.email) === "No" && (
+          <button
+            onClick={handleSendRequest}
+            className="py-3 rounded-md font-semibold px-5 mt-2 mb-2 w-full bg-secondary text-black"
+          >
+             Add Friend
+          </button>
+        )}
+        {/* {checkRequest(userInfo?.email) === "Friend" (
+          <button
+            onClick={handleAcceptRequest}
+            className="py-3 rounded-md font-semibold px-5 mt-2 mb-2 w-full bg-secondary text-black"
+          >
+             Friend
+          </button>
+        )} */}
       </div>
     </div>
   );

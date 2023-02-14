@@ -5,6 +5,7 @@ import {
     signInWithEmailAndPassword,
     signInWithPopup,
     signOut,
+    updateProfile,
 } from "firebase/auth";
 import React, { createContext, useEffect, useState } from "react";
 import { useQuery } from "react-query";
@@ -29,6 +30,10 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signInWithPopup(auth, provider);
   };
+  const updateUser = (profile) => {
+    setLoading(true);
+    return updateProfile(auth.currentUser, profile)
+  };
 
   const logOut = () => {
     localStorage.removeItem("accessToken");
@@ -43,6 +48,7 @@ const AuthProvider = ({ children }) => {
       .then((res) => res.json())
       .then((data) => setUserInfo(data));
   }, [user?.email]);
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -63,7 +69,7 @@ const AuthProvider = ({ children }) => {
         fetch(`https://fitness-tracking-web-server.vercel.app/logedWeight?email=${user?.email}`)
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
+                // console.log(data);
                 return data;
             }),
 });
@@ -73,6 +79,7 @@ const AuthProvider = ({ children }) => {
     loading,
     createUserByEmail,
     accountLogIn,
+    updateUser,
     logOut,
     providerGoogleLogIn,
     userInfo,

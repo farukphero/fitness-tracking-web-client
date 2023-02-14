@@ -35,7 +35,7 @@ const Navbar = () => {
     },
     {
       _id: 2,
-      navigate: `/Community`,
+      navigate: `/Community/AllUsers`,
       aria: `Community`,
       content: `Community`,
     },
@@ -44,6 +44,12 @@ const Navbar = () => {
       navigate: `/Tutorials`,
       aria: `Tutorials`,
       content: `Tutorials`,
+    },
+    {
+      _id: 3,
+      navigate: `/Friends`,
+      aria: `Friends`,
+      content: `Friends`,
     },
   ];
 

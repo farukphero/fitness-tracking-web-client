@@ -11,7 +11,7 @@ import { toast } from "react-hot-toast";
 
 const SignUp = () => {
   useTitle("SignUp")
-  const { createUserByEmail,providerGoogleLogIn } = useContext(AuthContext);
+  const { createUserByEmail,providerGoogleLogIn, updateUser } = useContext(AuthContext);
   const provider = new GoogleAuthProvider();
   const [signUpError, setSignUpError] = useState("")
   const {
@@ -30,7 +30,18 @@ const SignUp = () => {
         const user = result.user;
         <Loading></Loading>
         toast.success("Welcome to FITLESSIAN")
-        navigate("/UserDetails");
+        const profile = {
+          displayName: data.firstName + data.lastName,
+           
+        };
+        updateUser(profile)
+          .then(() => {
+            saveUser(data.name);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+       
       })
       .catch((error) => {
         setSignUpError(error.message)
@@ -47,6 +58,25 @@ const SignUp = () => {
         navigate("/UserDetails");
       })
       .catch((error) => console.log(error));
+  };
+
+  const saveUser = (name) => {
+    const user = {
+      name,
+    };
+    fetch("http://localhost:5000/users", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log('save user',data)
+        // setCreatedUserEmail(email);
+        navigate("/UserDetails");
+      });
   };
 
   return (
