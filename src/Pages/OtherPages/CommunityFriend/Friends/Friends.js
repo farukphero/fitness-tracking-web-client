@@ -2,12 +2,11 @@ import React, { useContext } from "react";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../../Contexts/AuthProvider/AuthProvider";
-import Friend from "./Friend";
 
 const Friends = () => {
   const { user } = useContext(AuthContext);
   const { data: friends = [], refetch } = useQuery({
-    queryKey: ["tutorials"],
+    queryKey: ["tutorials",user?.email],
     queryFn: () =>
       fetch(`http://localhost:5000/friends?email=${user?.email}`)
         .then((res) => res.json())
@@ -55,7 +54,8 @@ const Friends = () => {
       <div className="drawer drawer-mobile">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-center">
-          {/* <!-- Page content here --> */} dskjkjkjkjkjkjkjdhb
+          {/* <!-- Page content here --> */}  <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+    <button>Send</button>
           <label
             htmlFor="my-drawer-2"
             className="btn btn-primary drawer-button lg:hidden"
@@ -77,15 +77,17 @@ const Friends = () => {
                     />
                   )}
                 </div> 
-               <Link to='/Friends/Friend'> <div>
+               {/* <Link to={`/Friends/Friend/${friend._id}`}>  */}
+               <div>
                   {friend?.name?.map((singleFriend) => (
                       <div className="mb-5 mt-1">
-                        <div className='hidden'><Friend singleFriend={singleFriend}></Friend></div>
+                       
                       <p>{singleFriend}</p>
 
                     </div>
                   ))}
-                </div></Link>
+                </div>
+                {/* </Link> */}
               </div>
             ))}
           </ul>

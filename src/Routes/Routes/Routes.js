@@ -220,8 +220,9 @@ export const router = createBrowserRouter([
         element: <Friends></Friends>,
       },
       {
-        path: "/Friends/Friend",
+        path: "/Friends/Friend/:id",
         element: <Friend></Friend>,
+        loader: ({params}) => fetch (`http://localhost:5000/friends/${params.id}`)
       },
       {
         path: "/blog/:id",
