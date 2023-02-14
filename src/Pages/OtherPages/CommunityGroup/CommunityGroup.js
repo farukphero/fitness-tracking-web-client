@@ -37,7 +37,7 @@ const message={
 
 }
 
-fetch("http://localhost:8000/messages", {
+fetch("http://localhost:5000/messages", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -58,7 +58,7 @@ const {
 } = useQuery({
   queryKey: ["messages.", user?.email],
   queryFn: () =>
-      fetch(`http://localhost:8000/getMessages/${userInfo?._id}/${currentFrndId}`)
+      fetch(`http://localhost:5000/getMessages/${userInfo?._id}/${currentFrndId}`)
           .then((res) => res.json())
           .then((data) => {
               console.log(data);

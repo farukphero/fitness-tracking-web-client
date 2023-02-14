@@ -13,7 +13,7 @@ const Instructor = () => {
             .then(res => res.json())
             .then(data => setInstructor(data))
     }, [])
-    console.log(instructor)
+    // console.log(instructor)
     return (
         <div className="w-2/3 mt-9 m-10 mx-auto">
 
