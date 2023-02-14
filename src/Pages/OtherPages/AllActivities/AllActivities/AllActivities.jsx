@@ -1,27 +1,22 @@
- 
-import React, { useContext, useState, useEffect } from "react";
- 
-import axios from "axios";
- 
-import { toast } from "react-hot-toast";
+import React, { useContext, useState } from "react";
+import SingleActivity from "../../Logs/Activities/ActivitiesHistory/SingleActivity/SingleActivity";
 import { AiFillFire, AiOutlineCalendar } from "react-icons/ai";
 import { FaWalking } from "react-icons/fa";
-import { GiDuration } from "react-icons/gi";
 import { IoFootstepsSharp } from "react-icons/io5";
-import { MdOutlinePendingActions } from "react-icons/md";
 import { RiPinDistanceFill } from "react-icons/ri";
+import { GiDuration } from "react-icons/gi";
+import { MdOutlinePendingActions } from "react-icons/md";
 import { VscReactions } from "react-icons/vsc";
+import { AuthContext } from "../../../../Contexts/AuthProvider/AuthProvider";
 import { useQuery } from "react-query";
-import Spinner from "../../../../../../Components/Spinner/Spinner";
-import { AuthContext } from "../../../../../../Contexts/AuthProvider/AuthProvider";
-import ConfirmationModal from "../../../../../Shared/ConfirmationModal/ConfirmationModal";
-import SingleActivity from "../SingleActivity/SingleActivity";
-import { Link } from "react-router-dom";
+import Spinner from "../../../../Components/Spinner/Spinner";
+import ConfirmationModal from "../../../Shared/ConfirmationModal/ConfirmationModal";
+import { toast } from "react-hot-toast";
 
-const ActivitiesHistory = () => {
- const [deleteActivity, setDeleteActivity] = useState(null);
-  const { user } = useContext(AuthContext); 
- 
+const AllActivities = () => {
+  const { user } = useContext(AuthContext);
+  const [deleteActivity, setDeleteActivity] = useState(null);
+
   const {
     data: activities,
     isLoading,
@@ -30,7 +25,7 @@ const ActivitiesHistory = () => {
     queryKey: [`activities`, user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `https://fitness-tracking-web-server.vercel.app/activities?activist=${user?.email}`
+        `http://localhost:5000/allactivities?activist=${user?.email}`
       );
       const data = await res.json();
       return data;
@@ -66,14 +61,14 @@ const ActivitiesHistory = () => {
   };
  
  
- 
 
   return (
-    <div className=" border p-4 rounded-md border-gray-600">
-      <h2 className="font-bold text-3xl">Previous Activity History</h2>
-      <p className="my-3">You have not logged any activities</p>
-      <div className="overflow-x-auto">
-      <table className="table w-full">
+    <div className="w-11/12 my-6 mx-auto">
+      <h2 className="my-5 text-3xl font-bold capitalize">
+        all previous activities
+      </h2>
+      <div>
+        <table className="table w-full">
           <thead>
             <tr>
               <th>
@@ -112,7 +107,7 @@ const ActivitiesHistory = () => {
                   <span>Calourie</span>
                 </div>
               </th>
-              
+
               <th>
                 <div className="flex gap-x-1 items-center">
                   <MdOutlinePendingActions className="text-2xl text-primary" />
@@ -135,10 +130,6 @@ const ActivitiesHistory = () => {
             />
           ))}
         </table>
-        <div className="my-4">
-          <Link to={`/logs/allactivities`}>
-          <button className="btn btn-sm btn-primary">see more</button></Link>
-        </div>
       </div>
       {deleteActivity && (
         <ConfirmationModal
@@ -154,4 +145,4 @@ const ActivitiesHistory = () => {
   );
 };
 
-export default ActivitiesHistory;
+export default AllActivities;

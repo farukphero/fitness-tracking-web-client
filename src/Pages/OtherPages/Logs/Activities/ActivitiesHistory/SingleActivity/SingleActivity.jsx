@@ -7,7 +7,7 @@ const SingleActivity = ({ activity, setDeleteActivity }) => {
     <>
       <tbody>
         <tr>
-          <th className="font-normal">Jan 20, 10:00AM</th>
+          <th className="font-normal">{activity?.activity_date?.slice(0, 10)}</th>
           <td>{activity?.activity_name}</td>
           <td>{activity?.steps ? activity?.steps : `N/A`}</td>
           <td>{activity?.distance}</td>

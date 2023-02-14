@@ -46,14 +46,12 @@ import WaterTracking from "../../Pages/Home/Calculator/WaterTracking/WaterTracki
 import CommunityFeed from "../../Pages/OtherPages/Communityfeed/CommunityFeed";
 import Tutorials from "../../Pages/OtherPages/Tutorials/Tutorials";
 import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
- 
+
 import Sleep from "../../Pages/OtherPages/Logs/Sleep/Sleep/Sleep";
- 
- 
- 
+
 import BloodTracking from "../../Pages/Home/Calculator/BloodTracking/BloodTracking";
 import Protein from "../../Pages/Home/Calculator/Protein/Protein";
- 
+import AllActivities from "../../Pages/OtherPages/AllActivities/AllActivities/AllActivities";
 
 export const router = createBrowserRouter([
   {
@@ -169,13 +167,12 @@ export const router = createBrowserRouter([
       },
 
       {
- 
         path: "/singleCategory/:id",
         loader: ({ params }) =>
           fetch(
             `https://fitness-tracking-web-server.vercel.app/singleCategory/${params.id}`
           ),
- 
+
         element: <Tutorial></Tutorial>,
       },
 
@@ -211,6 +208,10 @@ export const router = createBrowserRouter([
       {
         path: "/SignUp",
         element: <SignUp></SignUp>,
+      },
+      {
+        path: `/logs/allactivities`,
+        element: <AllActivities />,
       },
     ],
   },
@@ -253,7 +254,6 @@ export const router = createBrowserRouter([
       {
         path: "/Logs/Weight",
         element: <Weight />,
-        
       },
       {
         path: "/Logs/Sleep",
@@ -262,4 +262,3 @@ export const router = createBrowserRouter([
     ],
   },
 ]);
- 
