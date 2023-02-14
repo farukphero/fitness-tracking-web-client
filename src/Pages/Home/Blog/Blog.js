@@ -171,18 +171,18 @@ const Blog = () => {
   ];
   return (
     <div
-    data-aos="fade-up"
-    data-aos-easing="linear"
-    data-aos-duration="2000" className="pb-28">
+      data-aos="fade-up"
+      data-aos-easing="linear"
+      data-aos-duration="2000" className="pb-28">
       <div className="flex items-center justify-center">
         <div>
-        <h1 className="text-4xl text-green-400 font-semibold text-center">
-          Recipes & Inspiration
-        </h1>
-        <p className="text-center mt-3">
-          Get nutritionist-approved recipes and motivational <br />  workout tips from
-          Fitlessian experts.
-        </p>
+          <h1 className="text-4xl text-green-400 font-semibold text-center">
+            Recipes & Inspiration
+          </h1>
+          <p className="text-center mt-3">
+            Get nutritionist-approved recipes and motivational <br />  workout tips from
+            Fitlessian experts.
+          </p>
         </div>
       </div>
 
