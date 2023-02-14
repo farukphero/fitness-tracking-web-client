@@ -27,35 +27,35 @@ const Goals = () => {
 
   return (
     <div
-    data-aos="fade-up"
-    data-aos-easing="linear"
-    data-aos-duration="2000" className="mx-auto items-center justify-center mt-12 py-7  lg:w-2/3">
-      <div className="text-center lg:mb-16">
+      data-aos="fade-up"
+      data-aos-easing="linear"
+      data-aos-duration="2000" className="mx-auto items-center justify-center mt-12 py-7 mb-8  lg:w-2/3">
+      <div className="text-center  lg:mb-16">
         <p className="text-5xl text-green-400 font-semibold mb-5">
           The Tools for Your Goals
         </p>
-        <p className=" text-center">
-          Trying to lose weight, tone up,lower your BMI,or invest in your 
-          
+        <p className="text-center">
+          Trying to lose weight, tone up,lower your BMI,or invest in your overall health?We give you the right features to get there.
+
         </p>
 
-        <p> overall health?We give you the right features to get there.</p>
+
       </div>
-      <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-20">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-20">
         {goals.map((goal) => (
           <div goal={goal} id={goal.id} className="">
             <div className="">
               <img
-                className="bg-slate-400 rounded-full items-center justify-center p-4"
+                className="bg-slate-400 mx-auto rounded-full items-center justify-center p-4"
                 src={goal.img}
                 alt=""
               />
             </div>
-            <div className="mt-6 mb-2 text-2xl font-semibold">
+            <div className="mt-6 mx-auto text-center  mb-2 text-2xl font-semibold">
               <p>{goal.title}</p>
             </div>
-            <div>
-              <p>{goal.description}</p>
+            <div className="text-center mx-auto bg-gray-700 rounded-3xl mt-4 shadow-2xl p-3 h-32">
+              <p className="text-ellipsis">{goal.description}</p>
             </div>
           </div>
         ))}

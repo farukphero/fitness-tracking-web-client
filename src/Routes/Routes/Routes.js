@@ -46,17 +46,19 @@ import WaterTracking from "../../Pages/Home/Calculator/WaterTracking/WaterTracki
 import CommunityFeed from "../../Pages/OtherPages/Communityfeed/CommunityFeed";
 import Tutorials from "../../Pages/OtherPages/Tutorials/Tutorials";
 import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
- 
+
 import Sleep from "../../Pages/OtherPages/Logs/Sleep/Sleep/Sleep";
- 
- 
- 
+
+
+
 import BloodTracking from "../../Pages/Home/Calculator/BloodTracking/BloodTracking";
 import Protein from "../../Pages/Home/Calculator/Protein/Protein";
 import BlogDetails from "../../Pages/Home/Blog/BlogDetails";
 import Friends from "../../Pages/OtherPages/CommunityFriend/Friends/Friends";
 import Friend from "../../Pages/OtherPages/CommunityFriend/Friends/Friend";
- 
+import Instructor from "../../Pages/Home/Instructor/Instructor";
+import Instructors from "../../Pages/Home/Instructor/Instructors";
+
 
 export const router = createBrowserRouter([
   {
@@ -71,6 +73,7 @@ export const router = createBrowserRouter([
       {
         path: "/serviceDetails/:id",
         element: <ServiceDetails></ServiceDetails>,
+
       },
       {
         path: "/Leaderboard",
@@ -80,6 +83,14 @@ export const router = createBrowserRouter([
       {
         path: "/Tutorials",
         element: <Tutorials></Tutorials>,
+      },
+      {
+        path: "/instructor/:id",
+        element: <Instructors></Instructors>,
+        loader: ({ params }) =>
+          fetch(
+            `http://localhost:5000/instructor/${params.id}`
+          ),
       },
 
       {
@@ -172,13 +183,13 @@ export const router = createBrowserRouter([
       },
 
       {
- 
+
         path: "/singleCategory/:id",
         loader: ({ params }) =>
           fetch(
             `https://fitness-tracking-web-server.vercel.app/singleCategory/${params.id}`
           ),
- 
+
         element: <Tutorial></Tutorial>,
       },
 
@@ -269,7 +280,7 @@ export const router = createBrowserRouter([
       {
         path: "/Logs/Weight",
         element: <Weight />,
-        
+
       },
       {
         path: "/Logs/Sleep",
@@ -278,4 +289,4 @@ export const router = createBrowserRouter([
     ],
   },
 ]);
- 
+
