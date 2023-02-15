@@ -37,7 +37,7 @@ const Home = () => {
             <Branches></Branches>
             <Instructor></Instructor>
             <ContactUs></ContactUs>
-            <Faqs></Faqs>
+            <FeatureClass></FeatureClass>
             {/* <WeightCalculator></WeightCalculator> */}
 
           </div>

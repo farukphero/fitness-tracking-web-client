@@ -55,13 +55,20 @@ import BloodTracking from "../../Pages/Home/Calculator/BloodTracking/BloodTracki
 import Protein from "../../Pages/Home/Calculator/Protein/Protein";
 import BlogDetails from "../../Pages/Home/Blog/BlogDetails";
 import Friends from "../../Pages/OtherPages/CommunityFriend/Friends/Friends";
-import Friend from "../../Pages/OtherPages/CommunityFriend/Friends/Friend";
+ 
+import Instructor from "../../Pages/Home/Instructor/Instructor";
+import Instructors from "../../Pages/Home/Instructor/Instructors";
+import Questions from "../../Pages/Dashboard/SettingAndPrivacy/Questions/Questions";
+import Faqs from "../../Pages/Home/FAQ/FAQ";
+
+ 
 import AllActivities from "../../Pages/OtherPages/AllActivities/AllActivities/AllActivities";
 import MeetInstructors from "../../Layout/MeetInstructors/MeetInstructors";
 import AllInstructors from "../../Pages/AllInstructors/AllInstructors";
 import VideoCalling from "../../Pages/VideoCalling/VideoCalling/VideoCalling";
 import CallingVideo from "../../Layout/CallingVideo/CallingVideo";
 import CallingRoom from "../../Pages/VideoCalling/CallingRoom/CallingRoom";
+ 
 
 export const router = createBrowserRouter([
   {
@@ -88,6 +95,22 @@ export const router = createBrowserRouter([
         element: <Tutorials></Tutorials>,
       },
       {
+ 
+        path: "/faq",
+        element: <Faqs></Faqs>,
+      },
+      {
+        path: "/instructor/:id",
+        element: <Instructors></Instructors>,
+        loader: ({ params }) =>
+          fetch(
+            `http://localhost:5000/instructor/${params.id}`
+          ),
+      },
+
+      {
+ 
+ 
         path: "/WeightCalculator",
         element: <WeightCalculator></WeightCalculator>,
       },
@@ -153,11 +176,20 @@ export const router = createBrowserRouter([
             path: "/Profile/Setting",
             element: <Setting></Setting>,
           },
+
           {
             path: "/Profile/AllUsers",
             element: (
               <AdminRoute>
                 <AllUsers></AllUsers>
+              </AdminRoute>
+            ),
+          },
+          {
+            path: "/Profile/questions",
+            element: (
+              <AdminRoute>
+                <Questions></Questions>
               </AdminRoute>
             ),
           },
