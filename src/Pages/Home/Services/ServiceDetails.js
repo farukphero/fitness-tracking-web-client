@@ -1,29 +1,22 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import ServiceDetailPage from './ServiceDetailPage';
 
 const ServiceDetails = () => {
     const location = useLocation();
-    const user = useContext(AuthContext);
     const service = location.state?.from?.service;
-    console.log(user?.user?.email)
-    const [appUser, setAppUser] = useState({});
-    console.log(appUser.age)
-    
-    // d
-    useEffect(()=>{
-        fetch(`https://fitness-tracking-web-server.vercel.app/users/${user?.user?.email}`)
-        .then(res=> res.json())
-        .then(data=> {
-            console.log(data)
-            setAppUser(data)
-        })
-    } ,[user?.user?.email])
-    
-    // const  userAge = 20
+    const [usersAge, setUsersAge] = useState([]);
 
-    const userAge = parseFloat(appUser?.age);
+    useEffect( ()=>{
+        fetch('http://localhost:5000/usersAgeForServices')
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+            setUsersAge(data)
+        })
+    },[])
+
+    const userAge = parseFloat(usersAge[0]?.age?.age);
    
     return (
         <div className='text-white container mx-auto mt-10 mb-20'>

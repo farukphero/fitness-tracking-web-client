@@ -8,8 +8,7 @@ const CommunityFriends = ({ user, reload, setReload }) => {
   const { userInfo } = useContext(AuthContext);
   // const [postData, setPostData] = useState("");
   const [sendTo, setSendTo] = useState([]);
-  const [loading, setLoading] = useState(true)
-  const [accept, setAccept] = useState(false)
+  const [loading, setLoading] = useState(true);
 
   const handleSendRequest = async () => {
     const friendData = {
@@ -29,7 +28,7 @@ const CommunityFriends = ({ user, reload, setReload }) => {
     })
       .then((res) => res.json())
       .then((postData) => {
-        setLoading(false)
+        setLoading(false);
         if (postData.acknowledged) {
           // setPostData(postData);
         }
@@ -43,7 +42,9 @@ const CommunityFriends = ({ user, reload, setReload }) => {
       return "From";
     } else if (isFrom) {
       return "Send";
-    } 
+    } else if (isSend || isFrom){
+      return "Friend"
+    }
     else {
       return "No";
     }
@@ -66,7 +67,7 @@ const CommunityFriends = ({ user, reload, setReload }) => {
       .then((res) => res.json())
       .then((postData) => {
         if (postData.acknowledged) {
-           toast.success("cancel")
+          toast.success("cancel");
           setReload(!reload);
         }
       });
@@ -75,11 +76,13 @@ const CommunityFriends = ({ user, reload, setReload }) => {
     const friendData = {
       senderEmail: userInfo?.email,
       firstName: userInfo?.firstName,
+      lastName: userInfo?.lastName,
       receiverPicture: userInfo?.picture,
-      lastName : userInfo?.lastName,
+      receiverId: userInfo._id,
       receiverEmail: user?.email,
-      displayName:user?.firstName + user.lastName,
-      senderPicture: user?.picture
+      displayName: user?.firstName + user.lastName,
+      senderPicture: user?.picture,
+      senderId: user._id,
     };
 
     fetch("http://localhost:5000/acceptFriendRequest", {
@@ -93,7 +96,6 @@ const CommunityFriends = ({ user, reload, setReload }) => {
       .then((postData) => {
         if (postData.acknowledged) {
           // setPostData(postData);
-          setAccept(true)
           setReload(!reload);
         }
       });
@@ -113,40 +115,41 @@ const CommunityFriends = ({ user, reload, setReload }) => {
             onClick={handleCancelRequest}
             className="py-3 rounded-md font-semibold px-5 mt-2 mb-2 w-full bg-secondary text-black"
           >
-              Cancel Request
+            Cancel Request
           </button>
         )}
         {checkRequest(userInfo?.email) === "From" && (
-         <>
-          <button
-            onClick={handleAcceptRequest}
-            className="py-3 rounded-md font-semibold px-5 mt-2 mb-2 w-full bg-secondary text-black"
-          >
-            Accept Request
-          </button>
-          <button
-            onClick={handleCancelRequest}
-            className="py-3 rounded-md font-semibold px-5 mt-2 mb-2 w-full bg-secondary text-black"
-          >
-            Cancel Request
-          </button></>
+          <>
+            <button
+              onClick={handleAcceptRequest}
+              className="py-3 rounded-md font-semibold px-5 mt-2 mb-2 w-full bg-secondary text-black"
+            >
+              Accept Request
+            </button>
+            <button
+              onClick={handleCancelRequest}
+              className="py-3 rounded-md font-semibold px-5 mt-2 mb-2 w-full bg-secondary text-black"
+            >
+              Cancel Request
+            </button>
+          </>
         )}
         {checkRequest(userInfo?.email) === "No" && (
           <button
             onClick={handleSendRequest}
             className="py-3 rounded-md font-semibold px-5 mt-2 mb-2 w-full bg-secondary text-black"
           >
-             Add Friend
+            Add Friend
           </button>
         )}
-        {/* {checkRequest(userInfo?.email) === "Friend" (
+        {checkRequest(userInfo?.email) === "Friend" && (
           <button
             onClick={handleAcceptRequest}
             className="py-3 rounded-md font-semibold px-5 mt-2 mb-2 w-full bg-secondary text-black"
           >
              Friend
           </button>
-        )} */}
+        )}
       </div>
     </div>
   );
