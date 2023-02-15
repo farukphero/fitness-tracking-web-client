@@ -75,11 +75,13 @@ const CommunityFriends = ({ user, reload, setReload }) => {
     const friendData = {
       senderEmail: userInfo?.email,
       firstName: userInfo?.firstName,
-      receiverPicture: userInfo?.picture,
       lastName : userInfo?.lastName,
+      receiverPicture: userInfo?.picture,
+      receiverId: userInfo._id,
       receiverEmail: user?.email,
       displayName:user?.firstName + user.lastName,
-      senderPicture: user?.picture
+      senderPicture: user?.picture,
+      senderId: user._id,
     };
 
     fetch("http://localhost:5000/acceptFriendRequest", {

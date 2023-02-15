@@ -6,14 +6,14 @@ import { AuthContext } from "../../../../Contexts/AuthProvider/AuthProvider";
 const Friends = () => {
   const { user } = useContext(AuthContext);
   const { data: friends = [], refetch } = useQuery({
-    queryKey: ["tutorials",user?.email],
+    queryKey: ["tutorials", user?.email],
     queryFn: () =>
       fetch(`http://localhost:5000/friends?email=${user?.email}`)
         .then((res) => res.json())
         .then((data) => {
           // setLoading(false)
           // console.log(data)
-          refetch()
+          refetch();
           return data;
         }),
   });
@@ -54,8 +54,13 @@ const Friends = () => {
       <div className="drawer drawer-mobile">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-center">
-          {/* <!-- Page content here --> */}  <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
-    <button>Send</button>
+          {/* <!-- Page content here --> */}{" "}
+          <input
+            type="text"
+            placeholder="Type here"
+            className="input input-bordered w-full max-w-xs"
+          />
+          <button>Send</button>
           <label
             htmlFor="my-drawer-2"
             className="btn btn-primary drawer-button lg:hidden"
@@ -69,21 +74,19 @@ const Friends = () => {
             {friends?.map((friend) => (
               <div className="flex gap-2">
                 <div>
-                  {friend.image && (
+                  {friend.image.map((friendImage) => (
                     <img
                       className="h-8 w-8 rounded-full"
-                      src={friend?.image}
+                      src={friendImage}
                       alt=""
                     />
-                  )}
-                </div> 
-               {/* <Link to={`/Friends/Friend/${friend._id}`}>  */}
-               <div>
+                  ))()}
+                </div>
+                {/* <Link to={`/Friends/Friend/${friend._id}`}>  */}
+                <div>
                   {friend?.name?.map((singleFriend) => (
-                      <div className="mb-5 mt-1">
-                       
+                    <div className="mb-5 mt-1">
                       <p>{singleFriend}</p>
-
                     </div>
                   ))}
                 </div>
