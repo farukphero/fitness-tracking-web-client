@@ -126,20 +126,24 @@ export const router = createBrowserRouter([
         path: "/ActivitiesHistoryDetails",
         element: <ActivitiesHistoryDetails></ActivitiesHistoryDetails>,
       },
-      {
-        path: "/Community",
-        element: <CommunityLaout></CommunityLaout>,
-        children: [
-          {
-            path: "/Community/AllUsers",
-            element: <CommunityFriend></CommunityFriend>,
-          },
-          {
-            path: "/Community/group",
-            element: <CommunityGroup></CommunityGroup>,
-          },
-        ],
-      },
+      // {
+      //   path: "/Community",
+      //   element: <CommunityLaout></CommunityLaout>,
+      //   children: [
+      //     {
+      //       path: "/Community/friends",
+      //       element: <Friends></Friends>,
+      //     },
+      //     {
+      //       path: "/Community/AllUsers",
+      //       element: <CommunityFriend></CommunityFriend>,
+      //     },
+      //     {
+      //       path: "/Community/group",
+      //       element: <CommunityGroup></CommunityGroup>,
+      //     },
+      //   ],
+      // },
       {
         path: "/Profile",
         element: <DashboardLayout></DashboardLayout>,
@@ -179,7 +183,15 @@ export const router = createBrowserRouter([
         element: <SignUp></SignUp>,
       },
       {
-        path: "/Friends",
+              path: "/Community/AllUsers",
+              element: <CommunityFriend></CommunityFriend>,
+            },
+      // {
+      //   path: "/Friends",
+      //   element: <Friends></Friends>,
+      // },
+      {
+        path: "/Community/friends",
         element: <Friends></Friends>,
       },
       {
