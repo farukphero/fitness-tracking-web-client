@@ -55,7 +55,11 @@ import BlogDetails from "../../Pages/Home/Blog/BlogDetails";
 import Friends from "../../Pages/OtherPages/CommunityFriend/Friends/Friends";
 import Friend from "../../Pages/OtherPages/CommunityFriend/Friends/Friend";
 import AllActivities from "../../Pages/OtherPages/AllActivities/AllActivities/AllActivities";
- 
+import MeetInstructors from "../../Layout/MeetInstructors/MeetInstructors";
+import AllInstructors from "../../Pages/AllInstructors/AllInstructors";
+import VideoCalling from "../../Pages/VideoCalling/VideoCalling/VideoCalling";
+import CallingVideo from "../../Layout/CallingVideo/CallingVideo";
+import CallingRoom from "../../Pages/VideoCalling/CallingRoom/CallingRoom";
 
 export const router = createBrowserRouter([
   {
@@ -124,22 +128,6 @@ export const router = createBrowserRouter([
         path: "/Community",
         element: <CommunityLaout></CommunityLaout>,
         children: [
-          // {
-          //   path: "/Community/community",
-          //   element: <Community></Community>,
-          // },
-          // {
-          //   path: "/Community",
-          //   element: <CommunityFeed></CommunityFeed>,
-          // },
-          // {
-          //   path: "/Community/post",
-          //   element: <CommunityPost></CommunityPost>,
-          // },
-          // {
-          //   path: "/Community",
-          //   element: <CommunityPosted></CommunityPosted>,
-          // },
           {
             path: "/Community/AllUsers",
             element: <CommunityFriend></CommunityFriend>,
@@ -179,31 +167,6 @@ export const router = createBrowserRouter([
 
         element: <Tutorial></Tutorial>,
       },
-
-      // { path: "/Dashboard/userInfo", element: <UserInfo></UserInfo> },
-
-      // {
-      //   path: "/Dashboard/setting",
-      //   element: <SettingAndPrivacy></SettingAndPrivacy>,
-      // },
-
-      // {
-      //   path: "/Dashboard/Setting",
-      //   element: <Setting></Setting>,
-      // },
-
-      // { path: "/Dashboard/report", element: <Report></Report> },
-      // { path: "/Dashboard/event", element: <Event></Event> },
-      // { path: "/Dashboard/support", element: <Support></Support> },
-
-      // {
-      //   path: "/Dashboard/Setting",
-      //   element: <Setting></Setting>,
-      // },
-
-      // { path: "/Dashboard/report", element: <Report></Report> },
-      // { path: "/Dashboard/event", element: <Event></Event> },
-      // { path: "/Dashboard/support", element: <Support></Support> },
 
       {
         path: "/SignIn",
@@ -262,6 +225,30 @@ export const router = createBrowserRouter([
       {
         path: "/Logs/Sleep",
         element: <Sleep />,
+      },
+    ],
+  },
+  {
+    path: `/checkup/`,
+    element: <MeetInstructors />,
+    children: [
+      {
+        path: `/checkup/`,
+        element: <AllInstructors />,
+      },
+    ],
+  },
+  {
+    path: `/video`,
+    element: <CallingVideo />,
+    children: [
+      {
+        path: `/video`,
+        element: <VideoCalling />,
+      },
+      {
+        path: `/video/room/:roomid`,
+        element: <CallingRoom />,
       },
     ],
   },

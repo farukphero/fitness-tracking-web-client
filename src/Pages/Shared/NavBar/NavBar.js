@@ -51,6 +51,12 @@ const Navbar = () => {
       aria: `Friends`,
       content: `Friends`,
     },
+    {
+      _id: 4,
+      navigate: `/checkup`,
+      aria: `Checkup`,
+      content: `Checkup`,
+    },
   ];
 
   return (
