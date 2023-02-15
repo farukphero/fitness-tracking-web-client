@@ -3,9 +3,6 @@ import { Link } from "react-router-dom";
 const Instructor = () => {
     const [add, setAdd] = useState()
 
-
-
-
     const [instructor, setInstructor] = useState([])
     useEffect(() => {
 
