@@ -49,8 +49,6 @@ import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
 
 import Sleep from "../../Pages/OtherPages/Logs/Sleep/Sleep/Sleep";
 
-
-
 import BloodTracking from "../../Pages/Home/Calculator/BloodTracking/BloodTracking";
 import Protein from "../../Pages/Home/Calculator/Protein/Protein";
 import BlogDetails from "../../Pages/Home/Blog/BlogDetails";
@@ -58,7 +56,6 @@ import Friends from "../../Pages/OtherPages/CommunityFriend/Friends/Friends";
 import Friend from "../../Pages/OtherPages/CommunityFriend/Friends/Friend";
 import Instructor from "../../Pages/Home/Instructor/Instructor";
 import Instructors from "../../Pages/Home/Instructor/Instructors";
-
 
 export const router = createBrowserRouter([
   {
@@ -73,7 +70,6 @@ export const router = createBrowserRouter([
       {
         path: "/serviceDetails/:id",
         element: <ServiceDetails></ServiceDetails>,
-
       },
       {
         path: "/Leaderboard",
@@ -88,9 +84,7 @@ export const router = createBrowserRouter([
         path: "/instructor/:id",
         element: <Instructors></Instructors>,
         loader: ({ params }) =>
-          fetch(
-            `http://localhost:5000/instructor/${params.id}`
-          ),
+          fetch(`http://localhost:5000/instructor/${params.id}`),
       },
 
       {
@@ -172,6 +166,10 @@ export const router = createBrowserRouter([
             element: <Setting></Setting>,
           },
           {
+            path: "/Profile/notification",
+            element: <Notification></Notification>,
+          },
+          {
             path: "/Profile/AllUsers",
             element: (
               <AdminRoute>
@@ -183,7 +181,6 @@ export const router = createBrowserRouter([
       },
 
       {
-
         path: "/singleCategory/:id",
         loader: ({ params }) =>
           fetch(
@@ -233,12 +230,13 @@ export const router = createBrowserRouter([
       {
         path: "/Friends/Friend/:id",
         element: <Friend></Friend>,
-        loader: ({params}) => fetch (`http://localhost:5000/friends/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/friends/${params.id}`),
       },
       {
         path: "/blog/:id",
-        element: <BlogDetails></BlogDetails>
-      }
+        element: <BlogDetails></BlogDetails>,
+      },
     ],
   },
 
@@ -280,7 +278,6 @@ export const router = createBrowserRouter([
       {
         path: "/Logs/Weight",
         element: <Weight />,
-
       },
       {
         path: "/Logs/Sleep",
@@ -289,4 +286,3 @@ export const router = createBrowserRouter([
     ],
   },
 ]);
-

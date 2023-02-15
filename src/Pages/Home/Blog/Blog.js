@@ -6,9 +6,9 @@ const Blog = () => {
     {
       id: 1,
       name: "",
-      title: "Make-Ahead Breakfast Under 300 Cal",
+      title: "Make-Ahead Breakfast ",
       image:
-        "https://images.unsplash.com/photo-1657310216850-8f2bf9b7de1b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+        "https://images.unsplash.com/photo-1534080564583-6be75777b70a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTJ8fGZvb2R8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
       details:
         "We’ve all heard more than once that starting the day with a healthy breakfast is great for the brain and the belly. But with all that prework hustle and bustle, not everyone has time to whip up a hot stack of pancakes or bake a fancy frittata. Make your morning routine a breeze by preparing a few nutritious staples ahead of time, like hearty oatmeal cups, simple egg dishes and grab-and-go bars. Your alarm clock will thank you!",
       detailPageImage:
@@ -66,7 +66,7 @@ const Blog = () => {
       name: "",
       title: "The Problem With Cheat Days",
       image:
-        "https://images.unsplash.com/photo-1514995669114-6081e934b693?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+        "https://images.unsplash.com/photo-1495214783159-3503fd1b572d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjE2fHxmcnVpdHN8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
       details:
         "Instead of cheat meals or a cheat day, try these three strategies, which can help foster a positive relationship with food:",
       detailPageImage:
@@ -103,7 +103,7 @@ const Blog = () => {
       name: "",
       title: "Essential Guide To Getting Moving",
       image:
-        "https://images.unsplash.com/photo-1594882645126-14020914d58d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjZ8fGZpdG5lc3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+        "https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjV8fHJ1bnxlbnwwfDB8MHx8&auto=format&fit=crop&w=500&q=60",
       details:
         "Everyone, even avid runners, are encouraged to move more throughout the day. So whether you’re new to exercising or looking to get more active, incorporating these tips will help. Get ready to walk your first mile, head into the next level of yoga class, train for your first 5K or run a marathon. Whatever your movement goal is, these nine tips — plus plenty of workout guides — will help you get going and, hopefully, enjoy the process.",
       detailPageImage:
@@ -173,15 +173,17 @@ const Blog = () => {
     <div
       data-aos="fade-up"
       data-aos-easing="linear"
-      data-aos-duration="2000" className="pb-28">
+      data-aos-duration="2000"
+      className="pb-16"
+    >
       <div className="flex items-center justify-center">
         <div>
           <h1 className="text-4xl text-green-400 font-semibold text-center">
             Recipes & Inspiration
           </h1>
           <p className="text-center mt-3">
-            Get nutritionist-approved recipes and motivational <br />  workout tips from
-            Fitlessian experts.
+            Get nutritionist-approved recipes and motivational <br /> workout
+            tips from Fitlessian experts.
           </p>
         </div>
       </div>
@@ -191,18 +193,18 @@ const Blog = () => {
           <div
             key={blog.id}
             blog={blog}
-            className="card card-compact bg-white shadow-xl pb-10"
+            className="card card-compact  shadow-xl pb-10"
           >
             <figure>
               <img src={blog.image} alt="img" />
             </figure>
             <div className="card-body">
-              <h2 className="card-title text-black">{blog.title}</h2>
+              <h2 className="card-title text-white">{blog.title}</h2>
               {/* <p>{blog.title}</p> */}
               <Link to={`/blog/${blog.id}`} state={{ from: { blog } }}>
                 <div>
-                  <button className="btn btn-outline hover:bg-secondary text-black hover:text-black hover:border-none btn-sm ">
-                    Fitlessian Blog
+                  <button className="btn-explore-about  border-2 px-8 py-3 border-green-600 rounded-md ">
+                    Read Your Blog
                   </button>
                 </div>
               </Link>

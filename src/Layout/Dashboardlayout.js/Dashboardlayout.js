@@ -10,12 +10,11 @@ import { useContext } from "react";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import useAdmin from "../../Hooks/useAdmin/useAdmin";
 
-
 const DashboardLayout = () => {
   const { userInfo, user } = useContext(AuthContext);
   const [isAdmin] = useAdmin(user?.email);
   return (
-    <div className="drawer drawer-mobile">
+    <div className="drawer drawer-mobile bg-gray-800">
       <input id="my-drawer" type="checkbox" className="drawer-toggle" />
 
       <div className="drawer-content relative flex flex-col items-center justify-center">
@@ -33,31 +32,31 @@ const DashboardLayout = () => {
         </label>
       </div>
 
-      <div className="drawer-side ">
+      <div className="drawer-side border-r-2 border-green-500 ">
         <label htmlFor="my-drawer" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-80 bg-gradient-to-r from-gray-700 to-green-800 ">
+        <ul className="menu p-4 w-80 bg-gray-800 mt-6 ">
           <>
-           {
-            isAdmin &&  <li className="border-2  border-green-600 btn-explore rounded-md mb-2 ">
-            <Link
-              className="text-center ml-16 text-about font-semibold"
-              to="/Profile/AllUsers"
-            >
-              All Users
-              <FaRegUser></FaRegUser>
-            </Link>
-          </li>
-           }
-            <li className="border-2  border-green-600 btn-explore rounded-md mb-2 ">
+            {isAdmin && (
+              <li className="btn-dashboard border-b-2  border-sky-400 mb-2 ">
+                <Link
+                  className="text-center ml-16 text-about font-semibold"
+                  to="/Profile/AllUsers"
+                >
+                  All Users
+                  <FaRegUser></FaRegUser>
+                </Link>
+              </li>
+            )}
+            <li className="btn-dashboard border-b-2  border-sky-400 mb-2  ">
               <Link
                 className="text-center ml-16 text-about font-semibold"
                 to="/Profile/userInfo"
               >
-               Profile
+                Profile
                 <FaRegUser></FaRegUser>
               </Link>
             </li>
-            <li className="border-2  border-green-600 btn-explore rounded-md mb-2">
+            {/* <li className="border-2  border-green-600 btn-explore rounded-md mb-2">
               <Link
                 className="text-center ml-16 text-about font-semibold"
                 to="/Dashboard/event"
@@ -65,9 +64,9 @@ const DashboardLayout = () => {
                 Events
                 <BsCalendarEvent></BsCalendarEvent>
               </Link>
-            </li>
+            </li> */}
 
-            <li className="border-2  border-green-600 btn-explore rounded-md  mb-2">
+            <li className="btn-dashboard border-b-2  border-sky-400 mb-2 ">
               <Link
                 className="text-center ml-16 text-about font-semibold"
                 to="/Profile/setting"
@@ -76,7 +75,7 @@ const DashboardLayout = () => {
                 <AiOutlineSetting></AiOutlineSetting>
               </Link>
             </li>
-            <li className="border-2  border-green-600 btn-explore rounded-md mb-2">
+            {/* <li className="border-2  border-green-600 btn-explore rounded-md mb-2">
               <Link
                 className="text-center ml-16 text-about font-semibold"
                 to="/Dashboard/report"
@@ -84,8 +83,8 @@ const DashboardLayout = () => {
                 Report
                 <TbReportSearch></TbReportSearch>
               </Link>
-            </li>
-            <li className="border-2  border-green-600 btn-explore     rounded-md mb-2">
+            </li> */}
+            {/* <li className="border-2  border-green-600 btn-explore     rounded-md mb-2">
               <Link
                 className="text-center ml-16 text-about font-semibold"
                 to="/Dashboard/event"
@@ -93,8 +92,8 @@ const DashboardLayout = () => {
                 Events
                 <BsCalendarEvent></BsCalendarEvent>
               </Link>
-            </li>
-            <li className="border-2  border-green-600 btn-explore     rounded-md mb-2">
+            </li> */}
+            {/* <li className="border-2  border-green-600 btn-explore     rounded-md mb-2">
               <Link
                 className="text-center ml-16 text-about font-semibold"
                 to="/Dashboard/support"
@@ -102,7 +101,7 @@ const DashboardLayout = () => {
                 Supports
                 <CgSupport></CgSupport>
               </Link>
-            </li>
+            </li> */}
           </>
         </ul>
       </div>
