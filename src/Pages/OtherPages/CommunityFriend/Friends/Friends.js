@@ -34,10 +34,10 @@ const Friends = () => {
           <div className="navbar-center"></div>
         </div>
       </div>
-      <div className="drawer drawer-mobile h-[585px] relative bg-slate-200 ">
+      <div className="drawer drawer-mobile h-[585px] relative bg-warning">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col absolute bottom-0 bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 w-full">
-          {/* <!-- Page content here --> */}{" "}
+          {/* <!-- Page content here --> */} 
           <div className="">
             <input
               type="text"

@@ -1,3 +1,8 @@
 .dashboard-menu {
   background-color: #24ce7c;
 }
+.btn-dashboard:hover,
+.btn-dashboard:focus {
+  box-shadow: inset 6.5em 0 0 0 #93bfcf;
+  transition: 0.9s;
+}

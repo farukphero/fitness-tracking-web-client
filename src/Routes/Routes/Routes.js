@@ -60,7 +60,7 @@ import VideoCalling from "../../Pages/VideoCalling/VideoCalling/VideoCalling";
 import CallingVideo from "../../Layout/CallingVideo/CallingVideo";
 import CallingRoom from "../../Pages/VideoCalling/CallingRoom/CallingRoom";
  
-
+ 
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -74,7 +74,6 @@ export const router = createBrowserRouter([
       {
         path: "/serviceDetails/:id",
         element: <ServiceDetails></ServiceDetails>,
-
       },
       {
         path: "/Leaderboard",
@@ -94,9 +93,7 @@ export const router = createBrowserRouter([
         path: "/instructor/:id",
         element: <Instructors></Instructors>,
         loader: ({ params }) =>
-          fetch(
-            `http://localhost:5000/instructor/${params.id}`
-          ),
+          fetch(`http://localhost:5000/instructor/${params.id}`),
       },
 
       {
@@ -169,6 +166,10 @@ export const router = createBrowserRouter([
           },
 
           {
+            path: "/Profile/notification",
+            element: <Notification></Notification>,
+          },
+          {
             path: "/Profile/AllUsers",
             element: (
               <AdminRoute>
@@ -221,11 +222,17 @@ export const router = createBrowserRouter([
         path: `/logs/allactivities`,
         element: <AllActivities />,
       },
-      
-      {
+ 
+      // {
+      //   path: "/Friends/Friend/:id",
+      //   element: <Friend></Friend>,
+      //   loader: ({ params }) =>
+      //     fetch(`http://localhost:5000/friends/${params.id}`),
+      // },
+       {
         path: "/blog/:id",
-        element: <BlogDetails></BlogDetails>
-      }
+        element: <BlogDetails></BlogDetails>,
+      },
     ],
   },
 

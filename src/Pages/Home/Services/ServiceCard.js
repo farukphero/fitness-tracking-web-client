@@ -7,7 +7,7 @@ const ServiceCard = ({ service, handleAge }) => {
   console.log(name);
   return (
     <div
-      className="w-full my-10  shadow-xl image-full  "
+      className="w-full my-10  shadow-xl image-full  pb-8 lg:pb-6  "
       data-aos="fade-up"
       data-aos-easing="linear"
       data-aos-duration="2000"
@@ -24,18 +24,19 @@ const ServiceCard = ({ service, handleAge }) => {
         {/* <h2 className="card-title text-all-green font-semibold">{name}</h2> */}
         <h2 className="card-title text-all-green font-semibold">{name}</h2>
         <p>{description.slice(0, 170)}...</p>
-        <div className="flex gap-6">
-          <Link to={`/serviceDetails/${_id}`} state={{ from:  {service } }}>
+        <div className="flex flex-col gap-6">
+          <input
+            onBlur={handleAge}
+            className="rounded text-white border border-green-400 bg-gray-600 text-center h-10 mt-1"
+            type="number"
+            placeholder="Input your age"
+          />
+          <Link to={`/serviceDetails/${_id}`} state={{ from: { service } }}>
             {" "}
-            <button className="border-2 px-6 py-3 border-green-600 btn-explore  rounded-md ">
+            <button className="border-2 px-6 py-3 border-green-600 btn-explore  rounded-md w-full">
               Explore More
             </button>
           </Link>
-          <input onBlur={handleAge} className="rounded text-white border border-green-400 bg-gray-300 text-center h-10 mt-1" type='number' placeholder="Input your age"/>
-        </div>
-          <div className=' '>
-          <h3><span className='text-yellow-400'>Note:</span> To see details only for you please input your age below then click on Explore more button</h3>
-        
         </div>
       </div>
     </div>

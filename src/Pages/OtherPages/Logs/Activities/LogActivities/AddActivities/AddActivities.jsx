@@ -7,7 +7,11 @@ import { FaRunning, FaWalking } from "react-icons/fa";
 import { MdLocalActivity } from "react-icons/md";
 import { AuthContext } from "../../../../../../Contexts/AuthProvider/AuthProvider";
 import { useDate } from "../../DateProvider/DateProvider";
+ 
+import "./AddActivites.css";
+ 
 import { toast } from "react-hot-toast";
+ 
 
 const AddActivities = () => {
   const {
@@ -92,8 +96,11 @@ const AddActivities = () => {
         console.log(res.data);
       })
       .catch((err) => console.log(err));
+ 
+ 
 
     reset();
+ 
   };
 
   const [logActivities, setLogActivities] = useState(true);
@@ -280,7 +287,7 @@ const AddActivities = () => {
                 <input
                   type="submit"
                   defaultValue="submit"
-                  className="btn bg-secondary hover:bg-secondary text-black w-full border-2  border-green-600 rounded-md"
+                  className="btn btn-log  bg-sky-400  text-black w-full border-none   rounded-md"
                 />
               </div>
             </form>
