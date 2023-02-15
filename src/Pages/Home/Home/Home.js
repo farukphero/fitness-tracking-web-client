@@ -13,7 +13,8 @@ import Blog from "../Blog/Blog";
 import Faqs from "../FAQ/FAQ";
 import Goals from "../../OtherPages/Goals/Goals";
 import FeatureClass from "../FeatureClass/FeatureClass";
- 
+import Instructor from "../Instructor/Instructor";
+
 
 const Home = () => {
   useTitle("Home");
@@ -31,12 +32,14 @@ const Home = () => {
             <Blog></Blog>
             <About />
             <Review></Review>
+
             {/* <FeatureClass></FeatureClass> */}
             <Branches></Branches>
+            <Instructor></Instructor>
             <ContactUs></ContactUs>
             <Faqs></Faqs>
             {/* <WeightCalculator></WeightCalculator> */}
- 
+
           </div>
         </div>
       )}

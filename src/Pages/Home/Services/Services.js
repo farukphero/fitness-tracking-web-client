@@ -36,13 +36,12 @@ const Services = () => {
         <h1 className="text-4xl text-all-green text-center mb-3 font-semibold">
           Our Services
         </h1>
-        <div className='w-1/3'>
-          <h3><span className='text-yellow-400'>Note:</span> To see details only for you please input your age below then click on Explore more button</h3>
-          <input onBlur={handleAge} className="text-white bg-gray-700 text-center" type='number'/>
-        </div>
+       
         <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5">
           {servicesData.map((service) => (
-            <ServiceCard key={service.id} service={service}></ServiceCard>
+            <ServiceCard key={service.id} service={service} 
+            handleAge={handleAge}
+            ></ServiceCard>
           ))}
         </div>
       </div>

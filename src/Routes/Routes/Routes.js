@@ -49,6 +49,8 @@ import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
 
 import Sleep from "../../Pages/OtherPages/Logs/Sleep/Sleep/Sleep";
 
+
+
 import BloodTracking from "../../Pages/Home/Calculator/BloodTracking/BloodTracking";
 import Protein from "../../Pages/Home/Calculator/Protein/Protein";
 import BlogDetails from "../../Pages/Home/Blog/BlogDetails";
@@ -74,6 +76,7 @@ export const router = createBrowserRouter([
       {
         path: "/serviceDetails/:id",
         element: <ServiceDetails></ServiceDetails>,
+
       },
       {
         path: "/Leaderboard",
@@ -84,7 +87,6 @@ export const router = createBrowserRouter([
         path: "/Tutorials",
         element: <Tutorials></Tutorials>,
       },
-
       {
         path: "/WeightCalculator",
         element: <WeightCalculator></WeightCalculator>,
@@ -180,6 +182,15 @@ export const router = createBrowserRouter([
         path: `/logs/allactivities`,
         element: <AllActivities />,
       },
+      {
+        path: "/Friends/Friend/:id",
+        element: <Friend></Friend>,
+        loader: ({params}) => fetch (`http://localhost:5000/friends/${params.id}`)
+      },
+      {
+        path: "/blog/:id",
+        element: <BlogDetails></BlogDetails>
+      }
     ],
   },
 
