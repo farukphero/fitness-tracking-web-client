@@ -56,9 +56,12 @@ import Protein from "../../Pages/Home/Calculator/Protein/Protein";
 import BlogDetails from "../../Pages/Home/Blog/BlogDetails";
 import Friends from "../../Pages/OtherPages/CommunityFriend/Friends/Friends";
 import Friend from "../../Pages/OtherPages/CommunityFriend/Friends/Friend";
-import Instructor from "../../Pages/Home/Instructor/Instructor";
-import Instructors from "../../Pages/Home/Instructor/Instructors";
-
+import AllActivities from "../../Pages/OtherPages/AllActivities/AllActivities/AllActivities";
+import MeetInstructors from "../../Layout/MeetInstructors/MeetInstructors";
+import AllInstructors from "../../Pages/AllInstructors/AllInstructors";
+import VideoCalling from "../../Pages/VideoCalling/VideoCalling/VideoCalling";
+import CallingVideo from "../../Layout/CallingVideo/CallingVideo";
+import CallingRoom from "../../Pages/VideoCalling/CallingRoom/CallingRoom";
 
 export const router = createBrowserRouter([
   {
@@ -84,15 +87,6 @@ export const router = createBrowserRouter([
         path: "/Tutorials",
         element: <Tutorials></Tutorials>,
       },
-      {
-        path: "/instructor/:id",
-        element: <Instructors></Instructors>,
-        loader: ({ params }) =>
-          fetch(
-            `http://localhost:5000/instructor/${params.id}`
-          ),
-      },
-
       {
         path: "/WeightCalculator",
         element: <WeightCalculator></WeightCalculator>,
@@ -136,22 +130,6 @@ export const router = createBrowserRouter([
         path: "/Community",
         element: <CommunityLaout></CommunityLaout>,
         children: [
-          // {
-          //   path: "/Community/community",
-          //   element: <Community></Community>,
-          // },
-          // {
-          //   path: "/Community",
-          //   element: <CommunityFeed></CommunityFeed>,
-          // },
-          // {
-          //   path: "/Community/post",
-          //   element: <CommunityPost></CommunityPost>,
-          // },
-          // {
-          //   path: "/Community",
-          //   element: <CommunityPosted></CommunityPosted>,
-          // },
           {
             path: "/Community/AllUsers",
             element: <CommunityFriend></CommunityFriend>,
@@ -183,7 +161,6 @@ export const router = createBrowserRouter([
       },
 
       {
-
         path: "/singleCategory/:id",
         loader: ({ params }) =>
           fetch(
@@ -192,31 +169,6 @@ export const router = createBrowserRouter([
 
         element: <Tutorial></Tutorial>,
       },
-
-      // { path: "/Dashboard/userInfo", element: <UserInfo></UserInfo> },
-
-      // {
-      //   path: "/Dashboard/setting",
-      //   element: <SettingAndPrivacy></SettingAndPrivacy>,
-      // },
-
-      // {
-      //   path: "/Dashboard/Setting",
-      //   element: <Setting></Setting>,
-      // },
-
-      // { path: "/Dashboard/report", element: <Report></Report> },
-      // { path: "/Dashboard/event", element: <Event></Event> },
-      // { path: "/Dashboard/support", element: <Support></Support> },
-
-      // {
-      //   path: "/Dashboard/Setting",
-      //   element: <Setting></Setting>,
-      // },
-
-      // { path: "/Dashboard/report", element: <Report></Report> },
-      // { path: "/Dashboard/event", element: <Event></Event> },
-      // { path: "/Dashboard/support", element: <Support></Support> },
 
       {
         path: "/SignIn",
@@ -227,8 +179,8 @@ export const router = createBrowserRouter([
         element: <SignUp></SignUp>,
       },
       {
-        path: "/Friends",
-        element: <Friends></Friends>,
+        path: `/logs/allactivities`,
+        element: <AllActivities />,
       },
       {
         path: "/Friends/Friend/:id",
@@ -280,7 +232,6 @@ export const router = createBrowserRouter([
       {
         path: "/Logs/Weight",
         element: <Weight />,
-
       },
       {
         path: "/Logs/Sleep",
@@ -288,5 +239,28 @@ export const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: `/checkup/`,
+    element: <MeetInstructors />,
+    children: [
+      {
+        path: `/checkup/`,
+        element: <AllInstructors />,
+      },
+    ],
+  },
+  {
+    path: `/video`,
+    element: <CallingVideo />,
+    children: [
+      {
+        path: `/video`,
+        element: <VideoCalling />,
+      },
+      {
+        path: `/video/room/:roomid`,
+        element: <CallingRoom />,
+      },
+    ],
+  },
 ]);
-
