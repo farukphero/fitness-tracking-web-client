@@ -58,6 +58,8 @@ import Friends from "../../Pages/OtherPages/CommunityFriend/Friends/Friends";
 import Friend from "../../Pages/OtherPages/CommunityFriend/Friends/Friend";
 import Instructor from "../../Pages/Home/Instructor/Instructor";
 import Instructors from "../../Pages/Home/Instructor/Instructors";
+import Questions from "../../Pages/Dashboard/SettingAndPrivacy/Questions/Questions";
+import Faqs from "../../Pages/Home/FAQ/FAQ";
 
 
 export const router = createBrowserRouter([
@@ -83,6 +85,10 @@ export const router = createBrowserRouter([
       {
         path: "/Tutorials",
         element: <Tutorials></Tutorials>,
+      },
+      {
+        path: "/faq",
+        element: <Faqs></Faqs>,
       },
       {
         path: "/instructor/:id",
@@ -171,11 +177,20 @@ export const router = createBrowserRouter([
             path: "/Profile/Setting",
             element: <Setting></Setting>,
           },
+
           {
             path: "/Profile/AllUsers",
             element: (
               <AdminRoute>
                 <AllUsers></AllUsers>
+              </AdminRoute>
+            ),
+          },
+          {
+            path: "/Profile/questions",
+            element: (
+              <AdminRoute>
+                <Questions></Questions>
               </AdminRoute>
             ),
           },

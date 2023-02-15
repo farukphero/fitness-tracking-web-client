@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import "./Dashboarlayout.css";
-import { FaRegUser } from "react-icons/fa";
+import { FaQuestion, FaRegUser } from "react-icons/fa";
 import { AiOutlineSetting } from "react-icons/ai";
 import { TbReportSearch } from "react-icons/tb";
 import { BsCalendarEvent } from "react-icons/bs";
@@ -9,6 +9,7 @@ import { CgSupport } from "react-icons/cg";
 import { useContext } from "react";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import useAdmin from "../../Hooks/useAdmin/useAdmin";
+import Questions from './../../Pages/Dashboard/SettingAndPrivacy/Questions/Questions';
 
 
 const DashboardLayout = () => {
@@ -37,23 +38,23 @@ const DashboardLayout = () => {
         <label htmlFor="my-drawer" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80 bg-gradient-to-r from-gray-700 to-green-800 ">
           <>
-           {
-            isAdmin &&  <li className="border-2  border-green-600 btn-explore rounded-md mb-2 ">
-            <Link
-              className="text-center ml-16 text-about font-semibold"
-              to="/Profile/AllUsers"
-            >
-              All Users
-              <FaRegUser></FaRegUser>
-            </Link>
-          </li>
-           }
+            {
+              isAdmin && <li className="border-2  border-green-600 btn-explore rounded-md mb-2 ">
+                <Link
+                  className="text-center ml-16 text-about font-semibold"
+                  to="/Profile/AllUsers"
+                >
+                  All Users
+                  <FaRegUser></FaRegUser>
+                </Link>
+              </li>
+            }
             <li className="border-2  border-green-600 btn-explore rounded-md mb-2 ">
               <Link
                 className="text-center ml-16 text-about font-semibold"
                 to="/Profile/userInfo"
               >
-               Profile
+                Profile
                 <FaRegUser></FaRegUser>
               </Link>
             </li>
@@ -92,6 +93,16 @@ const DashboardLayout = () => {
               >
                 Events
                 <BsCalendarEvent></BsCalendarEvent>
+              </Link>
+            </li>
+            <li className="border-2  border-green-600 btn-explore     rounded-md mb-2">
+              <Link
+                className="text-center ml-16 text-about font-semibold"
+                to="/profile/questions"
+              >
+                Questions <FaQuestion></FaQuestion>
+
+
               </Link>
             </li>
             <li className="border-2  border-green-600 btn-explore     rounded-md mb-2">
