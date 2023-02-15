@@ -17,7 +17,7 @@ const CommunityFriends = ({ user, reload, setReload }) => {
       accepted: false,
     };
 
-    setSendTo((exgistingEmail) => [...exgistingEmail, user?.eamil]);
+    // setSendTo((exgistingEmail) => [...exgistingEmail, user?.eamil]);
 
     fetch("http://localhost:5000/friendRequest", {
       method: "POST",
@@ -42,10 +42,7 @@ const CommunityFriends = ({ user, reload, setReload }) => {
       return "From";
     } else if (isFrom) {
       return "Send";
-    } else if (isSend || isFrom){
-      return "Friend"
-    }
-    else {
+    } else {
       return "No";
     }
   };
@@ -101,56 +98,64 @@ const CommunityFriends = ({ user, reload, setReload }) => {
       });
   };
   return (
-    <div className="card bg-white shadow-xl">
-      <figure className="">
-        <img src={user.picture} alt="" className="rounded-xl h-52 w-full" />
-      </figure>
-
-      <div className="p-3 items-center text-center">
-        <h2 className="text-black font-semibold">
+    <div className="mt-10">
+      <div className="p-8 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 rounded">
+        <div className="mb-4 text-center">
+          <div className="flex items-center justify-center">
+            <figure className="">
+              <img src={user.picture} alt="" className="rounded-xl h-32 w-32" />
+            </figure>
+          </div>
+        </div>
+        <h2 className="text-white font-semibold ml-4">
           {user?.firstName} {user?.lastName}
         </h2>
-        {checkRequest(userInfo?.email) === "Send" && (
-          <button
-            onClick={handleCancelRequest}
-            className="py-3 rounded-md font-semibold px-5 mt-2 mb-2 w-full bg-secondary text-black"
-          >
-            Cancel Request
-          </button>
-        )}
-        {checkRequest(userInfo?.email) === "From" && (
-          <>
-            <button
-              onClick={handleAcceptRequest}
-              className="py-3 rounded-md font-semibold px-5 mt-2 mb-2 w-full bg-secondary text-black"
-            >
-              Accept Request
-            </button>
+        <div className="p-3 items-center text-center">
+          {checkRequest(userInfo?.email) === "Send" && (
             <button
               onClick={handleCancelRequest}
               className="py-3 rounded-md font-semibold px-5 mt-2 mb-2 w-full bg-secondary text-black"
             >
               Cancel Request
             </button>
-          </>
-        )}
-        {checkRequest(userInfo?.email) === "No" && (
-          <button
-            onClick={handleSendRequest}
-            className="py-3 rounded-md font-semibold px-5 mt-2 mb-2 w-full bg-secondary text-black"
-          >
-            Add Friend
-          </button>
-        )}
-        {checkRequest(userInfo?.email) === "Friend" && (
-          <button
-            onClick={handleAcceptRequest}
-            className="py-3 rounded-md font-semibold px-5 mt-2 mb-2 w-full bg-secondary text-black"
-          >
-             Friend
-          </button>
-        )}
+          )}
+          {checkRequest(userInfo?.email) === "From" && (
+            <>
+              <button
+                onClick={handleAcceptRequest}
+                className="py-3 rounded-md font-semibold px-5 mt-2 mb-2 w-full bg-secondary text-black"
+              >
+                Accept Request
+              </button>
+              <button
+                onClick={handleCancelRequest}
+                className="py-3 rounded-md font-semibold px-5 mt-2 mb-2 w-full bg-secondary text-black"
+              >
+                Cancel Request
+              </button>
+            </>
+          )}
+          {checkRequest(userInfo?.email) === "No" && (
+            <button
+              onClick={handleSendRequest}
+              className="py-3 rounded-md font-semibold px-5 mt-2 mb-2 w-full bg-secondary text-black"
+            >
+              Add Friend
+            </button>
+          )}
+          {checkRequest(userInfo?.email) === "Friend" && (
+            <button
+              onClick={handleAcceptRequest}
+              className="py-3 rounded-md font-semibold px-5 mt-2 mb-2 w-full bg-secondary text-black"
+            >
+              Friend
+            </button>
+          )}
+        </div>
       </div>
+      <div className="w-11/12 h-2 mx-auto bg-gray-900 rounded-b opacity-75" />
+      <div className="w-10/12 h-2 mx-auto bg-gray-900 rounded-b opacity-50" />
+      <div className="w-9/12 h-2 mx-auto bg-gray-900 rounded-b opacity-25" />
     </div>
   );
 };

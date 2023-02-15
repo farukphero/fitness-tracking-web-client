@@ -55,7 +55,6 @@ import BloodTracking from "../../Pages/Home/Calculator/BloodTracking/BloodTracki
 import Protein from "../../Pages/Home/Calculator/Protein/Protein";
 import BlogDetails from "../../Pages/Home/Blog/BlogDetails";
 import Friends from "../../Pages/OtherPages/CommunityFriend/Friends/Friends";
-import Friend from "../../Pages/OtherPages/CommunityFriend/Friends/Friend";
 import AllActivities from "../../Pages/OtherPages/AllActivities/AllActivities/AllActivities";
 import MeetInstructors from "../../Layout/MeetInstructors/MeetInstructors";
 import AllInstructors from "../../Pages/AllInstructors/AllInstructors";
@@ -198,11 +197,7 @@ export const router = createBrowserRouter([
         path: `/logs/allactivities`,
         element: <AllActivities />,
       },
-      {
-        path: "/Friends/Friend/:id",
-        element: <Friend></Friend>,
-        loader: ({params}) => fetch (`http://localhost:5000/friends/${params.id}`)
-      },
+      
       {
         path: "/blog/:id",
         element: <BlogDetails></BlogDetails>
