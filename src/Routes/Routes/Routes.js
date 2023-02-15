@@ -179,6 +179,10 @@ export const router = createBrowserRouter([
         element: <SignUp></SignUp>,
       },
       {
+        path: "/Friends",
+        element: <Friends></Friends>,
+      },
+      {
         path: `/logs/allactivities`,
         element: <AllActivities />,
       },
