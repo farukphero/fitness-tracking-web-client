@@ -7,10 +7,19 @@ import { FaRunning, FaWalking } from "react-icons/fa";
 import { MdLocalActivity } from "react-icons/md";
 import { AuthContext } from "../../../../../../Contexts/AuthProvider/AuthProvider";
 import { useDate } from "../../DateProvider/DateProvider";
+ 
 import "./AddActivites.css";
+ 
+import { toast } from "react-hot-toast";
+ 
 
 const AddActivities = () => {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
   const { state, dispatch } = useDate();
   const { user } = useContext(AuthContext);
   const handleActivityLogForm = (data) => {
@@ -52,7 +61,6 @@ const AddActivities = () => {
     }
 
     // Calouries Calculations
-    console.log(totalDistance, totalWeight);
     const calouries = Math.round(totalDistance * totalWeight * 1.036);
     const calsPerKm = Math.round(weight * 1.036);
     const calsPerMi = Math.round(1.60934 * totalWeight * 1.036);
@@ -81,8 +89,18 @@ const AddActivities = () => {
       .post(`https://fitness-tracking-web-server.vercel.app/activities`, {
         ...activity,
       })
-      .then((res) => console.log(res))
+      .then((res) => {
+        if (res.data.acknowledged) {
+          toast.success(`successfully added an activity`);
+        }
+        console.log(res.data);
+      })
       .catch((err) => console.log(err));
+ 
+ 
+
+    reset();
+ 
   };
 
   const [logActivities, setLogActivities] = useState(true);
@@ -129,6 +147,11 @@ const AddActivities = () => {
                   className="input input-md input-bordered w-full"
                   {...register(`name`)}
                 />
+                {/* <div>
+                  {errors?.name && (
+                    <p className="text-error">{errors?.name?.message}</p>
+                  )}
+                </div> */}
               </div>
 
               <div className="form-control flex flex-row w-full">
@@ -156,9 +179,14 @@ const AddActivities = () => {
                 </label>
                 <input
                   type="time"
-                  className="input input-md input-bordered   w-full"
+                  className="input input-md input-bordered w-full"
                   {...register(`sTime`)}
                 />
+                {/* <div>
+                  {errors?.sTime && (
+                    <p className="text-error">{errors?.sTime?.message}</p>
+                  )}
+                </div> */}
               </div>
 
               <div className="form-control flex flex-row w-full">
@@ -209,6 +237,11 @@ const AddActivities = () => {
                     <option>Miles</option>
                     <option>Steps</option>
                   </select>
+                  {/* <div>
+                    {errors?.distance && (
+                      <p className="text-error">{errors?.distance?.message}</p>
+                    )}
+                  </div> */}
                 </div>
               </div>
 
@@ -231,6 +264,11 @@ const AddActivities = () => {
                     <option selected>lbs</option>
                     <option>kg</option>
                   </select>
+                  {/* <div>
+                    {errors?.weight && (
+                      <p className="text-error">{errors?.weight?.message}</p>
+                    )}
+                  </div> */}
                 </div>
               </div>
 

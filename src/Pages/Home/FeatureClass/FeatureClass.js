@@ -43,18 +43,18 @@ const FeatureClass = () => {
 
 
     return (
-        <div className='mt-8 p-10'>
+        <div className='mt-8 m-10 py-10 mx-auto'>
             <p className='text-4xl font-bold text-white text-center mb-4'>Whats Your Questions</p>
             <div className="">
                 <div className="hero-content flex-col lg:flex-row">
                     <img className='w-1/2' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbfdqBE5E2BUtdUp2BfKUKYpv82WfPyAZpvw&usqp=CAU" alt='' />
                     <div>
-                        <div className='ml-10  mt-10 w-full grid grid-cols-1 mx-auto gap-4'>
+                        <div className='lg:ml-10 m-10 mt-10 grid grid-cols-1 mx-auto gap-4'>
                             {
 
                                 Faq.map(faq => <div>
 
-                                    <body className='bg-slate-100 w-96 rounded-xl shadow-red-500 drop-shadow-2xl '>
+                                    <body className='bg-slate-100 w-80 rounded-xl shadow-red-500 drop-shadow-2xl '>
                                         <div className='flex justify-center'>
 
                                             <div className='relative p-3  text-black '>
