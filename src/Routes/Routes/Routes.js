@@ -49,11 +49,10 @@ import Sleep from "../../Pages/OtherPages/Logs/Sleep/Sleep/Sleep";
 import BloodTracking from "../../Pages/Home/Calculator/BloodTracking/BloodTracking";
 import Protein from "../../Pages/Home/Calculator/Protein/Protein";
 import BlogDetails from "../../Pages/Home/Blog/BlogDetails";
-import Friends from "../../Pages/OtherPages/CommunityFriend/Friends/Friends";
-  
- 
+// import Friends from "../../Pages/OtherPages/CommunityFriend/Friends/Friends";
+
 import Instructor from "../../Pages/Home/Instructor/Instructor";
- 
+
 import Instructors from "../../Pages/Home/Instructor/Instructors";
 import Questions from "../../Pages/Dashboard/SettingAndPrivacy/Questions/Questions";
 import Faqs from "../../Pages/Home/FAQ/FAQ";
@@ -63,8 +62,9 @@ import AllInstructors from "../../Pages/AllInstructors/AllInstructors";
 import VideoCalling from "../../Pages/VideoCalling/VideoCalling/VideoCalling";
 import CallingVideo from "../../Layout/CallingVideo/CallingVideo";
 import CallingRoom from "../../Pages/VideoCalling/CallingRoom/CallingRoom";
- 
- 
+import axios from "axios";
+import InstructorsDetails from "../../Pages/InstructorDetails/InstructorDetails/InstructorsDetails";
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -89,7 +89,6 @@ export const router = createBrowserRouter([
         element: <Tutorials></Tutorials>,
       },
       {
- 
         path: "/faq",
         element: <Faqs></Faqs>,
       },
@@ -101,8 +100,6 @@ export const router = createBrowserRouter([
       },
 
       {
- 
- 
         path: "/WeightCalculator",
         element: <WeightCalculator></WeightCalculator>,
       },
@@ -114,6 +111,13 @@ export const router = createBrowserRouter([
       {
         path: "/bmr",
         element: <Bmr></Bmr>,
+      },
+
+      {
+        path: `/checkup/instructors/:id`,
+        element: <InstructorsDetails />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/instructors/${params.id}`),
       },
 
       {
@@ -211,29 +215,28 @@ export const router = createBrowserRouter([
         element: <SignUp></SignUp>,
       },
       {
-              path: "/Community/AllUsers",
-              element: <CommunityFriend></CommunityFriend>,
-            },
+        path: "/Community/AllUsers",
+        element: <CommunityFriend></CommunityFriend>,
+      },
       // {
       //   path: "/Friends",
       //   element: <Friends></Friends>,
       // },
-      {
-        path: "/Community/friends",
-        element: <Friends></Friends>,
-      },
+      // {
+      //   path: "/Community/friends",
+      //   element: <Friends></Friends>,
+      // },
       {
         path: `/logs/allactivities`,
         element: <AllActivities />,
       },
- 
       // {
       //   path: "/Friends/Friend/:id",
       //   element: <Friend></Friend>,
       //   loader: ({ params }) =>
       //     fetch(`http://localhost:5000/friends/${params.id}`),
       // },
-       {
+      {
         path: "/blog/:id",
         element: <BlogDetails></BlogDetails>,
       },
