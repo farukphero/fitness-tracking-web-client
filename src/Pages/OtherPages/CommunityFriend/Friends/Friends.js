@@ -7,6 +7,7 @@ import { AuthContext } from "../../../../Contexts/AuthProvider/AuthProvider";
 const Friends = () => {
   const { user, userInfo } = useContext(AuthContext);
   // console.log(userInfo)
+  // console.log(userInfo)
   const [friendImage, setFriendImage] = useState("");
   const [friendEmail, setFriendEmail] = useState("");
   const [friendName, setFriendName] = useState("");
