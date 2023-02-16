@@ -15,9 +15,9 @@ import SingleActivity from "../SingleActivity/SingleActivity";
 import { Link } from "react-router-dom";
 
 const ActivitiesHistory = () => {
- const [deleteActivity, setDeleteActivity] = useState(null);
-  const { user } = useContext(AuthContext); 
- 
+  const [deleteActivity, setDeleteActivity] = useState(null);
+  const { user } = useContext(AuthContext);
+
   const {
     data: activities,
     isLoading,
@@ -60,16 +60,13 @@ const ActivitiesHistory = () => {
   const closeModal = () => {
     setDeleteActivity(null);
   };
- 
- 
- 
 
   return (
     <div className="mt-2 border p-4 rounded-md border-gray-600">
       <h2 className="font-bold text-3xl">Activity History</h2>
       <p className="my-3">You have not logged any activities</p>
       <div className="overflow-x-auto">
-      <table className="table w-full">
+        <table className="table w-full">
           <thead>
             <tr>
               <th>
@@ -108,7 +105,7 @@ const ActivitiesHistory = () => {
                   <span>Calourie</span>
                 </div>
               </th>
-              
+
               <th>
                 <div className="flex gap-x-1 items-center">
                   <MdOutlinePendingActions className="text-2xl text-primary" />
@@ -133,7 +130,10 @@ const ActivitiesHistory = () => {
         </table>
         <div className="my-4">
           <Link to={`/logs/allactivities`}>
-          <button className="btn btn-sm btn-primary">see more</button></Link>
+            <button className="btn btn-log  bg-secondary text-black w-full border-none   rounded-md">
+              see more
+            </button>
+          </Link>
         </div>
       </div>
       {deleteActivity && (
