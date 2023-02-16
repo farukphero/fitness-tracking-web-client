@@ -5,8 +5,10 @@ import working11 from "../../../../assets/working11.json";
 import "./WaterTracking.css";
 
 import Lottie from "lottie-react";
+import useTitle from "../../../../Hooks/useTitle/useTitle";
 
 const WaterTracking = () => {
+  useTitle("WaterTracking")
   const [waterTrack, setWaterTrack] = useState();
   const [info, setInfo] = useState();
   const [weight, setWeight] = useState();

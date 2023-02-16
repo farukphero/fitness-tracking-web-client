@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import working5 from "../../../../assets/working5.json";
 import Lottie from "lottie-react";
+import useTitle from "../../../../Hooks/useTitle/useTitle";
 
 const Bmi = () => {
+  useTitle("Bmi")
   const [bmi, setBmi] = useState();
   const [info, setInfo] = useState();
   const [height, setHeight] = useState();
@@ -24,20 +26,8 @@ const Bmi = () => {
   };
   return (
     <div>
-      {/* <div className="grid grid-cols-1 lg:grid-cols-2  mt-24 mb-44">
-        <div>
-          <div className="flex justify-center">
-            <Lottie
-              className="w-1/2"
-              animationData={working5}
-              loop={true}
-            ></Lottie>
-          </div>
-        </div>
-        <div className="mt-8 ml-24 lg:ml-2  "> */}
-
       <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2  mt-20 mb-44">
-        <div className="flex justify-center">
+         <div className="flex justify-center">
           <Lottie
             className="w-2/3"
             animationData={working5}

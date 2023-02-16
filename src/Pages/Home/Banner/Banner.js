@@ -1,15 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { NavHashLink } from "react-router-hash-link";
 import "swiper/css";
 import "swiper/css/pagination";
-import undraw1 from "../../../assets/undraw_indoor_bike_pwa4 (1).svg";
 import "./Banner.css";
-
 import lott21 from "../../../images/staggered_push_ups (1).json";
-
 import lott23 from "../../../assets/working21 (3).json";
-
 import Lottie from "lottie-react";
 
 const Banner = () => {

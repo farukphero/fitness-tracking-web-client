@@ -10,10 +10,8 @@ import Review from "../Review/Review";
 import Services from "../Services/Services";
 import Leaderboard from "../../../Pages/OtherPages/Leaderboard/Leaderboard";
 import Blog from "../Blog/Blog";
-import Faqs from "../FAQ/FAQ";
 import Goals from "../../OtherPages/Goals/Goals";
 import FeatureClass from "../FeatureClass/FeatureClass";
-import Instructor from "../Instructor/Instructor";
 
 
 const Home = () => {
@@ -32,14 +30,9 @@ const Home = () => {
             <Blog></Blog>
             <About />
             <Review></Review>
-
-            {/* <FeatureClass></FeatureClass> */}
             <Branches></Branches>
-            <Instructor></Instructor>
             <ContactUs></ContactUs>
             <FeatureClass></FeatureClass>
-            {/* <WeightCalculator></WeightCalculator> */}
-
           </div>
         </div>
       )}

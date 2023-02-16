@@ -49,11 +49,10 @@ import Sleep from "../../Pages/OtherPages/Logs/Sleep/Sleep/Sleep";
 import BloodTracking from "../../Pages/Home/Calculator/BloodTracking/BloodTracking";
 import Protein from "../../Pages/Home/Calculator/Protein/Protein";
 import BlogDetails from "../../Pages/Home/Blog/BlogDetails";
-import Friends from "../../Pages/OtherPages/CommunityFriend/Friends/Friends";
-  
- 
+// import Friends from "../../Pages/OtherPages/CommunityFriend/Friends/Friends";
+
 import Instructor from "../../Pages/Home/Instructor/Instructor";
- 
+
 import Instructors from "../../Pages/Home/Instructor/Instructors";
 import Questions from "../../Pages/Dashboard/SettingAndPrivacy/Questions/Questions";
 import Faqs from "../../Pages/Home/FAQ/FAQ";
@@ -63,8 +62,13 @@ import AllInstructors from "../../Pages/AllInstructors/AllInstructors";
 import VideoCalling from "../../Pages/VideoCalling/VideoCalling/VideoCalling";
 import CallingVideo from "../../Layout/CallingVideo/CallingVideo";
 import CallingRoom from "../../Pages/VideoCalling/CallingRoom/CallingRoom";
- 
- 
+
+import GetUserDetails from "../../Authentications/GetUserDetails/GetUserDetails";
+
+import axios from "axios";
+import InstructorsDetails from "../../Pages/InstructorDetails/InstructorDetails/InstructorsDetails";
+import Friends from "../../Pages/OtherPages/CommunityFriend/Friends/Friends";
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -89,20 +93,17 @@ export const router = createBrowserRouter([
         element: <Tutorials></Tutorials>,
       },
       {
- 
         path: "/faq",
         element: <Faqs></Faqs>,
       },
-      {
-        path: "/instructor/:id",
-        element: <Instructors></Instructors>,
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/instructor/${params.id}`),
-      },
+      // {
+      //   path: "/instructor/:id",
+      //   element: <Instructors></Instructors>,
+      //   loader: ({ params }) =>
+      //     fetch(`http://localhost:5000/instructor/${params.id}`),
+      // },
 
       {
- 
- 
         path: "/WeightCalculator",
         element: <WeightCalculator></WeightCalculator>,
       },
@@ -114,6 +115,13 @@ export const router = createBrowserRouter([
       {
         path: "/bmr",
         element: <Bmr></Bmr>,
+      },
+
+      {
+        path: `/checkup/instructors/:id`,
+        element: <InstructorsDetails />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/instructors/${params.id}`),
       },
 
       {
@@ -206,34 +214,31 @@ export const router = createBrowserRouter([
         path: "/SignIn",
         element: <SignIn></SignIn>,
       },
+      // {
+      //   path: "/SignUp",
+      //   element: <GetUserDetails></GetUserDetails>,
+      // },
       {
         path: "/SignUp",
         element: <SignUp></SignUp>,
       },
       {
-              path: "/Community/AllUsers",
-              element: <CommunityFriend></CommunityFriend>,
-            },
-      // {
-      //   path: "/Friends",
-      //   element: <Friends></Friends>,
-      // },
+        path: "/Community/AllUsers",
+        element: <CommunityFriend></CommunityFriend>,
+      },
       {
         path: "/Community/friends",
         element: <Friends></Friends>,
       },
       {
+        path: `/checkup/instructors`,
+        element: <AllInstructors />,
+      },
+      {
         path: `/logs/allactivities`,
         element: <AllActivities />,
       },
- 
-      // {
-      //   path: "/Friends/Friend/:id",
-      //   element: <Friend></Friend>,
-      //   loader: ({ params }) =>
-      //     fetch(`http://localhost:5000/friends/${params.id}`),
-      // },
-       {
+      {
         path: "/blog/:id",
         element: <BlogDetails></BlogDetails>,
       },
@@ -285,28 +290,26 @@ export const router = createBrowserRouter([
       },
     ],
   },
-  {
-    path: `/checkup/`,
-    element: <MeetInstructors />,
-    children: [
-      {
-        path: `/checkup/`,
-        element: <AllInstructors />,
-      },
-    ],
-  },
+  // {
+  //   path: `/checkup`,
+  //   element: <MeetInstructors />,
+  //   children: [
+      
+  //   ],
+  // },
+  // {
+  //   path: `/video`,
+  //   element: <CallingVideo />,
+  //   children: [
+     
+  //   ],
+  // },
   {
     path: `/video`,
-    element: <CallingVideo />,
-    children: [
-      {
-        path: `/video`,
-        element: <VideoCalling />,
-      },
-      {
-        path: `/video/room/:roomid`,
-        element: <CallingRoom />,
-      },
-    ],
+    element: <VideoCalling />,
+  },
+  {
+    path: `/video/room/:roomid`,
+    element: <CallingRoom />,
   },
 ]);
