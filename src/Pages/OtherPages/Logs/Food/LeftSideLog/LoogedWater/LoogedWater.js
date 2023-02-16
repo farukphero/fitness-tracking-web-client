@@ -11,7 +11,7 @@ const LoogedWater = ({ startDate, setStartDate }) => {
     const { isLoading, error, data: water, refetch } = useQuery({
         queryKey: ['loggedFood/userEmail', 'loggedWater/date'],
         queryFn: async () => {
-            const res = await fetch(`https://fitness-tracking-web-server.vercel.app/loggedWater/${user?.user?.email}?date=${startDate.toLocaleDateString()}`);
+            const res = await fetch(`https://fitness-tracking-web-server.vercel.app/loggedWater/${user?.user?.email}?date=${startDate?.toLocaleDateString()}`);
             const data = await res.json();
             return setLogedWater(data)
         }
@@ -19,16 +19,16 @@ const LoogedWater = ({ startDate, setStartDate }) => {
     refetch()
     // console.log(logedWater)
     useEffect(() => {
-        let total = (logedWater.reduce((sum, water) => sum + water.amountWithQuantity, 0));
+        let total = (logedWater.reduce((sum, water) => sum + water?.amountWithQuantity, 0));
         setTotalWater(total);
     }, [logedWater]);
 
     if (isLoading) return <progress className="progress w-56"></progress>
 
-    if (error) return 'An error has occurred: ' + error.message
+    if (error) return 'An error has occurred: ' + error?.message
 
     const handleDeleteWater = (water) => {
-        fetch(`https://fitness-tracking-web-server.vercel.app/loggedWater/${water._id}`, {
+        fetch(`https://fitness-tracking-web-server.vercel.app/loggedWater/${water?._id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -61,10 +61,10 @@ const LoogedWater = ({ startDate, setStartDate }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {logedWater?.map(water => <tr key={water._id}>
-                            <th className="bg-white text-black">{water.water}</th>
-                            <td className="bg-white text-black">{water.amountWithQuantity} ml</td>
-                            <td className="bg-white text-black">{water.time}</td>
+                        {logedWater?.map(water => <tr key={water?._id}>
+                            <th className="bg-white text-black">{water?.water}</th>
+                            <td className="bg-white text-black">{water?.amountWithQuantity} ml</td>
+                            <td className="bg-white text-black">{water?.time}</td>
                             <td className="bg-white text-black"><button onClick={() => handleDeleteWater(water)} className="btn btn-xs text-white">X</button></td>
                         </tr>
                         )}
@@ -73,7 +73,7 @@ const LoogedWater = ({ startDate, setStartDate }) => {
                         <tr>
                             <th className="text-black bg-gray-400 text-lg">Total</th>
                             <th className="text-black bg-gray-400 text-lg">
-                                {logedWater.reduce((sum, water) => sum + water.amountWithQuantity, 0)} ml
+                                {logedWater?.reduce((sum, water) => sum + water?.amountWithQuantity, 0)} ml
                             </th>
                             <th className="text-black bg-gray-400 text-lg"></th>
                             <th className="text-black bg-gray-400 text-lg"></th>

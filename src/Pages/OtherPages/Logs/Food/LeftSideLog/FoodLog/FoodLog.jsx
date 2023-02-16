@@ -8,31 +8,19 @@ import DatePicker from "react-datepicker";
 import { FoodContext } from "../../../../../../Contexts/FoodProvider/FoodProvider";
 
 const FoodLog = ({ logedFood, setLogedFood, startDate, setStartDate, item, setItem, setShowForm , }) => {
-  // const [foodValue, setFoodValue] = useState('');
-  // const [foodData, setFoodData] = useState({});
-  // const [foodAmount, setFoodAmount] = useState('');
-  // const [foodCalory, setFoodCalory] = useState('');
-  // const [data, setData] = useState([]);
 
   const {foodValue, setFoodValue, foodData, setFoodData, foodAmount, setFoodAmount, foodCalory, setFoodCalory, data, setData} = useContext(FoodContext);
  
   const user = useContext(AuthContext);
-  // console.log(logedFood)
-  // console.log(user.user.email)
+  
 
-//   const currentDate = new Date();
-// const year = currentDate.getFullYear();
-// const month = currentDate.getMonth();
-// const day = currentDate.getDate();
 
-// const currentDateOnly = new Date(year, month, day);
-// const [startDate, setStartDate] = useState(currentDateOnly);
   useEffect(() => {
     fetch('https://fitness-tracking-web-server.vercel.app/foods')
       .then(res => res.json())
       .then(data => setData(data))
   }, [])
-  // console.log(data)
+ 
 
   const handleOnChange = event => {
     setFoodValue(event.target.value);

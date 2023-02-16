@@ -1,6 +1,26 @@
 import React from "react";
+import { useContext } from "react";
+import { useQuery } from "react-query";
+import { AuthContext } from "../../../../../../Contexts/AuthProvider/AuthProvider";
 
 const FavouriteActivities = () => {
+const {user}=useContext(AuthContext);
+
+  const {
+    data: activities = [],
+    refetch,
+    isLoading,
+  } = useQuery({
+    queryKey: ["activities.", user?.email],
+    queryFn: () =>
+      fetch(`http://localhost:5000/allactivities?email=${user?.email}`)
+        .then((res) => res.json())
+        .then((data) => {
+          refetch();
+          return data;
+        }),
+  });
+console.log(activities);
   return (
     <>
       <div className="overflow-x-auto border border-gray-600 rounded-md p-3">
@@ -24,7 +44,12 @@ const FavouriteActivities = () => {
             </tr>
           </thead>
           <tbody>
-            <tr className="hover">
+            {activities.map(activity=><tr className="hover">
+              <td>{activity.activity_name}</td>
+              <td>{activity.timestamp}</td>
+              <td>{activity.calourie_burned}</td>
+            </tr>)}
+            {/* <tr className="hover">
               <td>Run</td>
               <td>2.5 Hour</td>
               <td>238 Cals</td>
@@ -38,7 +63,7 @@ const FavouriteActivities = () => {
               <td>Swim</td>
               <td>0.5 Hour</td>
               <td>82 Cals</td>
-            </tr>
+            </tr> */}
           </tbody>
         </table>
       </div>

@@ -6,14 +6,6 @@ const WaterLog = ({ startDate, setStartDate }) => {
 
     const user = useContext(AuthContext)
 
-    // const currentDate = new Date();
-    // const year = currentDate.getFullYear();
-    // const month = currentDate.getMonth();
-    // const day = currentDate.getDate();
-
-    // const currentDateOnly = new Date(year, month, day);
-    // const [startDate, setStartDate] = useState(currentDateOnly);
-
 
     const handleWaterLog = (event) => {
         event.preventDefault()
