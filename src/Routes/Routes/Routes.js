@@ -49,8 +49,6 @@ import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
 
 import Sleep from "../../Pages/OtherPages/Logs/Sleep/Sleep/Sleep";
 
-
-
 import BloodTracking from "../../Pages/Home/Calculator/BloodTracking/BloodTracking";
 import Protein from "../../Pages/Home/Calculator/Protein/Protein";
 import BlogDetails from "../../Pages/Home/Blog/BlogDetails";
@@ -62,6 +60,8 @@ import AllInstructors from "../../Pages/AllInstructors/AllInstructors";
 import VideoCalling from "../../Pages/VideoCalling/VideoCalling/VideoCalling";
 import CallingVideo from "../../Layout/CallingVideo/CallingVideo";
 import CallingRoom from "../../Pages/VideoCalling/CallingRoom/CallingRoom";
+import axios from "axios";
+import InstructorsDetails from "../../Pages/InstructorDetails/InstructorDetails/InstructorsDetails";
 
 export const router = createBrowserRouter([
   {
@@ -76,7 +76,6 @@ export const router = createBrowserRouter([
       {
         path: "/serviceDetails/:id",
         element: <ServiceDetails></ServiceDetails>,
-
       },
       {
         path: "/Leaderboard",
@@ -99,6 +98,13 @@ export const router = createBrowserRouter([
       {
         path: "/bmr",
         element: <Bmr></Bmr>,
+      },
+
+      {
+        path: `/checkup/instructors/:id`,
+        element: <InstructorsDetails />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/instructors/${params.id}`),
       },
 
       {
@@ -185,12 +191,13 @@ export const router = createBrowserRouter([
       {
         path: "/Friends/Friend/:id",
         element: <Friend></Friend>,
-        loader: ({params}) => fetch (`http://localhost:5000/friends/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/friends/${params.id}`),
       },
       {
         path: "/blog/:id",
-        element: <BlogDetails></BlogDetails>
-      }
+        element: <BlogDetails></BlogDetails>,
+      },
     ],
   },
 
