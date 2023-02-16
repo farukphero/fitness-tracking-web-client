@@ -29,9 +29,10 @@ export const ContactUs = () => {
 
     emailjs.sendForm('service_nqhgx79', 'template_7ne6mvb', form.current, 'JySRozcFgA1l_eMTt')
       .then((result) => {
-        e.form.reset()
-        toast('Email send')
+
         console.log(result.text);
+        toast.success('Email send')
+
       }, (error) => {
         console.log(error.text);
 
@@ -51,13 +52,13 @@ export const ContactUs = () => {
           <h2 className="text-3xl lg:text-4xl text-all-green font-semibold text-center pt-10">
             Get In Touch
           </h2>
-          
+
           <p className="text-white text-start lg:w-8/12 mx-auto hidden lg:flex">
- 
+
 
             Great genius takes shape by contact with another great genius, <span className="flex lg:hidden">but,
               less by assimilation than by friction.</span>
- 
+
           </p>
         </div>
         <div>
