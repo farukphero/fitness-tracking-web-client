@@ -43,26 +43,20 @@ import Bmr from "../../Pages/Home/Calculator/Bmr/Bmr";
 import Weight from "../../Pages/OtherPages/Logs/Weight/Weight";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import WaterTracking from "../../Pages/Home/Calculator/WaterTracking/WaterTracking";
-import CommunityFeed from "../../Pages/OtherPages/Communityfeed/CommunityFeed";
 import Tutorials from "../../Pages/OtherPages/Tutorials/Tutorials";
 import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
-
 import Sleep from "../../Pages/OtherPages/Logs/Sleep/Sleep/Sleep";
-
-
-
 import BloodTracking from "../../Pages/Home/Calculator/BloodTracking/BloodTracking";
 import Protein from "../../Pages/Home/Calculator/Protein/Protein";
 import BlogDetails from "../../Pages/Home/Blog/BlogDetails";
 import Friends from "../../Pages/OtherPages/CommunityFriend/Friends/Friends";
-import Friend from "../../Pages/OtherPages/CommunityFriend/Friends/Friend";
+  
  
 import Instructor from "../../Pages/Home/Instructor/Instructor";
+ 
 import Instructors from "../../Pages/Home/Instructor/Instructors";
 import Questions from "../../Pages/Dashboard/SettingAndPrivacy/Questions/Questions";
 import Faqs from "../../Pages/Home/FAQ/FAQ";
-
- 
 import AllActivities from "../../Pages/OtherPages/AllActivities/AllActivities/AllActivities";
 import MeetInstructors from "../../Layout/MeetInstructors/MeetInstructors";
 import AllInstructors from "../../Pages/AllInstructors/AllInstructors";
@@ -70,7 +64,7 @@ import VideoCalling from "../../Pages/VideoCalling/VideoCalling/VideoCalling";
 import CallingVideo from "../../Layout/CallingVideo/CallingVideo";
 import CallingRoom from "../../Pages/VideoCalling/CallingRoom/CallingRoom";
  
-
+ 
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -84,7 +78,6 @@ export const router = createBrowserRouter([
       {
         path: "/serviceDetails/:id",
         element: <ServiceDetails></ServiceDetails>,
-
       },
       {
         path: "/Leaderboard",
@@ -104,9 +97,7 @@ export const router = createBrowserRouter([
         path: "/instructor/:id",
         element: <Instructors></Instructors>,
         loader: ({ params }) =>
-          fetch(
-            `http://localhost:5000/instructor/${params.id}`
-          ),
+          fetch(`http://localhost:5000/instructor/${params.id}`),
       },
 
       {
@@ -179,6 +170,10 @@ export const router = createBrowserRouter([
           },
 
           {
+            path: "/Profile/notification",
+            element: <Notification></Notification>,
+          },
+          {
             path: "/Profile/AllUsers",
             element: (
               <AdminRoute>
@@ -231,15 +226,17 @@ export const router = createBrowserRouter([
         path: `/logs/allactivities`,
         element: <AllActivities />,
       },
-      {
-        path: "/Friends/Friend/:id",
-        element: <Friend></Friend>,
-        loader: ({params}) => fetch (`http://localhost:5000/friends/${params.id}`)
-      },
-      {
+ 
+      // {
+      //   path: "/Friends/Friend/:id",
+      //   element: <Friend></Friend>,
+      //   loader: ({ params }) =>
+      //     fetch(`http://localhost:5000/friends/${params.id}`),
+      // },
+       {
         path: "/blog/:id",
-        element: <BlogDetails></BlogDetails>
-      }
+        element: <BlogDetails></BlogDetails>,
+      },
     ],
   },
 
