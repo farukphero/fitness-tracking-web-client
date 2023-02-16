@@ -7,6 +7,7 @@ import { AuthContext } from "../../../../../../Contexts/AuthProvider/AuthProvide
 import DatePicker from "react-datepicker";
 import { FoodContext } from "../../../../../../Contexts/FoodProvider/FoodProvider";
 
+ 
 const FoodLog = ({
   logedFood,
   setLogedFood,
@@ -38,6 +39,7 @@ const FoodLog = ({
       .then((data) => setData(data));
   }, [setData]);
   // console.log(data)
+ 
 
   const handleOnChange = (event) => {
     setFoodValue(event.target.value);

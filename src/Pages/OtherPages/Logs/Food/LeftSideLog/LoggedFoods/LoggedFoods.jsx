@@ -3,15 +3,16 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 
 const LoggedFoods = ({ logedFood, result, setResult, startDate, setStartDate }) => {
+ 
   useEffect(() => {
-    let total = (logedFood.reduce((sum, food) => sum + parseInt(food.calorey), 0));
+    let total = (logedFood?.reduce((sum, food) => sum + parseInt(food?.calorey), 0));
     setResult(total);
   }, [logedFood]);
 // new pull
   const handleFavoriteFood =(food)=>{
-    const favouriteFood = {food: food.food, amount: food.amount, calorey: food.calorey, time: food.time, userEmail: food.userEmail, date: food.date}
+    const favouriteFood = {food: food?.food, amount: food?.amount, calorey: food?.calorey, time: food?.time, userEmail: food?.userEmail, date: food?.date}
     console.log(favouriteFood)
-    fetch('https://fitness-tracking-web-server.vercel.app/favouriteFood', {
+    fetch('http://localhost:5000/favouriteFood', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -26,7 +27,7 @@ const LoggedFoods = ({ logedFood, result, setResult, startDate, setStartDate }) 
   }
 
   const handleDeleteLogFood = (food) =>{
-    fetch(`https://fitness-tracking-web-server.vercel.app/loggedFood/${food._id}`, { 
+    fetch(`http://localhost:5000/loggedFood/${food?._id}`, { 
             method: 'DELETE' 
         })
             .then(res=>res.json())
@@ -60,11 +61,11 @@ const LoggedFoods = ({ logedFood, result, setResult, startDate, setStartDate }) 
             </tr>
           </thead>
           <tbody>
-            {logedFood?.map(food => <tr  key={food._id}>
-              <th className="bg-white text-black">{food.food}</th>
-              <td className="bg-white text-black">{food.amount}</td>
-              <td className="bg-white text-black">{food.calorey}</td>
-              <td className="bg-white text-black">{food.time}</td>
+            {logedFood?.map(food => <tr  key={food?._id}>
+              <th className="bg-white text-black">{food?.food}</th>
+              <td className="bg-white text-black">{food?.amount}</td>
+              <td className="bg-white text-black">{food?.calorey}</td>
+              <td className="bg-white text-black">{food?.time}</td>
 
               <td className="bg-white text-black"><button onClick={()=>handleFavoriteFood(food)} className="btn btn-xs text-white">Add To Favourite</button></td>
               
