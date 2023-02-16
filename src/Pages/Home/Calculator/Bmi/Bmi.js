@@ -26,8 +26,8 @@ const Bmi = () => {
   };
   return (
     <div>
-      <div className="grid grid-cols-1 lg:grid-cols-2  mt-20 mb-44">
-        <div className="flex justify-center">
+      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2  mt-20 mb-44">
+         <div className="flex justify-center">
           <Lottie
             className="w-2/3"
             animationData={working5}
@@ -36,7 +36,7 @@ const Bmi = () => {
         </div>
 
         <div
-          className="mt-8 ml-24 lg:ml-2 box rounded-lg w-1/2 px-8 pt-20 pb-4 lg:pb-0   "
+          className="mt-8 ml-24 md:ml-52 lg:ml-2 box rounded-lg w-1/2 px-8 pt-20 pb-4 lg:pb-0   "
           data-aos="fade-down"
           data-aos-easing="linear"
           data-aos-duration="1000"

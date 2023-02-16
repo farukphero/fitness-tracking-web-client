@@ -114,7 +114,7 @@ const AddTutorials = () => {
             <div className="my-3">
               <button
                 type="submit"
-                className="btn btn-log  bg-sky-400  text-black w-full border-none   rounded-md"
+                className="btn btn-log  bg-secondary text-black w-full border-none   rounded-md"
               >
                 Done
               </button>
@@ -151,7 +151,7 @@ const AddTutorials = () => {
                 <div className="text-center">
                   <button
                     type="submit"
-                    className="btn btn-log  bg-sky-400  text-black w-full border-none   rounded-md"
+                    className="btn btn-log  bg-secondary text-black w-full border-none   rounded-md"
                   >
                     Done
                   </button>

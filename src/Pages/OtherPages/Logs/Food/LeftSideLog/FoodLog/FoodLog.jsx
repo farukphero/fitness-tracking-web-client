@@ -243,8 +243,8 @@ const FoodLog = ({
           </div>
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-log text-black text-2xl  bg-sky-400  w-full border-none   rounded-md">
-            Log
+          <button className="btn btn-log text-black text-2xl  bg-secondary  w-full border-none   rounded-md">
+            log
           </button>
         </div>
       </form>

@@ -12,7 +12,7 @@ const SignIn = () => {
   useTitle("SignIn");
   const { accountLogIn, providerGoogleLogIn } = useContext(AuthContext);
   const provider = new GoogleAuthProvider();
-  const [signInError, setSignInError] = useState('')
+  const [signInError, setSignInError] = useState("");
 
   const navigate = useNavigate();
   const {
@@ -25,9 +25,9 @@ const SignIn = () => {
     accountLogIn(data.email, data.password)
       .then((result) => {
         const user = result.user;
-        <Loading></Loading>
-        setSignInError()
-        toast.success("Sign In success")
+        <Loading></Loading>;
+        setSignInError();
+        toast.success("Sign In success");
         navigate("/Leaderboard");
       })
       .catch((error) => setSignInError(error.message));
@@ -37,9 +37,9 @@ const SignIn = () => {
     providerGoogleLogIn(provider)
       .then((result) => {
         const user = result.user;
-        <Loading></Loading>
-        setSignInError()
-        toast.success("Sign In success")
+        <Loading></Loading>;
+        setSignInError();
+        toast.success("Sign In success");
         navigate("/Leaderboard");
       })
       .catch((error) => setSignInError(error));
@@ -98,11 +98,11 @@ const SignIn = () => {
                     name="password"
                   />
                 </div>
-                 <p className="text-red-500 my-2">{signInError}</p>
+                <p className="text-red-500 my-2">{signInError}</p>
                 <input
                   type="submit"
                   value="Sign In"
-                  className="btn bg-secondary hover:bg-secondary text-black w-full border-2  border-green-600 rounded-md"
+                  className="btn btn-log  bg-secondary text-black w-full border-none   rounded-md"
                 />
                 <div className="flex flex-col w-full ">
                   <div className="divider">OR</div>
