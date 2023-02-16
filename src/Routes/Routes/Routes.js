@@ -55,6 +55,7 @@ import BloodTracking from "../../Pages/Home/Calculator/BloodTracking/BloodTracki
 import Protein from "../../Pages/Home/Calculator/Protein/Protein";
 import BlogDetails from "../../Pages/Home/Blog/BlogDetails";
 import Friends from "../../Pages/OtherPages/CommunityFriend/Friends/Friends";
+import Friend from "../../Pages/OtherPages/CommunityFriend/Friends/Friend";
  
 import Instructor from "../../Pages/Home/Instructor/Instructor";
 import Instructors from "../../Pages/Home/Instructor/Instructors";
