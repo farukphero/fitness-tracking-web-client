@@ -47,7 +47,7 @@ const Navbar = () => {
     },
     {
       _id: 4,
-      navigate: `/checkup`,
+      navigate: `/checkup/instructors`,
       aria: `Checkup`,
       content: `Checkup`,
     },

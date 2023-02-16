@@ -288,7 +288,7 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: `/checkup/`,
+    path: `/checkup`,
     element: <MeetInstructors />,
     children: [
       {

@@ -3,6 +3,7 @@ import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../../Contexts/AuthProvider/AuthProvider";
 import { BiSend } from 'react-icons/bi';
+import ScrollToBottom from 'react-scroll-to-bottom';
 
 const Friends = () => {
   const { user, userInfo } = useContext(AuthContext);
@@ -80,19 +81,20 @@ const Friends = () => {
         <div className="drawer-content flex flex-col w-full">
           {/* <!-- Page content here --> */}
           <div >
-            <div className="relative">
+          <ScrollToBottom>
+          <div className="relative">
               {messages?.map((message) => (
                 <div>
                   {message?.id === userInfo._id ? (
                     <div className="flex gap-3 mt-12 ml-10">
                     <img className="h-8 w-8 rounded-full" src={message?.image} alt="" />
-                      <p className="text-black bg-secondary p-3 rounded-md bg-opacity-40  ">
+                      <p className="text-black bg-secondary p-3 rounded-md bg-opacity-40 mb-8">
                         {message?.msg}
                       </p>
                     </div>
                   ) : (
-                    <div className="flex gap-3 absolute right-0 mt-8 mr-10">
-                      <p className="text-black bg-green-400 p-3 rounded-md">
+                    <div className="flex gap-3 absolute right-0 mt-10 mr-10">
+                      <p className="text-black bg-green-400 p-3 rounded-md mb-5">
                         {message?.msg}
                       </p>
                       <img className="h-8 w-8 rounded-full" src={message?.image} alt="" />
@@ -101,6 +103,8 @@ const Friends = () => {
                 </div>
               ))}
             </div>
+          </ScrollToBottom>
+            
             <div className="absolute bottom-0 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 w-full"> 
             <form className="flex my-5 mx-5 lg:mx-0" onSubmit={sendMsg}>
               <input
