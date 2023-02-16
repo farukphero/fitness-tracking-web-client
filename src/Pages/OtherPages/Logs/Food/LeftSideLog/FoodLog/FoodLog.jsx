@@ -16,12 +16,7 @@ const FoodLog = ({
   setItem,
   setShowForm,
 }) => {
-  // const [foodValue, setFoodValue] = useState('');
-  // const [foodData, setFoodData] = useState({});
-  // const [foodAmount, setFoodAmount] = useState('');
-  // const [foodCalory, setFoodCalory] = useState('');
-  // const [data, setData] = useState([]);
-
+   
   const {
     foodValue,
     setFoodValue,
@@ -36,21 +31,12 @@ const FoodLog = ({
   } = useContext(FoodContext);
 
   const user = useContext(AuthContext);
-  // console.log(logedFood)
-  // console.log(user.user.email)
-
-  //   const currentDate = new Date();
-  // const year = currentDate.getFullYear();
-  // const month = currentDate.getMonth();
-  // const day = currentDate.getDate();
-
-  // const currentDateOnly = new Date(year, month, day);
-  // const [startDate, setStartDate] = useState(currentDateOnly);
+ 
   useEffect(() => {
     fetch("https://fitness-tracking-web-server.vercel.app/foods")
       .then((res) => res.json())
       .then((data) => setData(data));
-  }, []);
+  }, [setData]);
   // console.log(data)
 
   const handleOnChange = (event) => {

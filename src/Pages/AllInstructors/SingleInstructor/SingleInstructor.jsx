@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const SingleInstructor = ({ instructor }) => {
   const navigate = useNavigate();
 
-  const { _id, name, certifications, specialties, consultation_fee } =
+  const { _id, name, certifications, specialties, consultation_fee,image } =
     instructor;
 
   const handleInstructor = () => {
@@ -17,12 +17,12 @@ const SingleInstructor = ({ instructor }) => {
   return (
     <div
       onClick={handleInstructor}
-      className="card rounded-md flex md:flex-row w-11/12 my-6 mx-auto bg-base-100 justify-center items-center cursor-pointer"
+      className="card rounded-md flex md:flex-row w-10/12 my-6 mx-auto bg-gradient-to-r from-gray-700 via-teal-900 to-gray-700 justify-center items-center cursor-pointer py-10"
     >
       <div className="basis-1/6">
         <figure className="p-4">
           <img
-            src="https://i.ibb.co/5FQQfXp/2023-01-15-01-22.png"
+            src={image}
             alt="Shoes"
             className="rounded-xl w-32 h-32"
           />
@@ -35,7 +35,7 @@ const SingleInstructor = ({ instructor }) => {
           <p>{certifications[0]}</p>
         </div>
         <div>
-          <p>specialties:</p>
+          <p>Specialties:</p>
           {specialties.map((special) => (
             <span>{special}, </span>
           ))}
@@ -44,18 +44,18 @@ const SingleInstructor = ({ instructor }) => {
 
       <div className="flex flex-col gap-y-2 basis-1/3">
         <div>
-          <p className="font-thin">working in</p>
+          <p className="font-thin">Working in</p>
           <h4 className="font-bold text-lg">
             Upazila Health Complex,Faridganj,Chandpur
           </h4>
         </div>
         <div className="flex space-x-3">
           <div>
-            <p className="font-thin">total experience.</p>
+            <p className="font-thin">Total Experience.</p>
             <h4 className="font-semibold">5 years</h4>
           </div>
           <div>
-            <p>total rating:(2384)</p>
+            <p>Total Rating:(2384)</p>
             <div className="flex">
               <AiFillStar className="text-yellow-500" />
               <AiFillStar className="text-yellow-500" />
@@ -70,13 +70,13 @@ const SingleInstructor = ({ instructor }) => {
       <div className="flex flex-col gap-y-2 justify-center items-center basis-1/4">
         <div className="flex space-x-2 items-center">
           <div className="font-bold flex text-2xl">
-            <TbCurrencyTaka className="text-4xl font-bold" />{" "}
+            <TbCurrencyTaka className="text-4xl font-bold" /> 
             <span>{consultation_fee.slice(1, 4)}</span>
           </div>
           <p>(incl. vat)</p>
           <BsArrowRight />
         </div>
-        <p>per consultration</p>
+        <p>Per Consultation</p>
       </div>
     </div>
   );

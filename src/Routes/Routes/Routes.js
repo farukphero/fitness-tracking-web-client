@@ -230,7 +230,10 @@ export const router = createBrowserRouter([
         path: "/Community/friends",
         element: <Friends></Friends>,
       },
-
+      {
+        path: `/checkup/instructors`,
+        element: <AllInstructors />,
+      },
       {
         path: `/logs/allactivities`,
         element: <AllActivities />,
@@ -287,28 +290,26 @@ export const router = createBrowserRouter([
       },
     ],
   },
-  {
-    path: `/checkup`,
-    element: <MeetInstructors />,
-    children: [
-      {
-        path: `/checkup/instructors`,
-        element: <AllInstructors />,
-      },
-    ],
-  },
+  // {
+  //   path: `/checkup`,
+  //   element: <MeetInstructors />,
+  //   children: [
+      
+  //   ],
+  // },
+  // {
+  //   path: `/video`,
+  //   element: <CallingVideo />,
+  //   children: [
+     
+  //   ],
+  // },
   {
     path: `/video`,
-    element: <CallingVideo />,
-    children: [
-      {
-        path: `/video`,
-        element: <VideoCalling />,
-      },
-      {
-        path: `/video/room/:roomid`,
-        element: <CallingRoom />,
-      },
-    ],
+    element: <VideoCalling />,
+  },
+  {
+    path: `/video/room/:roomid`,
+    element: <CallingRoom />,
   },
 ]);

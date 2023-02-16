@@ -31,9 +31,10 @@ const CallingRoom = () => {
   };
 
   return (
-    <div style={{ width: "100vh" }}>
-      <div ref={myMeeting} />
-    </div>
+    <div
+      className="lg:w-[1200px] lg:h-[750px] mx-auto scale-50 lg:scale-125 lg:ml-36 -ml-20 h-96 w-96"
+      ref={myMeeting}
+    ></div>
   );
 };
 
