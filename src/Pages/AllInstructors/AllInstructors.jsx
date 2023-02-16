@@ -23,7 +23,17 @@ const AllInstructors = () => {
 
   return (
     <div>
-      <SingleInstructor />
+      <h2 className="text-center mt-10 font-bold text-xl">
+        {instructors?.length > 0 ? instructors.length : 0}
+        <span>
+          {" "}{instructors?.length === 1 ? `instructor found` : `insturctors found`}
+        </span>
+      </h2>
+      <div>
+        {instructors?.map((instructor) => (
+          <SingleInstructor key={instructor._id} instructor={instructor} />
+        ))}
+      </div>
     </div>
   );
 };

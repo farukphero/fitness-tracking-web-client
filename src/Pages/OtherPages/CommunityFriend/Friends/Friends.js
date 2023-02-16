@@ -6,8 +6,6 @@ import { BiSend } from 'react-icons/bi';
 
 const Friends = () => {
   const { user, userInfo } = useContext(AuthContext);
-  // console.log(userInfo)
-  // console.log(userInfo)
   const [friendImage, setFriendImage] = useState("");
   const [friendEmail, setFriendEmail] = useState("");
   const [friendName, setFriendName] = useState("");
@@ -88,13 +86,13 @@ const Friends = () => {
                   {message?.id === userInfo._id ? (
                     <div className="flex gap-3 mt-12 ml-10">
                     <img className="h-8 w-8 rounded-full" src={message?.image} alt="" />
-                      <p className="text-black  my-2">
+                      <p className="text-black bg-secondary p-3 rounded-md bg-opacity-40  ">
                         {message?.msg}
                       </p>
                     </div>
                   ) : (
                     <div className="flex gap-3 absolute right-0 mt-8 mr-10">
-                      <p className="text-black my-2">
+                      <p className="text-black bg-green-400 p-3 rounded-md">
                         {message?.msg}
                       </p>
                       <img className="h-8 w-8 rounded-full" src={message?.image} alt="" />
