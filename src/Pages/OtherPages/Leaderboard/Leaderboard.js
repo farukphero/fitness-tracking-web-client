@@ -34,11 +34,7 @@ const Leaderboard = () => {
                         <p className='text-center text-gray-400 text-sm'>Set your daily calorie estimate.</p>
                         <div className='text-center mt-4 mb-12'>
  
-                            <label htmlFor="food-modal" className="px-4 py-2 bg-green-700 rounded-full text-white ">Start Now</label>
- 
-                            <Link to=""> <button className="px-4 py-2 bg-green-700 rounded-full text-white text-lg">Start Now</button></Link>
-                            {/* <label htmlFor="food-modal" className="px-4 py-2 bg-green-700 rounded-full text-white "></label> */}
- 
+                            <label htmlFor="food-modal" className="px-4 py-3 bg-green-700 rounded-full text-white text-lg">Start Now</label>
                         </div>
                         <FoodPlanModal></FoodPlanModal>
                     </div>

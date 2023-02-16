@@ -3,41 +3,28 @@ import ReactDatePicker from "react-datepicker";
 import { AuthContext } from "../../../../../../Contexts/AuthProvider/AuthProvider";
 
 const WaterLog = ({ startDate, setStartDate }) => {
- 
-    const user = useContext(AuthContext)
+  const user = useContext(AuthContext);
 
+  // const currentDate = new Date();
+  // const year = currentDate.getFullYear();
+  // const month = currentDate.getMonth();
+  // const day = currentDate.getDate();
 
-    const handleWaterLog = (event) => {
-        event.preventDefault()
-        const water = event.target.water.value;
-        const amount = event.target.amount.value
-        let amountWithQuantity = event.target.amount.value + event.target.unit.value;
-        // const unit = event.target.unit.value;
-        const time = event.target.time.value;
-        if (amountWithQuantity.includes('glass')) {
-            amountWithQuantity = amount * 240
-        }
-        else if (amountWithQuantity.includes('liter')) {
-            amountWithQuantity = amount * 1000
-        }
-        const waterInfo = { water, amountWithQuantity, time, email: user?.user?.email, date: startDate.toLocaleDateString() }
-        console.log(waterInfo)
-        fetch('https://fitness-tracking-web-server.vercel.app/loggedWater', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(waterInfo)
-        })
-            .then(res => res.json())
-            .then(result => {
-                console.log(result)
-                if (result.acknowledged) {
-                    // refetch()
-                }
-            })
- 
-   
+  // const currentDateOnly = new Date(year, month, day);
+  // const [startDate, setStartDate] = useState(currentDateOnly);
+
+  const handleWaterLog = (event) => {
+    event.preventDefault();
+    const water = event.target.water.value;
+    const amount = event.target.amount.value;
+    let amountWithQuantity =
+      event.target.amount.value + event.target.unit.value;
+    // const unit = event.target.unit.value;
+    const time = event.target.time.value;
+    if (amountWithQuantity.includes("glass")) {
+      amountWithQuantity = amount * 240;
+    } else if (amountWithQuantity.includes("liter")) {
+      amountWithQuantity = amount * 1000;
     }
     const waterInfo = {
       water,
