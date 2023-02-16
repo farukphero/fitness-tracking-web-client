@@ -3,17 +3,17 @@ import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
-import { FcGoogle } from 'react-icons/fc';
+import { FcGoogle } from "react-icons/fc";
 import useTitle from "../../Hooks/useTitle/useTitle";
 import Loading from "../../Components/Loading/Loading";
 import { toast } from "react-hot-toast";
 
-
 const SignUp = () => {
-  useTitle("SignUp")
-  const { createUserByEmail,providerGoogleLogIn, updateUser } = useContext(AuthContext);
+  useTitle("SignUp");
+  const { createUserByEmail, providerGoogleLogIn, updateUser } =
+    useContext(AuthContext);
   const provider = new GoogleAuthProvider();
-  const [signUpError, setSignUpError] = useState("")
+  const [signUpError, setSignUpError] = useState("");
   const {
     register,
     handleSubmit,
@@ -28,11 +28,10 @@ const SignUp = () => {
       // console.log(data.email, data.password)
       .then((result) => {
         const user = result.user;
-        <Loading></Loading>
-        toast.success("Welcome to FITLESSIAN")
+        <Loading></Loading>;
+        toast.success("Welcome to FITLESSIAN");
         const profile = {
           displayName: data.firstName + data.lastName,
-           
         };
         updateUser(profile)
           .then(() => {
@@ -41,10 +40,9 @@ const SignUp = () => {
           .catch((error) => {
             console.log(error);
           });
-       
       })
       .catch((error) => {
-        setSignUpError(error.message)
+        setSignUpError(error.message);
         console.log(error);
       });
   };
@@ -53,8 +51,8 @@ const SignUp = () => {
     providerGoogleLogIn(provider)
       .then((result) => {
         const user = result.user;
-        <Loading></Loading>
-        toast.success("Welcome to FITLESSIAN")
+        <Loading></Loading>;
+        toast.success("Welcome to FITLESSIAN");
         navigate("/UserDetails");
       })
       .catch((error) => console.log(error));
@@ -73,7 +71,7 @@ const SignUp = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log('save user',data)
+        console.log("save user", data);
         // setCreatedUserEmail(email);
         navigate("/UserDetails");
       });
@@ -154,11 +152,17 @@ const SignUp = () => {
                 <input
                   type="submit"
                   value="Sign Up"
-                  className="btn bg-secondary hover:bg-secondary text-black w-full border-2  border-green-600 rounded-md"
+                  className="btn btn-log  bg-secondary text-black w-full border-none   rounded-md"
                 />
                 <div className="flex flex-col w-full  ">
                   <div className="divider  ">OR</div>
-                  <button>  <FcGoogle onClick={handleGoogleSignUp}   className="w-10 h-10 ml-32 md:ml-52 mb-12"/></button>
+                  <button>
+                    {" "}
+                    <FcGoogle
+                      onClick={handleGoogleSignUp}
+                      className="w-10 h-10 ml-32 md:ml-52 mb-12"
+                    />
+                  </button>
                 </div>
               </form>
             </div>

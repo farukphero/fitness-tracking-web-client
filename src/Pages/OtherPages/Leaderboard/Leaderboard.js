@@ -33,7 +33,12 @@ const Leaderboard = () => {
                         <h1 className='text-xl text-center'>Food Plan</h1>
                         <p className='text-center text-gray-400 text-sm'>Set your daily calorie estimate.</p>
                         <div className='text-center mt-4 mb-12'>
+ 
                             <label htmlFor="food-modal" className="px-4 py-2 bg-green-700 rounded-full text-white ">Start Now</label>
+ 
+                            <Link to=""> <button className="px-4 py-2 bg-green-700 rounded-full text-white text-lg">Start Now</button></Link>
+                            {/* <label htmlFor="food-modal" className="px-4 py-2 bg-green-700 rounded-full text-white "></label> */}
+ 
                         </div>
                         <FoodPlanModal></FoodPlanModal>
                     </div>
@@ -43,7 +48,7 @@ const Leaderboard = () => {
                         <h1 className='text-center text-2xl'>Weight Goal</h1>
                         <p className='text-center text-gray-400 text-sm'>Have a weight goal?</p>
                         <div className='text-center mt-4 mb-12'>
-                            <label htmlFor="weight-modal" className="px-4 py-2 bg-green-700 rounded-full text-white btn ">Start Now</label>
+                            <label htmlFor="weight-modal" className="px-4 py-2 bg-green-700 hover:bg-green-600 rounded-full text-white btn">Start Now</label>
                         </div>
                         <WeightModal></WeightModal>
                     </div>
@@ -57,7 +62,7 @@ const Leaderboard = () => {
                         <h1 className='text-center text-2xl'>Water</h1>
                         <p className='text-center  text-gray-400 text-sm'>At Least 800 ml daily</p>
                         <div className='text-center mt-4 mb-12'>
-                            <label htmlFor="water-modal" className="px-4 py-2 bg-green-700 rounded-full text-white ">Start Now</label>
+                            <label htmlFor="water-modal" className="px-4 py-3 bg-green-700 rounded-full text-white text-lg">Start Now</label>
                         </div>
                         <WaterModal></WaterModal>
                     </div>

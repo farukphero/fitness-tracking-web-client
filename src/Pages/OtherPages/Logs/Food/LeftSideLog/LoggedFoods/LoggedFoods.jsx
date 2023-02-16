@@ -3,8 +3,7 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 
 const LoggedFoods = ({ logedFood, result, setResult, startDate, setStartDate }) => {
-  
-
+ 
   useEffect(() => {
     let total = (logedFood?.reduce((sum, food) => sum + parseInt(food?.calorey), 0));
     setResult(total);

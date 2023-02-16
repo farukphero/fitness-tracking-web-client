@@ -1,18 +1,20 @@
-import React, { useCallback, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useCallback, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 const VideoCalling = () => {
-    const [value, setValue] = useState();
+  const [value, setValue] = useState();
   const navigate = useNavigate();
 
   const handleJoinRoom = useCallback(() => {
     navigate(`/video/room/${value}`);
   }, [navigate, value]);
 
-    return (
-        <div>
+  return (
+    <div>
+     
       <div className="form-container">
-        <input 
+        <input
           type="text"
           onChange={(e) => setValue(e.target.value)}
           placeholder="enter your room"
@@ -20,7 +22,7 @@ const VideoCalling = () => {
         <button onClick={handleJoinRoom}>join</button>
       </div>
     </div>
-    );
+  );
 };
 
 export default VideoCalling;

@@ -5,8 +5,10 @@ import CommunityFriends from "./CommunityFriends";
 import { useContext } from "react";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import Loading from "../../../Components/Loading/Loading";
+import useTitle from "../../../Hooks/useTitle/useTitle";
 
 const CommunityFriend = () => {
+  useTitle("Community/AllUsers")
   const { user, userInfo } = useContext(AuthContext);
   const [usersWithoutPresent, setUsersWithoutPresent] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -27,9 +29,13 @@ const CommunityFriend = () => {
 
   return (
     <div className="">
-      <div className="w-10/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 relative">
+      <div 
+      className="w-10/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 relative"
+      >
         {loading ? (
-          <div className="absolute bottom-20 -left-28">
+          <div 
+          className="absolute bottom-20 -left-28"
+          >
             <Loading></Loading>
           </div>
         ) : (

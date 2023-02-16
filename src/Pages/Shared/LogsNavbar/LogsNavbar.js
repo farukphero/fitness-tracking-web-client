@@ -8,7 +8,7 @@ const LogsNavbar = () => {
       { _id: 2, name: `Activities` },
       { _id: 1, name: `Food` },
       { _id: 3, name: `Weight` },
-      { _id: 4, name: `Sleep` },
+      // { _id: 4, name: `Sleep` },
     ],
   });
 
@@ -21,9 +21,9 @@ const LogsNavbar = () => {
 
   const addStyles = (index) => {
     if (activeState?.navItems[index]?._id === activeState?.active) {
-      return `border-none bg-secondary text-black mb-0 px-3 py-1 rounded`;
+      return `border-none bg-secondary text-black mb-0 px-3 py-2 rounded-lg`;
     } else {
-      return `border-2 px-3 py-1 rounded mb-0`;
+      return `border-2 px-3 py-2 rounded-lg mb-0`;
     }
   };
 

@@ -1,98 +1,137 @@
-import React from 'react';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from "react";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
+import { Link } from "react-router-dom";
+import faq from "../../../images/support.json";
+import Lottie from "lottie-react";
 
-const FeatureClass = () => {
+const Faqs = () => {
+  const { user } = useContext(AuthContext);
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
 
-    const [add, setAdd] = useState('')
+  const [add, setAdd] = useState("");
 
+  const handlask = (data) => {
+    const askDetails = {
+      ask: data.msg,
+      user: user?.email,
+      Name: data?.name,
+      Email: data?.email,
+    };
 
+    fetch("https://fitness-tracking-web-server.vercel.app/questions", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(askDetails),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
 
-    const clikadd = () => {
-        const faq = <>
-            <p className='text-black'> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta qui temporibus quae ipsum rerum laborum cumque nisi similique nesciunt. Quod aspernatur perferendis neque nesciunt exercitationem placeat rerum, sed enim? Atque? </p></>
-        setAdd(faq)
-    }
+  const Faq = [
+    {
+      id: 1,
+      quetions: "What is fitness tracking?",
+      answer:
+        "Fitness tracking refers to the use of technology, such as wearable devices or smartphone apps, to monitor various aspects of an individual's physical activity and health, such as steps taken, calories burned, heart rate, sleep, etc.",
+    },
+    {
+      id: 2,
+      quetions: "How do I access a Fitlessian?",
+      answer:
+        "You can access a fitness tracking web application by logging into the application's website on your computer or mobile device with an internet connection.",
+    },
+    {
+      id: 3,
+      quetions: "Who uses Fitlessian?",
+      answer:
+        "fitlessian are used by individuals who want to monitor their physical activity and health, including athletes, fitness enthusiasts, and those who are simply looking to become more active and improve their overall health",
+    },
+    {
+      id: 4,
+      quetions: "Why you use Fitlessian?",
+      answer:
+        "Fitlessian can help you keep track of your progress, set and achieve fitness goals, motivate you to be more active, and provide insights into your overall health.",
+    },
+  ];
 
-    const Faq = [
+  return (
+    <div
+      className="w-full mb-10 shadow-xl image-full bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 mt-20"
+      data-aos="fade-up"
+      data-aos-easing="linear"
+      data-aos-duration="2000"
+    >
+      <p className="text-4xl font-bold text-all-green text-center mb-4">
+        Whats Your Questions
+      </p>
 
-        {
-            id: 1,
-            quetions: "What is fitness tracking?",
-            answer: "Fitness tracking refers to the use of technology, such as wearable devices or smartphone apps, to monitor various aspects of an individual's physical activity and health, such as steps taken, calories burned, heart rate, sleep, etc."
-
-        },
-        {
-            id: 2,
-            quetions: "How do I access a Fitlessian?",
-            answer: "You can access a fitness tracking web application by logging into the application's website on your computer or mobile device with an internet connection."
-        },
-        {
-            id: 3,
-            quetions: "Who uses Fitlessian?",
-            answer: "fitlessian are used by individuals who want to monitor their physical activity and health, including athletes, fitness enthusiasts, and those who are simply looking to become more active and improve their overall health"
-        },
-        {
-            id: 4,
-            quetions: "Why you use Fitlessian?",
-            answer: "Fitlessian can help you keep track of your progress, set and achieve fitness goals, motivate you to be more active, and provide insights into your overall health."
-        }
-    ]
-
-
-
-
-    return (
-        <div className='mt-8 m-10 py-10 mx-auto'>
-            <p className='text-4xl font-bold text-white text-center mb-4'>Whats Your Questions</p>
-            <div className="">
-                <div className="hero-content flex-col lg:flex-row">
-                    <img className='w-1/2' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbfdqBE5E2BUtdUp2BfKUKYpv82WfPyAZpvw&usqp=CAU" alt='' />
-                    <div>
-                        <div className='lg:ml-10 m-10 mt-10 grid grid-cols-1 mx-auto gap-4'>
-                            {
-
-                                Faq.map(faq => <div>
-
-                                    <body className='bg-slate-100 w-80 rounded-xl shadow-red-500 drop-shadow-2xl '>
-                                        <div className='flex justify-center'>
-
-                                            <div className='relative p-3  text-black '>
-
-                                                <input className='absolute peer' type="checkbox"></input>
-                                                <div className='mb-3 mt-3'>
-
-                                                    <label className='mt-3 text-2xl px-8 font-semibold text-blue-700 ml-2 tracking-[1px] mx-[20px] h-[50px] flex items-center' for="input">{faq.quetions}</label>
-
-                                                </div>
-
-                                                <div className=' max-h-0 overflow-hidden peer-checked:max-h-full'>
-                                                    <p>{faq.answer}</p>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </body>
-
-                                </div>)
-                            }
-
-
+      <div className="hero">
+        <div className="hero-content flex-col lg:flex-row">
+        
+            <Lottie
+              className="w-full scale-110"
+              animationData={faq}
+              loop={true}
+            ></Lottie>
+         
+          <div>
+            <div className="h-1/2 mt-10 w-full grid grid-cols-1 mx-auto gap-4">
+              {Faq.map((faq) => (
+                <div>
+                  <body className="bg-gray-800 rounded-xl shadow-red-500 drop-shadow-2xl ">
+                    <div className="flex justify-center">
+                      <div className="relative p-3  text-white ">
+                        <input
+                          className="absolute peer"
+                          type="checkbox"
+                        ></input>
+                        <div className="mb-3 mt-3">
+                          <label
+                            className="mt-3 text-2xl px-8 font-semibold text-white ml-2 tracking-[1px] mx-[20px] h-[50px] flex items-center"
+                            for="input"
+                          >
+                            {faq.quetions}
+                          </label>
                         </div>
+
+                        <div className="max-h-0 overflow-hidden peer-checked:max-h-full">
+                          <p>{faq.answer}</p>
+                        </div>
+                      </div>
                     </div>
+                  </body>
                 </div>
+              ))}
             </div>
-
-            <div className='items-center justify-center text-center'>
-                <Link to='/faq' className='btn btn-outline'>see more</Link>
-            </div>
-
+          </div>
         </div>
+      </div>
 
+      {/* The button to open modal */}
+      <div className="flex justify-center mt-8 pb-16">
+        <Link to="faq"
+          
+          className="btn-explore-about  border-2 px-8 py-3 border-green-600 rounded-md"
+        >
+        See More
+        </Link>
+      </div>
 
-
-    );
+      {/* Put this part before </body> tag */}
+      
+      
+    </div>
+  );
 };
 
-export default FeatureClass;
+export default Faqs;

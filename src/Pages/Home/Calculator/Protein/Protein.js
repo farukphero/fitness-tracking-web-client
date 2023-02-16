@@ -3,8 +3,10 @@ import React, { useState } from "react";
 import working17 from "../../../../assets/95592-preparing-food.json";
 
 import Lottie from "lottie-react";
+import useTitle from "../../../../Hooks/useTitle/useTitle";
 
 const Protein = () => {
+  useTitle("Protein")
   const [proteinTrack, setProteinTrack] = useState();
 
   const [weight, setWeight] = useState();
@@ -29,7 +31,7 @@ const Protein = () => {
           </div>
 
           <div
-            className="mt-8 ml-24 lg:ml-2 box w-1/2 px-8 rounded-lg pt-8 lg:pt-16 pb-8 lg:pb-14 "
+            className="mt-8 ml-24 md:ml-52 lg:ml-2 box w-1/2 px-8 rounded-lg pt-8 lg:pt-16 pb-8 lg:pb-14 "
             data-aos="fade-down"
             data-aos-easing="linear"
             data-aos-duration="1000"
@@ -80,3 +82,5 @@ const Protein = () => {
 };
 
 export default Protein;
+
+// btn btn-log  bg-secondary text-black w-full border-none   rounded-md

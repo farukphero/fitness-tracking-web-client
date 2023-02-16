@@ -19,9 +19,9 @@ module.exports = {
 
           success: "#1A0939",
 
-          warning: "#1E1842",
+          warning: "#93bfcf",
 
-           baset: "#9C0EFF",
+           beset: "#93bfcf",
         }
       }
     ]

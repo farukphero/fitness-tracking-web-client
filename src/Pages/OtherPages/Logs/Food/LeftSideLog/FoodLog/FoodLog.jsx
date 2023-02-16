@@ -7,94 +7,120 @@ import { AuthContext } from "../../../../../../Contexts/AuthProvider/AuthProvide
 import DatePicker from "react-datepicker";
 import { FoodContext } from "../../../../../../Contexts/FoodProvider/FoodProvider";
 
-const FoodLog = ({ logedFood, setLogedFood, startDate, setStartDate, item, setItem, setShowForm , }) => {
-
-  const {foodValue, setFoodValue, foodData, setFoodData, foodAmount, setFoodAmount, foodCalory, setFoodCalory, data, setData} = useContext(FoodContext);
  
+const FoodLog = ({
+  logedFood,
+  setLogedFood,
+  startDate,
+  setStartDate,
+  item,
+  setItem,
+  setShowForm,
+}) => {
+   
+  const {
+    foodValue,
+    setFoodValue,
+    foodData,
+    setFoodData,
+    foodAmount,
+    setFoodAmount,
+    foodCalory,
+    setFoodCalory,
+    data,
+    setData,
+  } = useContext(FoodContext);
+
   const user = useContext(AuthContext);
-  
-
-
+ 
   useEffect(() => {
-    fetch('https://fitness-tracking-web-server.vercel.app/foods')
-      .then(res => res.json())
-      .then(data => setData(data))
-  }, [])
+    fetch("https://fitness-tracking-web-server.vercel.app/foods")
+      .then((res) => res.json())
+      .then((data) => setData(data));
+  }, [setData]);
+  // console.log(data)
  
 
-  const handleOnChange = event => {
+  const handleOnChange = (event) => {
     setFoodValue(event.target.value);
-    if (event.target.value === '') {
-      setFoodAmount('')
-      setFoodData({})
-      setFoodCalory("")
+    if (event.target.value === "") {
+      setFoodAmount("");
+      setFoodData({});
+      setFoodCalory("");
     }
+  };
 
-  }
-
-  const onSearch = searchTerm => {
-    setFoodValue(searchTerm.name)
-    setFoodData(searchTerm)
-  }
+  const onSearch = (searchTerm) => {
+    setFoodValue(searchTerm.name);
+    setFoodData(searchTerm);
+  };
 
   const handleAmount = (a, foodValue) => {
     if (!foodValue) {
-      setFoodAmount('')
-      setFoodCalory("")
+      setFoodAmount("");
+      setFoodCalory("");
     }
-    setFoodAmount(a.amount)
-    setFoodCalory(a.calorey)
-  }
-
+    setFoodAmount(a.amount);
+    setFoodCalory(a.calorey);
+  };
 
   const handleFoodLogForm = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     const food = event.target.foodName.value;
     const amount = event.target.amount.value;
     const time = event.target.time.value;
     const calorey = foodCalory;
     const userEmail = user?.user?.email;
- 
-   
-   
- 
-    const date = startDate.toLocaleDateString();
-    console.log(date)
-    const loged = { food: food, amount: amount, time: time, calorey: calorey, userEmail: userEmail, date: date }
-    fetch('https://fitness-tracking-web-server.vercel.app/loggedFood', {
- 
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify(loged)
-    })
-      .then(res => res.json())
-      .then(result => {
-        console.log(result)
-        if(result.acknowledged){
-          refetch()
-        }
-      })
 
+    const date = startDate.toLocaleDateString();
+    console.log(date);
+    const loged = {
+      food: food,
+      amount: amount,
+      time: time,
+      calorey: calorey,
+      userEmail: userEmail,
+      date: date,
+    };
+    fetch("https://fitness-tracking-web-server.vercel.app/loggedFood", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(loged),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        if (result.acknowledged) {
+          refetch();
+        }
+      });
   };
 
-  const { isLoading, error, data: food, refetch } = useQuery({
-    queryKey: ['loggedFood/userEmail', 'loggedFood/date'],
+  const {
+    isLoading,
+    error,
+    data: food,
+    refetch,
+  } = useQuery({
+    queryKey: ["loggedFood/userEmail", "loggedFood/date"],
     queryFn: async () => {
- 
- 
-      const res = await fetch(`https://fitness-tracking-web-server.vercel.app/loggedFood/${user?.user?.email}?date=${startDate.toLocaleDateString()}`);
- 
+      const res = await fetch(
+        `https://fitness-tracking-web-server.vercel.app/loggedFood/${
+          user?.user?.email
+        }?date=${startDate.toLocaleDateString()}`
+      );
+
       const data = await res.json();
-      return setLogedFood(data)
-    }
-  })
-  refetch()
+      return setLogedFood(data);
+    },
+  });
+  refetch();
 
-  if (isLoading) return <progress className="progress w-56"></progress>
+  if (isLoading) return <progress className="progress w-56"></progress>;
 
-  if (error) return 'An error has occurred: ' + error.message
+  if (error) return "An error has occurred: " + error.message;
 
   const handleFormClose = () => {
     setItem(null);
@@ -105,16 +131,17 @@ const FoodLog = ({ logedFood, setLogedFood, startDate, setStartDate, item, setIt
     <div className="card-body border rounded-md">
       <div className="flex items-center justify-between w-full">
         <h2 className="font-bold lg:text-4xl capitalize">Food log</h2>
-        
-   <div>
-   <DatePicker className="font-bold w-2/4 lg:text-2xl capitalize bg-green-800"
-        name="date"
-        defaultValue='select'
-      selected={startDate}
-      // value={startDate}
-      onChange={date => setStartDate(date)}
-    />
-   </div>
+
+        <div>
+          <DatePicker
+            className="font-bold w-2/4 lg:text-2xl capitalize bg-green-800"
+            name="date"
+            defaultValue="select"
+            selected={startDate}
+            // value={startDate}
+            onChange={(date) => setStartDate(date)}
+          />
+        </div>
       </div>
 
       <form onSubmit={handleFoodLogForm}>
@@ -134,21 +161,29 @@ const FoodLog = ({ logedFood, setLogedFood, startDate, setStartDate, item, setIt
             />
           </div>
           <div>
-            {data.filter(item => {
-              const searchTerm = foodValue.toLowerCase();
-              const foodName = item.name.toLowerCase();
-              return searchTerm && foodName.startsWith(searchTerm) && foodName !== searchTerm;
-            }).map(item => <div className=" bg-slate-200 w-1/2"
-              onClick={() => onSearch(item)}
-              key={item.name}
-            >
-              <p className="text-black p-3 mt-1">{item.name}</p>
-            </div>)}
+            {data
+              .filter((item) => {
+                const searchTerm = foodValue.toLowerCase();
+                const foodName = item.name.toLowerCase();
+                return (
+                  searchTerm &&
+                  foodName.startsWith(searchTerm) &&
+                  foodName !== searchTerm
+                );
+              })
+              .map((item) => (
+                <div
+                  className=" bg-slate-200 w-1/2"
+                  onClick={() => onSearch(item)}
+                  key={item.name}
+                >
+                  <p className="text-black p-3 mt-1">{item.name}</p>
+                </div>
+              ))}
           </div>
         </div>
         <div className="flex items-center justify-between space-x-3">
           <div>
-
             <div className="form-control basis-2/3">
               <label className="label">
                 <span className="label-text text-white font-semibold lg:text-2xl capitalize">
@@ -163,23 +198,26 @@ const FoodLog = ({ logedFood, setLogedFood, startDate, setStartDate, item, setIt
               />
             </div>
             <div>
-              {foodData?.amount?.map(a => <div className=" bg-slate-200"
-                onClick={() => handleAmount(a, foodValue)}
-                key={a._id}
-              >
-                {!foodAmount && <p className="text-black p-3 mt-1">{a.amount}</p>}
-              </div>)}
+              {foodData?.amount?.map((a) => (
+                <div
+                  className=" bg-slate-200"
+                  onClick={() => handleAmount(a, foodValue)}
+                  key={a._id}
+                >
+                  {!foodAmount && (
+                    <p className="text-black p-3 mt-1">{a.amount}</p>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
           <div className="form-control">
-
             <label className="label w-2/3">
               <span className="label-text font-semibold capitalize text-white lg:text-2xl">
                 when?
               </span>
-            </label> <select
-              name="time" className="select select-bordered">
-
+            </label>{" "}
+            <select name="time" className="select select-bordered">
               <option disabled selected>
                 Anytime
               </option>
@@ -193,13 +231,13 @@ const FoodLog = ({ logedFood, setLogedFood, startDate, setStartDate, item, setIt
           </div>
         </div>
         <div className="form-control mt-6">
-          <button className="btn bg-secondary hover:bg-secondary text-black w-full border-2  border-green-600 rounded-md">Log</button>
+          <button className="btn btn-log text-black text-2xl  bg-secondary  w-full border-none   rounded-md">
+            log
+          </button>
         </div>
       </form>
     </div>
-
-
-  )
-}
+  );
+};
 
 export default FoodLog;
