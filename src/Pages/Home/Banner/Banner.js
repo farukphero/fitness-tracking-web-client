@@ -18,8 +18,8 @@ const Banner = () => {
       <div className=" grid grid-cols-1 lg:grid-cols-2 pb-8 md:pt-16 w-11/12 mx-auto">
         <div className=" justify-center  text-center">
           <h1 className="text-5xl font-bold banner-text text-white mt-8 md:mt-24 w-11/12">
-            Stay Healthy Even If you  <br />
-            Stay 
+            Stay Healthy Even If you <br />
+            Stay
             <span className="text-all-green"> At Home</span>
           </h1>
           <p className="mt-4 text-gray-300">
@@ -28,14 +28,14 @@ const Banner = () => {
           <div className="flex flex-row gap-4 mt-6 justify-center items-center">
             <NavHashLink smooth to="/#contact">
               {" "}
-              <button className="py-3 px-6 font-semibold bg-secondary hover:bg-secondary text-black rounded-md no-underline">
-                CONTACT
+              <button className="border-2 px-8 py-3 border-green-600 btn-explore font-bold  rounded-md ">
+                Contact
               </button>
             </NavHashLink>
             <NavHashLink smooth to="/#about">
               {" "}
-              <button className=" py-3 px-6 font-semibold bg-secondary hover:bg-secondary text-black  rounded-md ">
-                ABOUT
+              <button className="btn-explore-about border-2 px-8 py-3 border-green-600 rounded-md ">
+                About
               </button>
             </NavHashLink>
           </div>

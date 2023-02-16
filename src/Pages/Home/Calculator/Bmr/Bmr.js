@@ -164,7 +164,7 @@ const Bmr = () => {
         {/* form start here */}
         <div id="bmrcalc">
           <div
-            className="mt-4 ml-24 lg:ml-2  "
+            className="mt-4 ml-24 md:ml-44 lg:ml-2  "
             data-aos="fade-down"
             data-aos-easing="linear"
             data-aos-duration="1000"

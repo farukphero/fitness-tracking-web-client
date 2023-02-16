@@ -1,100 +1,162 @@
-import React, { useContext } from "react";
-import { useQuery } from "react-query";
-import { Link } from "react-router-dom";
-import { AuthContext } from "../../../../Contexts/AuthProvider/AuthProvider";
+// import React, { useContext, useState } from "react";
+// import { useQuery } from "react-query";
+// import { Link } from "react-router-dom";
+// import { AuthContext } from "../../../../Contexts/AuthProvider/AuthProvider";
 
-const Friends = () => {
-  const { user } = useContext(AuthContext);
-  const { data: friends = [], refetch } = useQuery({
-    queryKey: ["tutorials",user?.email],
-    queryFn: () =>
-      fetch(`http://localhost:5000/friends?email=${user?.email}`)
-        .then((res) => res.json())
-        .then((data) => {
-          // setLoading(false)
-          // console.log(data)
-          refetch()
-          return data;
-        }),
-  });
 
-  return (
-    <div>
-      <div className="w-full navbar bg-base-300">
-        <div className="flex-none lg:hidden">
-          <label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              className="inline-block w-6 h-6 stroke-current"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              ></path>
-            </svg>
-          </label>
-        </div>
-        <div className="flex-1 px-2 mx-2">Navbar Title</div>
-        <div className="flex-none hidden lg:block">
-          <ul className="menu menu-horizontal">
-            {/* <!-- Navbar menu content here --> */}
-            <li>
-              <a>Navbar Item 1</a>
-            </li>
-            <li>
-              <a>Navbar Item 2</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div className="drawer drawer-mobile">
-        <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-col items-center justify-center">
-          {/* <!-- Page content here --> */}  <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
-    <button>Send</button>
-          <label
-            htmlFor="my-drawer-2"
-            className="btn btn-primary drawer-button lg:hidden"
-          >
-            Open drawer
-          </label>
-        </div>
-        <div className="drawer-side">
-          <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80 bg-base-100 text-base-content">
-            {friends?.map((friend) => (
-              <div className="flex gap-2">
-                <div>
-                  {friend.image && (
-                    <img
-                      className="h-8 w-8 rounded-full"
-                      src={friend?.image}
-                      alt=""
-                    />
-                  )}
-                </div> 
-               {/* <Link to={`/Friends/Friend/${friend._id}`}>  */}
-               <div>
-                  {friend?.name?.map((singleFriend) => (
-                      <div className="mb-5 mt-1">
-                       
-                      <p>{singleFriend}</p>
+// const Friends = () => {
+//   const { user, userInfo } = useContext(AuthContext);
+//   // console.log(userInfo)
+//   // console.log(userInfo)
+//   const [friendImage, setFriendImage] = useState("");
+//   const [friendEmail, setFriendEmail] = useState("");
+//   const [friendName, setFriendName] = useState("");
 
-                    </div>
-                  ))}
-                </div>
-                {/* </Link> */}
-              </div>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </div>
-  );
-};
 
-export default Friends;
+//   const {
+//     data: messages = [],
+//     refetch,
+//     isLoading,
+//   } = useQuery({
+//     queryKey: ["messages.", user?.email, friendEmail],
+//     queryFn: () =>
+//       fetch(`http://localhost:5000/getMessages/${user?.email}/${friendEmail}`)
+//         .then((res) => res.json())
+//         .then((data) => {
+//           console.log(data);
+//           refetch();
+//           return data;
+//         }),
+//   });
+
+
+
+//   const Friend = (image, name, email)=>{
+//     setFriendImage(image)
+//     setFriendEmail(email)
+//     setFriendName(name)
+//   }
+
+
+//   const sendMsg = (e) => {
+//     e.preventDefault();
+//     console.log("hi")
+//     const msg = e.target.msg.value;
+//     const message = {
+//       msg,
+//       user: user?.email,
+//       friendEmail,
+//       id:userInfo?._id
+//     }
+
+//     fetch("http://localhost:5000/messages", {
+//       method: "POST",
+//       headers: {
+//         "content-type": "application/json",
+//       },
+//       body: JSON.stringify(message),
+//     })
+//       .then((res) => res.json())
+//       .then((data) => console.log(data));
+//     console.log(message);
+//     e.target.reset();
+//     refetch();
+//   }
+ 
+
+//   return (
+//     <div>
+//       <div>
+//         <div className="navbar bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800">
+//           <div className="navbar-start">
+ 
+//             <label htmlFor="my-drawer-2">
+//               <Link to="/Community/AllUsers" className="text-xl ml-12">
+//                 Add A New Friend
+//               </Link>
+//               <hr className="text-xl ml-12" />
+//               <h1 className="ml-12 text-xl">All friends</h1>
+//             </label>
+ 
+//           </div>
+//           <div className="navbar-center"></div>
+//         </div>
+//       </div>
+//       <div className="drawer drawer-mobile h-[585px] relative bg-warning">
+//         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+ 
+//         <div className="drawer-content flex flex-col absolute bottom-0 bg-black w-full">
+//           {/* <!-- Page content here --> */}{" "}
+//           <div className="">
+//             <p className="text-red-900">{friendName}</p>
+//             <div>
+//               {
+//                 messages?.map(message => <div>
+//                   { message?.id === userInfo._id?
+
+//                     <>
+//                       <p className="text-white bg-blue-700 my-2">{message?.msg}</p>
+//                     </> :
+//                     <>
+//                       <p className="text-white bg-red-700 my-2">{message?.msg}</p>
+//                     </>
+
+
+//                   }
+
+//                 </div>)
+//               }
+//             </div>
+//             <form onSubmit={sendMsg}>
+//               <input
+//                 type="text"
+//                 name="msg"
+//                 placeholder="Type here"
+//                 className="input input-bordered w-full lg:w-[1000px] ml-10"
+//               />
+//               <button type="submit" className="btn mt-5 ml-5 mb-5">Send</button>
+//             </form>
+//           </div>
+
+//         </div>
+//         <div className="drawer-side">
+//           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
+//           <div className="menu p-4 w-80 bg-base-100 text-base-content">
+//             {
+//               userInfo?.newFriend?.map((friendsDetails) => (
+ 
+//         <div className="drawer-content flex flex-col absolute bottom-0 bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 w-full">
+//           {/* <!-- Page content here --> */} 
+//           <div className="">
+//             <input
+//               type="text"
+//               placeholder="Type here"
+//               className="input input-bordered bg-slate-200  w-full lg:w-[1000px] ml-10"
+//             />
+//             <button className="btn mt-5 ml-5 mb-5">Send</button>
+//           </div>
+//         </div>
+//         <div className="drawer-side">
+//           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
+//           <ul className="menu p-4 w-80 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-base-content">
+//             {friends?.map((friend) =>
+//               friend?.newFriend?.map((friendsDetails) => (
+ 
+//                 <div className="flex gap-3">
+//                   <img
+//                     className="h-8 w-8 rounded-full mb-3"
+//                     src={friendsDetails.image}
+//                     alt=""
+//                   />
+//                   <p onClick={() => Friend(friendsDetails.image, friendsDetails.name, friendsDetails.friendEmail)}>{friendsDetails.name}</p>
+//                 </div>
+//               ))
+//             }
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Friends;

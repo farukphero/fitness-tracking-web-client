@@ -20,7 +20,7 @@ const Branches = () => {
           Our Team And Office
         </h5>
       </div>
-      <div className="flex flex-col lg:flex-row  items-center justify-between ">
+      <div className="flex flex-col lg:flex-row  items-center justify-between -z-50">
         <BranchNames />
         <BranchMap />
       </div>
