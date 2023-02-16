@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import working5 from "../../../../assets/working5.json";
 import Lottie from "lottie-react";
+import useTitle from "../../../../Hooks/useTitle/useTitle";
 
 const Bmi = () => {
+  useTitle("Bmi")
   const [bmi, setBmi] = useState();
   const [info, setInfo] = useState();
   const [height, setHeight] = useState();
@@ -24,19 +26,6 @@ const Bmi = () => {
   };
   return (
     <div>
- 
-      {/* <div className="grid grid-cols-1 lg:grid-cols-2  mt-24 mb-44">
-        <div>
-          <div className="flex justify-center">
-            <Lottie
-              className="w-1/2"
-              animationData={working5}
-              loop={true}
-            ></Lottie>
-          </div>
-        </div>
-        <div className="mt-8 ml-24 lg:ml-2  "> */}
- 
       <div className="grid grid-cols-1 lg:grid-cols-2  mt-20 mb-44">
         <div className="flex justify-center">
           <Lottie
@@ -52,7 +41,6 @@ const Bmi = () => {
           data-aos-easing="linear"
           data-aos-duration="1000"
         >
- 
           <div className="text-white flex flex-col justify-center gap-4 ">
             <h1 className="text-2xl font-bold text-white">BMI CALCULATOR</h1>
 
@@ -62,13 +50,12 @@ const Bmi = () => {
               onChange={(e) => setHeight(e.target.value)}
               placeholder="height in fit"
             />
- 
+
             {/* <input
             type="text"
             onChange={(e) => setHeight(e.target.value)}
             placeholder="height in cm"
           /> */}
- 
 
             <input
               type="text"

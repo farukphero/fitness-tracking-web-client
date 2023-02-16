@@ -3,8 +3,10 @@ import { toast } from "react-hot-toast";
 import { useQuery } from "react-query";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import "./AllUsers.css";
+import useTitle from "../../../Hooks/useTitle/useTitle";
 
 const AllUsers = () => {
+  useTitle("Profile/AllUsers")
   const {
     isLoading,
     error,
@@ -55,7 +57,7 @@ const AllUsers = () => {
     }
   };
   return (
-    <div className="h-[730px] w-11/12 mx-auto pt-8 pb-8 mt-16  bg-gray-800 ">
+    <div className="h-[730px] w-11/12 mx-auto pb-8 bg-gray-800 ">
       <div className="overflow-x-auto all-bg">
         <table className="table w-full">
           {/* <!-- head --> */}
@@ -68,7 +70,7 @@ const AllUsers = () => {
               <th className="th-bg text-white text-lg">Admin </th>
               <th className="th-bg text-white text-lg">
                 {" "}
-                <RiDeleteBin6Fill className="h-6 w-6"></RiDeleteBin6Fill>{" "}
+                <RiDeleteBin6Fill className="h-6 w-6"></RiDeleteBin6Fill> 
               </th>
             </tr>
           </thead>
@@ -93,16 +95,15 @@ const AllUsers = () => {
                   {allUser?.role !== "admin" && (
                     <button
                       onClick={() => handleAdmin(allUser._id)}
-                      className="btn btn-outline tb-button btn-sm"
+                      className="btn btn-outline tb-button btn-sm text-white"
                     >
                       Admin
                     </button>
                   )}
                 </td>
-                <td className="all-bg  text-white text-lg">
+                <td className="all-bg text-white text-lg">
                   <button
                     onClick={() => handleDelete(allUser._id)}
-                    className="hover:btn hover:btn-outline hover:btn-sm"
                   >
                     <RiDeleteBin6Fill className="h-6 w-6 tb-button"></RiDeleteBin6Fill>
                   </button>

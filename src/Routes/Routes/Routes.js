@@ -59,6 +59,7 @@ import AllInstructors from "../../Pages/AllInstructors/AllInstructors";
 import VideoCalling from "../../Pages/VideoCalling/VideoCalling/VideoCalling";
 import CallingVideo from "../../Layout/CallingVideo/CallingVideo";
 import CallingRoom from "../../Pages/VideoCalling/CallingRoom/CallingRoom";
+import GetUserDetails from "../../Authentications/GetUserDetails/GetUserDetails";
  
  
 export const router = createBrowserRouter([
@@ -204,16 +205,16 @@ export const router = createBrowserRouter([
       },
       {
         path: "/SignUp",
-        element: <SignUp></SignUp>,
+        element: <GetUserDetails></GetUserDetails>,
       },
+      // {
+      //   path: "/SignUp",
+      //   element: <SignUp></SignUp>,
+      // },
       {
               path: "/Community/AllUsers",
               element: <CommunityFriend></CommunityFriend>,
             },
-      // {
-      //   path: "/Friends",
-      //   element: <Friends></Friends>,
-      // },
       {
         path: "/Community/friends",
         element: <Friends></Friends>,
@@ -222,13 +223,6 @@ export const router = createBrowserRouter([
         path: `/logs/allactivities`,
         element: <AllActivities />,
       },
- 
-      // {
-      //   path: "/Friends/Friend/:id",
-      //   element: <Friend></Friend>,
-      //   loader: ({ params }) =>
-      //     fetch(`http://localhost:5000/friends/${params.id}`),
-      // },
        {
         path: "/blog/:id",
         element: <BlogDetails></BlogDetails>,

@@ -5,8 +5,10 @@ import CommunityFriends from "./CommunityFriends";
 import { useContext } from "react";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import Loading from "../../../Components/Loading/Loading";
+import useTitle from "../../../Hooks/useTitle/useTitle";
 
 const CommunityFriend = () => {
+  useTitle("Community/AllUsers")
   const { user, userInfo } = useContext(AuthContext);
   const [usersWithoutPresent, setUsersWithoutPresent] = useState([]);
   const [loading, setLoading] = useState(true);

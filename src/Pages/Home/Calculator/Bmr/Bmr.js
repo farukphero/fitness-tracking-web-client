@@ -1,8 +1,10 @@
 import { useState } from "react";
 import working9 from "../../../../assets/working9.json";
 import Lottie from "lottie-react";
+import useTitle from "../../../../Hooks/useTitle/useTitle";
 
 const Bmr = () => {
+  useTitle("Bmr")
   const [error, setError] = useState("");
   const [suggestion, setSuggestion] = useState("");
   const [bmrData, setBmrData] = useState({

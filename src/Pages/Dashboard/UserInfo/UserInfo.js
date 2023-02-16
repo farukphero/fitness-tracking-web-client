@@ -4,9 +4,11 @@ import { ImFolderPlus } from "react-icons/im";
 import { Link } from "react-router-dom";
 
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
+import useTitle from "../../../Hooks/useTitle/useTitle";
 import "./UserInfo.css";
 
 const UserInfo = () => {
+  useTitle("Profile/userInfo")
   const {
     register,
     formState: { errors },

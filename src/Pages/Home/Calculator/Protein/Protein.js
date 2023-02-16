@@ -3,8 +3,10 @@ import React, { useState } from "react";
 import working17 from "../../../../assets/95592-preparing-food.json";
 
 import Lottie from "lottie-react";
+import useTitle from "../../../../Hooks/useTitle/useTitle";
 
 const Protein = () => {
+  useTitle("Protein")
   const [proteinTrack, setProteinTrack] = useState();
 
   const [weight, setWeight] = useState();
