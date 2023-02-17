@@ -1,37 +1,40 @@
 import React, { useContext } from "react";
 import { useEffect } from "react";
-import { useState } from "react";
-import { set } from "react-hook-form";
-import { useQuery } from "react-query";
 import { AuthContext } from "../../../../../../Contexts/AuthProvider/AuthProvider";
 import DatePicker from "react-datepicker";
 import { FoodContext } from "../../../../../../Contexts/FoodProvider/FoodProvider";
+import { useDispatch, useSelector } from "react-redux";
+import loadFoodData from "../../../../../../redux/thunk/foods/fetchFoods";
+import postLogFood from "../../../../../../redux/thunk/foods/postLogFood";
+import loadLogFoodData from "../../../../../../redux/thunk/foods/fetchLogFoods";
 
-const FoodLog = ({ logedFood, setLogedFood, startDate, setStartDate, item, setItem, setShowForm , }) => {
+const FoodLog = ({  setLogedFood, startDate, setStartDate, item, setItem, setShowForm, }) => {
   // const [foodValue, setFoodValue] = useState('');
   // const [foodData, setFoodData] = useState({});
   // const [foodAmount, setFoodAmount] = useState('');
   // const [foodCalory, setFoodCalory] = useState('');
   // const [data, setData] = useState([]);
 
-  const {foodValue, setFoodValue, foodData, setFoodData, foodAmount, setFoodAmount, foodCalory, setFoodCalory, data, setData} = useContext(FoodContext);
- 
+  const { foodValue, setFoodValue, foodData, setFoodData, foodAmount, setFoodAmount, foodCalory, setFoodCalory } = useContext(FoodContext);
+
   const user = useContext(AuthContext);
   // console.log(logedFood)
   // console.log(user.user.email)
 
-//   const currentDate = new Date();
-// const year = currentDate.getFullYear();
-// const month = currentDate.getMonth();
-// const day = currentDate.getDate();
+  //   const currentDate = new Date();
+  // const year = currentDate.getFullYear();
+  // const month = currentDate.getMonth();
+  // const day = currentDate.getDate();
 
-// const currentDateOnly = new Date(year, month, day);
-// const [startDate, setStartDate] = useState(currentDateOnly);
+  // const currentDateOnly = new Date(year, month, day);
+  // const [startDate, setStartDate] = useState(currentDateOnly);
+  const data = useSelector((state) => state.foods);
+  const logedFood = useSelector((state) => state.loggedFoods);
+  // console.log(logedFood)
+  const dispatch = useDispatch();
   useEffect(() => {
-    fetch('https://fitness-tracking-web-server.vercel.app/foods')
-      .then(res => res.json())
-      .then(data => setData(data))
-  }, [])
+    dispatch(loadFoodData())
+  }, [dispatch])
   // console.log(data)
 
   const handleOnChange = event => {
@@ -66,48 +69,32 @@ const FoodLog = ({ logedFood, setLogedFood, startDate, setStartDate, item, setIt
     const time = event.target.time.value;
     const calorey = foodCalory;
     const userEmail = user?.user?.email;
- 
-   
-   
- 
     const date = startDate.toLocaleDateString();
-    console.log(date)
     const loged = { food: food, amount: amount, time: time, calorey: calorey, userEmail: userEmail, date: date }
-    fetch('https://fitness-tracking-web-server.vercel.app/loggedFood', {
- 
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify(loged)
-    })
-      .then(res => res.json())
-      .then(result => {
-        console.log(result)
-        if(result.acknowledged){
-          refetch()
-        }
-      })
-
+    dispatch(postLogFood(loged))
   };
 
-  const { isLoading, error, data: food, refetch } = useQuery({
-    queryKey: ['loggedFood/userEmail', 'loggedFood/date'],
-    queryFn: async () => {
- 
- 
-      const res = await fetch(`https://fitness-tracking-web-server.vercel.app/loggedFood/${user?.user?.email}?date=${startDate.toLocaleDateString()}`);
- 
-      const data = await res.json();
-      return setLogedFood(data)
-    }
-  })
-  refetch()
+  // const { isLoading, error, data: food, refetch } = useQuery({
+  //   queryKey: ['loggedFood/userEmail', 'loggedFood/date'],
+  //   queryFn: async () => {
 
-  if (isLoading) return <progress className="progress w-56"></progress>
 
-  if (error) return 'An error has occurred: ' + error.message
+  //     const res = await fetch(`https://fitness-tracking-web-server.vercel.app/loggedFood/${user?.user?.email}?date=${startDate.toLocaleDateString()}`);
 
+  //     const data = await res.json();
+  //     return setLogedFood(data)
+  //   }
+  // })
+  // refetch()
+
+  // if (isLoading) return <progress className="progress w-56"></progress>
+
+  // if (error) return 'An error has occurred: ' + error.message
+
+
+  useEffect(() => {
+    dispatch(loadLogFoodData(user?.user?.email, startDate.toLocaleDateString() ))
+  } ,[dispatch, user?.user?.email, startDate])
   const handleFormClose = () => {
     setItem(null);
     setShowForm(false);
@@ -117,16 +104,16 @@ const FoodLog = ({ logedFood, setLogedFood, startDate, setStartDate, item, setIt
     <div className="card-body border rounded-md">
       <div className="flex items-center justify-between w-full">
         <h2 className="font-bold lg:text-4xl capitalize">Food log</h2>
-        
-   <div>
-   <DatePicker className="font-bold w-2/4 lg:text-2xl capitalize bg-green-800"
-        name="date"
-        defaultValue='select'
-      selected={startDate}
-      // value={startDate}
-      onChange={date => setStartDate(date)}
-    />
-   </div>
+
+        <div>
+          <DatePicker className="font-bold w-2/4 lg:text-2xl capitalize bg-green-800"
+            name="date"
+            // defaultValue={startDate}
+            selected={startDate}
+            value={startDate}
+            onChange={date => setStartDate(date)}
+          />
+        </div>
       </div>
 
       <form onSubmit={handleFoodLogForm}>
@@ -152,7 +139,7 @@ const FoodLog = ({ logedFood, setLogedFood, startDate, setStartDate, item, setIt
               return searchTerm && foodName.startsWith(searchTerm) && foodName !== searchTerm;
             }).map(item => <div className=" bg-slate-200 w-1/2"
               onClick={() => onSearch(item)}
-              key={item.name}
+              key={item._id}
             >
               <p className="text-black p-3 mt-1">{item.name}</p>
             </div>)}
@@ -190,8 +177,8 @@ const FoodLog = ({ logedFood, setLogedFood, startDate, setStartDate, item, setIt
                 when?
               </span>
             </label> <select
-              name="time" className="select select-bordered">
-
+              name="time" className="select select-bordered" defaultValue="Anytime">
+                
               <option disabled selected>
                 Anytime
               </option>

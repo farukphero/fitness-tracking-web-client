@@ -1,48 +1,62 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useContext, useEffect } from "react";
 import DatePicker from "react-datepicker";
+import { useDispatch, useSelector } from "react-redux";
+import { AuthContext } from "../../../../../../Contexts/AuthProvider/AuthProvider";
+import { addToFavorite } from "../../../../../../redux/actionCreators/loggedFoodActions";
+import { ADD_TO_FAVORITE } from "../../../../../../redux/actionTypes/actionTypes";
+import addFavoriteFood from "../../../../../../redux/thunk/foods/addToFavorite";
+import deleteLoggedFood from "../../../../../../redux/thunk/foods/deleteLoggedFood";
+import loadLogFoodData from "../../../../../../redux/thunk/foods/fetchLogFoods";
 
-const LoggedFoods = ({ logedFood, result, setResult, startDate, setStartDate }) => {
-  
-  // console.log(calorey)
+const LoggedFoods = ({  result, setResult, startDate, setStartDate }) => {
 
-  // const currentDate = new Date();
-  // const year = currentDate.getFullYear();
-  // const month = currentDate.getMonth();
-  // const day = currentDate.getDate();
-  
-  // const currentDateOnly = new Date(year, month, day);
-  // const [startDate, setStartDate] = useState(currentDateOnly);
+  const dispatch = useDispatch();
+
+  const user = useContext(AuthContext);
+ 
+   const logedFood = useSelector((state) => state.loggedFoods);
+
+   useEffect(() => {
+    dispatch(loadLogFoodData(user?.user?.email, startDate.toLocaleDateString() ))
+  } ,[dispatch, user?.user?.email, startDate])
 
   useEffect(() => {
     let total = (logedFood.reduce((sum, food) => sum + parseInt(food.calorey), 0));
     setResult(total);
-  }, [logedFood]);
-// new pull
+  }, [logedFood, setResult]);
+
   const handleFavoriteFood =(food)=>{
     const favouriteFood = {food: food.food, amount: food.amount, calorey: food.calorey, time: food.time, userEmail: food.userEmail, date: food.date}
-    console.log(favouriteFood)
-    fetch('https://fitness-tracking-web-server.vercel.app/favouriteFood', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify(favouriteFood)
-    })
-      .then(res => res.json())
-      .then(result => {
-        console.log(result)
+    // console.log(favouriteFood)
+    // fetch('https://fitness-tracking-web-server.vercel.app/favouriteFood', {
+    //   method: 'POST',
+    //   headers: {
+    //     'content-type': 'application/json'
+    //   },
+    //   body: JSON.stringify(favouriteFood)
+    // })
+    //   .then(res => res.json())
+    //   .then(result => {
+    //     console.log(result)
         
-      })
+    //   })
+    dispatch(addFavoriteFood(favouriteFood))
   }
 
-  const handleDeleteLogFood = (food) =>{
-    fetch(`https://fitness-tracking-web-server.vercel.app/loggedFood/${food._id}`, { 
-            method: 'DELETE' 
-        })
-            .then(res=>res.json())
-            .then(data=>console.log(data))
-  }
+  // const handleDeleteLogFood = (food) =>{
+  //   fetch(`https://fitness-tracking-web-server.vercel.app/loggedFood/${food._id}`, { 
+  //           method: 'DELETE' 
+  //       })
+  //           .then(res=>res.json())
+  //           .then(data=>console.log(data))
+  // }
+  // const handleDeleteLogFood = (food) =>{
+  //   fetch(`https://fitness-tracking-web-server.vercel.app/loggedFood/${food._id}`, { 
+  //           method: 'DELETE' 
+  //       })
+  //           .then(res=>res.json())
+  //           .then(data=>console.log(data))
+  // }
   return (
     <div>
       <div className="flex items-center justify-between w-full">
@@ -78,8 +92,10 @@ const LoggedFoods = ({ logedFood, result, setResult, startDate, setStartDate }) 
               <td className="bg-white text-black">{food.time}</td>
 
               <td className="bg-white text-black"><button onClick={()=>handleFavoriteFood(food)} className="btn btn-xs text-white">Add To Favourite</button></td>
+              {/* <td className="bg-white text-black"><button onClick={()=> dispatch(addToFavorite(food))} className="btn btn-xs text-white">Add To Favourite</button></td> */}
               
-              <td className="bg-white text-black"><button onClick={()=>handleDeleteLogFood(food)}  className="btn btn-xs text-white">X</button></td>
+              <td className="bg-white text-black"><button onClick={()=>dispatch(deleteLoggedFood(food._id))}  className="btn btn-xs text-white">X</button></td>
+              {/* <td className="bg-white text-black"><button onClick={()=>handleDeleteLogFood(food)}  className="btn btn-xs text-white">X</button></td> */}
             </tr>
             )}
           </tbody>

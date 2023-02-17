@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { AuthContext } from '../../../../../../Contexts/AuthProvider/AuthProvider';
+import postLogFood from '../../../../../../redux/thunk/foods/postLogFood';
 
 const InputForm = ({item, setItem}) => {
     const [foodValue, setFoodValue] = useState('');
@@ -8,6 +10,7 @@ const InputForm = ({item, setItem}) => {
     const [foodCalory, setFoodCalory] = useState('');
     const [data, setData] = useState([]);
     const user = useContext(AuthContext);
+    const dispatch = useDispatch();
   // console.log(foodAmount, foodCalory)
     const currentDate = new Date();
     const year = currentDate.getFullYear();
@@ -40,19 +43,22 @@ const InputForm = ({item, setItem}) => {
       const calorey = foodCalory;
       const loged = { food: food, amount: amount, time: time, calorey: calorey, userEmail: user?.user?.email, date: startDate.toLocaleDateString() }
       console.log(loged)
+
+      dispatch(postLogFood(loged))
+      
   
-      fetch('https://fitness-tracking-web-server.vercel.app/loggedFood', {
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json'
-        },
-        body: JSON.stringify(loged)
-      })
-        .then(res => res.json())
-        .then(result => {
-          console.log(result)
+      // fetch('https://fitness-tracking-web-server.vercel.app/loggedFood', {
+      //   method: 'POST',
+      //   headers: {
+      //     'content-type': 'application/json'
+      //   },
+      //   body: JSON.stringify(loged)
+      // })
+      //   .then(res => res.json())
+      //   .then(result => {
+      //     console.log(result)
   
-        })
+      //   })
       setItem(null)
   
     };

@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useQuery } from "react-query";
+import { useDispatch, useSelector } from "react-redux";
 import {
   BarChart,
   Bar,
@@ -14,35 +15,70 @@ import {
   Line,
 } from "recharts";
 import { AuthContext } from "../../../../../../Contexts/AuthProvider/AuthProvider";
+import loadSevenDaysFoodData from "../../../../../../redux/thunk/foods/fetchSevenDaysFood";
 
 const FoodStats = () => {
   const user = useContext(AuthContext)
-  // console.log(user)
-  const [foodData, setFoodData] = useState([]);
+  // console.log(user.user.email)
+  // const [foodData, setFoodData] = useState([]);
+  const dispatch = useDispatch();
+  const foodData = useSelector((state) => state.sevenDays);
 
-  const {
-    isLoading,
-    error,
-    data: food,
-    refetch,
-  } = useQuery({
-    queryKey: ["foods/seven/userEmail"],
-    queryFn: async () => {
- 
-      const res = await fetch(
-        `https://fitness-tracking-web-server.vercel.app/foods/seven/${user?.user?.email}`
-      );
- 
-      const data = await res.json();
-      return setFoodData(data);
-    },
-  });
-  refetch();
+  useEffect(() => {
+    dispatch(loadSevenDaysFoodData(user?.user?.email))
+  } ,[user?.user?.email, dispatch])
+  // console.log(foodData)
 
-  if (isLoading) return <progress className="progress w-56"></progress>;
+  // const {
+  //   isLoading,
+  //   error,
+  //   data: food,
+  //   refetch,
+  // } = useQuery({
+  //   queryKey: ["foods/seven/userEmail"],
+  //   queryFn: async () => {
+ 
+  //     const res = await fetch(
+  //       `https://fitness-tracking-web-server.vercel.app/foods/seven/${user?.user?.email}`
+  //       // `http://localhost:5000/foods/seven/${user?.user?.email}`
+  //     );
+ 
+  //     const data = await res.json();
+  //     return setFoodData(data);
+  //   },
+  // });
+  // // console.log(foodData)
+  // refetch();
+
+  // if (isLoading) return <progress className="progress w-56"></progress>;
 
  
-  if (error) return 'An error has occurred: ' + error.message
+  // if (error) return 'An error has occurred: ' + error.message
+
+  // const {
+  //   isLoading,
+  //   error,
+  //   data: food,
+  //   refetch,
+  // } = useQuery({
+  //   queryKey: ["foods/seven/userEmail"],
+  //   queryFn: async () => {
+ 
+  //     const res = await fetch(
+  //       `http://localhost:5000/foods/seven/${user?.user?.email}`
+  //     );
+ 
+  //     const data = await res.json();
+  //     return setFoodData(data);
+  //   },
+  // });
+  // refetch();
+
+  // if (isLoading) return <progress className="progress w-56"></progress>;
+
+ 
+  // if (error) return 'An error has occurred: ' + error.message
+
 
   const currentDate = new Date();
 const sevenDaysAgo = new Date(currentDate - 0 * 24 * 60 * 60 * 1000);

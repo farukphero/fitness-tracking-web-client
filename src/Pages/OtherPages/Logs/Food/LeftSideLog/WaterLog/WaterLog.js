@@ -19,13 +19,14 @@ const WaterLog = ({ startDate, setStartDate }) => {
         event.preventDefault()
         const water = event.target.water.value;
         const amount = event.target.amount.value
+        console.log(typeof(amount))
         let amountWithQuantity = event.target.amount.value + event.target.unit.value;
         // const unit = event.target.unit.value;
         const time = event.target.time.value;
-        if (amountWithQuantity.includes('glass')) {
+        if (amountWithQuantity.includes('glass') ) {
             amountWithQuantity = amount * 240
         }
-        else if (amountWithQuantity.includes('liter')) {
+        else if (amountWithQuantity.includes('liter') ) {
             amountWithQuantity = amount * 1000
         }
         const waterInfo = { water, amountWithQuantity, time, email: user?.user?.email, date: startDate.toLocaleDateString() }

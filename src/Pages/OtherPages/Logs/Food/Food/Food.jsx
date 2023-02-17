@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { useSelector } from "react-redux";
 import { FoodContext } from "../../../../../Contexts/FoodProvider/FoodProvider";
 import useTitle from "../../../../../Hooks/useTitle/useTitle";
 import LeftSideLog from "../LeftSideLog/LeftSideLog/LeftSideLog";
@@ -7,6 +8,8 @@ import RightSideLog from "../RightSideLog/RIghtSideLog/RightSideLog";
 const Food = () => {
   const {logedFood, setLogedFood} = useContext(FoodContext);
   useTitle("Log/Food")
+
+
  
   return (
        <div className="flex lg:w-10/12 lg:space-x-5 mx-auto scale-50 lg:scale-100 -mt-96 lg:mt-0 -ml-40 lg:ml-32 lg:mb-20 -mb-60">
