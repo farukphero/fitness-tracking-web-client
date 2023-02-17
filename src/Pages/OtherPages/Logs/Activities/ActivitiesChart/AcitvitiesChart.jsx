@@ -23,35 +23,37 @@ const ActivitiesChart = () => {
 
   useEffect(() => {
     if (dayDistance === `1 month`) {
- 
-      fetch(`https://fitness-tracking-web-server.vercel.app/activities/30?activist=${user?.email}`)
- 
+      fetch(
+        `https://fitness-tracking-web-server.vercel.app/activities/30?activist=${user?.email}`
+      )
         .then((res) => res.json())
         .then((data) => setData(data));
-      setShowChart(<MonthChart focus={focus} setTotal={setTotal} data={data} />);
+      setShowChart(
+        <MonthChart focus={focus} setTotal={setTotal} data={data} />
+      );
     } else if (dayDistance === `7 days`) {
- 
-      fetch(`https://fitness-tracking-web-server.vercel.app/activities/7?activist=${user?.email}`)
- 
+      fetch(
+        `https://fitness-tracking-web-server.vercel.app/activities/7?activist=${user?.email}`
+      )
         .then((res) => res.json())
         .then((data) => setData(data));
       setShowChart(<WeekChart focus={focus} setTotal={setTotal} data={data} />);
     } else if (dayDistance === `1 year`) {
- 
-      fetch(`https://fitness-tracking-web-server.vercel.app/activities/365?activist=${user?.email}`)
- 
+      fetch(
+        `https://fitness-tracking-web-server.vercel.app/activities/365?activist=${user?.email}`
+      )
         .then((res) => res.json())
         .then((data) => setData(data));
       setShowChart(<YearChart focus={focus} setTotal={setTotal} data={data} />);
     } else {
- 
-      fetch(`https://fitness-tracking-web-server.vercel.app/activities/1?activist=${user?.email}`)
- 
+      fetch(
+        `https://fitness-tracking-web-server.vercel.app/activities/1?activist=${user?.email}`
+      )
         .then((res) => res.json())
         .then((data) => setData(data));
       setShowChart(<DayChart focus={focus} setTotal={setTotal} data={data} />);
     }
-  }, [dayDistance, user?.email, data, focus]);
+  }, [dayDistance, user?.email, data, focus, setTotal]);
 
   return (
     <>
@@ -88,10 +90,10 @@ const ActivitiesChart = () => {
 
         <div className="divider mx-8"></div>
         <div className="flex capitalize font-semibold items-center mb-5 justify-between mx-6 lg:mx-10">
-          <h3>{total?.type} totals</h3>
-          <h3>{total?.steps} steps</h3>
-          <h3>{total?.kilometers} kilometers</h3>
-          <h3>{total?.calouries} calouries</h3>
+          <h3>{total?.type ? total?.type : 0} totals</h3>
+          <h3>{total?.steps ? total?.steps : 0} steps</h3>
+          <h3>{total?.kilometers ? total?.kilometers : 0} kilometers</h3>
+          <h3>{total?.calouries ? total?.calouries : 0} calouries</h3>
         </div>
       </div>
     </>
