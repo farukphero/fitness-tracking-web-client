@@ -49,7 +49,7 @@ const ActivitiesChart = () => {
  
         .then((res) => res.json())
         .then((data) => setData(data));
-      setShowChart(<DayChart data={data} />);
+      setShowChart(<DayChart focus={focus} setTotal={setTotal} data={data} />);
     }
   }, [dayDistance, user?.email, data, focus]);
 
