@@ -24,19 +24,33 @@ import { toast } from 'react-hot-toast';
 export const ContactUs = () => {
   const form = useRef();
 
+  // const sendEmail = (e) => {
+  //   e.preventDefault();
+
+  //   emailjs.sendForm('service_nqhgx79', 'template_7ne6mvb', form.current, 'JySRozcFgA1l_eMTt')
+  //     .then((result) => {
+
+  //       console.log(result.text);
+  //       toast.success('Email send')
+
+  //     }, (error) => {
+  //       console.log(error.text);
+
+  //     });
+  // };
+
+
   const sendEmail = (e) => {
     e.preventDefault();
 
     emailjs.sendForm('service_nqhgx79', 'template_7ne6mvb', form.current, 'JySRozcFgA1l_eMTt')
       .then((result) => {
-
         console.log(result.text);
-        toast.success('Email send')
-
+        toast.success('Email send');
       }, (error) => {
         console.log(error.text);
-
       });
+    e.target.reset()
   };
   return (
     <section

@@ -37,10 +37,10 @@ const DashboardLayout = () => {
         <label htmlFor="my-drawer" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80 bg-gray-800 mt-6 ">
           <>
- 
+
             {isAdmin && (
               <li className="btn-dashboard border-b-2  border-sky-400 mb-2 ">
- 
+
                 <Link
                   className="text-center ml-16 text-about font-semibold"
                   to="/Profile/AllUsers"
@@ -49,11 +49,11 @@ const DashboardLayout = () => {
                   <FaRegUser></FaRegUser>
                 </Link>
               </li>
- 
+
             )}
             <li className="btn-dashboard border-b-2  border-sky-400 mb-2  ">
- 
-           
+
+
               <Link
                 className="text-center ml-16 text-about font-semibold"
                 to="/Profile/userInfo"
@@ -79,6 +79,15 @@ const DashboardLayout = () => {
               >
                 Setting
                 <AiOutlineSetting></AiOutlineSetting>
+              </Link>
+            </li>
+            <li className="btn-dashboard border-b-2  border-sky-400 mb-2 ">
+              <Link
+                className="text-center ml-16 text-about font-semibold"
+                to="/Profile/questions"
+              >
+                Questions
+                <FaQuestion></FaQuestion>
               </Link>
             </li>
             {/* <li className="border-2  border-green-600 btn-explore rounded-md mb-2">
