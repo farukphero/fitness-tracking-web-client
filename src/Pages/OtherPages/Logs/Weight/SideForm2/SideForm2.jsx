@@ -134,7 +134,7 @@ const SideForm2 = ({ setGoalSetData }) => {
             />
           </div>
           <div className="">
-            <button className="btn btn-log text-black   bg-sky-400  w-full border-none   rounded-md mt-2">
+            <button className="btn btn-log text-black  bg-secondary  w-full border-none   rounded-md mt-2">
               Submit
             </button>
           </div>
