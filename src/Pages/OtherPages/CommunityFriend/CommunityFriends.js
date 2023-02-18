@@ -18,7 +18,7 @@ const CommunityFriends = ({ user, reload, setReload }) => {
 
     // setSendTo((exgistingEmail) => [...exgistingEmail, user?.eamil]);
 
-    fetch("http://localhost:5000/friendRequest", {
+    fetch("https://fitness-tracking-web-server.vercel.app/friendRequest", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -59,7 +59,7 @@ const CommunityFriends = ({ user, reload, setReload }) => {
       accepted: false,
     };
 
-    fetch("http://localhost:5000/cancelFriendRequest", {
+    fetch("https://fitness-tracking-web-server.vercel.app/cancelFriendRequest", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -69,7 +69,7 @@ const CommunityFriends = ({ user, reload, setReload }) => {
       .then((res) => res.json())
       .then((postData) => {
         if (postData.acknowledged) {
-          toast.success("cancel");
+          toast.success("Cancel");
           setReload(!reload);
         }
       });
@@ -87,7 +87,7 @@ const CommunityFriends = ({ user, reload, setReload }) => {
       senderId: user._id,
     };
 
-    fetch("http://localhost:5000/acceptFriendRequest", {
+    fetch("https://fitness-tracking-web-server.vercel.app/acceptFriendRequest", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -97,7 +97,7 @@ const CommunityFriends = ({ user, reload, setReload }) => {
       .then((res) => res.json())
       .then((postData) => {
         if (postData.acknowledged) {
-          // setPostData(postData);
+          toast.success("Friends Added")
           setReload(!reload);
         }
       });

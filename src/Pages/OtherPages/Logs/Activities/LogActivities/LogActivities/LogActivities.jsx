@@ -10,7 +10,7 @@ const LogActivities = () => {
         <AddActivities/>
       </main>
       <aside className="lg:basis-4/12 w-full sticky top-0 my-5 lg:my-0 mr-5 ">
-        <FavouriteActivities />
+        {/* <FavouriteActivities /> */}
         <ActivitiesHistory/>
       </aside>
     </div>

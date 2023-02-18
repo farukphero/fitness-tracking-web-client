@@ -42,16 +42,15 @@ const Footer = () => {
                 <li><Link to="/Logs/Activities">Logs</Link></li>
                 <li><Link to="/Community/friends">Community</Link></li>
                 <li><Link to="/Tutorials">Tutorials</Link></li>
-                <li><Link to="/checkup">Live Meet</Link></li>
               </ul>
             </div>
             <div>
               <ul className="mt-2 space-y-2 text-gray-400">
                 <li><span className="font-bold ">Phone:</span><span> +880 1913-302532</span></li>
-                <li><span className="font-bold ">Email:</span><span> omarfaru@gmail.com</span></li>
+                <li><span className="font-bold ">Email:</span><span> farukk6323@gmail.com</span></li>
                 <li className="flex">
-                    <Link className="mr-2"><FaFacebookF></FaFacebookF></Link>
-                    <Link className="mr-2"><FaLinkedinIn></FaLinkedinIn></Link>
+                    <a href="https://www.facebook.com/profile.php?id=100081178906073" className="mr-2"><FaFacebookF></FaFacebookF></a>
+                    <a href="https://www.linkedin.com/in/omarfaruk-238764240/" className="mr-2"><FaLinkedinIn></FaLinkedinIn></a>
                     <Link><FaTwitter></FaTwitter></Link>
                 </li>
               </ul>

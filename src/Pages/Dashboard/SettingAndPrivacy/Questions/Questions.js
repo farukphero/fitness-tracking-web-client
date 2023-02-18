@@ -12,7 +12,7 @@ const Questions = () => {
 
     useEffect(() => {
 
-        fetch('http://localhost:5000/question')
+        fetch('https://fitness-tracking-web-server.vercel.app/question')
             .then(res => res.json())
             .then(data => setQuestions(data))
     }, [])

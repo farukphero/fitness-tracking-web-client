@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { AuthContext } from '../../../../../../Contexts/AuthProvider/AuthProvider';
+import postLogFood from '../../../../../../redux/thunk/foods/postLogFood';
 
 const InputForm = ({item, setItem}) => {
     const [foodValue, setFoodValue] = useState('');
@@ -8,6 +10,7 @@ const InputForm = ({item, setItem}) => {
     const [foodCalory, setFoodCalory] = useState('');
     const [data, setData] = useState([]);
     const user = useContext(AuthContext);
+    const dispatch = useDispatch();
   // console.log(foodAmount, foodCalory)
     const currentDate = new Date();
     const year = currentDate.getFullYear();
@@ -40,19 +43,8 @@ const InputForm = ({item, setItem}) => {
       const calorey = foodCalory;
       const loged = { food: food, amount: amount, time: time, calorey: calorey, userEmail: user?.user?.email, date: startDate.toLocaleDateString() }
       console.log(loged)
-  
-      fetch('https://fitness-tracking-web-server.vercel.app/loggedFood', {
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json'
-        },
-        body: JSON.stringify(loged)
-      })
-        .then(res => res.json())
-        .then(result => {
-          console.log(result)
-  
-        })
+
+      dispatch(postLogFood(loged))
       setItem(null)
   
     };
@@ -95,7 +87,7 @@ const InputForm = ({item, setItem}) => {
               value={foodAmount}
 
               className="input bg-gray-500 input-bordered focus:outline-none w-full"
-              // className="input bg-gray-500 input-bordered focus:outline-none w-72 lg:w-[510px]"
+            
             />
           </div>
           <div>
@@ -121,7 +113,7 @@ const InputForm = ({item, setItem}) => {
         </div>
       </div>
       <div className=" mt-6">
-        <button className="btn w-full border-none bg-gradient-to-r from-gray-700 via-green-500 to-gray-700 text-white hover:bg-gradient-to-r hover:from-gray-800 hover:via-green-400 hover:to-gray-800 hover:text-black">Log</button>
+        <button className="btn w-full border-none bg-secondary hover:bg-secondary text-black mb-3">Log</button>
       </div>
     </form>
     );

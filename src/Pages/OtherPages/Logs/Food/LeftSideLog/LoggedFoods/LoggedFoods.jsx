@@ -1,57 +1,65 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useContext, useEffect } from "react";
 import DatePicker from "react-datepicker";
+import { useDispatch, useSelector } from "react-redux";
+import { AuthContext } from "../../../../../../Contexts/AuthProvider/AuthProvider";
+import addFavoriteFood from "../../../../../../redux/thunk/foods/addToFavorite";
+import deleteLoggedFood from "../../../../../../redux/thunk/foods/deleteLoggedFood";
+import loadLogFoodData from "../../../../../../redux/thunk/foods/fetchLogFoods";
 
-const LoggedFoods = ({ logedFood, result, setResult, startDate, setStartDate }) => {
- 
+const LoggedFoods = ({ result, setResult, startDate, setStartDate }) => {
+  const dispatch = useDispatch();
+
+  const user = useContext(AuthContext);
+
+  const logedFood = useSelector((state) => state.loggedFoods);
+
   useEffect(() => {
-    let total = (logedFood?.reduce((sum, food) => sum + parseInt(food?.calorey), 0));
-    setResult(total);
-  }, [logedFood]);
-// new pull
-  const handleFavoriteFood =(food)=>{
-    const favouriteFood = {food: food?.food, amount: food?.amount, calorey: food?.calorey, time: food?.time, userEmail: food?.userEmail, date: food?.date}
-    console.log(favouriteFood)
-    fetch('http://localhost:5000/favouriteFood', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify(favouriteFood)
-    })
-      .then(res => res.json())
-      .then(result => {
-        console.log(result)
-        
-      })
-  }
+    dispatch(
+      loadLogFoodData(user?.user?.email, startDate?.toLocaleDateString())
+    );
+  }, [dispatch, user?.user?.email, startDate]);
 
-  const handleDeleteLogFood = (food) =>{
-    fetch(`http://localhost:5000/loggedFood/${food?._id}`, { 
-            method: 'DELETE' 
-        })
-            .then(res=>res.json())
-            .then(data=>console.log(data))
-  }
+  useEffect(() => {
+    let total = logedFood.reduce(
+      (sum, food) => sum + parseInt(food.calorey),
+      0
+    );
+    setResult(total);
+  }, [logedFood, setResult]);
+
+  const handleFavoriteFood = (food) => {
+    const favouriteFood = {
+      food: food.food,
+      amount: food.amount,
+      calorey: food.calorey,
+      time: food.time,
+      userEmail: food.userEmail,
+      date: food.date,
+    };
+    dispatch(addFavoriteFood(favouriteFood));
+  };
+
   return (
     <div>
       <div className="flex items-center justify-between w-full">
-      <h2 className="font-bold text-3xl my-3 capitalize mt-24 lg:mt-5">logged foods</h2>
-      <div>
-   <DatePicker className="font-bold w-2/4 lg:text-2xl capitalize bg-green-800"
-        name="date"
-        defaultValue='select'
-      selected={startDate}
-      // value={startDate}
-      onChange={date => setStartDate(date)}
-    />
-   </div>
+        <h2 className="font-bold text-3xl my-3 capitalize mt-24 lg:mt-5">
+          logged foods
+        </h2>
+        <div>
+          <DatePicker
+            className="font-bold w-2/4 lg:text-2xl capitalize bg-transparent"
+            name="date"
+            defaultValue="select"
+            selected={startDate}
+            // value={startDate}
+            onChange={(date) => setStartDate(date)}
+          />
+        </div>
       </div>
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>
             <tr>
-
               <th className="bg-gray-300 text-black text-lg">Food Name</th>
               <th className="bg-gray-300 text-black text-lg">Amount</th>
               <th className="bg-gray-300 text-black text-lg">Calorey</th>
@@ -61,29 +69,42 @@ const LoggedFoods = ({ logedFood, result, setResult, startDate, setStartDate }) 
             </tr>
           </thead>
           <tbody>
-            {logedFood?.map(food => <tr  key={food?._id}>
-              <th className="bg-white text-black">{food?.food}</th>
-              <td className="bg-white text-black">{food?.amount}</td>
-              <td className="bg-white text-black">{food?.calorey}</td>
-              <td className="bg-white text-black">{food?.time}</td>
+            {logedFood?.map((food) => (
+              <tr key={food._id}>
+                <th className="bg-white text-black">{food.food}</th>
+                <td className="bg-white text-black">{food.amount}</td>
+                <td className="bg-white text-black">{food.calorey}</td>
+                <td className="bg-white text-black">{food.time}</td>
 
-              <td className="bg-white text-black"><button onClick={()=>handleFavoriteFood(food)} className="btn btn-xs text-white">Add To Favourite</button></td>
-              
-              <td className="bg-white text-black"><button onClick={()=>handleDeleteLogFood(food)}  className="btn btn-xs text-white">X</button></td>
-            </tr>
-            )}
+                <td className="bg-white text-black">
+                  <button
+                    onClick={() => handleFavoriteFood(food)}
+                    className="btn btn-xs text-white"
+                  >
+                    Add To Favorite
+                  </button>
+                </td>
+                <td className="bg-white text-black">
+                  <button
+                    onClick={() => dispatch(deleteLoggedFood(food._id))}
+                    className="btn btn-xs text-white"
+                  >
+                    X
+                  </button>
+                </td>
+              </tr>
+            ))}
           </tbody>
           <tfoot>
             <tr>
               <th className="text-black bg-gray-400 text-lg">Total</th>
               <th className="text-black bg-gray-400 text-lg"></th>
-              <th className="text-black bg-gray-400 text-lg">{ result} cal</th>
+              <th className="text-black bg-gray-400 text-lg">{result} Cal</th>
               <th className="text-black bg-gray-400 text-lg"></th>
               <th className="text-black bg-gray-400 text-lg"></th>
               <th className="text-black bg-gray-400 text-lg"></th>
             </tr>
           </tfoot>
-
         </table>
       </div>
     </div>

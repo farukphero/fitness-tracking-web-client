@@ -64,7 +64,8 @@ const Leaderboard = () => {
                     </div>
 
                     <div className='bg-gray-800 rounded shadow-lg shadow-green-600 p-2'>
-                        <h1>Weight</h1>
+                        <img className='h-32 w-32 mx-auto my-10' src="https://static.vecteezy.com/system/resources/previews/014/011/484/original/fire-icon-in-gradient-red-colors-flame-signs-illustration-png.png?fbclid=IwAR2S02B9dRythX9X4QZkyRQsobZmhLYnXVsem8FE6T6EMR8dErCFn00PQDA" alt="" />
+                        <h1 className='text-gray-400 lg:ml-20 pb-5'>Keep Fit Yourself</h1>
                     </div>
                 </div>
 
@@ -75,8 +76,8 @@ const Leaderboard = () => {
                             <p className='text-sm text-gray-400 text-center'>Do more fun with your friends!</p>
                         </div>
                     </Link>
-                    <div className='bg-gray-800 rounded shadow-lg shadow-green-600 p-2'>
-                        <h1>Weight</h1>
+                    <div className='bg-gray-800 text-gray-400 rounded shadow-lg shadow-green-600 p-10'>
+                        <h1>A healthy lifestyle can help you thrive throughout your life. Making healthy choices isn't always easy, however. It can be hard to find the time and energy to exercise regularly or prepare healthy meals.</h1>
                     </div>
                 </div>
             </div>

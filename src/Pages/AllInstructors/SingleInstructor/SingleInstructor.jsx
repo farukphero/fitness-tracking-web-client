@@ -11,7 +11,7 @@ const SingleInstructor = ({ instructor }) => {
     instructor;
 
   const handleInstructor = () => {
-    navigate(`/checkup/instructors/${_id}`);
+    navigate(`/instructor/instructors/${_id}`);
   };
 
   return (

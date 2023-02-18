@@ -25,7 +25,7 @@ const AllActivities = () => {
     queryKey: [`activities`, user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/allactivities?activist=${user?.email}`
+        `https://fitness-tracking-web-server.vercel.app/allactivities?activist=${user?.email}`
       );
       const data = await res.json();
       return data;

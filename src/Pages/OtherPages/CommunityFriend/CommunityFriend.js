@@ -14,7 +14,7 @@ const CommunityFriend = () => {
   const [loading, setLoading] = useState(true);
   const [reload, setReload] = useState(false);
   useEffect(() => {
-    fetch("http://localhost:5000/users")
+    fetch("https://fitness-tracking-web-server.vercel.app/users")
       .then((res) => res.json())
       .then((data) => {
         const result = data.filter(

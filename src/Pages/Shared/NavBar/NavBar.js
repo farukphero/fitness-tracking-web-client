@@ -39,17 +39,18 @@ const Navbar = () => {
       aria: `Community`,
       content: `Community`,
     },
+    
     {
       _id: 3,
-      navigate: `/Tutorials`,
-      aria: `Tutorials`,
-      content: `Tutorials`,
+      navigate: `/instructor/instructors`,
+      aria: `Instructor`,
+      content: `Instructor`,
     },
     {
       _id: 4,
-      navigate: `/checkup/instructors`,
-      aria: `Checkup`,
-      content: `Checkup`,
+      navigate: `/Tutorials`,
+      aria: `Tutorials`,
+      content: `Tutorials`,
     },
   ];
 

@@ -15,7 +15,7 @@ const Services = () => {
   const handleAge = (event) => {
     const usersAgeForServices = { age: event.target.value };
     fetch(
-      "http://localhost:5000/usersAgeForServices/63e9d22f781ec04ec2072283",
+      "https://fitness-tracking-web-server.vercel.app/usersAgeForServices/63e9d22f781ec04ec2072283",
       {
         method: "PATCH",
         headers: {

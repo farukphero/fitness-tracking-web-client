@@ -13,7 +13,7 @@ const {user}=useContext(AuthContext);
   } = useQuery({
     queryKey: ["activities.", user?.email],
     queryFn: () =>
-      fetch(`http://localhost:5000/allactivities?email=${user?.email}`)
+      fetch(`https://fitness-tracking-web-server.vercel.app/allactivities?email=${user?.email}`)
         .then((res) => res.json())
         .then((data) => {
           refetch();

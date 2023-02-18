@@ -1,22 +1,3 @@
-
-//  import emailjs from ""
-// import "./Contact.css";
-// import { emailjs } from 'emailjs-com';
-
-// const ContactUs = () => {
-
-//   const emailsend = (e) => {
-
-//     e.preventDefault();
-
-//     emailjs.sendForm('gmail', 'template_7ne6mvb', e.target, 'YOUR_PUBLIC_KEY')
-//       .then((result) => {
-//         console.log(result.text);
-//       }, (error) => {
-//         console.log(error.text);
-//       });
-//   }
-
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 
@@ -31,7 +12,6 @@ export const ContactUs = () => {
       .then((result) => {
         e.form.reset()
         toast('Email send')
-        console.log(result.text);
       }, (error) => {
         console.log(error.text);
 

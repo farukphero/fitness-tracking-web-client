@@ -3,38 +3,24 @@ import SignIn from "../../Authentications/SignIn/SignIn";
 import SignUp from "../../Authentications/SignUp/SignUp";
 import KeepTrack from "../../Layout/KeepTrack/KeepTrack";
 import Main from "../../Layout/Main/Main";
-import Event from "../../Pages/Dashboard/Event/Event";
-import Report from "../../Pages/Dashboard/Report/Report";
 
 import UserDetails from "../../Authentications/UserDetails/UserDetails";
 import LogsLayout from "../../Layout/LogsLayout/LogsLayout/LogsLayout";
-import Support from "../../Pages/Dashboard/Support/Support";
+
 import UserInfo from "../../Pages/Dashboard/UserInfo/UserInfo";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Home from "../../Pages/Home/Home/Home";
 import ServiceDetails from "../../Pages/Home/Services/ServiceDetails";
-import Community from "../../Pages/OtherPages/Community/Community";
-import Foods from "../../Pages/OtherPages/Foods/Foods";
-import Leaderboard from "../../Pages/OtherPages/Leaderboard/Leaderboard";
+
+ import Leaderboard from "../../Pages/OtherPages/Leaderboard/Leaderboard";
 import Activities from "../../Pages/OtherPages/Logs/Activities/Activities/Activities";
-import Food from "../../Pages/OtherPages/Logs/Food/Food/Food";
 import Water from "../../Pages/OtherPages/Logs/Water/Water";
-
 import Setting from "../../Pages/Dashboard/SettingAndPrivacy/Setting/Setting";
-import Plan from "../../Pages/Dashboard/SettingAndPrivacy/Plan/Plan";
-import Team from "../../Pages/Dashboard/SettingAndPrivacy/Team/Team";
 import Notification from "../../Pages/Dashboard/SettingAndPrivacy/Notification/Notification";
-import Intergration from "../../Pages/Dashboard/SettingAndPrivacy/Intergration/Intergration";
-import AuthProfile from "../../Pages/Dashboard/SettingAndPrivacy/AuthProfile/AuthProfile";
-
 import AddTutorials from "../../Pages/OtherPages/Tutorials/AddTutorials/AddTutorials";
 import Tutorial from "../../Pages/OtherPages/Tutorials/Tutorial/Tutorial";
-import CommunityLaout from "../../Layout/CommunityLaout/CommunityLaout";
 import WeightCalculator from "../../Pages/Home/WeightCalculator/WeightCalculator";
 import CommunityFriend from "../../Pages/OtherPages/CommunityFriend/CommunityFriend";
-import CommunityGroup from "../../Pages/OtherPages/CommunityGroup/CommunityGroup";
-import CommunityPost from "../../Pages/OtherPages/CommunityPost/CommunityPost";
-import CommunityPosted from "../../Pages/OtherPages/CommunityPosted/CommunityPosted";
 import ActivitiesHistoryDetails from "../../Pages/OtherPages/Logs/Activities/Activities/ActivitiesHistoryDetails/ActivitiesHistoryDetails";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import DashboardLayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
@@ -49,25 +35,16 @@ import Sleep from "../../Pages/OtherPages/Logs/Sleep/Sleep/Sleep";
 import BloodTracking from "../../Pages/Home/Calculator/BloodTracking/BloodTracking";
 import Protein from "../../Pages/Home/Calculator/Protein/Protein";
 import BlogDetails from "../../Pages/Home/Blog/BlogDetails";
-// import Friends from "../../Pages/OtherPages/CommunityFriend/Friends/Friends";
-
-import Instructor from "../../Pages/Home/Instructor/Instructor";
-
-import Instructors from "../../Pages/Home/Instructor/Instructors";
 import Questions from "../../Pages/Dashboard/SettingAndPrivacy/Questions/Questions";
 import Faqs from "../../Pages/Home/FAQ/FAQ";
 import AllActivities from "../../Pages/OtherPages/AllActivities/AllActivities/AllActivities";
-import MeetInstructors from "../../Layout/MeetInstructors/MeetInstructors";
 import AllInstructors from "../../Pages/AllInstructors/AllInstructors";
 import VideoCalling from "../../Pages/VideoCalling/VideoCalling/VideoCalling";
-import CallingVideo from "../../Layout/CallingVideo/CallingVideo";
 import CallingRoom from "../../Pages/VideoCalling/CallingRoom/CallingRoom";
-
-import GetUserDetails from "../../Authentications/GetUserDetails/GetUserDetails";
-
-import axios from "axios";
 import InstructorsDetails from "../../Pages/InstructorDetails/InstructorDetails/InstructorsDetails";
 import Friends from "../../Pages/OtherPages/CommunityFriend/Friends/Friends";
+import Food from "../../Pages/OtherPages/Logs/Food/Food/Food";
+import GetUserDetails from "../../Authentications/GetUserDetails/GetUserDetails";
 
 export const router = createBrowserRouter([
   {
@@ -85,23 +62,17 @@ export const router = createBrowserRouter([
       },
       {
         path: "/Leaderboard",
-        element: <Leaderboard></Leaderboard>,
+        element: <PrivateRoute><Leaderboard></Leaderboard></PrivateRoute>,
       },
 
       {
         path: "/Tutorials",
-        element: <Tutorials></Tutorials>,
+        element: <PrivateRoute><Tutorials></Tutorials></PrivateRoute>,
       },
       {
         path: "/faq",
         element: <Faqs></Faqs>,
       },
-      // {
-      //   path: "/instructor/:id",
-      //   element: <Instructors></Instructors>,
-      //   loader: ({ params }) =>
-      //     fetch(`http://localhost:5000/instructor/${params.id}`),
-      // },
 
       {
         path: "/WeightCalculator",
@@ -118,10 +89,10 @@ export const router = createBrowserRouter([
       },
 
       {
-        path: `/checkup/instructors/:id`,
+        path: `/instructor/instructors/:id`,
         element: <InstructorsDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/instructors/${params.id}`),
+          fetch(`https://fitness-tracking-web-server.vercel.app/instructors/${params.id}`),
       },
 
       {
@@ -149,24 +120,6 @@ export const router = createBrowserRouter([
         path: "/ActivitiesHistoryDetails",
         element: <ActivitiesHistoryDetails></ActivitiesHistoryDetails>,
       },
-      // {
-      //   path: "/Community",
-      //   element: <CommunityLaout></CommunityLaout>,
-      //   children: [
-      //     {
-      //       path: "/Community/friends",
-      //       element: <Friends></Friends>,
-      //     },
-      //     {
-      //       path: "/Community/AllUsers",
-      //       element: <CommunityFriend></CommunityFriend>,
-      //     },
-      //     {
-      //       path: "/Community/group",
-      //       element: <CommunityGroup></CommunityGroup>,
-      //     },
-      //   ],
-      // },
       {
         path: "/Profile",
         element: <DashboardLayout></DashboardLayout>,
@@ -214,24 +167,24 @@ export const router = createBrowserRouter([
         path: "/SignIn",
         element: <SignIn></SignIn>,
       },
-      // {
-      //   path: "/SignUp",
-      //   element: <GetUserDetails></GetUserDetails>,
-      // },
       {
         path: "/SignUp",
-        element: <SignUp></SignUp>,
+        element: <GetUserDetails></GetUserDetails>,
       },
+      // {
+      //   path: "/SignUp",
+      //   element: <SignUp></SignUp>,
+      // },
       {
         path: "/Community/AllUsers",
-        element: <CommunityFriend></CommunityFriend>,
+        element:<PrivateRoute> <CommunityFriend></CommunityFriend></PrivateRoute>,
       },
       {
         path: "/Community/friends",
-        element: <Friends></Friends>,
+        element: <PrivateRoute><Friends></Friends></PrivateRoute>,
       },
       {
-        path: `/checkup/instructors`,
+        path: `/instructor/instructors`,
         element: <AllInstructors />,
       },
       {
@@ -260,13 +213,13 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/KeepTrack/Foods",
-        element: <Foods></Foods>,
+        element: <Food></Food>,
       },
     ],
   },
   {
     path: "/Logs",
-    element: <LogsLayout></LogsLayout>,
+    element:<PrivateRoute> <LogsLayout></LogsLayout></PrivateRoute>,
     children: [
       {
         path: "/Logs/Activities",
@@ -290,20 +243,6 @@ export const router = createBrowserRouter([
       },
     ],
   },
-  // {
-  //   path: `/checkup`,
-  //   element: <MeetInstructors />,
-  //   children: [
-      
-  //   ],
-  // },
-  // {
-  //   path: `/video`,
-  //   element: <CallingVideo />,
-  //   children: [
-     
-  //   ],
-  // },
   {
     path: `/video`,
     element: <VideoCalling />,

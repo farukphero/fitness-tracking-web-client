@@ -138,20 +138,18 @@ const AddActivities = () => {
                     name
                   </span>
                 </label>
-                <input
-                  type="text"
-                  className="input input-md input-bordered w-full"
-                  {...register(`name`)}
-                />
-                {/* <div>
-                  {errors?.name && (
-                    <p className="text-error">{errors?.name?.message}</p>
-                  )}
-                </div> */}
+                <select  {...register(`name`)} className="select select-ghost w-full max-w-xs bg-gray-500 text-white">
+                  <option className="text-white" disabled selected>
+                    Name Of Activities
+                  </option>
+                  <option className="text-white">Run</option>
+                  <option className="text-white">Walk</option>
+                  <option className="text-white">Cycling</option>
+                </select>
               </div>
 
               <div className="form-control flex flex-row w-full">
-                <label className="label  w-32">
+                <label className="label w-28">
                   <span className="label-text capitalize font-lg text-xl">
                     date
                   </span>
@@ -168,7 +166,7 @@ const AddActivities = () => {
               </div>
 
               <div className="form-control flex flex-row w-full">
-                <label className="label  w-32">
+                <label className="label  w-28">
                   <span className="label-text capitalize font-lg text-xl">
                     start time
                   </span>
@@ -186,8 +184,8 @@ const AddActivities = () => {
               </div>
 
               <div className="form-control flex flex-row w-full">
-                <label className="label  w-32">
-                  <span className="label-text capitalize font-lg text-xl ">
+                <label className="label  w-20">
+                  <span className="label-text capitalize font-lg text-lg">
                     duration
                   </span>
                 </label>
@@ -242,7 +240,7 @@ const AddActivities = () => {
               </div>
 
               <div className="form-control flex flex-row">
-                <label className="label w-32">
+                <label className="label w-28">
                   <span className="label-text capitalize font-lg text-xl">
                     weight
                   </span>
@@ -257,8 +255,8 @@ const AddActivities = () => {
                     {...register(`parameter`)}
                     className="select bg-gray-500 select-bordered ml-2"
                   >
-                    <option selected>lbs</option>
-                    <option>kg</option>
+                    <option selected>kg</option>
+                    <option >lbs</option>
                   </select>
                   {/* <div>
                     {errors?.weight && (
@@ -269,7 +267,7 @@ const AddActivities = () => {
               </div>
 
               <div className="form-control flex flex-row w-full">
-                <label className="label w-32">
+                <label className="label w-28">
                   <span className="label-text capitalize font-lg text-xl">
                     notes
                   </span>

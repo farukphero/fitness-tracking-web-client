@@ -20,7 +20,7 @@ const CallingRoom = () => {
       sharedLinks: [
         {
           name: `Copy Link`,
-          url: `http://localhost:3000/video/room/${roomid}`,
+          url: `https://fitlessian.web.app/video/room/${roomid}`,
         },
       ],
       scenario: {
