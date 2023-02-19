@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import QuestionsModel from './QuestionsModel';
+import { FaUser } from 'react-icons/fa';
 
 const GotQuetions = ({ quetion }) => {
     const { ask, _id, user, Name } = quetion;
@@ -37,15 +38,18 @@ const GotQuetions = ({ quetion }) => {
     };
     return (
 
-        <div className="card w-80 bg-base-100 shadow-xl image-full">
+        <div className='bg-gradient-to-br p-4 rounded-2xl'>
+            <h2 className="card-title mb-2"><FaUser></FaUser>{Name}</h2>
+            <div className="">
 
-            <div className="card-body">
-                <h2 className="card-title">{Name}</h2>
-                <p>{ask}</p>
-                <div className="card-actions justify-end">
+                <div className="">
 
-                    <QuestionsModel></QuestionsModel>
+                    <p>{ask}?</p>
+                    <div className="card-actions justify-end">
 
+
+
+                    </div>
                 </div>
             </div>
         </div>

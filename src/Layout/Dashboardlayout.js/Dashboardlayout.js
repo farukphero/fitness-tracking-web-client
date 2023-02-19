@@ -5,7 +5,7 @@ import { AiOutlineSetting } from "react-icons/ai";
 import { useContext } from "react";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import useAdmin from "../../Hooks/useAdmin/useAdmin";
-import { FaRegUser } from "react-icons/fa";
+import { FaQuestion, FaRegUser } from "react-icons/fa";
 
 const DashboardLayout = () => {
   const { userInfo, user } = useContext(AuthContext);
@@ -61,6 +61,15 @@ const DashboardLayout = () => {
               >
                 Setting
                 <AiOutlineSetting></AiOutlineSetting>
+              </Link>
+            </li>
+            <li className="btn-dashboard border-b-2  border-sky-400 mb-2 ">
+              <Link
+                className="text-center ml-16 text-about font-semibold"
+                to="/Profile/questions"
+              >
+                Questions
+                <FaQuestion></FaQuestion>
               </Link>
             </li>
           </>
