@@ -45,6 +45,7 @@ import InstructorsDetails from "../../Pages/InstructorDetails/InstructorDetails/
 import Friends from "../../Pages/OtherPages/CommunityFriend/Friends/Friends";
 import Food from "../../Pages/OtherPages/Logs/Food/Food/Food";
 import GetUserDetails from "../../Authentications/GetUserDetails/GetUserDetails";
+import PersonalInfo from "../../Authentications/PersonalInfo/PersonalInfo";
 
 export const router = createBrowserRouter([
   {
@@ -167,14 +168,18 @@ export const router = createBrowserRouter([
         path: "/SignIn",
         element: <SignIn></SignIn>,
       },
-      {
-        path: "/SignUp",
-        element: <GetUserDetails></GetUserDetails>,
-      },
       // {
       //   path: "/SignUp",
-      //   element: <SignUp></SignUp>,
+      //   element: <GetUserDetails></GetUserDetails>,
       // },
+      // {
+      //   path: "/SignUp/SignUp",
+      //   element: <PersonalInfo></PersonalInfo>,
+      // },
+      {
+        path: "/SignUp",
+        element: <SignUp></SignUp>,
+      },
       {
         path: "/Community/AllUsers",
         element:<PrivateRoute> <CommunityFriend></CommunityFriend></PrivateRoute>,
