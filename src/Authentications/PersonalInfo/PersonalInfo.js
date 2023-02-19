@@ -1,18 +1,7 @@
-import { format } from "date-fns";
-import React, { useContext } from "react";
-import { DayPicker } from "react-day-picker";
+import React from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
-
-const PersonalInfo = () => {
-  const { userInfo } = useContext(AuthContext);
-  const navigate = useNavigate();
-
-  const [selected, setSelected] = React.useState(new Date());
-
-  const date = format(selected, "P");
-
+ 
+const PersonalInfo = ({setAnotherInfo}) => {
   const {
     register,
     formState: { errors },
@@ -26,100 +15,60 @@ const PersonalInfo = () => {
       inch: data.inch,
       country: data.country,
       phone: data.phone,
-      email: userInfo?.email
+    
     };
-    fetch("http://localhost:5000/users", {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(Details),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        navigate("/Register");
-        console.log(data);
-      });
+    setAnotherInfo(Details)
   };
 
   return (
     <div className="relative">
-      {/* <img
+      <img
         src="https://media.istockphoto.com/id/1368151370/photo/user-typing-login-and-password-cyber-security-concept.jpg?b=1&s=170667a&w=0&k=20&c=wm6YUMs03Bup4_9XcQaX61L711qJxAUExEJp_PWO8gI="
         className="absolute inset-0 object-cover w-full h-full"
         alt=""
-      /> */}
+      />
       <div className="relative bg-gray-900 bg-opacity-80">
         <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
           <div className="flex flex-col items-center justify-between xl:flex-row">
             <div className="w-full max-w-xl mb-12 xl:mb-0 xl:pr-16 xl:w-7/12">
-              <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
-                The quick, brown fox <br className="hidden md:block" />
-                jumps over a{" "}
-                <span className="text-teal-accent-400">lazy dog</span>
-              </h2>
-              <p className="max-w-xl mb-4 text-base text-gray-400 md:text-lg">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudan, totam rem aperiam, eaque ipsa
-                quae.
-              </p>
-              <a
-                href="/"
-                aria-label=""
-                className="inline-flex items-center font-semibold tracking-wider transition-colors duration-200 text-teal-accent-400 hover:text-teal-accent-700"
-              >
-                Learn more
-                <svg
-                  className="inline-block w-3 ml-2"
-                  fill="currentColor"
-                  viewBox="0 0 12 12"
-                >
-                  <path d="M9.707,5.293l-5-5A1,1,0,0,0,3.293,1.707L7.586,6,3.293,10.293a1,1,0,1,0,1.414,1.414l5-5A1,1,0,0,0,9.707,5.293Z" />
-                </svg>
-              </a>
+            <h2 className="max-w-lg mb-6 font-sans text-3xl font-semibold tracking-tight text-white sm:text-4xl sm:leading-none">
+                  “Strength does not come from physical capacity. It comes from an indomitable will.” 
+                    
+                  </h2>
+                  <p className="max-w-xl mb-4 text-base text-gray-400 md:text-lg">
+                  FITLESSIAN is a platform that helps you to know how you will be strong and what will be your daily activities.
+                  </p>
             </div>
-            <DayPicker
-              mode="single"
-              selected={selected}
-              onSelect={setSelected}
-              className="hidden"
-            />
-            <div className="w-full max-w-xl xl:px-8 xl:w-5/12">
-              <div className="bg-gradient-to-r from-gray-800 via-gray-700 to-gray-900 rounded shadow-2xl p-7 sm:p-10">
+            <div >
+              <div className="bg-gradient-to-r from-gray-800 via-gray-700 to-gray-900 rounded shadow-2xl p-7 sm:p-10 lg:w-[500px]">
                 <h3 className="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl">
                   Sign up for updates
                 </h3>
                 <form onSubmit={handleSubmit(handleDetails)}>
                   <div>
                     <label className="inline-block mb-1 font-lg">Height</label>
-                    <hr className="w-10" />
                     <div className="flex gap-5">
                       <div className="mb-1 sm:mb-2">
-                        <label className="inline-block mb-1 font-medium">
-                          Fit
-                        </label>
                         <input
                           placeholder="Fit"
                           {...register("fit", { required: true })}
                           type="text"
-                          className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 text-black bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                          className="flex-grow w-full h-12 px-4   transition duration-200 text-black bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                         />
                       </div>
                       <div className="mb-1 sm:mb-2">
-                        <label className="inline-block mb-1 font-medium">
-                          Inch
-                        </label>
+                        
                         <input
                           placeholder="inch"
                           {...register("inch", { required: true })}
                           type="text"
-                          className="flex-grow w-full h-12 px-4 mb-2 transition duration-200  text-black bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                          className="flex-grow w-full h-12 px-4  transition duration-200  text-black bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                         />
                       </div>
                     </div>
                     <div className="form-control">
                       <label className="label">
-                        <span className="label-text text-white">Weight</span>
+                        <span className="label-text text-white font-lg">Weight</span>
                       </label>
                       <input
                         type="text"
@@ -157,23 +106,6 @@ const PersonalInfo = () => {
                       className="flex-grow w-full h-12 px-4 mb-2 transition duration-200  text-black bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                     />
                   </div>
-                  <div className="mb-1 sm:mb-2">
-                    <label
-                      htmlFor="age"
-                      className="inline-block mb-1 font-medium"
-                    >
-                      Email
-                    </label>
-                    <input
-                      placeholder="Country"
-                      {...register("email", { required: true })}
-                      type="email"
-                      defaultValue={userInfo?.email}
-
-                      className="flex-grow w-full h-12 px-4 mb-2 transition duration-200  text-black bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-                    />
-                  </div>
-
                   <div className="mt-4 mb-2 sm:mb-4">
                     <button
                       type="submit"

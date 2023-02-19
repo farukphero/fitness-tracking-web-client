@@ -19,7 +19,7 @@ const DashboardLayout = () => {
 
         <label
           htmlFor="my-drawer"
-          className="flex md:hidden btn-explore drawer-button absolute top-1 left-6"
+          className="flex lg:hidden btn-explore drawer-button absolute top-1 left-6"
         >
           <img
             className="h-12 w-12 rounded-full"

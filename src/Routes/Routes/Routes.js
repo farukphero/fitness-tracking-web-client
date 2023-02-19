@@ -168,18 +168,18 @@ export const router = createBrowserRouter([
         path: "/SignIn",
         element: <SignIn></SignIn>,
       },
-      // {
-      //   path: "/SignUp",
-      //   element: <GetUserDetails></GetUserDetails>,
-      // },
-      // {
-      //   path: "/SignUp/SignUp",
-      //   element: <PersonalInfo></PersonalInfo>,
-      // },
       {
         path: "/SignUp",
-        element: <SignUp></SignUp>,
+        element: <GetUserDetails></GetUserDetails>,
       },
+      // {
+      //   path: "/SignUp",
+      //   element: <PersonalInfo></PersonalInfo>,
+      // },
+      // {
+      //   path: "/SignUpSuccess",
+      //   element: <SignUp></SignUp>,
+      // },
       {
         path: "/Community/AllUsers",
         element:<PrivateRoute> <CommunityFriend></CommunityFriend></PrivateRoute>,

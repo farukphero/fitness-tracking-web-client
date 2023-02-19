@@ -18,7 +18,6 @@ const ServiceCard = ({ service, handleAge }) => {
           src={image}
           alt="service-card"
         />
-        {/* image hover : rounded relative transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 */}
       </figure>
       <div className="card-body" style={{ height: "300px" }}>
         {/* <h2 className="card-title text-all-green font-semibold">{name}</h2> */}
@@ -32,7 +31,7 @@ const ServiceCard = ({ service, handleAge }) => {
             placeholder="Input your age"
           />
           <Link to={`/serviceDetails/${_id}`} state={{ from: { service } }}>
-            {" "}
+            
             <button className="border-2 px-6 py-3 border-green-600 btn-explore  rounded-md w-full">
               Explore More
             </button>
