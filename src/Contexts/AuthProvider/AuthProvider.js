@@ -2,6 +2,7 @@ import {
     createUserWithEmailAndPassword,
     getAuth,
     onAuthStateChanged,
+    sendEmailVerification,
     signInWithEmailAndPassword,
     signInWithPopup,
     signOut,
@@ -30,11 +31,9 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signInWithPopup(auth, provider);
   };
-  const updateUser = (profile) => {
-    setLoading(true);
-    return updateProfile(auth.currentUser, profile)
-  };
-
+ const emailVerify =( )=>{
+  return sendEmailVerification(auth.currentUser)
+ }
   const logOut = () => {
     localStorage.removeItem("accessToken");
     setLoading(true);
@@ -79,7 +78,7 @@ const AuthProvider = ({ children }) => {
     loading,
     createUserByEmail,
     accountLogIn,
-    updateUser,
+    emailVerify,
     logOut,
     providerGoogleLogIn,
     userInfo,

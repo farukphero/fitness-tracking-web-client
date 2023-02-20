@@ -21,7 +21,7 @@ const LogsNavbar = () => {
 
   const addStyles = (index) => {
     if (activeState?.navItems[index]?._id === activeState?.active) {
-      return `border-none bg-secondary text-black mb-0 px-3 py-2 rounded-lg`;
+      return `border-none bg-secondary text-white mb-0 px-3 py-2 rounded-lg`;
     } else {
       return `border-2 px-3 py-2 rounded-lg mb-0`;
     }
