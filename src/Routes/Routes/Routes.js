@@ -120,7 +120,7 @@ export const router = createBrowserRouter([
         element: <ActivitiesHistoryDetails></ActivitiesHistoryDetails>,
       },
       {
-        path: "/Community/AllUsers",
+        path: "/Community",
         element: <CommunityLaout></CommunityLaout>,
         children: [
           // {
