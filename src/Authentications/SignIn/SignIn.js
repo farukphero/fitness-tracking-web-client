@@ -10,7 +10,8 @@ import { toast } from "react-hot-toast";
 
 const SignIn = () => {
   useTitle("SignIn");
-  const { accountLogIn, providerGoogleLogIn } = useContext(AuthContext);
+  const {user, accountLogIn, providerGoogleLogIn,logOut } = useContext(AuthContext);
+ console.log(user)
   const provider = new GoogleAuthProvider();
   const [signInError, setSignInError] = useState("");
 
@@ -22,13 +23,21 @@ const SignIn = () => {
   } = useForm();
 
   const handleLogIn = (data) => {
-    accountLogIn(data.email, data.password)
+      accountLogIn(data.email, data.password)
       .then((result) => {
         const user = result.user;
         <Loading></Loading>;
         setSignInError();
-        toast.success("Sign In success");
-        navigate("/Leaderboard");
+        if(user?.emailVerified){
+          toast.success("Sign In success");
+          navigate("/Leaderboard");
+        }
+        else{
+          alert("Please check your email and verify.")
+          logOut()
+          .then(()=>{})
+          .catch(error=>console.log(error))
+        }
       })
       .catch((error) => setSignInError(error.message));
   };
@@ -39,8 +48,16 @@ const SignIn = () => {
         const user = result.user;
         <Loading></Loading>;
         setSignInError();
-        toast.success("Sign In success");
-        navigate("/Leaderboard");
+        if(user?.emailVerified){
+          toast.success("Sign In success");
+          navigate("/Leaderboard");
+        }
+        else{
+          alert("Please check your email and verify.")
+          logOut()
+          .then(()=>{})
+          .catch(error=>console.log(error))
+        }
       })
       .catch((error) => setSignInError(error));
   };
@@ -95,6 +112,7 @@ const SignIn = () => {
                             id="email"
                             name="email"
                           />
+                           {errors.email && <span className="text-red-500">Enter Your SignUp Email</span>}
                         </div>
                         <div className="mb-1">
                         <label className="label">
@@ -109,6 +127,7 @@ const SignIn = () => {
                             className="flex-grow w-full h-12 px-4 mb-2 transition duration-200  text-black bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                             name="password"
                           />
+                          {errors.password && <span className="text-red-500">Enter Password</span>}
                         </div>
                         <p className="text-red-500 my-2">{signInError}</p>
                         <input

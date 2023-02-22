@@ -1,7 +1,7 @@
 import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import { FcGoogle } from "react-icons/fc";
 import useTitle from "../../Hooks/useTitle/useTitle";
@@ -12,6 +12,7 @@ const SignUp = ({ userDetails, anotherInfo }) => {
   useTitle("SignUp");
   const { createUserByEmail, providerGoogleLogIn, emailVerify } =
     useContext(AuthContext);
+
   const provider = new GoogleAuthProvider();
   const [signUpError, setSignUpError] = useState("");
   const [loadImage, setLoadImage] = useState("");
@@ -25,66 +26,64 @@ const SignUp = ({ userDetails, anotherInfo }) => {
   const handleSignUp = (data) => {
     setSignUpError("");
     createUserByEmail(data.email, data.password)
-      // console.log(data.email, data.password)
       .then((result) => {
         const user = result.user;
-        <Loading></Loading>;
-        toast.success("Welcome to FITLESSIAN");
-        const image = data.img[0];
-        // console.log(image);
-        const formData = new FormData();
-        formData.append("image", image);
-        const url = `https://api.imgbb.com/1/upload?expiration=600&key=c49cb06155adb366044d147043658858`;
-        fetch(url, {
-          method: "POST",
-          body: formData,
-        })
-          .then((res) => res.json())
-          .then((imgData) => {
-            if (imgData.success) {
-              setLoadImage(imgData.data.url);
-            }
+        emailVerify()
+          .then(() => {})
+          .catch((error) => console.log(error));
+        if (!user?.emailVerified) {
+          alert("Please check email inbox or spam and Verify the email");
+        } else {
+          <Loading></Loading>;
+          toast.success("Welcome to FITLESSIAN");
+          const image = data.img[0];
+          // console.log(image);
+          const formData = new FormData();
+          formData.append("image", image);
+          const url = `https://api.imgbb.com/1/upload?expiration=600&key=c49cb06155adb366044d147043658858`;
+          fetch(url, {
+            method: "POST",
+            body: formData,
+          })
+            .then((res) => res.json())
+            .then((imgData) => {
+              if (imgData.success) {
+                setLoadImage(imgData.data.url);
+              }
 
-            const Details = {
-              firstName: userDetails.firstName,
-              lastName: userDetails.lastName,
-              gender: userDetails.gender,
-              age: userDetails.age,
-              birthday: userDetails.birthday,
-              email: data.email,
-              weight: anotherInfo.weight,
-              height: anotherInfo.fit,
-              inch: anotherInfo.inch,
-              country: anotherInfo.country,
-              phone: anotherInfo.phone,
-              picture: imgData.data.url,
-              sendFrom: [],
-              sendTo: [],
-              postDate: userDetails.postDate,
-            };
-            fetch("https://fitness-tracking-web-server.vercel.app/users", {
-              method: "POST",
-              headers: {
-                "content-type": "application/json",
-              },
-              body: JSON.stringify(Details),
-            })
-              .then((res) => res.json())
-              .then((data) => {
-                emailVerify()
-                .then(()=>{})
-                .catch(error=>console.log(error))
-               if(user?.emailVerified){
-                navigate("/Leaderboard");
-               }
-               else{
-                alert('Please check and Verify the email')
-               }
-                console.log(data);
-              });
+              const Details = {
+                firstName: userDetails.firstName,
+                lastName: userDetails.lastName,
+                gender: userDetails.gender,
+                age: userDetails.age,
+                birthday: userDetails.birthday,
+                email: data.email,
+                weight: anotherInfo.weight,
+                height: anotherInfo.fit,
+                inch: anotherInfo.inch,
+                country: anotherInfo.country,
+                phone: anotherInfo.phone,
+                picture: imgData.data.url,
+                sendFrom: [],
+                sendTo: [],
+                postDate: userDetails.postDate,
+                emailVerified: user?.emailVerified,
+              };
+              fetch("https://fitness-tracking-web-server.vercel.app/users", {
+                method: "POST",
+                headers: {
+                  "content-type": "application/json",
+                },
+                body: JSON.stringify(Details),
+              })
+                .then((res) => res.json())
+                .then((data) => {
+                  console.log(data);
+                });
 
-            console.log(Details);
-          });
+              console.log(Details);
+            });
+        }
       })
       .catch((error) => {
         setSignUpError(error.message);
@@ -96,98 +95,63 @@ const SignUp = ({ userDetails, anotherInfo }) => {
     providerGoogleLogIn(provider)
       .then((result) => {
         const user = result.user;
-        <Loading></Loading>;
-        toast.success("Welcome to FITLESSIAN");
-        const image = data.img[0];
-        // console.log(image);
-        const formData = new FormData();
-        formData.append("image", image);
-        const url = `https://api.imgbb.com/1/upload?expiration=600&key=c49cb06155adb366044d147043658858`;
-        fetch(url, {
-          method: "POST",
-          body: formData,
-        })
-          .then((res) => res.json())
-          .then((imgData) => {
-            if (imgData.success) {
-              console.log(imgData.data.url);
-            }
+        emailVerify()
+          .then(() => {})
+          .catch((error) => console.log(error));
+        if (!user?.emailVerified) {
+          alert("Please check and Verify the email");
+        } else {
+          <Loading></Loading>;
+          toast.success("Welcome to FITLESSIAN");
+          const image = data.img[0];
+          // console.log(image);
+          const formData = new FormData();
+          formData.append("image", image);
+          const url = `https://api.imgbb.com/1/upload?expiration=600&key=c49cb06155adb366044d147043658858`;
+          fetch(url, {
+            method: "POST",
+            body: formData,
+          })
+            .then((res) => res.json())
+            .then((imgData) => {
+              if (imgData.success) {
+                console.log(imgData.data.url);
+              }
 
-            const Details = {
-              name: user?.displayName,
-              gender: userDetails.gender,
-              age: userDetails.age,
-              birthday: userDetails.birthday,
-              email: user?.email,
-              weight: anotherInfo.weight,
-              height: anotherInfo.fit,
-              inch: anotherInfo.inch,
-              country: anotherInfo.country,
-              phone: anotherInfo.phone,
-              picture: imgData.data.url,
-              sendFrom: [],
-              sendTo: [],
-              postDate: userDetails.postDate,
-            };
-            fetch("https://fitness-tracking-web-server.vercel.app/users", {
-              method: "POST",
-              headers: {
-                "content-type": "application/json",
-              },
-              body: JSON.stringify(Details),
-            })
-              .then((res) => res.json())
-              .then((data) => {
-                navigate("/Leaderboard");
-                console.log(data);
-              });
+              const Details = {
+                name: user?.displayName,
+                gender: userDetails.gender,
+                age: userDetails.age,
+                birthday: userDetails.birthday,
+                email: user?.email,
+                weight: anotherInfo.weight,
+                height: anotherInfo.fit,
+                inch: anotherInfo.inch,
+                country: anotherInfo.country,
+                phone: anotherInfo.phone,
+                picture: imgData.data.url,
+                sendFrom: [],
+                sendTo: [],
+                postDate: userDetails.postDate,
+              };
+              fetch("https://fitness-tracking-web-server.vercel.app/users", {
+                method: "POST",
+                headers: {
+                  "content-type": "application/json",
+                },
+                body: JSON.stringify(Details),
+              })
+                .then((res) => res.json())
+                .then((data) => {
+                  navigate("/Leaderboard");
+                  console.log(data);
+                });
 
-            console.log(Details);
-          });
+              console.log(Details);
+            });
+        }
       })
       .catch((error) => console.log(error));
-  };
-
-  // const saveUser = (name) => {
-  //   const user = {
-  //     name,
-  //   };
-  //   fetch("https://fitness-tracking-web-server.vercel.app/users", {
-  //     method: "POST",
-  //     headers: {
-  //       "content-type": "application/json",
-  //     },
-  //     body: JSON.stringify(user),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log("save user", data);
-  //       // setCreatedUserEmail(email);
-  //       navigate("/UserDetails");
-  //     });
-  // };
-
-  const fileHandle = (e) => {
-    const image = e.target.files[0];
-    // console.log(image);
-    const reader = new FileReader()
-    reader.onload=()=>{
-      setLoadImage(reader.image)
-    }
-    reader.readAsDataURL(e.target.files[0])
-    const formData = new FormData();
-    formData.append("image", image);
-    const url = `https://api.imgbb.com/1/upload?expiration=600&key=c49cb06155adb366044d147043658858`;
-    fetch(url, {
-      method: "POST",
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then((imgData) => {
-        if (imgData.success) {
-          setLoadImage(imgData.data.url);
-        }
-      });
   };
   return (
     <div>
@@ -219,31 +183,32 @@ const SignUp = ({ userDetails, anotherInfo }) => {
                       </Link>
                       <h3 className=" text-xl">Sign Up</h3>
                     </div> */}
-                <h3 className="mb-4 py-3 text-xl font-semibold text-center sm:mb-6 sm:text-2xl">
-                  Sign up for updates
-                </h3>
+                    <h3 className="mb-4 py-3 text-xl font-semibold text-center sm:mb-6 sm:text-2xl">
+                      Sign up for updates
+                    </h3>
 
                     <form onSubmit={handleSubmit(handleSignUp)}>
                       <div className="mb-1 sm:mb-2">
-                      <label className="label">
-                            <span className="label-text text-white font-lg">
-                              Email
-                            </span>
-                          </label>
+                        <label className="label">
+                          <span className="label-text text-white font-lg">
+                            Email
+                          </span>
+                        </label>
                         <input
                           placeholder="Input Valid Email"
                           {...register("email", { required: true })}
                           type="email"
                           className="flex-grow w-full h-12 px-4 mb-2 transition duration-200  text-black bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                         />
+                        {errors.email && <span className="text-red-500">Please Enter A Valid Email</span>}
                       </div>
                       <p className="text-red-400 mb-3">{signUpError}</p>
                       <div className="mb-1">
-                      <label className="label">
-                            <span className="label-text text-white font-lg">
-                              Password
-                            </span>
-                          </label>
+                        <label className="label">
+                          <span className="label-text text-white font-lg">
+                            Password
+                          </span>
+                        </label>
                         <input
                           placeholder="password"
                           {...register("password", { required: true })}
@@ -251,12 +216,13 @@ const SignUp = ({ userDetails, anotherInfo }) => {
                           className="flex-grow w-full h-12 px-4 mb-2 transition duration-200  text-black bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                           name="password"
                         />
+                        {errors.password && <span className="text-red-500">Password Must be Strong</span>}
                       </div>
                       <label className="label">
-                            <span className="label-text text-white font-lg">
-                              Select Image
-                            </span>
-                          </label>
+                        <span className="label-text text-white font-lg">
+                          Select Image
+                        </span>
+                      </label>
                       <div className="flex gap-2">
                         {/* <div className="h-12 w-12 rounded-full border-2 mb-3 ml-2">
                           {loadImage ? <img src={loadImage} alt="" /> : <></>}
@@ -269,15 +235,16 @@ const SignUp = ({ userDetails, anotherInfo }) => {
                             Upload a photo
                           </label> */}
                           <input
-                            onChange={fileHandle}
+                            // onChange={fileHandle}
                             className="file-input file-input-bordered file-input-success w-full max-w-xs mb-3"
                             type="file"
-                            name='file'
+                            name="file"
                             id="file"
                             accept="image/*"
                             placeholder="photo"
                             {...register("img", { required: true })}
-                          />
+                          /> <br />
+                          {errors.img && <span className="text-red-500">Choose An Image</span>}
                         </div>
                       </div>
 

@@ -55,15 +55,17 @@ const PersonalInfo = ({setAnotherInfo}) => {
                           type="text"
                           className="flex-grow w-full h-12 px-4   transition duration-200 text-black bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                         />
+                         {errors.fit && <span className="text-red-500">Enter Height in Fit</span>}
                       </div>
                       <div className="mb-1 sm:mb-2">
                         
                         <input
-                          placeholder="inch"
+                          placeholder="Inch"
                           {...register("inch", { required: true })}
                           type="text"
                           className="flex-grow w-full h-12 px-4  transition duration-200  text-black bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                         />
+                        {errors.inch && <span className="text-red-500">Enter Height in inch</span>}
                       </div>
                     </div>
                     <div className="form-control">
@@ -76,6 +78,7 @@ const PersonalInfo = ({setAnotherInfo}) => {
                         placeholder="Weight"
                         className="flex-grow w-full h-12 px-4 mb-2 transition duration-200  text-black bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                       />
+                        {errors.weight && <span className="text-red-500">Enter Your weight</span>}
                     </div>
                   </div>
                   <div className="mb-1 sm:mb-2">
@@ -91,10 +94,11 @@ const PersonalInfo = ({setAnotherInfo}) => {
                       type="text"
                       className="flex-grow w-full h-12 px-4 mb-2 transition duration-200  text-black bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                     />
+                    {errors.phone && <span className="text-red-500">Enter Valid Phone Number</span>}
                   </div>
                   <div className="mb-1 sm:mb-2">
                     <label
-                      htmlFor="age"
+                    
                       className="inline-block mb-1 font-medium"
                     >
                       Nationality
@@ -105,6 +109,7 @@ const PersonalInfo = ({setAnotherInfo}) => {
                       type="text"
                       className="flex-grow w-full h-12 px-4 mb-2 transition duration-200  text-black bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                     />
+                     {errors.phone && <span className="text-red-500">Enter Your Country</span>}
                   </div>
                   <div className="mt-4 mb-2 sm:mb-4">
                     <button
