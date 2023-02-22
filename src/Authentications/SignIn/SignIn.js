@@ -130,16 +130,20 @@ const SignIn = () => {
                           {errors.password && <span className="text-red-500">Enter Password</span>}
                         </div>
                         <p className="text-red-500 my-2">{signInError}</p>
+                       
                         <input
                           type="submit"
                           value="Sign In"
                           className="btn btn-log  bg-secondary text-white w-full border-none   rounded-md"
                         />
+                         <div className="mt-4 text-end text-green-500 font-semibold">
+                          <p>Forgot Password ?</p>
+                        </div>
                         <div className="flex flex-col w-full ">
                           <div className="divider">OR</div>
 
                           <button>
-                            {" "}
+                        
                             <FcGoogle
                               onClick={handleGoogleLogin}
                               className="w-10 h-10 ml-32 md:ml-52 lg:ml-60 mb-12"

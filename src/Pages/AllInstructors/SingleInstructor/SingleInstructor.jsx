@@ -73,7 +73,7 @@ const SingleInstructor = ({ instructor }) => {
             <TbCurrencyTaka className="text-4xl font-bold" /> 
             <span>{consultation_fee.slice(1, 4)}</span>
           </div>
-          <p>(incl. vat)</p>
+          <p>(including vat)</p>
           <BsArrowRight />
         </div>
         <p>Per Consultation</p>

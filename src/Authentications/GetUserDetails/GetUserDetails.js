@@ -89,11 +89,7 @@ const GetUserDetails = () => {
                             type="text"
                             className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 text-black bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                           />
-                          {errors.firstName && (
-                            <span className="text-red-500">
-                              Enter Your First Name
-                            </span>
-                          )}
+                          {errors.firstName && <span className="text-red-500">Enter Your First Name</span>}
                         </div>
                         <div className="mb-1 sm:mb-2">
                           <label
@@ -108,11 +104,7 @@ const GetUserDetails = () => {
                             type="text"
                             className="flex-grow w-full h-12 px-4 mb-2 transition duration-200  text-black bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                           />
-                          {errors.lastName && (
-                            <span className="text-red-500">
-                              Enter Your Last Name
-                            </span>
-                          )}
+                          {errors.lastName && <span className="text-red-500">Enter Your Last Name</span>}
                         </div>
                       </div>
 
@@ -129,11 +121,7 @@ const GetUserDetails = () => {
                           type="text"
                           className="flex-grow w-full h-12 px-4 mb-2 transition duration-200  text-black bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                         />
-                        {errors.birthday && (
-                          <span className="text-red-500">
-                            Enter Date of Birth
-                          </span>
-                        )}
+                        {errors.birthday && <span className="text-red-500">Enter Date of Birth</span>}
                       </div>
                       <div className="mb-1 sm:mb-2">
                         <label
@@ -148,9 +136,7 @@ const GetUserDetails = () => {
                           type="text"
                           className="flex-grow w-full h-12 px-4 mb-2 transition duration-200  text-black bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                         />
-                        {errors.age && (
-                          <span className="text-red-500">Enter Your Age.</span>
-                        )}
+                        {errors.age && <span className="text-red-500">Enter Your Age.</span>}
                       </div>
                       <div className="mb-1 sm:mb-2">
                         <label
@@ -170,11 +156,7 @@ const GetUserDetails = () => {
                             <option>Male</option>
                             <option>Female</option>
                             <option>Others</option>
-                            {errors.gender && (
-                              <span className="text-red-500">
-                                Select Your Gender
-                              </span>
-                            )}
+                          {errors.gender && <span className="text-red-500">Select Your Gender</span>}
                           </select>
                         </div>
                       </div>

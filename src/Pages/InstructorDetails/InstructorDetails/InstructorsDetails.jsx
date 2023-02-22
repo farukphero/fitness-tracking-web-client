@@ -2,6 +2,7 @@ import React, { useCallback } from "react";
 import { AiFillStar, AiOutlineHeart } from "react-icons/ai";
 import { BsArrowRight } from "react-icons/bs";
 import { TbCurrencyTaka } from "react-icons/tb";
+import { Link } from "react-router-dom";
 import { useLoaderData, useNavigate } from "react-router-dom";
 
 const InstructorsDetails = () => {
@@ -69,12 +70,14 @@ const InstructorsDetails = () => {
           </div>
           <p>(incl. vat)</p>
           <BsArrowRight />
+          <Link to="/appointment">
           <button
             onClick={handleJoinMeeting}
             className="btn font-bold btn-primary "
           >
             meet now
           </button>
+          </Link>
         </div>
       </div>
     </div>

@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import Loading from "./Components/Loading/Loading";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import logo from "../src/images/apple-touch-icon.png"
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -20,6 +21,14 @@ function App() {
     <div>
       {isLoading ? (
         <Loading> </Loading>
+      //  <div className="flex h-full w-full items-center justify-center">
+      //     <img className="h-10 w-10 rounded-md" src={logo} alt="" />
+      //         <h1 className="ml-2 text-2xl font-bold tracking-wide text-gray-100 uppercase ">
+      //           <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-white">
+      //             FitLessian{" "}
+      //           </span>
+      //         </h1>
+      //  </div>
       ) : (
         <div className=" bg-black mx-auto text-white">
           <Toaster />

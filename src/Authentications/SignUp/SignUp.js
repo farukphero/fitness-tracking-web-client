@@ -28,62 +28,66 @@ const SignUp = ({ userDetails, anotherInfo }) => {
     createUserByEmail(data.email, data.password)
       .then((result) => {
         const user = result.user;
-        emailVerify()
-          .then(() => {})
-          .catch((error) => console.log(error));
-        if (!user?.emailVerified) {
-          alert("Please check email inbox or spam and Verify the email");
-        } else {
-          <Loading></Loading>;
-          toast.success("Welcome to FITLESSIAN");
-          const image = data.img[0];
-          // console.log(image);
-          const formData = new FormData();
-          formData.append("image", image);
-          const url = `https://api.imgbb.com/1/upload?expiration=600&key=c49cb06155adb366044d147043658858`;
-          fetch(url, {
-            method: "POST",
-            body: formData,
-          })
-            .then((res) => res.json())
-            .then((imgData) => {
-              if (imgData.success) {
-                setLoadImage(imgData.data.url);
-              }
 
-              const Details = {
-                firstName: userDetails.firstName,
-                lastName: userDetails.lastName,
-                gender: userDetails.gender,
-                age: userDetails.age,
-                birthday: userDetails.birthday,
-                email: data.email,
-                weight: anotherInfo.weight,
-                height: anotherInfo.fit,
-                inch: anotherInfo.inch,
-                country: anotherInfo.country,
-                phone: anotherInfo.phone,
-                picture: imgData.data.url,
-                sendFrom: [],
-                sendTo: [],
-                postDate: userDetails.postDate,
-                emailVerified: user?.emailVerified,
-              };
-              fetch("https://fitness-tracking-web-server.vercel.app/users", {
-                method: "POST",
-                headers: {
-                  "content-type": "application/json",
-                },
-                body: JSON.stringify(Details),
-              })
-                .then((res) => res.json())
-                .then((data) => {
-                  console.log(data);
-                });
+        <Loading></Loading>;
 
-              console.log(Details);
-            });
-        }
+        const image = data.img[0];
+        // console.log(image);
+        const formData = new FormData();
+        formData.append("image", image);
+        const url = `https://api.imgbb.com/1/upload?expiration=600&key=c49cb06155adb366044d147043658858`;
+        fetch(url, {
+          method: "POST",
+          body: formData,
+        })
+          .then((res) => res.json())
+          .then((imgData) => {
+            if (imgData.success) {
+              setLoadImage(imgData.data.url);
+            }
+
+            const Details = {
+              firstName: userDetails?.firstName,
+              lastName: userDetails?.lastName,
+              gender: userDetails?.gender,
+              age: userDetails?.age,
+              birthday: userDetails?.birthday,
+              email: data?.email,
+              weight: anotherInfo?.weight,
+              height: anotherInfo?.fit,
+              inch: anotherInfo?.inch,
+              country: anotherInfo?.country,
+              phone: anotherInfo?.phone,
+              picture: imgData.data.url,
+              sendFrom: [],
+              sendTo: [],
+              postDate: userDetails?.postDate,
+            };
+            console.log(Details)
+           
+            fetch("http://localhost:5000/users", {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(Details),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                emailVerify()
+                  .then(() => {})
+                  .catch((error) => console.log(error));
+                if (user?.emailVerified) {
+                  toast.success("Welcome to FITLESSIAN");
+                } else {
+                  alert(
+                    "Please check email inbox or spam and Verify the email"
+                  );
+                }
+              });
+
+            console.log(Details);
+          });
       })
       .catch((error) => {
         setSignUpError(error.message);
@@ -98,9 +102,6 @@ const SignUp = ({ userDetails, anotherInfo }) => {
         emailVerify()
           .then(() => {})
           .catch((error) => console.log(error));
-        if (!user?.emailVerified) {
-          alert("Please check and Verify the email");
-        } else {
           <Loading></Loading>;
           toast.success("Welcome to FITLESSIAN");
           const image = data.img[0];
@@ -134,7 +135,7 @@ const SignUp = ({ userDetails, anotherInfo }) => {
                 sendTo: [],
                 postDate: userDetails.postDate,
               };
-              fetch("https://fitness-tracking-web-server.vercel.app/users", {
+              fetch("http://localhost:5000/users", {
                 method: "POST",
                 headers: {
                   "content-type": "application/json",
@@ -143,13 +144,24 @@ const SignUp = ({ userDetails, anotherInfo }) => {
               })
                 .then((res) => res.json())
                 .then((data) => {
+                  emailVerify()
+                  .then(() => {})
+                  .catch((error) => console.log(error));
+                if (user?.emailVerified) {
+                  toast.success("Welcome to FITLESSIAN");
                   navigate("/Leaderboard");
+                } else {
+                  alert(
+                    "Please check email inbox or spam and Verify the email"
+                  );
+                }
+                 
                   console.log(data);
                 });
 
               console.log(Details);
             });
-        }
+        
       })
       .catch((error) => console.log(error));
   };
@@ -200,7 +212,11 @@ const SignUp = ({ userDetails, anotherInfo }) => {
                           type="email"
                           className="flex-grow w-full h-12 px-4 mb-2 transition duration-200  text-black bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                         />
-                        {errors.email && <span className="text-red-500">Please Enter A Valid Email</span>}
+                        {errors.email && (
+                          <span className="text-red-500">
+                            Please Enter A Valid Email
+                          </span>
+                        )}
                       </div>
                       <p className="text-red-400 mb-3">{signUpError}</p>
                       <div className="mb-1">
@@ -216,7 +232,11 @@ const SignUp = ({ userDetails, anotherInfo }) => {
                           className="flex-grow w-full h-12 px-4 mb-2 transition duration-200  text-black bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                           name="password"
                         />
-                        {errors.password && <span className="text-red-500">Password Must be Strong</span>}
+                        {errors.password && (
+                          <span className="text-red-500">
+                            Password Must be Strong
+                          </span>
+                        )}
                       </div>
                       <label className="label">
                         <span className="label-text text-white font-lg">
@@ -243,8 +263,13 @@ const SignUp = ({ userDetails, anotherInfo }) => {
                             accept="image/*"
                             placeholder="photo"
                             {...register("img", { required: true })}
-                          /> <br />
-                          {errors.img && <span className="text-red-500">Choose An Image</span>}
+                          />{" "}
+                          <br />
+                          {errors.img && (
+                            <span className="text-red-500">
+                              Choose An Image
+                            </span>
+                          )}
                         </div>
                       </div>
 

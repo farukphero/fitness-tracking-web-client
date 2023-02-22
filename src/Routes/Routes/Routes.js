@@ -46,6 +46,7 @@ import Friends from "../../Pages/OtherPages/CommunityFriend/Friends/Friends";
 import Food from "../../Pages/OtherPages/Logs/Food/Food/Food";
 import GetUserDetails from "../../Authentications/GetUserDetails/GetUserDetails";
 import PersonalInfo from "../../Authentications/PersonalInfo/PersonalInfo";
+import Appointment from "../../Pages/AllInstructors/Appointment/Appontment";
 
 export const router = createBrowserRouter([
   {
@@ -176,10 +177,10 @@ export const router = createBrowserRouter([
       //   path: "/SignUp",
       //   element: <PersonalInfo></PersonalInfo>,
       // },
-      // {
-      //   path: "/SignUpSuccess",
-      //   element: <SignUp></SignUp>,
-      // },
+      {
+        path: "/appointment",
+        element: <Appointment></Appointment>,
+      },
       {
         path: "/Community/AllUsers",
         element:<PrivateRoute> <CommunityFriend></CommunityFriend></PrivateRoute>,
