@@ -12,11 +12,12 @@ import Spinner from "../../../../../../Components/Spinner/Spinner";
 import { AuthContext } from "../../../../../../Contexts/AuthProvider/AuthProvider";
 import ConfirmationModal from "../../../../../Shared/ConfirmationModal/ConfirmationModal";
 import SingleActivity from "../SingleActivity/SingleActivity";
+import { Link } from "react-router-dom";
 
 const ActivitiesHistory = () => {
   const [deleteActivity, setDeleteActivity] = useState(null);
   const { user } = useContext(AuthContext);
- 
+
   const {
     data: activities,
     isLoading,
@@ -59,14 +60,6 @@ const ActivitiesHistory = () => {
   const closeModal = () => {
     setDeleteActivity(null);
   };
- 
- 
-  // useEffect(() => {
-  //   axios
-  //     .get(`https://fitness-tracking-web-server.vercel.app/activities?activist=${user?.email}`)
-  //     .then((res) => setActivities(res?.data));
-  // }, [user?.email]);
- 
 
   return (
     <div className="mt-2 border p-4 rounded-md border-gray-600">
@@ -112,6 +105,7 @@ const ActivitiesHistory = () => {
                   <span>Calourie</span>
                 </div>
               </th>
+
               <th>
                 <div className="flex gap-x-1 items-center">
                   <MdOutlinePendingActions className="text-2xl text-primary" />
@@ -134,6 +128,13 @@ const ActivitiesHistory = () => {
             />
           ))}
         </table>
+        <div className="my-4">
+          <Link to={`/logs/allactivities`}>
+            <button className="btn btn-log  bg-secondary text-black w-full border-none   rounded-md">
+              see more
+            </button>
+          </Link>
+        </div>
       </div>
       {deleteActivity && (
         <ConfirmationModal

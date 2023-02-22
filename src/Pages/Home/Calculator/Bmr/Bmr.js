@@ -1,8 +1,10 @@
 import { useState } from "react";
 import working9 from "../../../../assets/working9.json";
 import Lottie from "lottie-react";
+import useTitle from "../../../../Hooks/useTitle/useTitle";
 
 const Bmr = () => {
+  useTitle("Bmr")
   const [error, setError] = useState("");
   const [suggestion, setSuggestion] = useState("");
   const [bmrData, setBmrData] = useState({
@@ -164,7 +166,7 @@ const Bmr = () => {
         {/* form start here */}
         <div id="bmrcalc">
           <div
-            className="mt-4 ml-24 lg:ml-2  "
+            className="mt-4 ml-24 md:ml-44 lg:ml-2  "
             data-aos="fade-down"
             data-aos-easing="linear"
             data-aos-duration="1000"

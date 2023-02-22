@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useQuery } from "react-query";
+import React, { useContext, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   BarChart,
   Bar,
@@ -14,35 +14,20 @@ import {
   Line,
 } from "recharts";
 import { AuthContext } from "../../../../../../Contexts/AuthProvider/AuthProvider";
+import loadSevenDaysFoodData from "../../../../../../redux/thunk/foods/fetchSevenDaysFood";
 
 const FoodStats = () => {
   const user = useContext(AuthContext)
-  // console.log(user)
-  const [foodData, setFoodData] = useState([]);
+  // console.log(user.user.email)
+  // const [foodData, setFoodData] = useState([]);
+  const dispatch = useDispatch();
+  const foodData = useSelector((state) => state.sevenDays);
 
-  const {
-    isLoading,
-    error,
-    data: food,
-    refetch,
-  } = useQuery({
-    queryKey: ["foods/seven/userEmail"],
-    queryFn: async () => {
- 
-      const res = await fetch(
-        `https://fitness-tracking-web-server.vercel.app/foods/seven/${user?.user?.email}`
-      );
- 
-      const data = await res.json();
-      return setFoodData(data);
-    },
-  });
-  refetch();
+  useEffect(() => {
+    dispatch(loadSevenDaysFoodData(user?.user?.email))
+  } ,[user?.user?.email, dispatch])
+   
 
-  if (isLoading) return <progress className="progress w-56"></progress>;
-
- 
-  if (error) return 'An error has occurred: ' + error.message
 
   const currentDate = new Date();
 const sevenDaysAgo = new Date(currentDate - 0 * 24 * 60 * 60 * 1000);
@@ -70,50 +55,43 @@ const keys = Object.keys(dateWiseCalories);
       name: keys[0],
       date: "2023-01-26",
       uv: values[0],
-      pv: 2400,
-      amt: 2400,
+       
     },
     {
       name : keys[1],
       date: "2023-01-26",
       uv: values[1],
-      pv: 2400,
-      amt: 2400,
+       
     },
     {
       name : keys[2],
       date: "2023-01-26",
       uv: values[2],
-      pv: 2400,
-      amt: 2400,
+       
     },
     {
       name : keys[3],
       date: "2023-01-26",
       uv: values[3],
-      pv: 2400,
-      amt: 2400,
+      
     },
     {
       name : keys[4],
       date: "2023-01-26",
       uv: values[4],
-      pv: 2400,
-      amt: 2400,
+       
     },
     {
       name : keys[5],
       date: "2023-01-26",
       uv: values[5],
-      pv: 2400,
-      amt: 2400,
+       
     },
     {
       name : keys[6],
       date: "2023-01-26",
       uv: values[6],
-      pv: 2400,
-      amt: 2400,
+       
     },
     
   ]

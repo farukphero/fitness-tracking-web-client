@@ -10,10 +10,9 @@ import Review from "../Review/Review";
 import Services from "../Services/Services";
 import Leaderboard from "../../../Pages/OtherPages/Leaderboard/Leaderboard";
 import Blog from "../Blog/Blog";
-import Faqs from "../FAQ/FAQ";
 import Goals from "../../OtherPages/Goals/Goals";
 import FeatureClass from "../FeatureClass/FeatureClass";
- 
+
 
 const Home = () => {
   useTitle("Home");
@@ -31,12 +30,9 @@ const Home = () => {
             <Blog></Blog>
             <About />
             <Review></Review>
-            {/* <FeatureClass></FeatureClass> */}
             <Branches></Branches>
             <ContactUs></ContactUs>
-            <Faqs></Faqs>
-            {/* <WeightCalculator></WeightCalculator> */}
- 
+            <FeatureClass></FeatureClass>
           </div>
         </div>
       )}

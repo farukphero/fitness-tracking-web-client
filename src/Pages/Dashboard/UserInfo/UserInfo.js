@@ -4,9 +4,11 @@ import { ImFolderPlus } from "react-icons/im";
 import { Link } from "react-router-dom";
 
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
+import useTitle from "../../../Hooks/useTitle/useTitle";
 import "./UserInfo.css";
 
 const UserInfo = () => {
+  useTitle("Profile/userInfo")
   const {
     register,
     formState: { errors },
@@ -162,7 +164,7 @@ const UserInfo = () => {
           <div className="grid grid-cols-3 lg:grid-cols-5">
             <div className="indicator mt-4">
               <span className="indicator-item badge bg-white text-2xl px-4 py-4 badge-primary">
-                {bmi}
+                {/* {bmi} */} 24.4
               </span>
               <div className="grid w-24 h-24 bg-gradient-to-r from-gray-600 via-teal-700 to-gray-600   place-items-center">
                 <Link to="/bmi"> BMI</Link>
@@ -198,7 +200,7 @@ const UserInfo = () => {
                 1457.25
               </span>
               <div className="grid w-24 h-24 bg-gradient-to-r from-gray-600 via-teal-700 to-gray-600   place-items-center">
-              <Link to='/bmr'> BMR</Link> 
+                <Link to="/bmr"> BMR</Link>
               </div>
             </div>
             <div className="indicator mt-4">

@@ -8,8 +8,17 @@ import { MdLocalActivity } from "react-icons/md";
 import { AuthContext } from "../../../../../../Contexts/AuthProvider/AuthProvider";
 import { useDate } from "../../DateProvider/DateProvider";
 
+import "./AddActivites.css";
+
+import { toast } from "react-hot-toast";
+
 const AddActivities = () => {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
   const { state, dispatch } = useDate();
   const { user } = useContext(AuthContext);
   const handleActivityLogForm = (data) => {
@@ -51,7 +60,6 @@ const AddActivities = () => {
     }
 
     // Calouries Calculations
-    console.log(totalDistance, totalWeight);
     const calouries = Math.round(totalDistance * totalWeight * 1.036);
     const calsPerKm = Math.round(weight * 1.036);
     const calsPerMi = Math.round(1.60934 * totalWeight * 1.036);
@@ -76,14 +84,19 @@ const AddActivities = () => {
       notes: text,
     };
 
- 
     axios
       .post(`https://fitness-tracking-web-server.vercel.app/activities`, {
         ...activity,
       })
-      .then((res) => console.log(res))
+      .then((res) => {
+        if (res.data.acknowledged) {
+          toast.success(`successfully added an activity`);
+        }
+        console.log(res.data);
+      })
       .catch((err) => console.log(err));
- 
+
+    reset();
   };
 
   const [logActivities, setLogActivities] = useState(true);
@@ -125,15 +138,18 @@ const AddActivities = () => {
                     name
                   </span>
                 </label>
-                <input
-                  type="text"
-                  className="input input-md input-bordered w-full"
-                  {...register(`name`)}
-                />
+                <select  {...register(`name`)} className="select select-ghost w-full max-w-xs bg-gray-500 text-white">
+                  <option className="text-white" disabled selected>
+                    Name Of Activities
+                  </option>
+                  <option className="text-white">Run</option>
+                  <option className="text-white">Walk</option>
+                  <option className="text-white">Cycling</option>
+                </select>
               </div>
 
               <div className="form-control flex flex-row w-full">
-                <label className="label  w-32">
+                <label className="label w-28">
                   <span className="label-text capitalize font-lg text-xl">
                     date
                   </span>
@@ -150,21 +166,26 @@ const AddActivities = () => {
               </div>
 
               <div className="form-control flex flex-row w-full">
-                <label className="label  w-32">
+                <label className="label  w-28">
                   <span className="label-text capitalize font-lg text-xl">
                     start time
                   </span>
                 </label>
                 <input
                   type="time"
-                  className="input input-md input-bordered   w-full"
+                  className="input input-md input-bordered w-full"
                   {...register(`sTime`)}
                 />
+                {/* <div>
+                  {errors?.sTime && (
+                    <p className="text-error">{errors?.sTime?.message}</p>
+                  )}
+                </div> */}
               </div>
 
               <div className="form-control flex flex-row w-full">
-                <label className="label  w-32">
-                  <span className="label-text capitalize font-lg text-xl ">
+                <label className="label  w-20">
+                  <span className="label-text capitalize font-lg text-lg">
                     duration
                   </span>
                 </label>
@@ -210,11 +231,16 @@ const AddActivities = () => {
                     <option>Miles</option>
                     <option>Steps</option>
                   </select>
+                  {/* <div>
+                    {errors?.distance && (
+                      <p className="text-error">{errors?.distance?.message}</p>
+                    )}
+                  </div> */}
                 </div>
               </div>
 
               <div className="form-control flex flex-row">
-                <label className="label w-32">
+                <label className="label w-28">
                   <span className="label-text capitalize font-lg text-xl">
                     weight
                   </span>
@@ -229,14 +255,19 @@ const AddActivities = () => {
                     {...register(`parameter`)}
                     className="select bg-gray-500 select-bordered ml-2"
                   >
-                    <option selected>lbs</option>
-                    <option>kg</option>
+                    <option selected>kg</option>
+                    <option >lbs</option>
                   </select>
+                  {/* <div>
+                    {errors?.weight && (
+                      <p className="text-error">{errors?.weight?.message}</p>
+                    )}
+                  </div> */}
                 </div>
               </div>
 
               <div className="form-control flex flex-row w-full">
-                <label className="label w-32">
+                <label className="label w-28">
                   <span className="label-text capitalize font-lg text-xl">
                     notes
                   </span>
@@ -250,7 +281,7 @@ const AddActivities = () => {
                 <input
                   type="submit"
                   defaultValue="submit"
-                  className="btn bg-secondary hover:bg-secondary text-black w-full border-2  border-green-600 rounded-md"
+                  className="btn btn-log  bg-secondary text-black w-full border-none   rounded-md"
                 />
               </div>
             </form>

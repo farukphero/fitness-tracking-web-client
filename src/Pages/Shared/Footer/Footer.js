@@ -1,5 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logo from "../../../../src/images/apple-touch-icon.png";
+import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 
 const Footer = () => {
   //footer
@@ -28,175 +30,37 @@ const Footer = () => {
               <h1 className="ml-2 text-4xl font-bold tracking-wide text-gray-100 uppercase ">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-white">FitLessian </span>
               </h1>
+              
             </a>
-            <div className="mt-4 lg:max-w-sm"></div>
+            <div className="mt-4 lg:max-w-sm"><p className=" text-gray-400">Stay fit, ftay healthy. keep track your fitness information with FitLessian.</p></div>
           </div>
-          <div className="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4">
+          <div className="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4">
             <div>
-              <p className="font-semibold tracking-wide text-white">Category</p>
+              <p className="font-semibold tracking-wide text-white">Company</p>
               <ul className="mt-2 space-y-2 text-gray-400">
-                <li>
-                  <a
-                    href="/"
-                  >
-                    News
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/" 
-                  >
-                    World
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                  >
-                    Games
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                  >
-                    References
-                  </a>
-                </li>
+                <li><Link to="/Leaderboard">Leaderboard</Link></li>
+                <li><Link to="/Logs/Activities">Logs</Link></li>
+                <li><Link to="/Community/friends">Community</Link></li>
+                <li><Link to="/Tutorials">Tutorials</Link></li>
               </ul>
             </div>
             <div>
-              <p className="font-semibold tracking-wide text-white">Cherry</p>
               <ul className="mt-2 space-y-2 text-gray-400">
-                <li>
-                  <a
-                    href="/"
-                  >
-                    Web
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                  >
-                    eCommerce
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                  >
-                    Business
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                  >
-                    Entertainment
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <p className="font-semibold tracking-wide text-white">Apples</p>
-              <ul className="mt-2 space-y-2 text-gray-400 ">
-                <li>
-                  <a
-                    href="/"
-                  >
-                    Media
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                  >
-                    Nonprofit
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                  >
-                    Educational
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                  >
-                    Projects
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <p className="font-semibold tracking-wide text-white">Business</p>
-              <ul className="mt-2 space-y-2 text-gray-400">
-                <li>
-                  <a
-                    href="/"
-                  >
-                    Infopreneur
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                  >
-                    Personal
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                  >
-                    Wiki
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                  >
-                    Forum
-                  </a>
+                <li><span className="font-bold ">Phone:</span><span> +880 1913-302532</span></li>
+                <li><span className="font-bold ">Email:</span><span> farukk6323@gmail.com</span></li>
+                <li className="flex">
+                    <a href="https://www.facebook.com/profile.php?id=100081178906073" className="mr-2"><FaFacebookF></FaFacebookF></a>
+                    <a href="https://www.linkedin.com/in/omarfaruk-238764240/" className="mr-2"><FaLinkedinIn></FaLinkedinIn></a>
+                    <Link><FaTwitter></FaTwitter></Link>
                 </li>
               </ul>
             </div>
           </div>
         </div>
-        <div className="flex flex-col justify-between pt-5 pb-10 border-t border-deep-purple-accent-200 sm:flex-row">
-          <p className="text-sm text-gray-100">
+        <div className="pt-5 pb-10 border-t border-deep-purple-accent-200 text-center">
+          <p className="text-sm text-gray-400">
             © Copyright 2023 Fitlessian All rights reserved.
           </p>
-          <div className="flex items-center mt-4 space-x-4 sm:mt-0">
-            <a
-              href="/"
-              className="transition-colors duration-300 text-white hover:text-teal-accent-400"
-            >
-              <svg viewBox="0 0 24 24" fill="currentColor" className="h-5">
-                <path d="M24,4.6c-0.9,0.4-1.8,0.7-2.8,0.8c1-0.6,1.8-1.6,2.2-2.7c-1,0.6-2,1-3.1,1.2c-0.9-1-2.2-1.6-3.6-1.6 c-2.7,0-4.9,2.2-4.9,4.9c0,0.4,0,0.8,0.1,1.1C7.7,8.1,4.1,6.1,1.7,3.1C1.2,3.9,1,4.7,1,5.6c0,1.7,0.9,3.2,2.2,4.1 C2.4,9.7,1.6,9.5,1,9.1c0,0,0,0,0,0.1c0,2.4,1.7,4.4,3.9,4.8c-0.4,0.1-0.8,0.2-1.3,0.2c-0.3,0-0.6,0-0.9-0.1c0.6,2,2.4,3.4,4.6,3.4 c-1.7,1.3-3.8,2.1-6.1,2.1c-0.4,0-0.8,0-1.2-0.1c2.2,1.4,4.8,2.2,7.5,2.2c9.1,0,14-7.5,14-14c0-0.2,0-0.4,0-0.6 C22.5,6.4,23.3,5.5,24,4.6z" />
-              </svg>
-            </a>
-            <a
-              href="/"
-              className="transition-colors duration-300 text-white hover:text-teal-accent-400"
-            >
-              <svg viewBox="0 0 30 30" fill="currentColor" className="h-6">
-                <circle cx="15" cy="15" r="4" />
-                <path d="M19.999,3h-10C6.14,3,3,6.141,3,10.001v10C3,23.86,6.141,27,10.001,27h10C23.86,27,27,23.859,27,19.999v-10   C27,6.14,23.859,3,19.999,3z M15,21c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S18.309,21,15,21z M22,9c-0.552,0-1-0.448-1-1   c0-0.552,0.448-1,1-1s1,0.448,1,1C23,8.552,22.552,9,22,9z" />
-              </svg>
-            </a>
-            <a
-              href="/"
-              className="transition-colors duration-300 text-white hover:text-teal-accent-400"
-            >
-              <svg viewBox="0 0 24 24" fill="currentColor" className="h-5">
-                <path d="M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z" />
-              </svg>
-            </a>
-          </div>
         </div>
       </div>
     </div>

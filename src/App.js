@@ -5,6 +5,8 @@ import { Toaster } from "react-hot-toast";
 import { useState } from "react";
 import { useEffect } from "react";
 import Loading from "./Components/Loading/Loading";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -22,8 +24,10 @@ function App() {
       <Toaster/>
  
     <div className={`bg-gradient-to-r from-gray-700 via-green-700 to-gray-700 hover:bg-gradient-to-r hover:from-gray-800 hover:via-green-700 hover:to-gray-800  mx-auto text-white`}>
- 
-      <RouterProvider router={router} />
+    <Provider store={store}>
+              <RouterProvider router={router} />
+            </Provider>
+      {/* <RouterProvider router={router} /> */}
     </div>
     </div>
     }

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import useTitle from "../../../../Hooks/useTitle/useTitle";
 
 const Setting = () => {
-  useTitle("Dashboard/Setting")
+  useTitle("Dashboard/Setting");
   return (
     <div>
       <div className="flex flex-col mx-auto -ml-32 -mt-16 mb-16  ">

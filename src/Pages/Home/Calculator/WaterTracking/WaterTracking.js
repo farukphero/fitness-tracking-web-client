@@ -5,8 +5,10 @@ import working11 from "../../../../assets/working11.json";
 import "./WaterTracking.css";
 
 import Lottie from "lottie-react";
+import useTitle from "../../../../Hooks/useTitle/useTitle";
 
 const WaterTracking = () => {
+  useTitle("WaterTracking")
   const [waterTrack, setWaterTrack] = useState();
   const [info, setInfo] = useState();
   const [weight, setWeight] = useState();
@@ -31,7 +33,7 @@ const WaterTracking = () => {
           </div>
 
           <div
-            className="mt-8 ml-24 lg:ml-2 box w-1/2 px-8 rounded-lg pt-8 lg:pt-16 pb-8 lg:pb-14 "
+            className="mt-8 ml-24 md:ml-52 lg:ml-2 box w-1/2 px-8 rounded-lg pt-8 lg:pt-16 pb-8 lg:pb-14 "
             data-aos="fade-down"
             data-aos-easing="linear"
             data-aos-duration="1000"

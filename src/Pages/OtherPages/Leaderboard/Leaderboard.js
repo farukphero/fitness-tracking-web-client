@@ -3,6 +3,7 @@ import { FaBeer, FaCloudsmith, FaUtensils, FaRunning, FaUsers } from "react-icon
 import { Link } from 'react-router-dom';
 import useTitle from '../../../Hooks/useTitle/useTitle';
 import FoodPlanModal from './Modal/FoodPlanModal/FoodPlanModal';
+import Recent from './Modal/Recent/Recent';
 import WaterModal from './Modal/WaterModal/WaterModal';
 import WeightModal from './Modal/WeightModal/WeightModal';
 
@@ -11,10 +12,18 @@ const Leaderboard = () => {
     return (
         <div className=''>
             <div className='grid grid-cols-2 sm:grid-cols-4 gap-4 w-9/12 mx-auto my-20'>
+
+
+
                 <div className='bg-gray-800 rounded shadow-lg shadow-green-600'>
-                    <h1 className='text-2xl  text-center border-b my-3 border-gray-600 pb-2'>Recent Exercise</h1>
-                    <div className='text-8xl text-green-600 mt-12'><FaRunning className='mx-auto border-green-600 border rounded-full p-1'></FaRunning></div>
-                    <p></p>
+                    <label htmlFor="recent-modal" className="cursor-pointer">
+                        <div>
+                            <h1 className='text-2xl  text-center border-b my-3 border-gray-600 pb-2'>Recent Exercise</h1>
+                            <div className='text-8xl text-green-600 mt-12'><FaRunning className='mx-auto border-green-600 border rounded-full p-1'></FaRunning></div>
+                            <p></p>
+                        </div>
+                    </label>
+                    <Recent></Recent>
                 </div>
                 <div className='grid grid-rows-2 gap-4'>
                     {/* food plan */}
@@ -24,10 +33,10 @@ const Leaderboard = () => {
                         <h1 className='text-xl text-center'>Food Plan</h1>
                         <p className='text-center text-gray-400 text-sm'>Set your daily calorie estimate.</p>
                         <div className='text-center mt-4 mb-12'>
-                            <Link to=""> <button className="px-4 py-2 bg-green-700 rounded-full text-white">Start Now</button></Link>
-                            {/* <label htmlFor="food-modal" className="px-4 py-2 bg-green-700 rounded-full text-white "></label> */}
+ 
+                            <label htmlFor="food-modal" className="px-4 py-3 bg-green-700 rounded-full text-white text-lg">Start Now</label>
                         </div>
-                        {/* <FoodPlanModal></FoodPlanModal> */}
+                        <FoodPlanModal></FoodPlanModal>
                     </div>
 
                     <div className='bg-gray-800 rounded shadow-lg shadow-green-600 py-5'>
@@ -35,7 +44,7 @@ const Leaderboard = () => {
                         <h1 className='text-center text-2xl'>Weight Goal</h1>
                         <p className='text-center text-gray-400 text-sm'>Have a weight goal?</p>
                         <div className='text-center mt-4 mb-12'>
-                            <label htmlFor="weight-modal" className="px-4 py-2 bg-green-700 rounded-full text-white btn ">Start Now</label>
+                            <label htmlFor="weight-modal" className="px-4 py-2 bg-green-700 hover:bg-green-600 rounded-full text-white btn">Start Now</label>
                         </div>
                         <WeightModal></WeightModal>
                     </div>
@@ -49,25 +58,26 @@ const Leaderboard = () => {
                         <h1 className='text-center text-2xl'>Water</h1>
                         <p className='text-center  text-gray-400 text-sm'>At Least 800 ml daily</p>
                         <div className='text-center mt-4 mb-12'>
-                            <label htmlFor="water-modal" className="px-4 py-2 bg-green-700 rounded-full text-white ">Start Now</label>
+                            <label htmlFor="water-modal" className="px-4 py-3 bg-green-700 rounded-full text-white text-lg">Start Now</label>
                         </div>
                         <WaterModal></WaterModal>
                     </div>
 
                     <div className='bg-gray-800 rounded shadow-lg shadow-green-600 p-2'>
-                        <h1>Weight</h1>
+                        <img className='h-32 w-32 mx-auto my-10' src="https://static.vecteezy.com/system/resources/previews/014/011/484/original/fire-icon-in-gradient-red-colors-flame-signs-illustration-png.png?fbclid=IwAR2S02B9dRythX9X4QZkyRQsobZmhLYnXVsem8FE6T6EMR8dErCFn00PQDA" alt="" />
+                        <h1 className='text-gray-400 lg:ml-20 pb-5'>Keep Fit Yourself</h1>
                     </div>
                 </div>
 
                 <div className='grid grid-rows-2 gap-4'>
-                    <Link to="/Community" className='bg-gray-800 rounded shadow-lg shadow-green-600 py-5'>
+                    <Link to="/Community/friends" className='bg-gray-800 rounded shadow-lg shadow-green-600 py-5'>
                         <div className=''>
                             <div className='text-green-600 text-8xl'><FaUsers className='mx-auto'></FaUsers></div>
                             <p className='text-sm text-gray-400 text-center'>Do more fun with your friends!</p>
                         </div>
                     </Link>
-                    <div className='bg-gray-800 rounded shadow-lg shadow-green-600 p-2'>
-                        <h1>Weight</h1>
+                    <div className='bg-gray-800 text-gray-400 rounded shadow-lg shadow-green-600 p-10'>
+                        <h1>A healthy lifestyle can help you thrive throughout your life. Making healthy choices isn't always easy, however. It can be hard to find the time and energy to exercise regularly or prepare healthy meals.</h1>
                     </div>
                 </div>
             </div>

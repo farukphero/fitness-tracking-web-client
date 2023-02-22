@@ -1,0 +1,5 @@
+.btn-log:hover,
+.btn-log:focus {
+  box-shadow: inset 0 -3.25em 0 0 #19d3ae;
+  transition: 1.2s;
+}

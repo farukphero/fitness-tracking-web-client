@@ -2,9 +2,11 @@ import {
     createUserWithEmailAndPassword,
     getAuth,
     onAuthStateChanged,
+    sendEmailVerification,
     signInWithEmailAndPassword,
     signInWithPopup,
     signOut,
+    updateProfile,
 } from "firebase/auth";
 import React, { createContext, useEffect, useState } from "react";
 import { useQuery } from "react-query";
@@ -29,7 +31,9 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signInWithPopup(auth, provider);
   };
-
+ const emailVerify =( )=>{
+  return sendEmailVerification(auth.currentUser)
+ }
   const logOut = () => {
     localStorage.removeItem("accessToken");
     setLoading(true);
@@ -74,6 +78,7 @@ const AuthProvider = ({ children }) => {
     loading,
     createUserByEmail,
     accountLogIn,
+    emailVerify,
     logOut,
     providerGoogleLogIn,
     userInfo,

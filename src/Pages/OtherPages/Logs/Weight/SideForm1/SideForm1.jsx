@@ -6,12 +6,7 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../../../Contexts/AuthProvider/AuthProvider";
 import { toast } from "react-hot-toast";
 
- 
-
-const SideForm1 = ({setLogedData,refetch,setLogedWeight}) => {
- 
- 
- 
+const SideForm1 = ({ setLogedData, refetch, setLogedWeight }) => {
   const { user } = useContext(AuthContext);
   const {
     register,
@@ -23,9 +18,6 @@ const SideForm1 = ({setLogedData,refetch,setLogedWeight}) => {
   const [startDate, setStartDate] = useState(new Date());
   const date = format(startDate, "P");
 
-  
-  
-
   const logWeight = (data) => {
     const weight = data.weight;
     const weightInfo = {
@@ -33,7 +25,7 @@ const SideForm1 = ({setLogedData,refetch,setLogedWeight}) => {
       date,
       email: user?.email,
     };
-    
+
     fetch(`https://fitness-tracking-web-server.vercel.app/logedWeight`, {
       method: "POST",
       headers: {
@@ -44,7 +36,6 @@ const SideForm1 = ({setLogedData,refetch,setLogedWeight}) => {
       .then((res) => res.json())
       .then((data) => refetch());
     reset();
-
   };
 
   return (
@@ -80,9 +71,7 @@ const SideForm1 = ({setLogedData,refetch,setLogedWeight}) => {
               <span>kg</span>
             </div>
             {errors.weight && (
-              <p className="font-bold text-red-400">
-                {errors.weight.message}
-              </p>
+              <p className="font-bold text-red-400">{errors.weight.message}</p>
             )}
           </div>
 
@@ -97,7 +86,9 @@ const SideForm1 = ({setLogedData,refetch,setLogedWeight}) => {
             />
           </div>
           <div className="">
-            <button className="btn bg-secondary hover:bg-secondary text-black w-full border-2  border-green-600 rounded-md btn-sm mt-2">Log Weight</button>
+            <button className="btn btn-log text-black bg-secondary  w-full border-none   rounded-md">
+              Log Weight
+            </button>
           </div>
         </form>
       </div>
