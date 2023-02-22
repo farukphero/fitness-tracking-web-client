@@ -9,6 +9,7 @@ import Loading from "../../Components/Loading/Loading";
 import { toast } from "react-hot-toast";
 
 const SignUp = ({ userDetails, anotherInfo }) => {
+  console.log(anotherInfo)
   useTitle("SignUp");
   const { createUserByEmail, providerGoogleLogIn, emailVerify } =
     useContext(AuthContext);
@@ -54,7 +55,7 @@ const SignUp = ({ userDetails, anotherInfo }) => {
               birthday: userDetails?.birthday,
               email: data?.email,
               weight: anotherInfo?.weight,
-              height: anotherInfo?.fit,
+              height: anotherInfo?.height,
               inch: anotherInfo?.inch,
               country: anotherInfo?.country,
               phone: anotherInfo?.phone,

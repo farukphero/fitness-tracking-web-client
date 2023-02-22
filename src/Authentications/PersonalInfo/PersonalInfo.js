@@ -17,7 +17,6 @@ const PersonalInfo = ({ setAnotherInfo }) => {
       phone: data?.phone,
     };
     setAnotherInfo(Details);
-    console.log(Details);
   };
 
   return (
