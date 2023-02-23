@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useQuery } from "react-query";
 import { useDispatch, useSelector } from "react-redux";
 import { AuthContext } from "../../../../../../Contexts/AuthProvider/AuthProvider";
 import loadFavoriteFoodData from "../../../../../../redux/thunk/foods/fetchFavoriteFood";
