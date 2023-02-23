@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { useState } from "react";
+import React, { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 
@@ -18,7 +17,7 @@ const CommunityFriends = ({ user, reload, setReload }) => {
 
     // setSendTo((exgistingEmail) => [...exgistingEmail, user?.eamil]);
 
-    fetch("https://fitness-tracking-web-server.vercel.app/friendRequest", {
+    fetch("http://localhost:5000/friendRequest", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -59,7 +58,7 @@ const CommunityFriends = ({ user, reload, setReload }) => {
       accepted: false,
     };
 
-    fetch("https://fitness-tracking-web-server.vercel.app/cancelFriendRequest", {
+    fetch("http://localhost:5000/cancelFriendRequest", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -87,7 +86,7 @@ const CommunityFriends = ({ user, reload, setReload }) => {
       senderId: user._id,
     };
 
-    fetch("https://fitness-tracking-web-server.vercel.app/acceptFriendRequest", {
+    fetch("http://localhost:5000/acceptFriendRequest", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

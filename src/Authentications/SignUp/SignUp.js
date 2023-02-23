@@ -9,7 +9,7 @@ import Loading from "../../Components/Loading/Loading";
 import { toast } from "react-hot-toast";
 
 const SignUp = ({ userDetails, anotherInfo }) => {
-  console.log(anotherInfo)
+  console.log(anotherInfo);
   useTitle("SignUp");
   const { createUserByEmail, providerGoogleLogIn, emailVerify } =
     useContext(AuthContext);
@@ -36,7 +36,7 @@ const SignUp = ({ userDetails, anotherInfo }) => {
         // console.log(image);
         const formData = new FormData();
         formData.append("image", image);
-        const url = `https://api.imgbb.com/1/upload?expiration=600&key=c49cb06155adb366044d147043658858`;
+        const url = `https://api.imgbb.com/1/upload?key=c49cb06155adb366044d147043658858`;
         fetch(url, {
           method: "POST",
           body: formData,
@@ -64,8 +64,7 @@ const SignUp = ({ userDetails, anotherInfo }) => {
               sendTo: [],
               postDate: userDetails?.postDate,
             };
-            console.log(Details)
-           
+
             fetch("http://localhost:5000/users", {
               method: "POST",
               headers: {
@@ -86,13 +85,10 @@ const SignUp = ({ userDetails, anotherInfo }) => {
                   );
                 }
               });
-
-            console.log(Details);
           });
       })
       .catch((error) => {
         setSignUpError(error.message);
-        console.log(error);
       });
   };
 
@@ -103,49 +99,49 @@ const SignUp = ({ userDetails, anotherInfo }) => {
         emailVerify()
           .then(() => {})
           .catch((error) => console.log(error));
-          <Loading></Loading>;
-          toast.success("Welcome to FITLESSIAN");
-          const image = data.img[0];
-          // console.log(image);
-          const formData = new FormData();
-          formData.append("image", image);
-          const url = `https://api.imgbb.com/1/upload?expiration=600&key=c49cb06155adb366044d147043658858`;
-          fetch(url, {
-            method: "POST",
-            body: formData,
-          })
-            .then((res) => res.json())
-            .then((imgData) => {
-              if (imgData.success) {
-                console.log(imgData.data.url);
-              }
+        <Loading></Loading>;
+        toast.success("Welcome to FITLESSIAN");
+        const image = data.img[0];
 
-              const Details = {
-                name: user?.displayName,
-                gender: userDetails.gender,
-                age: userDetails.age,
-                birthday: userDetails.birthday,
-                email: user?.email,
-                weight: anotherInfo.weight,
-                height: anotherInfo.fit,
-                inch: anotherInfo.inch,
-                country: anotherInfo.country,
-                phone: anotherInfo.phone,
-                picture: imgData.data.url,
-                sendFrom: [],
-                sendTo: [],
-                postDate: userDetails.postDate,
-              };
-              fetch("http://localhost:5000/users", {
-                method: "POST",
-                headers: {
-                  "content-type": "application/json",
-                },
-                body: JSON.stringify(Details),
-              })
-                .then((res) => res.json())
-                .then((data) => {
-                  emailVerify()
+        const formData = new FormData();
+        formData.append("image", image);
+        const url = `https://api.imgbb.com/1/upload?key=c49cb06155adb366044d147043658858`;
+        fetch(url, {
+          method: "POST",
+          body: formData,
+        })
+          .then((res) => res.json())
+          .then((imgData) => {
+            if (imgData.success) {
+              console.log(imgData.data.url);
+            }
+
+            const Details = {
+              name: user?.displayName,
+              gender: userDetails.gender,
+              age: userDetails.age,
+              birthday: userDetails.birthday,
+              email: user?.email,
+              weight: anotherInfo.weight,
+              height: anotherInfo.fit,
+              inch: anotherInfo.inch,
+              country: anotherInfo.country,
+              phone: anotherInfo.phone,
+              picture: imgData.data.url,
+              sendFrom: [],
+              sendTo: [],
+              postDate: userDetails.postDate,
+            };
+            fetch("http://localhost:5000/users", {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(Details),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                emailVerify()
                   .then(() => {})
                   .catch((error) => console.log(error));
                 if (user?.emailVerified) {
@@ -156,13 +152,8 @@ const SignUp = ({ userDetails, anotherInfo }) => {
                     "Please check email inbox or spam and Verify the email"
                   );
                 }
-                 
-                  console.log(data);
-                });
-
-              console.log(Details);
-            });
-        
+              });
+          });
       })
       .catch((error) => console.log(error));
   };
@@ -189,13 +180,7 @@ const SignUp = ({ userDetails, anotherInfo }) => {
               </div>
               <div className="hero-content text-center rounded">
                 <div>
-                  <div className="rounded md:w-[500px] bg-gradient-to-r from-gray-800 via-gray-700 to-gray-900 px-5">
-                    {/* <div className="md:hidden flex justify-between mb-3 pt-3">
-                      <Link to="/SignIn" className="text-xl ">
-                        Sign In
-                      </Link>
-                      <h3 className=" text-xl">Sign Up</h3>
-                    </div> */}
+                  <div className="rounded w-[355px] md:w-[500px] bg-gradient-to-r from-gray-800 via-gray-700 to-gray-900 px-5">
                     <h3 className="mb-4 py-3 text-xl font-semibold text-center sm:mb-6 sm:text-2xl">
                       Sign up for updates
                     </h3>
@@ -245,18 +230,8 @@ const SignUp = ({ userDetails, anotherInfo }) => {
                         </span>
                       </label>
                       <div className="flex gap-2">
-                        {/* <div className="h-12 w-12 rounded-full border-2 mb-3 ml-2">
-                          {loadImage ? <img src={loadImage} alt="" /> : <></>}
-                        </div> */}
                         <div className="mb-1">
-                          {/* <label
-                            htmlFor="file"
-                            className="border-green-600 btn  rounded-md w-full lg:w-96 text-lg bg-yellow-200 hover:bg-yellow-300 text-black"
-                          >
-                            Upload a photo
-                          </label> */}
                           <input
-                            // onChange={fileHandle}
                             className="file-input file-input-bordered file-input-success w-full max-w-xs mb-3"
                             type="file"
                             name="file"
@@ -264,7 +239,7 @@ const SignUp = ({ userDetails, anotherInfo }) => {
                             accept="image/*"
                             placeholder="photo"
                             {...register("img", { required: true })}
-                          />{" "}
+                          />
                           <br />
                           {errors.img && (
                             <span className="text-red-500">
@@ -285,7 +260,7 @@ const SignUp = ({ userDetails, anotherInfo }) => {
                           {" "}
                           <FcGoogle
                             onClick={handleGoogleSignUp}
-                            className="w-10 h-10 ml-32 md:ml-52 mb-12"
+                            className="w-10 h-10 ml-[140px] md:ml-52 mb-12"
                           />
                         </button>
                       </div>

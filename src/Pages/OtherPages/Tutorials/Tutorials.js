@@ -10,7 +10,7 @@ const Tutorials = () => {
   const { data: categories = [] } = useQuery({
     queryKey: ["categories"],
     queryFn: () =>
-      fetch(`https://fitness-tracking-web-server.vercel.app/categories`).then(
+      fetch(`http://localhost:5000/categories`).then(
         (res) => res.json()
       ),
   });

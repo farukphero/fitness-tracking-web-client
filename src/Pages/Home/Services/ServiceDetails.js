@@ -8,7 +8,7 @@ const ServiceDetails = () => {
     const [usersAge, setUsersAge] = useState([]);
 
     useEffect( ()=>{
-        fetch('https://fitness-tracking-web-server.vercel.app/usersAgeForServices')
+        fetch('http://localhost:5000/usersAgeForServices')
         .then(res=>res.json())
         .then(data=>{
             console.log(data)

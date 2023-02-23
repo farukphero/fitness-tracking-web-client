@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
 import { FaUser } from "react-icons/fa";
 
 const GotQuetions = ({ quetion }) => {
@@ -22,7 +21,7 @@ const GotQuetions = ({ quetion }) => {
       Email: data?.email,
     };
 
-    fetch("https://fitness-tracking-web-server.vercel.app/questions", {
+    fetch("http://localhost:5000/questions", {
       method: "POST",
       headers: {
         "content-type": "application/json",

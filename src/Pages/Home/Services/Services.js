@@ -5,7 +5,7 @@ const Services = () => {
   const [servicesData, setServiceData] = useState([]);
 
   useEffect(() => {
-    fetch("https://fitness-tracking-web-server.vercel.app/services")
+    fetch("http://localhost:5000/services")
       .then((res) => res.json())
       .then((data) => {
         setServiceData(data);
@@ -15,7 +15,7 @@ const Services = () => {
   const handleAge = (event) => {
     const usersAgeForServices = { age: event.target.value };
     fetch(
-      "https://fitness-tracking-web-server.vercel.app/usersAgeForServices/63e9d22f781ec04ec2072283",
+      "http://localhost:5000/usersAgeForServices/63e9d22f781ec04ec2072283",
       {
         method: "PATCH",
         headers: {
