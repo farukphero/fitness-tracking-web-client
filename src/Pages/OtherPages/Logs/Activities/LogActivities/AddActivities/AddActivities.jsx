@@ -11,8 +11,10 @@ import { useDate } from "../../DateProvider/DateProvider";
 import "./AddActivites.css";
 
 import { toast } from "react-hot-toast";
+import { useDispatch } from "react-redux";
 
 const AddActivities = () => {
+  
   const {
     register,
     handleSubmit,
@@ -95,6 +97,8 @@ const AddActivities = () => {
         console.log(res.data);
       })
       .catch((err) => console.log(err));
+
+
 
     reset();
   };

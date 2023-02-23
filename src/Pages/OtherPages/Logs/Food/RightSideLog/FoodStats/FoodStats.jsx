@@ -21,7 +21,7 @@ const FoodStats = () => {
   // console.log(user.user.email)
   // const [foodData, setFoodData] = useState([]);
   const dispatch = useDispatch();
-  const foodData = useSelector((state) => state.sevenDays);
+  const foodData = useSelector((state) => state.food.sevenDays);
 
   useEffect(() => {
     dispatch(loadSevenDaysFoodData(user?.user?.email))

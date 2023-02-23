@@ -5,10 +5,19 @@ import WeightSummery from './WeightSummery/WeightSummery';
 import { useQuery } from 'react-query';
 import { AuthContext } from '../../../../Contexts/AuthProvider/AuthProvider';
 import WeightGoalChart from './WeightGoalChart/WeightGoalChart';
+import { useDispatch, useSelector } from 'react-redux';
+import loadWeightData from '../../../../redux/thunk/weight/fetchWeight';
+import { useEffect } from 'react';
 
 const Weight = () => {
     useTitle("Log/Weight")
-    const {user}=useContext(AuthContext) 
+    const {user}=useContext(AuthContext);
+    // const data = useSelector((state) => state.weights.weight);
+    // console.log(data)
+    // const dispatch = useDispatch();
+    // useEffect(() => {
+    //   dispatch(loadWeightData(user?.email))
+    // }, [dispatch, user?.email])
 
     const {
         data: logedInfo = [],
@@ -20,7 +29,7 @@ const Weight = () => {
           fetch(`https://fitness-tracking-web-server.vercel.app/logedWeight?email=${user?.email}`)
             .then((res) => res.json())
             .then((data) => {
-              console.log(data);
+            //   console.log(data);
               return data;
             }),
       });
@@ -38,6 +47,7 @@ const Weight = () => {
            <WeightGoalChart data={data}></WeightGoalChart>
             {/* <SideForm1 setLogedWeight={setLogedWeight}></SideForm1> */}
             <WeightSummery refetch={refetch}></WeightSummery>
+            {/* <WeightSummery ></WeightSummery> */}
 
 
         </div>

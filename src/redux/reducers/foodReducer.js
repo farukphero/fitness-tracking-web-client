@@ -1,4 +1,4 @@
-import { ADD_TO_FAVORITE, LOAD_FAVORITE_FOOD, LOAD_FOOD, LOAD_LOG_FOOD, LOG_FOOD, REMOVE_FROM_FAVORITE, REMOVE_LOG_FOOD, SEVEN_DAYS_FOOD } from "../actionTypes/actionTypes";
+import { ADD_TO_FAVORITE, LOAD_ALL_FAVORITE_FOOD, LOAD_FAVORITE_FOOD, LOAD_FOOD, LOAD_LOG_FOOD, LOG_FOOD, REMOVE_FROM_FAVORITE, REMOVE_LOG_FOOD, SEVEN_DAYS_FOOD } from "../actionTypes/actionTypes";
 
 const initialState = {
     favorite : [],
@@ -39,10 +39,16 @@ const foodReducer = (state = initialState, action) =>{
         case ADD_TO_FAVORITE:
             return {
                 ...state,
-                favorite: [...state.favorite, action.payload],
+                favorite: [...state.favorite, action.payload]
             };
             
         case LOAD_FAVORITE_FOOD :
+            return {
+                ...state,
+                favorite : action.payload
+            };
+            
+        case LOAD_ALL_FAVORITE_FOOD :
             return {
                 ...state,
                 favorite : action.payload

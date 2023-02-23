@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../../../../../Contexts/AuthProvider/AuthProvider";
 import loadFavoriteFoodData from "../../../../../../redux/thunk/foods/fetchFavoriteFood";
 import FavoriteFoodTable from "./FavoriteFoodTable";
@@ -9,7 +10,7 @@ const FavouriteFoods = ({logedFood, setLogedFood}) => {
   const [item, setItem] = useState(null);
   const user = useContext(AuthContext)
   const dispatch = useDispatch();
-  const favouriteFood = useSelector((state) => state.favorite);
+  const favouriteFood = useSelector((state) => state.food.favorite);
  
   
   useEffect(() => {
@@ -48,6 +49,10 @@ const FavouriteFoods = ({logedFood, setLogedFood}) => {
             </div>
           </table>
         </div>
+      <div>
+      <Link to='/Logs/AllFavoriteFood'><button>See More</button></Link>
+      {/* <Link to='/Logs/AllFavoriteFood' state={{ from: { logedFood, setLogedFood, item, setItem } }}><button>See More</button></Link> */}
+      </div>
       </div>
     </section>
   );

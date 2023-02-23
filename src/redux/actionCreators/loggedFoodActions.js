@@ -1,4 +1,4 @@
-import { ADD_TO_FAVORITE, LOAD_FAVORITE_FOOD, LOAD_FOOD, LOAD_LOG_FOOD, LOG_FOOD, REMOVE_FROM_FAVORITE, REMOVE_LOG_FOOD, SEVEN_DAYS_FOOD } from "../actionTypes/actionTypes"
+import { ADD_TO_FAVORITE, LOAD_ALL_FAVORITE_FOOD, LOAD_FAVORITE_FOOD, LOAD_FOOD, LOAD_LOG_FOOD, LOG_FOOD, REMOVE_FROM_FAVORITE, REMOVE_LOG_FOOD, SEVEN_DAYS_FOOD } from "../actionTypes/actionTypes"
 
 export const loadFood = (data) => {
     return {
@@ -38,6 +38,13 @@ export const addToFavorite = (food) => {
 export const loadFavoriteFood = (data) => {
     return {
         type : LOAD_FAVORITE_FOOD,
+        payload : data
+    };
+};
+
+export const loadAllFavoriteFood = (data) => {
+    return {
+        type : LOAD_ALL_FAVORITE_FOOD,
         payload : data
     };
 };

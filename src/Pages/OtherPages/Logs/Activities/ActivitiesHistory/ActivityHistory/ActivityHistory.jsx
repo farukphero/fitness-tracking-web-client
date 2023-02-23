@@ -13,49 +13,62 @@ import { AuthContext } from "../../../../../../Contexts/AuthProvider/AuthProvide
 import ConfirmationModal from "../../../../../Shared/ConfirmationModal/ConfirmationModal";
 import SingleActivity from "../SingleActivity/SingleActivity";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import loadActivitiesData from "../../../../../../redux/thunk/activities/fetchActivities";
+import { useDispatch, useSelector } from "react-redux";
+import deleteActivityData from "../../../../../../redux/thunk/activities/deleteActivities";
 
 const ActivitiesHistory = () => {
   const [deleteActivity, setDeleteActivity] = useState(null);
   const { user } = useContext(AuthContext);
+  const dispatch = useDispatch();
+  const activities = useSelector((state) => state.activity.activities);
 
-  const {
-    data: activities,
-    isLoading,
-    refetch,
-  } = useQuery({
-    queryKey: [`activities`, user?.email],
-    queryFn: async () => {
-      const res = await fetch(
-        `https://fitness-tracking-web-server.vercel.app/activities?activist=${user?.email}`
-      );
-      const data = await res.json();
-      return data;
-    },
-  });
+console.log(activities)
+  // const {
+  //   data: activities,
+  //   isLoading,
+  //   refetch,
+  // } = useQuery({
+  //   queryKey: [`activities`, user?.email],
+  //   queryFn: async () => {
+  //     const res = await fetch(
+  //       `https://fitness-tracking-web-server.vercel.app/activities?activist=${user?.email}`
+  //     );
+  //     const data = await res.json();
+  //     return data;
+  //   },
+  // });
 
-  if (isLoading) {
-    <Spinner />;
-  }
+  // if (isLoading) {
+  //   <Spinner />;
+  // }
+
+  useEffect(() => {
+    dispatch( loadActivitiesData(user?.email))
+  } ,[user?.email, dispatch])
 
   const handleDeleteActivity = (activity) => {
-    fetch(
-      `https://fitness-tracking-web-server.vercel.app/activities/${activity._id}`,
-      {
-        method: `DELETE`,
-      }
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.deletedCount > 0) {
-          toast.success(`you have successfully deleted an activity`);
-        }
-        console.log(data);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-    refetch();
+    // fetch(
+    //   `https://fitness-tracking-web-server.vercel.app/activities/${activity._id}`,
+    //   {
+    //     method: `DELETE`,
+    //   }
+    // )
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     if (data.deletedCount > 0) {
+    //       toast.success(`you have successfully deleted an activity`);
+    //     }
+    //     console.log(data);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err.message);
+    //   });
+    // refetch();
+  dispatch(deleteActivityData(activity._id))
   };
+
 
   const closeModal = () => {
     setDeleteActivity(null);

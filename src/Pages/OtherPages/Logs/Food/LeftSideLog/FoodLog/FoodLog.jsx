@@ -12,8 +12,8 @@ const FoodLog = ({  setLogedFood, startDate, setStartDate, item, setItem, setSho
   const { foodValue, setFoodValue, foodData, setFoodData, foodAmount, setFoodAmount, foodCalory, setFoodCalory } = useContext(FoodContext);
 
   const user = useContext(AuthContext);
-  const data = useSelector((state) => state.foods);
-  const logedFood = useSelector((state) => state.loggedFoods);
+  const data = useSelector((state) => state.food.foods);
+  const logedFood = useSelector((state) => state.food.loggedFoods);
   // console.log(logedFood)
   const dispatch = useDispatch();
   useEffect(() => {

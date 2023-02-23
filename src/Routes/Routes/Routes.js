@@ -46,6 +46,7 @@ import Friends from "../../Pages/OtherPages/CommunityFriend/Friends/Friends";
 import Food from "../../Pages/OtherPages/Logs/Food/Food/Food";
 import GetUserDetails from "../../Authentications/GetUserDetails/GetUserDetails";
 import PersonalInfo from "../../Authentications/PersonalInfo/PersonalInfo";
+import AllFavoriteFood from "../../Pages/OtherPages/Logs/Food/RightSideLog/FavouriteFoods/AllFavoriteFood";
 
 export const router = createBrowserRouter([
   {
@@ -245,6 +246,10 @@ export const router = createBrowserRouter([
       {
         path: "/Logs/Sleep",
         element: <Sleep />,
+      },
+      {
+        path: "/Logs/AllFavoriteFood",
+        element: <AllFavoriteFood></AllFavoriteFood>,
       },
     ],
   },

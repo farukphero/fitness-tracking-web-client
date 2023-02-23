@@ -5,9 +5,12 @@ import DatePicker from "react-datepicker";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../../../Contexts/AuthProvider/AuthProvider";
 import { toast } from "react-hot-toast";
+import { useDispatch } from "react-redux";
+import postWeight from "../../../../../redux/thunk/weight/postWeight";
 
 const SideForm1 = ({ setLogedData, refetch, setLogedWeight }) => {
   const { user } = useContext(AuthContext);
+  const dispatch = useDispatch();
   const {
     register,
     reset,
@@ -26,17 +29,19 @@ const SideForm1 = ({ setLogedData, refetch, setLogedWeight }) => {
       email: user?.email,
     };
 
-    fetch(`https://fitness-tracking-web-server.vercel.app/logedWeight`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(weightInfo),
-    })
-      .then((res) => res.json())
-      .then((data) => refetch());
+    // fetch(`https://fitness-tracking-web-server.vercel.app/logedWeight`, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(weightInfo),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => refetch());
+    dispatch(postWeight(weightInfo))
     reset();
   };
+  refetch();
 
   return (
     <div>

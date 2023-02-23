@@ -110,6 +110,12 @@ for (let i = 0; i < burnCalory.length; i++) {
                 </div>
               </div>
               {
+                !cal  && <div>
+                  <h2 className="font-bold text-xl">today you have no food plan or no activities </h2>
+                <h2><span className="text-green-500">Set a weight goal from weight or do some activities from activities page</span></h2>
+                </div>
+              }
+              {
                 cal > 0 && <h2 className="font-bold text-xl">today you can still eat <span className="text-green-500">{cal}</span> cals</h2>
               }
               {

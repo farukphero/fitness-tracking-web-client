@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import DatePicker from "react-datepicker";
+import { toast } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { AuthContext } from "../../../../../../Contexts/AuthProvider/AuthProvider";
 import addFavoriteFood from "../../../../../../redux/thunk/foods/addToFavorite";
@@ -11,7 +12,8 @@ const LoggedFoods = ({ result, setResult, startDate, setStartDate }) => {
 
   const user = useContext(AuthContext);
 
-  const logedFood = useSelector((state) => state.loggedFoods);
+  const logedFood = useSelector((state) => state.food.loggedFoods);
+  const favorite = useSelector((state) => state.food.favorite);
 
   useEffect(() => {
     dispatch(
@@ -36,14 +38,19 @@ const LoggedFoods = ({ result, setResult, startDate, setStartDate }) => {
       userEmail: food.userEmail,
       date: food.date,
     };
-    dispatch(addFavoriteFood(favouriteFood));
-    // fetch('http://localhost:5000/favouriteFood',{
-    //   method: "PATCH",
-    //   body: JSON.stringify(favouriteFood),
-    //   headers: {
-    //       'content-type': 'application/json'
-    //   }
-    // })
+
+
+    const isExist =  favorite.some(obj => {
+      return obj.food === favouriteFood.food;
+    });
+    
+    if (isExist) {
+      toast.error('This food is already exist in favorite food!')
+    } else {
+      console.log("Object does not exist in array!");
+      dispatch(addFavoriteFood(favouriteFood))
+      toast.success('This food is successfully make favorite food!')
+    }
   };
 
   return (
