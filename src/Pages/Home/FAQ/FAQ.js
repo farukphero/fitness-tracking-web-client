@@ -1,5 +1,7 @@
+ 
 import React, { useContext } from "react";
 import { useState, useEffect } from "react";
+ 
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import faq from "../../../assets/faq.svg";
@@ -24,7 +26,7 @@ const Faqs = () => {
       Email: data?.email,
     };
 
-    fetch("https://fitness-tracking-web-server.vercel.app/questions", {
+    fetch("http://localhost:5000/questions", {
       method: "POST",
       headers: {
         "content-type": "application/json",

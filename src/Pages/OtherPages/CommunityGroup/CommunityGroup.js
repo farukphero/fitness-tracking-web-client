@@ -1,7 +1,6 @@
-import { current } from "daisyui/src/colors";
 import React, { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import { useQuery } from "react-query";
+import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 
 const CommunityGroup = () => {
   const { user, userInfo } = useContext(AuthContext);
@@ -10,7 +9,7 @@ const CommunityGroup = () => {
   const [currentFrndId, setCurrentFrndId] = useState("");
   const [usersWithoutPresent, setUsersWithoutPresent] = useState([]);
   useEffect(() => {
-    fetch("https://fitness-tracking-web-server.vercel.app/users")
+    fetch("http://localhost:5000/users")
       .then((res) => res.json())
       .then((data) => {
         const result = data.filter(
@@ -35,7 +34,7 @@ const CommunityGroup = () => {
       currentFrndId,
     };
 
-    fetch("https://fitness-tracking-web-server.vercel.app/messages", {
+    fetch("http://localhost:5000/messages", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -57,7 +56,7 @@ const CommunityGroup = () => {
     queryKey: ["messages.", user?.email],
     queryFn: () =>
       fetch(
-        `https://fitness-tracking-web-server.vercel.app/getMessages/${userInfo?._id}/${currentFrndId}`
+        `http://localhost:5000/getMessages/${userInfo?._id}/${currentFrndId}`
       )
         .then((res) => res.json())
         .then((data) => {

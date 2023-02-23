@@ -17,9 +17,20 @@ import FeatureClass from "../FeatureClass/FeatureClass";
 const Home = () => {
   useTitle("Home");
   const { user } = useContext(AuthContext);
+  // const verify =()=>{
+  //     if(user.emailVerified){
+  //       window.location.reload();
+  //     }
+  //     return function() {
+  //       if (!user.emailVerified) {
+  //         user.emailVerified = true;
+  //           // do something
+  //       }
+  //   };
+  // }
   return (
     <div>
-      {user ? (
+      {user && user.emailVerified === true ? (
         <Leaderboard></Leaderboard>
       ) : (
         <div className="bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900">

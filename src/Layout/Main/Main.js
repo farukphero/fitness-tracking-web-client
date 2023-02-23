@@ -12,7 +12,7 @@ const Main = () => {
     return (
         <div>
             {
-                user ? <Navbar></Navbar> : <Header></Header>
+                user && user.emailVerified ? <Navbar></Navbar> : <Header></Header>
             }
             <Outlet></Outlet>
             <Footer></Footer>

@@ -1,3 +1,4 @@
+ 
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
@@ -6,6 +7,7 @@ import { FaUser } from 'react-icons/fa';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { da } from 'date-fns/locale';
+ 
 
 const GotQuetions = ({ quetion }) => {
   const { ask, _id, user, Email, Name } = quetion;
@@ -23,12 +25,14 @@ const GotQuetions = ({ quetion }) => {
     const Ans = {
       Adminans: data.msg,
 
+ 
       Name: Name,
       Email: Email,
     };
     console.log(data)
     console.log(Ans)
     fetch("http://localhost:5000/ans", {
+ 
       method: "POST",
       headers: {
         "content-type": "application/json",

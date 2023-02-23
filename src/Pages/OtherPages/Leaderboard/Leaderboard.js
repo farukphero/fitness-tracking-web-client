@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaBeer, FaCloudsmith, FaUtensils, FaRunning, FaUsers } from "react-icons/fa";
+import { FaBeer, FaCloudsmith, FaUtensils, FaRunning, FaUsers,FaUserMd } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import useTitle from '../../../Hooks/useTitle/useTitle';
 import FoodPlanModal from './Modal/FoodPlanModal/FoodPlanModal';
@@ -62,11 +62,20 @@ const Leaderboard = () => {
                         </div>
                         <WaterModal></WaterModal>
                     </div>
-
-                    <div className='bg-gray-800 rounded shadow-lg shadow-green-600 p-2'>
-                        <img className='h-32 w-32 mx-auto my-10' src="https://static.vecteezy.com/system/resources/previews/014/011/484/original/fire-icon-in-gradient-red-colors-flame-signs-illustration-png.png?fbclid=IwAR2S02B9dRythX9X4QZkyRQsobZmhLYnXVsem8FE6T6EMR8dErCFn00PQDA" alt="" />
-                        <h1 className='text-gray-400 lg:ml-20 pb-5'>Keep Fit Yourself</h1>
+                    <Link to='/instructor/instructors' className='bg-gray-800 text-gray-400 rounded shadow-lg shadow-green-600 p-10 '>
+                    <div >
+                        
+                            <div className='text-8xl text-green-600 mb-4'>
+                                <FaUserMd className='mx-auto'></FaUserMd>
+                            </div>
+                            <div>
+                                <p className='text-sm text-gray-400 text-center'>Meet our Instructor.</p>
+                            </div>
+                        
                     </div>
+                    </Link>
+
+                 
                 </div>
 
                 <div className='grid grid-rows-2 gap-4'>
@@ -76,8 +85,9 @@ const Leaderboard = () => {
                             <p className='text-sm text-gray-400 text-center'>Do more fun with your friends!</p>
                         </div>
                     </Link>
-                    <div className='bg-gray-800 text-gray-400 rounded shadow-lg shadow-green-600 p-10'>
-                        <h1>A healthy lifestyle can help you thrive throughout your life. Making healthy choices isn't always easy, however. It can be hard to find the time and energy to exercise regularly or prepare healthy meals.</h1>
+                    <div className='bg-gray-800 rounded shadow-lg shadow-green-600 p-2'>
+                        <img className='h-32 w-32 mx-auto my-10' src="https://static.vecteezy.com/system/resources/previews/014/011/484/original/fire-icon-in-gradient-red-colors-flame-signs-illustration-png.png?fbclid=IwAR2S02B9dRythX9X4QZkyRQsobZmhLYnXVsem8FE6T6EMR8dErCFn00PQDA" alt="" />
+                        <h1 className='text-gray-400 lg:ml-20 pb-5'>Keep Fit Yourself</h1>
                     </div>
                 </div>
             </div>

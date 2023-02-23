@@ -1,9 +1,8 @@
-import React, { useContext, useState } from "react";
 import { format } from "date-fns";
-import { useForm } from "react-hook-form";
+import React, { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
+import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../../../Contexts/AuthProvider/AuthProvider";
-import { useQuery } from "react-query";
 
 const SideForm2 = ({ setGoalSetData }) => {
   const {
@@ -30,7 +29,7 @@ const SideForm2 = ({ setGoalSetData }) => {
     };
 
     fetch(
-      `https://fitness-tracking-web-server.vercel.app/weightGoal/${user?.email}`,
+      `http://localhost:5000/weightGoal/${user?.email}`,
 
       {
         method: "PATCH",
