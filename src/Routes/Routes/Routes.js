@@ -18,31 +18,40 @@ import WeightCalculator from "../../Pages/Home/WeightCalculator/WeightCalculator
 import CommunityFriend from "../../Pages/OtherPages/CommunityFriend/CommunityFriend";
 import ActivitiesHistoryDetails from "../../Pages/OtherPages/Logs/Activities/Activities/ActivitiesHistoryDetails/ActivitiesHistoryDetails";
 import AdminRoute from "../AdminRoute/AdminRoute";
+import GetUserDetails from "../../Authentications/GetUserDetails/GetUserDetails";
 import DashboardLayout from "../../Layout/Dashboardlayout.js/Dashboardlayout";
+import AllInstructors from "../../Pages/AllInstructors/AllInstructors";
+import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
+import Questions from "../../Pages/Dashboard/SettingAndPrivacy/Questions/Questions";
+import BlogDetails from "../../Pages/Home/Blog/BlogDetails";
+import BloodTracking from "../../Pages/Home/Calculator/BloodTracking/BloodTracking";
 import Bmi from "../../Pages/Home/Calculator/Bmi/Bmi";
 import Bmr from "../../Pages/Home/Calculator/Bmr/Bmr";
-import Weight from "../../Pages/OtherPages/Logs/Weight/Weight";
-import PrivateRoute from "../PrivateRoute/PrivateRoute";
-import WaterTracking from "../../Pages/Home/Calculator/WaterTracking/WaterTracking";
-import Tutorials from "../../Pages/OtherPages/Tutorials/Tutorials";
-import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
-import Sleep from "../../Pages/OtherPages/Logs/Sleep/Sleep/Sleep";
-import BloodTracking from "../../Pages/Home/Calculator/BloodTracking/BloodTracking";
 import Protein from "../../Pages/Home/Calculator/Protein/Protein";
-import BlogDetails from "../../Pages/Home/Blog/BlogDetails";
-import Questions from "../../Pages/Dashboard/SettingAndPrivacy/Questions/Questions";
+import WaterTracking from "../../Pages/Home/Calculator/WaterTracking/WaterTracking";
 import Faqs from "../../Pages/Home/FAQ/FAQ";
-import AllActivities from "../../Pages/OtherPages/AllActivities/AllActivities/AllActivities";
-import AllInstructors from "../../Pages/AllInstructors/AllInstructors";
-import VideoCalling from "../../Pages/VideoCalling/VideoCalling/VideoCalling";
-import CallingRoom from "../../Pages/VideoCalling/CallingRoom/CallingRoom";
 import InstructorsDetails from "../../Pages/InstructorDetails/InstructorDetails/InstructorsDetails";
+import AllActivities from "../../Pages/OtherPages/AllActivities/AllActivities/AllActivities";
 import Friends from "../../Pages/OtherPages/CommunityFriend/Friends/Friends";
+ 
+ 
 import Food from "../../Pages/OtherPages/Logs/Food/Food/Food";
-import GetUserDetails from "../../Authentications/GetUserDetails/GetUserDetails";
-import Appointment from "../../Pages/InstructorDetails/Appointment/Appointment";
+ 
+import Sleep from "../../Pages/OtherPages/Logs/Sleep/Sleep/Sleep";
+ 
+import Weight from "../../Pages/OtherPages/Logs/Weight/Weight";
+ 
+ 
+import Tutorials from "../../Pages/OtherPages/Tutorials/Tutorials";
+import CallingRoom from "../../Pages/VideoCalling/CallingRoom/CallingRoom";
+import VideoCalling from "../../Pages/VideoCalling/VideoCalling/VideoCalling";
+ 
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ForgotPassword from "../../Authentications/SignIn/ForgotPassword";
-
+ ;
+ 
+ 
+ 
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -89,7 +98,7 @@ export const router = createBrowserRouter([
         path: `/instructor/instructors/:id`,
         element: <InstructorsDetails />,
         loader: ({ params }) =>
-          fetch(`https://fitness-tracking-web-server.vercel.app/instructors/${params.id}`),
+          fetch(`http://localhost:5000/instructors/${params.id}`),
       },
 
       {
@@ -154,7 +163,7 @@ export const router = createBrowserRouter([
         path: "/singleCategory/:id",
         loader: ({ params }) =>
           fetch(
-            `https://fitness-tracking-web-server.vercel.app/singleCategory/${params.id}`
+            `http://localhost:5000/singleCategory/${params.id}`
           ),
 
         element: <Tutorial></Tutorial>,
@@ -172,10 +181,10 @@ export const router = createBrowserRouter([
         path: "/SignUp",
         element: <GetUserDetails></GetUserDetails>,
       },
-      {
-        path: "/appointment/:id",
-        element: <Appointment></Appointment>,
-      },
+      // {
+      //   path: "/appointment/:id",
+      //   element: <Appointment></Appointment>,
+      // },
       // {
       //   path: "/appointment/:id",
       //   element: <Appointment></Appointment>,

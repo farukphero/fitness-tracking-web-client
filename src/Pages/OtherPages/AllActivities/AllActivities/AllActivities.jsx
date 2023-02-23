@@ -1,17 +1,17 @@
 import React, { useContext, useState } from "react";
-import SingleActivity from "../../Logs/Activities/ActivitiesHistory/SingleActivity/SingleActivity";
+import { toast } from "react-hot-toast";
 import { AiFillFire, AiOutlineCalendar } from "react-icons/ai";
 import { FaWalking } from "react-icons/fa";
-import { IoFootstepsSharp } from "react-icons/io5";
-import { RiPinDistanceFill } from "react-icons/ri";
 import { GiDuration } from "react-icons/gi";
+import { IoFootstepsSharp } from "react-icons/io5";
 import { MdOutlinePendingActions } from "react-icons/md";
+import { RiPinDistanceFill } from "react-icons/ri";
 import { VscReactions } from "react-icons/vsc";
-import { AuthContext } from "../../../../Contexts/AuthProvider/AuthProvider";
 import { useQuery } from "react-query";
 import Spinner from "../../../../Components/Spinner/Spinner";
+import { AuthContext } from "../../../../Contexts/AuthProvider/AuthProvider";
 import ConfirmationModal from "../../../Shared/ConfirmationModal/ConfirmationModal";
-import { toast } from "react-hot-toast";
+import SingleActivity from "../../Logs/Activities/ActivitiesHistory/SingleActivity/SingleActivity";
 
 const AllActivities = () => {
   const { user } = useContext(AuthContext);
@@ -25,7 +25,7 @@ const AllActivities = () => {
     queryKey: [`activities`, user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `https://fitness-tracking-web-server.vercel.app/allactivities?activist=${user?.email}`
+        `http://localhost:5000/allactivities?activist=${user?.email}`
       );
       const data = await res.json();
       return data;
@@ -37,12 +37,9 @@ const AllActivities = () => {
   }
 
   const handleDeleteActivity = (activity) => {
-    fetch(
-      `https://fitness-tracking-web-server.vercel.app/activities/${activity._id}`,
-      {
-        method: `DELETE`,
-      }
-    )
+    fetch(`http://localhost:5000/activities/${activity._id}`, {
+      method: `DELETE`,
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {
@@ -59,8 +56,6 @@ const AllActivities = () => {
   const closeModal = () => {
     setDeleteActivity(null);
   };
- 
- 
 
   return (
     <div className="w-11/12 my-6 mx-auto">

@@ -1,10 +1,8 @@
 import { format } from "date-fns";
-import React, { useState } from "react";
-import { useContext } from "react";
+import React, { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../../../Contexts/AuthProvider/AuthProvider";
-import { toast } from "react-hot-toast";
 
 const SideForm1 = ({ setLogedData, refetch, setLogedWeight }) => {
   const { user } = useContext(AuthContext);
@@ -26,7 +24,7 @@ const SideForm1 = ({ setLogedData, refetch, setLogedWeight }) => {
       email: user?.email,
     };
 
-    fetch(`https://fitness-tracking-web-server.vercel.app/logedWeight`, {
+    fetch(`http://localhost:5000/logedWeight`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

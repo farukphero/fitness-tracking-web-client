@@ -1,6 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import GotQuetions from './GotQuetions';
 
 
@@ -12,7 +10,7 @@ const Questions = () => {
 
     useEffect(() => {
 
-        fetch('https://fitness-tracking-web-server.vercel.app/question')
+        fetch('http://localhost:5000/question')
             .then(res => res.json())
             .then(data => setQuestions(data))
     }, [])

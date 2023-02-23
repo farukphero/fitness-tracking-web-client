@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
+import { BiSend } from "react-icons/bi";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../../../Contexts/AuthProvider/AuthProvider";
-import { BiSend } from "react-icons/bi";
 import ScrollToBottom from "react-scroll-to-bottom";
+import { AuthContext } from "../../../../Contexts/AuthProvider/AuthProvider";
 
 const Friends = () => {
   const { user, userInfo } = useContext(AuthContext);
@@ -18,7 +18,7 @@ const Friends = () => {
   } = useQuery({
     queryKey: ["messages.", user?.email, friendEmail],
     queryFn: () =>
-      fetch(`https://fitness-tracking-web-server.vercel.app/getMessages/${user?.email}/${friendEmail}`)
+      fetch(`http://localhost:5000/getMessages/${user?.email}/${friendEmail}`)
         .then((res) => res.json())
         .then((data) => {
           refetch()
@@ -43,7 +43,7 @@ const Friends = () => {
       image: userInfo?.picture,
     };
 
-    fetch("https://fitness-tracking-web-server.vercel.app/messages", {
+    fetch("http://localhost:5000/messages", {
       method: "POST",
       headers: {
         "content-type": "application/json",

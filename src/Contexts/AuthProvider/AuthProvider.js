@@ -7,7 +7,6 @@ import {
     signInWithEmailAndPassword,
     signInWithPopup,
     signOut,
-    
 } from "firebase/auth";
 import React, { createContext, useEffect, useState } from "react";
 import { useQuery } from "react-query";
@@ -49,7 +48,7 @@ const AuthProvider = ({ children }) => {
   const [userInfo, setUserInfo] = useState({});
 
   useEffect(() => {
-    fetch(`https://fitness-tracking-web-server.vercel.app/users/${user?.email}`)
+    fetch(`http://localhost:5000/users/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setUserInfo(data));
   }, [user?.email]);
@@ -71,7 +70,7 @@ const AuthProvider = ({ children }) => {
 } = useQuery({
     queryKey: ["loggedInfo", user?.email],
     queryFn: () =>
-        fetch(`https://fitness-tracking-web-server.vercel.app/logedWeight?email=${user?.email}`)
+        fetch(`http://localhost:5000/logedWeight?email=${user?.email}`)
             .then((res) => res.json())
             .then((data) => {
                 // console.log(data);

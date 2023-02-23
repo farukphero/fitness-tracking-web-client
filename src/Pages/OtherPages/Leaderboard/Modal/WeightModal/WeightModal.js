@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
-import WeightGoalChart from '../../../Logs/Weight/WeightGoalChart/WeightGoalChart';
-import { Link } from 'react-router-dom'
-import { AuthContext } from '../../../../../Contexts/AuthProvider/AuthProvider';
 import { FaLongArrowAltRight } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../../../Contexts/AuthProvider/AuthProvider';
+import WeightGoalChart from '../../../Logs/Weight/WeightGoalChart/WeightGoalChart';
 // import { useQuery } from 'react-query';
 
 const WeightModal = () => {
@@ -20,7 +20,7 @@ const WeightModal = () => {
 
 
     useEffect(() => {
-        fetch(`https://fitness-tracking-web-server.vercel.app/weightGoal?email=${user?.email}`)
+        fetch(`http://localhost:5000/weightGoal?email=${user?.email}`)
             .then((res) => res.json())
             .then((data) => setWeightGoal(data));
     }, [user?.email]);

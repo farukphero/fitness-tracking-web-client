@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import ReactDatePicker from 'react-datepicker';
 import { AuthContext } from '../../../../../../Contexts/AuthProvider/AuthProvider';
 
@@ -31,7 +31,7 @@ const WaterLog = ({ startDate, setStartDate }) => {
         }
         const waterInfo = { water, amountWithQuantity, time, email: user?.user?.email, date: startDate.toLocaleDateString() }
         console.log(waterInfo)
-        fetch('https://fitness-tracking-web-server.vercel.app/loggedWater', {
+        fetch('http://localhost:5000/loggedWater', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
