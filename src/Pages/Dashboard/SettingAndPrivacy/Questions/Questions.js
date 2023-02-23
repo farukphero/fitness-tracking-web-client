@@ -16,7 +16,8 @@ const Questions = () => {
     }, [])
     console.log(qusetions)
     return (
-        <div className='lg:-mt-72 md:-mt-96 lg:-ml-16'>
+        <section className='mt-20'>
+            <div className='lg:-mt-72 md:-mt-96 lg:-ml-16'>
             <p className='text-4xl font-semibold  text-center mb-9'>User Questions
             </p>
             <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5'>
@@ -30,6 +31,7 @@ const Questions = () => {
                 }
             </div>
         </div>
+        </section>
     );
 };
 

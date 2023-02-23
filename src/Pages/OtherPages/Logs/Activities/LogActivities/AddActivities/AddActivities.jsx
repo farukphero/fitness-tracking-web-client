@@ -134,16 +134,16 @@ const AddActivities = ({ refetch }) => {
               className="flex gap-y-3 flex-col mt-16"
             >
               <div className="form-control flex flex-row w-full">
-                <label className="label  w-32">
+                <label className="label w-20 md:w-32">
                   <span className="label-text capitalize font-lg text-xl">
                     name
                   </span>
                 </label>
                 <select
                   {...register(`name`)}
-                  className="select select-ghost w-full max-w-xs bg-gray-500 text-white"
+                  className="select select-ghost w-56 md:w-96 lg:w-full bg-gray-500 text-white"
                 >
-                  <option className="text-white" disabled selected>
+                  <option className="text-white " disabled selected>
                     Name Of Activities
                   </option>
                   <option className="text-white">Run</option>
