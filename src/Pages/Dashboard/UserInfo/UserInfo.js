@@ -8,7 +8,7 @@ import useTitle from "../../../Hooks/useTitle/useTitle";
 import "./UserInfo.css";
 
 const UserInfo = () => {
-  useTitle("Profile/userInfo")
+  useTitle("Profile/userInfo");
   const {
     register,
     formState: { errors },
@@ -80,9 +80,10 @@ const UserInfo = () => {
   };
 
   useEffect(() => {
-    fetch(`https://fitness-tracking-web-server.vercel.app/users/${user?.email}`)
+    fetch(`http://localhost:5000/users/${user?.email}`)
       .then((res) => res.json())
-      .then((data) => setUserInfo(data));
+      .then((data) => setUserInfo(data))
+      .finally((data) => console.log(data));
   }, [user]);
 
   // health checkup start here:
@@ -110,6 +111,7 @@ const UserInfo = () => {
   // blood measurement :
   const getBlood = (weight) => {
     let measurement = [(Number(weight) * 8) / 100];
+
     return measurement;
   };
 
@@ -189,15 +191,14 @@ const UserInfo = () => {
             </div>
             <div className="indicator mt-4">
               <span className="indicator-item badge bg-white text-2xl px-4 py-4 badge-primary">
-                {/* {calculateBMR({
+                {calculateBMR({
                   age: userInfo?.age,
                   gender: userInfo?.gender,
-                  heightFeet: userInfo.height?.split(".")[0],
-                  heightInches: userInfo.height?.split(".")[1],
+                  heightFeet: userInfo.height,
+                  heightInches: userInfo.inch,
                   weight: userInfo?.weight,
                   weightType: 1,
-                })} */}
-                1457.25
+                })}
               </span>
               <div className="grid w-24 h-24 bg-gradient-to-r from-gray-600 via-teal-700 to-gray-600   place-items-center">
                 <Link to="/bmr"> BMR</Link>
