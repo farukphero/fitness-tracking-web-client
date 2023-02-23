@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import faq from "../../../assets/faq.svg";
+import { FaUser } from "react-icons/fa";
+import { toast } from 'react-hot-toast';
 
 const Faqs = () => {
   const { user } = useContext(AuthContext);
@@ -31,9 +33,25 @@ const Faqs = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        if (data.acknowledged) {
+          toast.success('Questions Added')
+
+        }
+
         console.log(data);
       });
+    data.form.reset()
   };
+
+  const [answer, setAnswer] = useState([])
+
+  useEffect(() => {
+    fetch('http://localhost:5000/answer')
+      .then(res => res.json())
+      .then(data => setAnswer(data))
+  }, [])
+
+  console.log(answer)
 
   const Faq = [
     {
@@ -115,7 +133,36 @@ const Faqs = () => {
           Ask Your Questions
         </label>
       </div>
+      <div className="mt-2 w-3/4 mx-auto mb-2 m-3">
+        <p className="text-3xl text-center font-bold mt-3 mb-2">User Answer</p>
+        <div className="grid grid-cols-1  lg:grid-cols-3">
+          {
+            answer.map(ans =>
+              <div
+                ans={ans}
+                key={ans._id}
+              >
+                <div className='bg-gradient-to-r from-gray-700 via-green-700 to-gray-700 m-3 ml-0 p-4 rounded-2xl'>
+                  <h2 className="card-title mb-2"><FaUser></FaUser>{ans.Name}</h2>
 
+
+                  <div className="">
+
+                    <p>{ans.Adminans}?</p>
+                    <div className="card-actions justify-end">
+                    </div>
+
+
+                  </div>
+
+                </div>
+
+
+              </div>
+            )
+          }
+        </div>
+      </div>
       {/* Put this part before </body> tag */}
       <input type="checkbox" id="my-modal-6" className="modal-toggle" />
       <div className="modal modal-bottom sm:modal-middle">
