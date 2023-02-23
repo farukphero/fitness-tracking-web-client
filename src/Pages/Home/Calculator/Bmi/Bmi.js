@@ -4,7 +4,7 @@ import Lottie from "lottie-react";
 import useTitle from "../../../../Hooks/useTitle/useTitle";
 
 const Bmi = () => {
-  useTitle("Bmi")
+  useTitle("Bmi");
   const [bmi, setBmi] = useState();
   const [info, setInfo] = useState();
   const [height, setHeight] = useState();
@@ -27,7 +27,7 @@ const Bmi = () => {
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2  mt-20 mb-44">
-         <div className="flex justify-center">
+        <div className="flex justify-center">
           <Lottie
             className="w-2/3"
             animationData={working5}
@@ -69,7 +69,7 @@ const Bmi = () => {
 
               <a
                 href="#my-modal-2"
-                className="btn border-2 font-bold  bg-green-700  px-6 py-3 border-green-600 btn-explore  rounded-md "
+                className="btn btn-log  bg-secondary text-black w-full border-none  "
                 onClick={handleBmi}
               >
                 Calculator

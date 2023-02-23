@@ -4,7 +4,7 @@ import Lottie from "lottie-react";
 import useTitle from "../../../../Hooks/useTitle/useTitle";
 
 const Bmr = () => {
-  useTitle("Bmr")
+  useTitle("Bmr");
   const [error, setError] = useState("");
   const [suggestion, setSuggestion] = useState("");
   const [bmrData, setBmrData] = useState({
@@ -290,7 +290,7 @@ const Bmr = () => {
                   htmlFor="my-modal-3"
                   type="button"
                   onClick={() => calculateBMR()}
-                  className="btn mt-4 border-2 font-bold text-white bg-green-700  px-6 py-3 border-green-600 btn-explore  rounded-md"
+                  className="btn btn-log  bg-secondary text-black w-full border-none mt-2"
                 >
                   Calculate BMR
                 </label>
