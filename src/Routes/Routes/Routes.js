@@ -1,18 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
 import SignIn from "../../Authentications/SignIn/SignIn";
-import SignUp from "../../Authentications/SignUp/SignUp";
 import KeepTrack from "../../Layout/KeepTrack/KeepTrack";
 import Main from "../../Layout/Main/Main";
-
-import UserDetails from "../../Authentications/UserDetails/UserDetails";
 import LogsLayout from "../../Layout/LogsLayout/LogsLayout/LogsLayout";
-
 import UserInfo from "../../Pages/Dashboard/UserInfo/UserInfo";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Home from "../../Pages/Home/Home/Home";
 import ServiceDetails from "../../Pages/Home/Services/ServiceDetails";
-
- import Leaderboard from "../../Pages/OtherPages/Leaderboard/Leaderboard";
+import Leaderboard from "../../Pages/OtherPages/Leaderboard/Leaderboard";
 import Activities from "../../Pages/OtherPages/Logs/Activities/Activities/Activities";
 import Water from "../../Pages/OtherPages/Logs/Water/Water";
 import Setting from "../../Pages/Dashboard/SettingAndPrivacy/Setting/Setting";
@@ -210,14 +205,7 @@ export const router = createBrowserRouter([
     ],
   },
 
-  {
-    path: "/UserDetails",
-    element: (
-      <PrivateRoute>
-        <UserDetails></UserDetails>
-      </PrivateRoute>
-    ),
-  },
+ 
   {
     path: "/KeepTrack",
     element: <KeepTrack></KeepTrack>,
