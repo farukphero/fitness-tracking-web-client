@@ -14,7 +14,7 @@ const AddTutorials = () => {
       link,
       category,
     };
-    fetch("https://fitness-tracking-web-server.vercel.app/tutorial", {
+    fetch("http://localhost:5000/tutorial", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -49,7 +49,7 @@ const AddTutorials = () => {
           image,
         };
 
-        fetch("https://fitness-tracking-web-server.vercel.app/category", {
+        fetch("http://localhost:5000/category", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -66,7 +66,7 @@ const AddTutorials = () => {
   const { data: categories = [] } = useQuery({
     queryKey: ["categories"],
     queryFn: () =>
-      fetch(`https://fitness-tracking-web-server.vercel.app/categories`).then(
+      fetch(`http://localhost:5000/categories`).then(
         (res) => res.json()
       ),
   });

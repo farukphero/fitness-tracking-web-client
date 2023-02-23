@@ -1,11 +1,8 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
-import CommunityFriends from "./CommunityFriends";
-import { useContext } from "react";
-import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
+import React, { useContext, useEffect, useState } from "react";
 import Loading from "../../../Components/Loading/Loading";
+import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import useTitle from "../../../Hooks/useTitle/useTitle";
+import CommunityFriends from "./CommunityFriends";
 
 const CommunityFriend = () => {
   useTitle("Community/AllUsers")
@@ -14,7 +11,7 @@ const CommunityFriend = () => {
   const [loading, setLoading] = useState(true);
   const [reload, setReload] = useState(false);
   useEffect(() => {
-    fetch("https://fitness-tracking-web-server.vercel.app/users")
+    fetch("http://localhost:5000/users")
       .then((res) => res.json())
       .then((data) => {
         const result = data.filter(

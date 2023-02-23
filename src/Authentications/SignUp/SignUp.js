@@ -1,12 +1,12 @@
 import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
-import { FcGoogle } from "react-icons/fc";
-import useTitle from "../../Hooks/useTitle/useTitle";
-import Loading from "../../Components/Loading/Loading";
 import { toast } from "react-hot-toast";
+import { FcGoogle } from "react-icons/fc";
+import { useNavigate } from "react-router-dom";
+import Loading from "../../Components/Loading/Loading";
+import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
+import useTitle from "../../Hooks/useTitle/useTitle";
 
 const SignUp = ({ userDetails, anotherInfo }) => {
   useTitle("SignUp");
@@ -62,7 +62,7 @@ const SignUp = ({ userDetails, anotherInfo }) => {
               sendTo: [],
               postDate: userDetails.postDate,
             };
-            fetch("https://fitness-tracking-web-server.vercel.app/users", {
+            fetch("http://localhost:5000/users", {
               method: "POST",
               headers: {
                 "content-type": "application/json",
@@ -129,7 +129,7 @@ const SignUp = ({ userDetails, anotherInfo }) => {
               sendTo: [],
               postDate: userDetails.postDate,
             };
-            fetch("https://fitness-tracking-web-server.vercel.app/users", {
+            fetch("http://localhost:5000/users", {
               method: "POST",
               headers: {
                 "content-type": "application/json",
@@ -152,7 +152,7 @@ const SignUp = ({ userDetails, anotherInfo }) => {
   //   const user = {
   //     name,
   //   };
-  //   fetch("https://fitness-tracking-web-server.vercel.app/users", {
+  //   fetch("http://localhost:5000/users", {
   //     method: "POST",
   //     headers: {
   //       "content-type": "application/json",

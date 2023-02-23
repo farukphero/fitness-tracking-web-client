@@ -12,7 +12,7 @@ import "./AddActivites.css";
 
 import { toast } from "react-hot-toast";
 
-const AddActivities = () => {
+const AddActivities = ({ refetch }) => {
   const {
     register,
     handleSubmit,
@@ -85,12 +85,13 @@ const AddActivities = () => {
     };
 
     axios
-      .post(`https://fitness-tracking-web-server.vercel.app/activities`, {
+      .post(`http://localhost:5000/activities`, {
         ...activity,
       })
       .then((res) => {
         if (res.data.acknowledged) {
           toast.success(`successfully added an activity`);
+          refetch();
         }
         console.log(res.data);
       })
@@ -138,7 +139,10 @@ const AddActivities = () => {
                     name
                   </span>
                 </label>
-                <select  {...register(`name`)} className="select select-ghost w-full max-w-xs bg-gray-500 text-white">
+                <select
+                  {...register(`name`)}
+                  className="select select-ghost w-full max-w-xs bg-gray-500 text-white"
+                >
                   <option className="text-white" disabled selected>
                     Name Of Activities
                   </option>
@@ -256,7 +260,7 @@ const AddActivities = () => {
                     className="select bg-gray-500 select-bordered ml-2"
                   >
                     <option selected>kg</option>
-                    <option >lbs</option>
+                    <option>lbs</option>
                   </select>
                   {/* <div>
                     {errors?.weight && (
