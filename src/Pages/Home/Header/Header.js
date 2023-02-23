@@ -56,7 +56,7 @@ const Header = () => {
              
           <ul className="items-center hidden space-x-8 lg:flex">
             {
-              user ? <button onClick={handleLogOut} className="inline-flex items-center justify-center h-10 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-green-500">Log Out</button> : <>
+              user && user.emailVerified ? <button onClick={handleLogOut} className="inline-flex items-center justify-center h-10 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-green-500">Log Out</button> : <>
                 <li>
               <Link
                 to="/SignIn"

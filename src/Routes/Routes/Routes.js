@@ -34,6 +34,7 @@ import Leaderboard from "../../Pages/OtherPages/Leaderboard/Leaderboard";
 import Activities from "../../Pages/OtherPages/Logs/Activities/Activities/Activities";
 import ActivitiesHistoryDetails from "../../Pages/OtherPages/Logs/Activities/Activities/ActivitiesHistoryDetails/ActivitiesHistoryDetails";
 import Food from "../../Pages/OtherPages/Logs/Food/Food/Food";
+ 
 import Sleep from "../../Pages/OtherPages/Logs/Sleep/Sleep/Sleep";
 import Water from "../../Pages/OtherPages/Logs/Water/Water";
 import Weight from "../../Pages/OtherPages/Logs/Weight/Weight";
@@ -44,6 +45,11 @@ import CallingRoom from "../../Pages/VideoCalling/CallingRoom/CallingRoom";
 import VideoCalling from "../../Pages/VideoCalling/VideoCalling/VideoCalling";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+ 
+import GetUserDetails from "../../Authentications/GetUserDetails/GetUserDetails";
+import PersonalInfo from "../../Authentications/PersonalInfo/PersonalInfo";
+import Appointment from "../../Pages/AllInstructors/Appointment/Appontment";
+ 
 
 export const router = createBrowserRouter([
   {
@@ -174,10 +180,10 @@ export const router = createBrowserRouter([
       //   path: "/SignUp",
       //   element: <PersonalInfo></PersonalInfo>,
       // },
-      // {
-      //   path: "/SignUpSuccess",
-      //   element: <SignUp></SignUp>,
-      // },
+      {
+        path: "/appointment",
+        element: <Appointment></Appointment>,
+      },
       {
         path: "/Community/AllUsers",
         element:<PrivateRoute> <CommunityFriend></CommunityFriend></PrivateRoute>,
