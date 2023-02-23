@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "react-query";
-import Spinner from "../../Components/Spinner/Spinner";
+import Loading from "../../Components/Loading/Loading";
 import SingleInstructor from "./SingleInstructor/SingleInstructor";
 
 const AllInstructors = () => {
@@ -10,14 +10,14 @@ const AllInstructors = () => {
   } = useQuery({
     queryKey: [`instructors`],
     queryFn: async () => {
-      const res = await fetch(`https://fitness-tracking-web-server.vercel.app/instructors`);
+      const res = await fetch(`http://localhost:5000/instructors`);
       const data = await res.json();
       return data;
     },
   });
 
   if (isLoading) {
-    <Spinner />;
+    <Loading />;
   }
 
   return (

@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import logo from "../../../images/apple-touch-icon.png";
-import { FaArrowRight } from 'react-icons/fa';
 import { TypeAnimation } from "react-type-animation";
 
 const Header = () => {
@@ -16,7 +15,7 @@ const Header = () => {
   }
 
   return (
-    <div className="bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 z-50 bg-opacity-70">
+    <div className="bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900   bg-opacity-70">
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
           <div className="flex items-center">
@@ -44,7 +43,7 @@ const Header = () => {
                   "START YOUR JOURNEY TODAY",
                   2000, // Types 'Three' without deleting 'Two'
                   () => {
-                    console.log("Done typing!"); // Place optional callbacks anywhere in the array
+                     ; // Place optional callbacks anywhere in the array
                   },
                 ]}
                 wrapper="div"
@@ -73,6 +72,7 @@ const Header = () => {
                 className="inline-flex items-center justify-center h-10 px-6 font-medium text-white rounded shadow-md bg-gradient-to-r from-green-500 to-secondary"
                 aria-label="Sign up"
                 title="Sign up"
+                onClick={() => setIsMenuOpen(false)}
               >
                 Sign up
               </Link>
@@ -139,9 +139,10 @@ const Header = () => {
                    
                         <Link
                            to="/SignUp"
-                          className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                          className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none z-50"
                           aria-label="Sign up"
                           title="Sign up"
+                          onClick={() => setIsMenuOpen(false)}
                         >
                           Sign up
                         </Link>

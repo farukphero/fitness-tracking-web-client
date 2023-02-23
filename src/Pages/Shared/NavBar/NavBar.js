@@ -190,25 +190,26 @@ const Navbar = () => {
                 <div className="absolute top-14 -left-80 w-80 transition ">
                   <div className="p-5 bg-gradient-to-r from-gray-700 via-teal-800 to-gray-700  border rounded shadow-sm">
                     <div className="flex items-center justify-between mb-4">
-                      <div className="flex">
-                        <h5 className="text-4xl">
-                          {userInfo?.firstName} {userInfo?.lastName}
-                        </h5>
+                      <div className="block">
                         <img
-                          className="h-14 w-14 rounded-full ml-5"
+                          className="h-14 w-14 rounded-full ml-10"
                           src={userInfo?.picture}
                           alt=""
                         />
+                        <h5 className="text-xl mb-5">
+                          {userInfo?.firstName} {userInfo?.lastName}
+                        </h5>
+                     
                       </div>
 
                       <div>
                         <button
                           aria-label="Close Menu"
                           title="Close Menu"
-                          className="p-2 -mt-2 -mr-2 transition duration-200 rounded hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline capitalize z-50"
+                          className="p-2 -mt-10 -mr-2 transition duration-200 rounded focus:outline-none focus:shadow-outline capitalize z-50"
                           onClick={() => setIsMenuOpen(false)}
                         >
-                          <svg className="w-5 text-white" viewBox="0 0 24 24">
+                          <svg className="w-8 text-white" viewBox="0 0 24 24">
                             <path
                               fill="currentColor"
                               d="M19.7,4.3c-0.4-0.4-1-0.4-1.4,0L12,10.6L5.7,4.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l6.3,6.3l-6.3,6.3 c-0.4,0.4-0.4,1,0,1.4C4.5,19.9,4.7,20,5,20s0.5-0.1,0.7-0.3l6.3-6.3l6.3,6.3c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3 c0.4-0.4,0.4-1,0-1.4L13.4,12l6.3-6.3C20.1,5.3,20.1,4.7,19.7,4.3z"

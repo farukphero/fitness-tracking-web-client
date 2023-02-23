@@ -45,8 +45,8 @@ import InstructorsDetails from "../../Pages/InstructorDetails/InstructorDetails/
 import Friends from "../../Pages/OtherPages/CommunityFriend/Friends/Friends";
 import Food from "../../Pages/OtherPages/Logs/Food/Food/Food";
 import GetUserDetails from "../../Authentications/GetUserDetails/GetUserDetails";
-import PersonalInfo from "../../Authentications/PersonalInfo/PersonalInfo";
-import Appointment from "../../Pages/AllInstructors/Appointment/Appontment";
+import Appointment from "../../Pages/InstructorDetails/Appointment/Appointment";
+import ForgotPassword from "../../Authentications/SignIn/ForgotPassword";
 
 export const router = createBrowserRouter([
   {
@@ -170,17 +170,23 @@ export const router = createBrowserRouter([
         element: <SignIn></SignIn>,
       },
       {
+        path: "/forgotPassword",
+        element: <ForgotPassword></ForgotPassword>,
+      },
+      {
         path: "/SignUp",
         element: <GetUserDetails></GetUserDetails>,
       },
-      // {
-      //   path: "/SignUp",
-      //   element: <PersonalInfo></PersonalInfo>,
-      // },
       {
-        path: "/appointment",
+        path: "/appointment/:id",
         element: <Appointment></Appointment>,
       },
+      // {
+      //   path: "/appointment/:id",
+      //   element: <Appointment></Appointment>,
+      //   loader: ({ params }) =>
+      //   fetch(`http://localhost:5000/${params.id}`),
+      // },
       {
         path: "/Community/AllUsers",
         element:<PrivateRoute> <CommunityFriend></CommunityFriend></PrivateRoute>,

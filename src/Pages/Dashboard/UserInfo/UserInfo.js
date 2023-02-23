@@ -33,7 +33,7 @@ const UserInfo = () => {
     const formData = new FormData();
     formData.append("image", image);
     const url =
-      "https://api.imgbb.com/1/upload?expiration=600&key=c49cb06155adb366044d147043658858";
+      "https://api.imgbb.com/1/upload?key=c49cb06155adb366044d147043658858";
     fetch(url, {
       method: "POST",
       body: formData,

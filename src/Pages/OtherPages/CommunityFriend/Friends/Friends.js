@@ -80,7 +80,8 @@ const Friends = () => {
             {/* <!-- Page content here --> */}
             <div>
               <ScrollToBottom>
-                <div className="relative">
+                <div>
+                  <div className="mb-52 mt-20">
                   {messages?.map((message) => (
                     <div>
                       {message?.id === userInfo._id ? (
@@ -108,10 +109,10 @@ const Friends = () => {
                       )}
                     </div>
                   ))}
+                  </div>
                 </div>
               </ScrollToBottom>
-  
-              <div className="absolute bottom-0 bg-gradient-to-r from-gray-700 via-teal-900 to-gray-700 w-full">
+              <div className="absolute bottom-0 bg-gradient-to-r from-gray-700 via-teal-900 to-gray-700 w-full mt-10">
                 <form className="flex my-5 mx-5 lg:mx-0" onSubmit={sendMsg}>
                   <input
                     type="text"
@@ -127,6 +128,7 @@ const Friends = () => {
                   </button>
                 </form>
               </div>
+              
             </div>
           </div>
           <div className="drawer-side">
