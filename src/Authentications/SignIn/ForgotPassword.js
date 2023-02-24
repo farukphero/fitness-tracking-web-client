@@ -21,8 +21,7 @@ const ForgotPassword = () => {
         forgotPassword(data.email)
         .then(()=>{
            alert("Check your email")
-            navigate("/")
-
+            
         })
         .catch(error=> setError(error.message))
  

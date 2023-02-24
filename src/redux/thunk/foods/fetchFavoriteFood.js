@@ -2,7 +2,7 @@ import { loadFavoriteFood } from "../../actionCreators/loggedFoodActions";
 
 const loadFavoriteFoodData = (email) =>{
     return async (dispatch, getState) => {
-        const res = await fetch(`http://localhost:5000/favouriteFood/${email}`);
+        const res = await fetch(`https://fitness-tracking-web-server.vercel.app/favouriteFood/${email}`);
         const data = await res.json();
 
         if(data.length){

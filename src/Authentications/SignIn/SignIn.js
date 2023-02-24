@@ -46,15 +46,15 @@ const SignIn = () => {
         const user = result.user;
         <Loading></Loading>;
         setSignInError();
-        if (user?.emailVerified) {
-          toast.success("Sign In success");
-          navigate("/Leaderboard");
-        } else {
-          alert("Please check your email and verify.");
-          logOut()
-            .then(() => {})
-            .catch((error) => console.log(error));
-        }
+        // if (user?.emailVerified) {
+        //   toast.success("Sign In success");
+        //   navigate("/Leaderboard");
+        // } else {
+        //   alert("Please check your email and verify.");
+        //   logOut()
+        //     .then(() => {})
+        //     .catch((error) => console.log(error));
+        // }
       })
       .catch((error) => setSignInError(error));
   };

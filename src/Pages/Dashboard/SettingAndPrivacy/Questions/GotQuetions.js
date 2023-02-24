@@ -26,7 +26,7 @@ const GotQuetions = ({ quetion }) => {
     };
     console.log(data);
     console.log(Ans);
-    fetch("http://localhost:5000/ans", {
+    fetch("https://fitness-tracking-web-server.vercel.app/ans", {
       method: "POST",
       headers: {
         "content-type": "application/json",

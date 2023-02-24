@@ -18,7 +18,7 @@ const Friends = () => {
   } = useQuery({
     queryKey: ["messages.", user?.email, friendEmail],
     queryFn: () =>
-      fetch(`http://localhost:5000/getMessages/${user?.email}/${friendEmail}`)
+      fetch(`https://fitness-tracking-web-server.vercel.app/getMessages/${user?.email}/${friendEmail}`)
         .then((res) => res.json())
         .then((data) => {
           refetch()
@@ -43,7 +43,7 @@ const Friends = () => {
       image: userInfo?.picture,
     };
 
-    fetch("http://localhost:5000/messages", {
+    fetch("https://fitness-tracking-web-server.vercel.app/messages", {
       method: "POST",
       headers: {
         "content-type": "application/json",

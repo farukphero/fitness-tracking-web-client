@@ -2,7 +2,7 @@ import { addToFavorite } from "../../actionCreators/loggedFoodActions";
 
 const addFavoriteFood = (food) => {
     return async (dispatch, getState) => {
-        const res = await fetch('http://localhost:5000/favouriteFood', {
+        const res = await fetch('https://fitness-tracking-web-server.vercel.app/favouriteFood', {
             method: "POST",
             body: JSON.stringify(food),
             headers: {

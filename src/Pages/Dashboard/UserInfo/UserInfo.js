@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { ImFolderPlus } from "react-icons/im";
 import { Link } from "react-router-dom";
-
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import useTitle from "../../../Hooks/useTitle/useTitle";
 import "./UserInfo.css";
@@ -26,8 +25,6 @@ const UserInfo = () => {
   };
 
   const handleEdit = (data) => {
-    // event.preventDefault();
-
     const image = data.image[0];
     console.log(image);
     const formData = new FormData();
@@ -57,7 +54,7 @@ const UserInfo = () => {
         // console.log(user.email);
 
         fetch(
-          `http://localhost:5000/users/edit/${user?.email}`,
+          `https://fitness-tracking-web-server.vercel.app/users/edit/${user?.email}`,
           {
             method: "PUT",
             headers: {
@@ -80,7 +77,7 @@ const UserInfo = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${user?.email}`)
+    fetch(`https://fitness-tracking-web-server.vercel.app/users/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setUserInfo(data))
       .finally((data) => console.log(data));
@@ -161,9 +158,9 @@ const UserInfo = () => {
   return (
     <div className="w-8/12 mx-auto my-20 -mt-5 md:-mt-80 lg:mt-20 scale-75 lg:scale-100">
       <div className="lg:w-[900px] ">
-        <div className="-ml-24 mb-5">
+        <div className="-ml-24 md:ml-0 mb-5">
           <h1 className="text-2xl my-8">Health Activities:</h1>
-          <div className="grid grid-cols-4 lg:grid-cols-4 gap-20">
+          <div className="grid grid-cols-4 lg:grid-cols-4 gap-20 md:gap-0">
             <div className="indicator ">
               <span className="indicator-item badge bg-white text-2xl px-2 py-3 md:p-4 badge-primary">
                 {bmi} 
@@ -217,14 +214,14 @@ const UserInfo = () => {
         </div>
         <div>
           <div className="avatar mr-10">
-            <div className="w-28 lg:w-32 mb-10 ml-16 lg:ml-24 lg:mt-20 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+            <div className="w-28 lg:w-32 mb-10 ml-16 lg:ml-24 lg:mt-16 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
               <img src={userInfo?.picture} alt="" />
             </div>
           </div>
           <div className="text-white text-user-info relative">
             {isEditing ? (
               <form
-                className="flex flex-col lg:w-96 gap-3 "
+                className="flex flex-col lg:w-96 gap-3"
                 onSubmit={handleSubmit(handleEdit)}
               >
                 <div className="absolute -top-8 left-16 lg:left-[100px] mt-1">
@@ -242,7 +239,7 @@ const UserInfo = () => {
                     className="flex btn btn-xs font-bold text-xs btn-outline btn-explore text-white"
                   >
                     <small> Upload Photo</small>
-                    <ImFolderPlus className="h-6 w-7 p-1" />
+                    <ImFolderPlus className="h-6 w-7 p-1"/>
                   </label>
                 </div>
                 <div className="flex md:gap-8 -ml-28 md:ml-0 gap-2 mt-3">

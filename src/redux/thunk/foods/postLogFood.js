@@ -2,7 +2,7 @@ import { logFood } from "../../actionCreators/loggedFoodActions";
 
 const postLogFood = (logedFood) => {
     return async (dispatch, getState) => {
-        const res = await fetch('http://localhost:5000/loggedFood', {
+        const res = await fetch('https://fitness-tracking-web-server.vercel.app/loggedFood', {
             method: "POST",
             body: JSON.stringify(logedFood),
             headers: {

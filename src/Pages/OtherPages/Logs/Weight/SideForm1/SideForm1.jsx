@@ -24,7 +24,7 @@ const SideForm1 = ({ setLogedData, refetch, setLogedWeight }) => {
       email: user?.email,
     };
 
-    fetch(`http://localhost:5000/logedWeight`, {
+    fetch(`https://fitness-tracking-web-server.vercel.app/logedWeight`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

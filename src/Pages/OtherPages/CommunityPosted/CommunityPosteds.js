@@ -15,7 +15,7 @@ const CommunityPosteds = ({ post, refetch }) => {
     const { data: commentget = [] } = useQuery({
         queryKey: ['post/comment', post?._id],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/post/comment/${post?._id}`);
+            const res = await fetch(`https://fitness-tracking-web-server.vercel.app/post/comment/${post?._id}`);
             const data = await res.json()
 
             return data;
@@ -32,7 +32,7 @@ const CommunityPosteds = ({ post, refetch }) => {
         }
         setLike(like + 1)
 
-        fetch(`http://localhost:5000/post/${post?._id}`, {
+        fetch(`https://fitness-tracking-web-server.vercel.app/post/${post?._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -63,7 +63,7 @@ const CommunityPosteds = ({ post, refetch }) => {
 
         }
 
-        fetch(`http://localhost:5000/post/comment/${_id}`, {
+        fetch(`https://fitness-tracking-web-server.vercel.app/post/comment/${_id}`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

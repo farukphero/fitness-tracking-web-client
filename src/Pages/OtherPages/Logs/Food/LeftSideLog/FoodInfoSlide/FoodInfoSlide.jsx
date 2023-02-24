@@ -20,7 +20,7 @@ const FoodInfoSlide = ({ result, startDate, setStartDate }) => {
   // console.log(weightGoal[0]?.goalType)
 
   useEffect(() => {
-    fetch(`http://localhost:5000/weightGoal?email=${user?.user?.email}`)
+    fetch(`https://fitness-tracking-web-server.vercel.app/weightGoal?email=${user?.user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         // console.log(data)
@@ -46,7 +46,7 @@ const FoodInfoSlide = ({ result, startDate, setStartDate }) => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/activities/1?email=${user?.user?.email}`)
+    fetch(`https://fitness-tracking-web-server.vercel.app/activities/1?email=${user?.user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         // console.log(data)
@@ -56,7 +56,7 @@ const FoodInfoSlide = ({ result, startDate, setStartDate }) => {
   const day = parseInt(weightGoal[0]?.days);
 
   useState(() => {
-    fetch(`http://localhost:5000/activities/7?email=${user?.user?.email}`)
+    fetch(`https://fitness-tracking-web-server.vercel.app/activities/7?email=${user?.user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         // console.log(data)

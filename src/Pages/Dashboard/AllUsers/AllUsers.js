@@ -15,7 +15,7 @@ const AllUsers = () => {
   } = useQuery({
     queryKey: ["repoData"],
     queryFn: () =>
-      fetch("http://localhost:5000/users").then(
+      fetch("https://fitness-tracking-web-server.vercel.app/users").then(
         (res) => res.json()
       ),
   });
@@ -25,7 +25,7 @@ const AllUsers = () => {
   if (error) return "An error has occurred: " + error.message;
 
   const handleAdmin = (id) => {
-    fetch(`http://localhost:5000/users/admin/${id}`, {
+    fetch(`https://fitness-tracking-web-server.vercel.app/users/admin/${id}`, {
       method: "PUT",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,
@@ -43,7 +43,7 @@ const AllUsers = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure?");
     if (proceed) {
-      fetch(`http://localhost:5000/users/${id}`, {
+      fetch(`https://fitness-tracking-web-server.vercel.app/users/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

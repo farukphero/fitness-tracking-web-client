@@ -7,7 +7,7 @@ const AllInstructors = () => {
   const { data: instructors, isLoading } = useQuery({
     queryKey: [`instructors`],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/instructors`);
+      const res = await fetch(`https://fitness-tracking-web-server.vercel.app/instructors`);
       const data = await res.json();
       return data;
     },

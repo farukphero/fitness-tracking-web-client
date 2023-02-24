@@ -23,24 +23,24 @@ const ActivitiesChart = () => {
 
   useEffect(() => {
     if (dayDistance === `1 month`) {
-      fetch(`http://localhost:5000/activities/30?activist=${user?.email}`)
+      fetch(`https://fitness-tracking-web-server.vercel.app/activities/30?activist=${user?.email}`)
         .then((res) => res.json())
         .then((data) => setData(data));
       setShowChart(
         <MonthChart focus={focus} setTotal={setTotal} data={data} />
       );
     } else if (dayDistance === `7 days`) {
-      fetch(`http://localhost:5000/activities/7?activist=${user?.email}`)
+      fetch(`https://fitness-tracking-web-server.vercel.app/activities/7?activist=${user?.email}`)
         .then((res) => res.json())
         .then((data) => setData(data));
       setShowChart(<WeekChart focus={focus} setTotal={setTotal} data={data} />);
     } else if (dayDistance === `1 year`) {
-      fetch(`http://localhost:5000/activities/365?activist=${user?.email}`)
+      fetch(`https://fitness-tracking-web-server.vercel.app/activities/365?activist=${user?.email}`)
         .then((res) => res.json())
         .then((data) => setData(data));
       setShowChart(<YearChart focus={focus} setTotal={setTotal} data={data} />);
     } else {
-      fetch(`http://localhost:5000/activities/1?activist=${user?.email}`)
+      fetch(`https://fitness-tracking-web-server.vercel.app/activities/1?activist=${user?.email}`)
         .then((res) => res.json())
         .then((data) => setData(data));
       setShowChart(<DayChart focus={focus} setTotal={setTotal} data={data} />);

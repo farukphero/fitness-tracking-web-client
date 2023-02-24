@@ -31,7 +31,7 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signInWithPopup(auth, provider);
   };
- const emailVerify =( )=>{
+ const emailVerify =()=>{
   setLoading(true);
   return sendEmailVerification(auth.currentUser)
  }
@@ -48,7 +48,7 @@ const AuthProvider = ({ children }) => {
   const [userInfo, setUserInfo] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${user?.email}`)
+    fetch(`https://fitness-tracking-web-server.vercel.app/users/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setUserInfo(data));
   }, [user?.email]);
@@ -70,7 +70,7 @@ const AuthProvider = ({ children }) => {
 } = useQuery({
     queryKey: ["loggedInfo", user?.email],
     queryFn: () =>
-        fetch(`http://localhost:5000/logedWeight?email=${user?.email}`)
+        fetch(`https://fitness-tracking-web-server.vercel.app/logedWeight?email=${user?.email}`)
             .then((res) => res.json())
             .then((data) => {
                 // console.log(data);

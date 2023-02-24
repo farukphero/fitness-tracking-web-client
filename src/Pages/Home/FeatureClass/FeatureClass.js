@@ -23,7 +23,7 @@ const Faqs = () => {
       Email: data?.email,
     };
 
-    fetch("http://localhost:5000/questions", {
+    fetch("https://fitness-tracking-web-server.vercel.app/questions", {
       method: "POST",
       headers: {
         "content-type": "application/json",

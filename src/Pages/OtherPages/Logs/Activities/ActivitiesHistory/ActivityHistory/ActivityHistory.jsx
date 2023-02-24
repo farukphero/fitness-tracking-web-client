@@ -18,7 +18,7 @@ const ActivitiesHistory = ({ activities, refetch }) => {
   const [deleteActivity, setDeleteActivity] = useState(null);
 
   const handleDeleteActivity = (activity) => {
-    fetch(`http://localhost:5000/activities/${activity._id}`, {
+    fetch(`https://fitness-tracking-web-server.vercel.app/activities/${activity._id}`, {
       method: `DELETE`,
     })
       .then((res) => res.json())

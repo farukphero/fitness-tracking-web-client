@@ -98,7 +98,7 @@ export const router = createBrowserRouter([
         path: `/instructor/instructors/:id`,
         element: <InstructorsDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/instructors/${params.id}`),
+          fetch(`https://fitness-tracking-web-server.vercel.app/instructors/${params.id}`),
       },
 
       {
@@ -163,7 +163,7 @@ export const router = createBrowserRouter([
         path: "/singleCategory/:id",
         loader: ({ params }) =>
           fetch(
-            `http://localhost:5000/singleCategory/${params.id}`
+            `https://fitness-tracking-web-server.vercel.app/singleCategory/${params.id}`
           ),
 
         element: <Tutorial></Tutorial>,
@@ -189,7 +189,7 @@ export const router = createBrowserRouter([
       //   path: "/appointment/:id",
       //   element: <Appointment></Appointment>,
       //   loader: ({ params }) =>
-      //   fetch(`http://localhost:5000/${params.id}`),
+      //   fetch(`https://fitness-tracking-web-server.vercel.app/${params.id}`),
       // },
       {
         path: "/Community/AllUsers",

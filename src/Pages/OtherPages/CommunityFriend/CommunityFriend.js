@@ -11,21 +11,21 @@ const CommunityFriend = () => {
   const [loading, setLoading] = useState(true);
   const [reload, setReload] = useState(false);
   const [currentPage, setcurrentPage] = useState(1);
-  const [postperPage, setPostperPage] = useState(7);
+  const [postperPage, setPostperPage] = useState(6);
 
   useEffect(() => {
-    fetch("http://localhost:5000/users")
+    fetch("https://fitness-tracking-web-server.vercel.app/users")
       .then((res) => res.json())
       .then((data) => {
         const result = data.filter(
           (users) => user?.email !== users?.email
-          // && !userInfo?.accepted === true
+           
         );
         setLoading(false);
         setUsersWithoutPresent(result);
       });
   }, [reload, user?.accepted, user?.email, usersWithoutPresent]);
-  // console.log(users?.accepted);
+  
 
   const numberoftotalPage = Math.ceil(usersWithoutPresent.length / postperPage);
   const pages = [...Array(numberoftotalPage + 1).keys()].slice(1);
