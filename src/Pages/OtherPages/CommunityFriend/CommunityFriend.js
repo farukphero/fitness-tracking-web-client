@@ -15,7 +15,7 @@ const CommunityFriend = () => {
   const [loading, setLoading] = useState(true);
   const [reload, setReload] = useState(false);
   const [currentPage, setcurrentPage] = useState(1)
-  const [postperPage, setPostperPage] = useState(4)
+  const [postperPage, setPostperPage] = useState(6)
 
   useEffect(() => {
     fetch("https://fitness-tracking-web-server.vercel.app/users")
