@@ -4,7 +4,7 @@ import "./ServiceCard.css";
 
 const ServiceCard = ({ service, handleAge }) => {
   const { _id, name, description, image } = service;
-  console.log(name);
+ 
   return (
     <div
       className="w-full my-10  shadow-xl image-full  pb-8 lg:pb-6  "

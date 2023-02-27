@@ -1,9 +1,9 @@
 import React from "react";
 import { toast } from "react-hot-toast";
-import { useQuery } from "react-query";
 import { RiDeleteBin6Fill } from "react-icons/ri";
-import "./AllUsers.css";
+import { useQuery } from "react-query";
 import useTitle from "../../../Hooks/useTitle/useTitle";
+import "./AllUsers.css";
 
 const AllUsers = () => {
   useTitle("Profile/AllUsers")

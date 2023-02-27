@@ -50,7 +50,7 @@ const BloodTracking = () => {
               <div>
                 <a
                   href="#my-modal-2"
-                  className="btn border-2 font-bold  bg-green-700  px-6 py-3 border-green-600 btn-explore  rounded-md "
+                  className="btn btn-log  bg-secondary text-black w-full border-none  "
                   onClick={handleBloodTracking}
                 >
                   Calculator

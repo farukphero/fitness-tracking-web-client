@@ -12,14 +12,13 @@ const VideoCalling = () => {
 
   return (
     <div>
-     
-      <div className="form-container">
+      <div>
         <input
           type="text"
           onChange={(e) => setValue(e.target.value)}
-          placeholder="enter your room"
+          placeholder="enter your meeting"
         />
-        <button onClick={handleJoinRoom}>join</button>
+        <button onClick={handleJoinRoom}>join now</button>
       </div>
     </div>
   );

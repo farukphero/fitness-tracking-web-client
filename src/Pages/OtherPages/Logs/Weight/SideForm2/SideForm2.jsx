@@ -1,9 +1,8 @@
-import React, { useContext, useState } from "react";
 import { format } from "date-fns";
-import { useForm } from "react-hook-form";
+import React, { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
+import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../../../Contexts/AuthProvider/AuthProvider";
-import { useQuery } from "react-query";
 
 const SideForm2 = ({ setGoalSetData }) => {
   const {

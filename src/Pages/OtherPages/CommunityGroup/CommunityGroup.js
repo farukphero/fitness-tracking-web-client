@@ -1,7 +1,6 @@
-import { current } from "daisyui/src/colors";
 import React, { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import { useQuery } from "react-query";
+import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 
 const CommunityGroup = () => {
   const { user, userInfo } = useContext(AuthContext);

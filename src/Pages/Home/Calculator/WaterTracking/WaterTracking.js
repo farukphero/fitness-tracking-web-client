@@ -8,7 +8,7 @@ import Lottie from "lottie-react";
 import useTitle from "../../../../Hooks/useTitle/useTitle";
 
 const WaterTracking = () => {
-  useTitle("WaterTracking")
+  useTitle("WaterTracking");
   const [waterTrack, setWaterTrack] = useState();
   const [info, setInfo] = useState();
   const [weight, setWeight] = useState();
@@ -54,7 +54,7 @@ const WaterTracking = () => {
               <div>
                 <a
                   href="#my-modal-2"
-                  className="btn border-2 font-bold  bg-green-700  px-6 py-3 border-green-600 btn-explore  rounded-md "
+                  className="btn btn-log  bg-secondary text-black w-full border-none  "
                   onClick={handleWaterTracking}
                 >
                   Calculator

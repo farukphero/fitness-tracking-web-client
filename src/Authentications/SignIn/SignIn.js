@@ -10,10 +10,10 @@ import { toast } from "react-hot-toast";
 
 const SignIn = () => {
   useTitle("SignIn");
-  const { accountLogIn, providerGoogleLogIn } = useContext(AuthContext);
+  const { accountLogIn, providerGoogleLogIn, logOut } =
+    useContext(AuthContext);
   const provider = new GoogleAuthProvider();
   const [signInError, setSignInError] = useState("");
-
   const navigate = useNavigate();
   const {
     register,
@@ -27,8 +27,15 @@ const SignIn = () => {
         const user = result.user;
         <Loading></Loading>;
         setSignInError();
-        toast.success("Sign In success");
-        navigate("/Leaderboard");
+        if (user?.emailVerified) {
+          toast.success("Sign In success");
+          navigate("/Leaderboard");
+        } else {
+          alert("Please check your email and verify.");
+          logOut()
+            .then(() => {})
+            .catch((error) => console.log(error));
+        }
       })
       .catch((error) => setSignInError(error.message));
   };
@@ -39,8 +46,15 @@ const SignIn = () => {
         const user = result.user;
         <Loading></Loading>;
         setSignInError();
-        toast.success("Sign In success");
-        navigate("/Leaderboard");
+        // if (user?.emailVerified) {
+        //   toast.success("Sign In success");
+        //   navigate("/Leaderboard");
+        // } else {
+        //   alert("Please check your email and verify.");
+        //   logOut()
+        //     .then(() => {})
+        //     .catch((error) => console.log(error));
+        // }
       })
       .catch((error) => setSignInError(error));
   };
@@ -68,7 +82,7 @@ const SignIn = () => {
               <div>
                 <div className="hero-content text-center rounded">
                   <div>
-                    <div className="rounded w-full md:w-[500px] bg-gradient-to-r from-gray-800 via-gray-700 to-gray-900 px-5">
+                    <div className="rounded w-[355px] md:w-[500px] bg-gradient-to-r from-gray-800 via-gray-700 to-gray-900 px-5">
                       <div className="lg:hidden flex justify-between mb-3 pt-3">
                         <h3 className=" text-xl"> Sign In </h3>
                         <Link to="/SignUp" className="text-xl ">
@@ -88,16 +102,21 @@ const SignIn = () => {
                             </span>
                           </label>
                           <input
+                            // onChange={handleEmailBlur}
                             placeholder="**********@gmail.com"
                             {...register("email", { required: true })}
                             type="email"
                             className="flex-grow w-full h-12 px-4 mb-2 transition duration-200  text-black bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-                            id="email"
                             name="email"
                           />
+                          {errors.email && (
+                            <span className="text-red-500">
+                              Enter Your SignUp Email
+                            </span>
+                          )}
                         </div>
                         <div className="mb-1">
-                        <label className="label">
+                          <label className="label">
                             <span className="label-text text-white font-lg">
                               Password
                             </span>
@@ -109,25 +128,39 @@ const SignIn = () => {
                             className="flex-grow w-full h-12 px-4 mb-2 transition duration-200  text-black bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                             name="password"
                           />
+                          {errors.password && (
+                            <span className="text-red-500">Enter Password</span>
+                          )}
                         </div>
                         <p className="text-red-500 my-2">{signInError}</p>
+
                         <input
                           type="submit"
                           value="Sign In"
                           className="btn btn-log  bg-secondary text-white w-full border-none   rounded-md"
                         />
-                        <div className="flex flex-col w-full ">
-                          <div className="divider">OR</div>
-
-                          <button>
-                            {" "}
-                            <FcGoogle
-                              onClick={handleGoogleLogin}
-                              className="w-10 h-10 ml-32 md:ml-52 lg:ml-60 mb-12"
-                            />
-                          </button>
-                        </div>
                       </form>
+                      <div className="mt-4 text-end text-green-500 font-semibold">
+                        <p>
+                          Forgot Password ? <Link to="/forgotPassword">Click here</Link>
+                          <button
+                          
+                          >
+                          </button>
+                         
+                          
+                        </p>
+                      </div>
+                      <div className="flex flex-col w-full ">
+                        <div className="divider">OR</div>
+
+                        <button>
+                          <FcGoogle
+                            onClick={handleGoogleLogin}
+                            className="w-10 h-10 ml-32 md:ml-52 lg:ml-60 mb-12"
+                          />
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>

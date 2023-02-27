@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 
-import { BiLike, BiComment, BiMessage } from 'react-icons/bi'
-import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
+import { BiComment, BiLike, BiMessage } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import GetComment from './GetComment';
 
 import { useQuery } from 'react-query';

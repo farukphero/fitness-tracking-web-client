@@ -6,7 +6,7 @@ import Lottie from "lottie-react";
 import useTitle from "../../../../Hooks/useTitle/useTitle";
 
 const Protein = () => {
-  useTitle("Protein")
+  useTitle("Protein");
   const [proteinTrack, setProteinTrack] = useState();
 
   const [weight, setWeight] = useState();
@@ -52,7 +52,7 @@ const Protein = () => {
               <div>
                 <a
                   href="#my-modal-2"
-                  className="btn border-2 font-bold  bg-green-700  px-6 py-3 border-green-600 btn-explore  rounded-md "
+                  className="btn btn-log  bg-secondary text-black w-full border-none  "
                   onClick={handleProteinTracking}
                 >
                   Calculator

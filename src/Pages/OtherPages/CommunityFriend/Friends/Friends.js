@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
+import { BiSend } from "react-icons/bi";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../../../Contexts/AuthProvider/AuthProvider";
-import { BiSend } from "react-icons/bi";
 import ScrollToBottom from "react-scroll-to-bottom";
+import { AuthContext } from "../../../../Contexts/AuthProvider/AuthProvider";
 
 const Friends = () => {
   const { user, userInfo } = useContext(AuthContext);
@@ -80,38 +80,83 @@ const Friends = () => {
             {/* <!-- Page content here --> */}
             <div>
               <ScrollToBottom>
-                <div className="relative">
-                  {messages?.map((message) => (
-                    <div>
-                      {message?.id === userInfo._id ? (
-                        <div className="flex gap-3 -mt-12 pt-2 absolute right-0 mr-10">
-                          <p className="text-black bg-secondary p-2 rounded-md">
-                            {message?.msg}
-                          </p>
-                          <img
-                            className="h-8 w-8 rounded-full "
-                            src={message?.image}
-                            alt=""
-                          />
+                <div>
+                  <div className="mb-52 mt-20">
+                    {
+                      userInfo?.newFriend?.length > 0 ?<>
+                      {
+                        friendName ? <>  {messages?.map((message) => (
+                          <div>
+                            {message?.id === userInfo._id ? (
+                              <div className="flex gap-3 -mt-12 pt-2 absolute right-0 mr-10">
+                                <p className="text-black bg-secondary p-2 rounded-md">
+                                  {message?.msg}
+                                </p>
+                                <img
+                                  className="h-8 w-8 rounded-full "
+                                  src={message?.image}
+                                  alt=""
+                                />
+                              </div>
+                            ) : (
+                              <div className="flex gap-3 mt-10 ml-10 my-14 pt-2">
+                                <img
+                                  className="h-8 w-8 rounded-full"
+                                  src={message?.image}
+                                  alt=""
+                                />
+                                <p className="text-black bg-gray-50 p-2 rounded-md">
+                                  {message?.msg}
+                                </p>
+                              </div>
+                            )}
+                          </div>
+                        ))}</>: <p className="text-xl text-black text-center mt-6">Please select a friend to continue the conversation.</p>
+                      }
+                      
+                      {messages?.map((message) => (
+                        <div>
+                          {message?.id === userInfo._id ? (
+                            <div className="flex gap-3 -mt-12 pt-2 absolute right-0 mr-10">
+                              <p className="text-black bg-secondary p-2 rounded-md">
+                                {message?.msg}
+                              </p>
+                              <img
+                                className="h-8 w-8 rounded-full "
+                                src={message?.image}
+                                alt=""
+                              />
+                            </div>
+                          ) : (
+                            <div className="flex gap-3 mt-10 ml-10 my-14 pt-2">
+                              <img
+                                className="h-8 w-8 rounded-full"
+                                src={message?.image}
+                                alt=""
+                              />
+                              <p className="text-black bg-gray-50 p-2 rounded-md">
+                                {message?.msg}
+                              </p>
+                            </div>
+                          )}
                         </div>
-                      ) : (
-                        <div className="flex gap-3 mt-10 ml-10 my-14 pt-2">
-                          <img
-                            className="h-8 w-8 rounded-full"
-                            src={message?.image}
-                            alt=""
-                          />
-                          <p className="text-black bg-gray-50 p-2 rounded-md">
-                            {message?.msg}
-                          </p>
-                        </div>
-                      )}
-                    </div>
-                  ))}
+                      ))}
+
+                      </>:<div className="w-full mt-4">
+                          <div className="flex items-center">
+                            <div className="mx-auto ">
+
+                              <p className="text-black text-2xl font-bold  mr-1">You have no friends yet.</p>
+                              <span className="link text-blue-900 text-sm"><Link to='/Community/AllUsers'>Add Friend</Link></span>
+                            </div>
+                          </div>
+                        </div> 
+                    }
+                  
+                  </div>
                 </div>
               </ScrollToBottom>
-  
-              <div className="absolute bottom-0 bg-gradient-to-r from-gray-700 via-teal-900 to-gray-700 w-full">
+              <div className="absolute bottom-0 bg-gradient-to-r from-gray-700 via-teal-900 to-gray-700 w-full mt-10">
                 <form className="flex my-5 mx-5 lg:mx-0" onSubmit={sendMsg}>
                   <input
                     type="text"
@@ -127,6 +172,7 @@ const Friends = () => {
                   </button>
                 </form>
               </div>
+              
             </div>
           </div>
           <div className="drawer-side">

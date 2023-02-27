@@ -12,7 +12,7 @@ import "./AddActivites.css";
 
 import { toast } from "react-hot-toast";
 
-const AddActivities = () => {
+const AddActivities = ({ refetch }) => {
   const {
     register,
     handleSubmit,
@@ -91,6 +91,7 @@ const AddActivities = () => {
       .then((res) => {
         if (res.data.acknowledged) {
           toast.success(`successfully added an activity`);
+          refetch();
         }
         console.log(res.data);
       })
@@ -133,13 +134,16 @@ const AddActivities = () => {
               className="flex gap-y-3 flex-col mt-16"
             >
               <div className="form-control flex flex-row w-full">
-                <label className="label  w-32">
+                <label className="label w-20 md:w-32 lg:w-24">
                   <span className="label-text capitalize font-lg text-xl">
                     name
                   </span>
                 </label>
-                <select  {...register(`name`)} className="select select-ghost w-full max-w-xs bg-gray-500 text-white">
-                  <option className="text-white" disabled selected>
+                <select
+                  {...register(`name`)}
+                  className="select select-ghost w-56 md:w-96 lg:w-96 bg-gray-500 text-white"
+                >
+                  <option className="text-white " disabled selected>
                     Name Of Activities
                   </option>
                   <option className="text-white">Run</option>
@@ -256,7 +260,7 @@ const AddActivities = () => {
                     className="select bg-gray-500 select-bordered ml-2"
                   >
                     <option selected>kg</option>
-                    <option >lbs</option>
+                    <option>lbs</option>
                   </select>
                   {/* <div>
                     {errors?.weight && (

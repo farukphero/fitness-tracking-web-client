@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
-import useTitle from '../../../Hooks/useTitle/useTitle';
 
 const CommunityFeed = () => {
 

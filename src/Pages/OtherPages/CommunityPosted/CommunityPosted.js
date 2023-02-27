@@ -1,4 +1,4 @@
-import { React, useContext, useEffect, useState } from 'react'
+import { React, useContext } from 'react';
 import { useQuery } from 'react-query';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import CommunityPosteds from './CommunityPosteds';

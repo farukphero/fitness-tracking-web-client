@@ -8,46 +8,25 @@ import { MdOutlinePendingActions } from "react-icons/md";
 import { RiPinDistanceFill } from "react-icons/ri";
 import { VscReactions } from "react-icons/vsc";
 import { useQuery } from "react-query";
+import { Link } from "react-router-dom";
 import Spinner from "../../../../../../Components/Spinner/Spinner";
 import { AuthContext } from "../../../../../../Contexts/AuthProvider/AuthProvider";
 import ConfirmationModal from "../../../../../Shared/ConfirmationModal/ConfirmationModal";
 import SingleActivity from "../SingleActivity/SingleActivity";
-import { Link } from "react-router-dom";
 
-const ActivitiesHistory = () => {
+const ActivitiesHistory = ({ activities, refetch }) => {
   const [deleteActivity, setDeleteActivity] = useState(null);
-  const { user } = useContext(AuthContext);
-
-  const {
-    data: activities,
-    isLoading,
-    refetch,
-  } = useQuery({
-    queryKey: [`activities`, user?.email],
-    queryFn: async () => {
-      const res = await fetch(
-        `https://fitness-tracking-web-server.vercel.app/activities?activist=${user?.email}`
-      );
-      const data = await res.json();
-      return data;
-    },
-  });
-
-  if (isLoading) {
-    <Spinner />;
-  }
 
   const handleDeleteActivity = (activity) => {
-    fetch(
-      `https://fitness-tracking-web-server.vercel.app/activities/${activity._id}`,
-      {
-        method: `DELETE`,
-      }
-    )
+    fetch(`https://fitness-tracking-web-server.vercel.app/activities/${activity._id}`, {
+      method: `DELETE`,
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {
+          console.log(data);
           toast.success(`you have successfully deleted an activity`);
+          refetch();
         }
         console.log(data);
       })

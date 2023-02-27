@@ -32,7 +32,7 @@ const CallingRoom = () => {
 
   return (
     <div
-      className="lg:w-[1200px] lg:h-[750px] mx-auto scale-50 lg:scale-125 lg:ml-36 -ml-20 h-96 w-96"
+      className="lg:w-[1450px] lg:h-[760px] p-1.5 mx-auto scale-50 lg:scale-100"
       ref={myMeeting}
     ></div>
   );

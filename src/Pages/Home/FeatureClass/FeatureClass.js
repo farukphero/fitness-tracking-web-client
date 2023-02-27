@@ -1,10 +1,9 @@
-import React, { useContext } from "react";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
-import { Link } from "react-router-dom";
-import faq from "../../../images/support.json";
 import Lottie from "lottie-react";
+import React, { useContext, useState } from "react";
+import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
+import faq from "../../../images/support.json";
 
 const Faqs = () => {
   const { user } = useContext(AuthContext);

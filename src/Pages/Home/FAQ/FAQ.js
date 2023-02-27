@@ -1,5 +1,7 @@
+ 
 import React, { useContext } from "react";
 import { useState, useEffect } from "react";
+ 
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import faq from "../../../assets/faq.svg";
@@ -46,7 +48,7 @@ const Faqs = () => {
   const [answer, setAnswer] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:5000/answer')
+    fetch('https://fitness-tracking-web-server.vercel.app/answer')
       .then(res => res.json())
       .then(data => setAnswer(data))
   }, [])
@@ -134,7 +136,7 @@ const Faqs = () => {
         </label>
       </div>
       <div className="mt-2 w-3/4 mx-auto mb-2 m-3">
-        <p className="text-3xl text-center font-bold mt-3 mb-2">User Answer</p>
+        {/* <p className="text-3xl text-center font-bold mt-3 mb-2">User Answer</p> */}
         <div className="grid grid-cols-1  lg:grid-cols-3">
           {
             answer.map(ans =>

@@ -53,43 +53,43 @@ const keys = Object.keys(dateWiseCalories);
   const myData = [
     {
       name: keys[0],
-      date: "2023-01-26",
+      // date: "2023-01-26",
       uv: values[0],
        
     },
     {
       name : keys[1],
-      date: "2023-01-26",
+      // date: "2023-01-26",
       uv: values[1],
        
     },
     {
       name : keys[2],
-      date: "2023-01-26",
+      // date: "2023-01-26",
       uv: values[2],
        
     },
     {
       name : keys[3],
-      date: "2023-01-26",
+      // date: "2023-01-26",
       uv: values[3],
       
     },
     {
       name : keys[4],
-      date: "2023-01-26",
+      // date: "2023-01-26",
       uv: values[4],
        
     },
     {
       name : keys[5],
-      date: "2023-01-26",
+      // date: "2023-01-26",
       uv: values[5],
        
     },
     {
       name : keys[6],
-      date: "2023-01-26",
+      // date: "2023-01-26",
       uv: values[6],
        
     },
