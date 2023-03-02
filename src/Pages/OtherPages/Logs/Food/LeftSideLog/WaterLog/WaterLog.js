@@ -30,7 +30,7 @@ const WaterLog = ({ startDate, setStartDate }) => {
             amountWithQuantity = amount * 1000
         }
         else if(parseFloat(amount) <= 0){
-            return toast.error('please input a positive number')
+            return toast.error('please input a positive value')
         }
   
         console.log(amountWithQuantity)
