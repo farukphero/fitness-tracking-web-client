@@ -6,8 +6,8 @@ import useTitle from "../../../../Hooks/useTitle/useTitle";
 const Tutorial = () => {
   useTitle("Tutorial");
   const data = useLoaderData();
-  // console.log(data);
-  const { data: tutorials = [], refetch } = useQuery({
+  
+  const { data: tutorials = [] } = useQuery({
     queryKey: ["tutorials"],
     queryFn: () =>
       fetch(
@@ -15,8 +15,6 @@ const Tutorial = () => {
       )
         .then((res) => res.json())
         .then((data) => {
-          // setLoading(false)
-          // console.log(data)
           return data;
         }),
   });

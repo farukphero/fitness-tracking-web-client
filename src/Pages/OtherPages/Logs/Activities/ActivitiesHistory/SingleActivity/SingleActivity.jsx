@@ -1,6 +1,4 @@
 import React from "react";
-import { RiDeleteBin5Fill } from "react-icons/ri";
-import { Link } from "react-router-dom";
 
 const SingleActivity = ({ activity, setDeleteActivity }) => {
   return (
@@ -15,11 +13,11 @@ const SingleActivity = ({ activity, setDeleteActivity }) => {
           <td>
             {activity?.calourie_burned ? activity?.calourie_burned : `N/A`}
           </td>
-          <td>
+          {/* <td>
             <Link to="/ActivitiesHistoryDetails">
               <button className="btn btn-xs btn-outline">details</button>
             </Link>
-          </td>
+          </td> */}
           <td>
               <label
                 onClick={() => setDeleteActivity(activity)}

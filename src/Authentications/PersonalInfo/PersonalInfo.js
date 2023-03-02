@@ -130,7 +130,7 @@ const PersonalInfo = ({ setAnotherInfo }) => {
                       type="submit"
                       className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-secondary   hover:bg-secondary focus:shadow-outline focus:outline-none"
                     >
-                      CONNECT NOW
+                     NEXT
                     </button>
                   </div>
                   <p className="text-xs text-gray-200 sm:text-sm">

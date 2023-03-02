@@ -85,12 +85,12 @@ const ActivitiesHistory = ({ activities, refetch }) => {
                 </div>
               </th>
 
-              <th>
+              {/* <th>
                 <div className="flex gap-x-1 items-center">
                   <MdOutlinePendingActions className="text-2xl text-primary" />
                   <span>Details</span>
                 </div>
-              </th>
+              </th> */}
               <th>
                 <div className="flex gap-x-1 items-center">
                   <VscReactions className="text-2xl text-primary" />

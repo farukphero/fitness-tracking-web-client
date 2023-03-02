@@ -25,7 +25,7 @@ const AllActivities = () => {
     queryKey: [`activities`, user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `https://fitness-tracking-web-server.vercel.app/allactivities?activist=${user?.email}`
+        `https://fitness-tracking-web-server.vercel.app/allActivity?activist=${user?.email}`
       );
       const data = await res.json();
       return data;
@@ -103,12 +103,12 @@ const AllActivities = () => {
                 </div>
               </th>
 
-              <th>
+              {/* <th>
                 <div className="flex gap-x-1 items-center">
                   <MdOutlinePendingActions className="text-2xl text-primary" />
                   <span>Details</span>
                 </div>
-              </th>
+              </th> */}
               <th>
                 <div className="flex gap-x-1 items-center">
                   <VscReactions className="text-2xl text-primary" />
