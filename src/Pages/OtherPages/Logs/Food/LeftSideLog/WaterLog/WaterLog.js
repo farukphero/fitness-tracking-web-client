@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import ReactDatePicker from 'react-datepicker';
+import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../../../../../Contexts/AuthProvider/AuthProvider';
 
 const WaterLog = ({ startDate, setStartDate }) => {
@@ -19,7 +20,6 @@ const WaterLog = ({ startDate, setStartDate }) => {
         event.preventDefault()
         const water = event.target.water.value;
         const amount = event.target.amount.value
-        console.log(typeof(amount))
         let amountWithQuantity = event.target.amount.value + event.target.unit.value;
         // const unit = event.target.unit.value;
         const time = event.target.time.value;
@@ -29,8 +29,12 @@ const WaterLog = ({ startDate, setStartDate }) => {
         else if (amountWithQuantity.includes('liter') && parseFloat(amount) > 0) {
             amountWithQuantity = amount * 1000
         }
+        else if(parseFloat(amount) <= 0){
+            return toast.error('please input a positive value')
+        }
+  
+        console.log(amountWithQuantity)
         const waterInfo = { water, amountWithQuantity, time, email: user?.user?.email, date: startDate.toLocaleDateString() }
-        console.log(waterInfo)
         fetch('https://fitness-tracking-web-server.vercel.app/loggedWater', {
             method: 'POST',
             headers: {
