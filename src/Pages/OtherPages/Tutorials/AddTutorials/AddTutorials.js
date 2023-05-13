@@ -34,8 +34,7 @@ const AddTutorials = () => {
 
     const formData = new FormData();
     formData.append("image", image);
-    const url =
-      "https://api.imgbb.com/1/upload?key=ab3e927fbb2142be370cd6e16ff2fdee";
+    const url = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_imgbb}`;
     fetch(url, {
       method: "POST",
       body: formData,

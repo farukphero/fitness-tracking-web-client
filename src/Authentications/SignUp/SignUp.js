@@ -29,29 +29,12 @@ const SignUp = ({ userDetails, anotherInfo }) => {
     createUserByEmail(data.email, data.password)
       .then((result) => {
         const user = result.user;
-
-        // let interval = setInterval(async () => {
-        //   if (user.emailVerified) {
-        //     clearInterval(interval );
-        //     // window.location.href = "https://fitlessian.web.app/Leaderboard";
-        //     navigate("/Leaderboard");
-        //     // history.push("https://fitlessian.web.app/");
-        //   }
-        //   setTimeout(() => {
-        //     window.location.reload();
-        //   },2000)
-        // }, 2000);
-
-        // return () =>;
-
-        // clearInterval(interval);
-        // <Loading></Loading>;
-
+ 
         const image = data.img[0];
         // console.log(image);
         const formData = new FormData();
         formData.append("image", image);
-        const url = `https://api.imgbb.com/1/upload?key=c49cb06155adb366044d147043658858`;
+        const url = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_imgbb}`;
         fetch(url, {
           method: "POST",
           body: formData,
