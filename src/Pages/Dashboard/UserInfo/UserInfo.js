@@ -122,39 +122,6 @@ const UserInfo = () => {
 
   const protein = getProtein(userInfo?.weight);
 
-  // bmr :
-  // const calculateBMR = (bmrData) => {
-  //   let { age, gender, heightFeet, heightInches, weight, weightType } = bmrData;
-
-  //   if (
-  //     age === "" ||
-  //     gender === "" ||
-  //     heightFeet === "" ||
-  //     heightInches === "" ||
-  //     weight === ""
-  //   ) {
-  //     return "null";
-  //   }
-
-  //   let bmrCalc = "";
-  //   let height = heightFeet * 30.48 + heightInches * 2.54;
-
-  //   if (weightType === 1) {
-  //     if (gender === "Female") {
-  //       bmrCalc = 66 + 6.2 * weight + 12.7 * height - 6.76 * age;
-  //     } else if (gender === "Male") {
-  //       bmrCalc = 655.1 + 4.35 * weight + 4.7 * height - 4.7 * age;
-  //     }
-  //   } else if (weightType === 2) {
-  //     if (gender === "Female") {
-  //       bmrCalc = 66.5 + 13.75 * weight + 5.003 * height - 6.755 * age;
-  //     } else if (gender === "Male") {
-  //       bmrCalc = 655 + 9.563 * weight + 1.85 * height - 4.676 * age;
-  //     }
-  //   }
-  //   return bmrCalc;
-  // };
-
   return (
     <div className="w-8/12 mx-auto my-20 -mt-5 md:-mt-80 lg:mt-20 scale-75 lg:scale-100">
       <div className="lg:w-[900px] ">

@@ -46,7 +46,7 @@ const Footer = () => {
             </div>
             <div>
               <ul className="mt-2 space-y-2 text-gray-400">
-                <li><span className="font-bold ">Phone:</span><span> +880 1913-302532</span></li>
+                <li><span className="font-bold ">Phone:</span> <br className="flex md:hidden" /> <span> +880 1580786205</span></li>
                 <li><span className="font-bold ">Email:</span><span> farukk6323@gmail.com</span></li>
                 <li className="flex">
                     <a href="https://www.facebook.com/profile.php?id=100081178906073" className="mr-2"><FaFacebookF></FaFacebookF></a>

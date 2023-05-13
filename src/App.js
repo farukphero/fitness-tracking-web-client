@@ -7,7 +7,6 @@ import { useEffect } from "react";
 import Loading from "./Components/Loading/Loading";
 import { Provider } from "react-redux";
 import store from "./redux/store";
-import logo from "../src/images/apple-touch-icon.png"
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -31,7 +30,7 @@ function App() {
             <Provider store={store}>
               <RouterProvider router={router} />
             </Provider>
-            {/* <RouterProvider router={router} /> */}
+           
           </div>
         </div>
       )}

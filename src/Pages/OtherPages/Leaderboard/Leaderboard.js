@@ -95,10 +95,10 @@ const Leaderboard = () => {
           </div>
           <Link
             to="/instructor/instructors"
-            className="bg-gray-800 text-gray-400 rounded shadow-lg shadow-green-600 p-10 "
+            className="bg-gray-800 text-gray-400 rounded shadow-lg shadow-green-600 lg:p-10 "
           >
             <div>
-              <div className="text-8xl text-green-600 mb-4">
+              <div className="text-8xl text-green-600 mb-4 md:pt-10 lg:pt-0">
                 <FaUserMd className="mx-auto"></FaUserMd>
               </div>
               <div>

@@ -7,19 +7,19 @@ import AuthProvider from "./Contexts/AuthProvider/AuthProvider";
 import { QueryClient, QueryClientProvider } from "react-query";
 import FoodProvider from "./Contexts/FoodProvider/FoodProvider";
 // import "react-datepicker/dist/react-datepicker.css";
-import 'react-day-picker/dist/style.css';
+import "react-day-picker/dist/style.css";
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-   <FoodProvider>
-   <AuthProvider>
-      <App />
-    </AuthProvider>
-   </FoodProvider>
+      <FoodProvider>
+        <AuthProvider>
+          <App />
+        </AuthProvider>
+      </FoodProvider>
     </QueryClientProvider>
   </React.StrictMode>
 );

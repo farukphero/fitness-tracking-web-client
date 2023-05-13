@@ -7,13 +7,11 @@ import { FcGoogle } from "react-icons/fc";
 import useTitle from "../../Hooks/useTitle/useTitle";
 import Loading from "../../Components/Loading/Loading";
 import { toast } from "react-hot-toast";
-import { async } from "postcss-js";
 
 const SignUp = ({ userDetails, anotherInfo }) => {
   // const history = unstable_HistoryRouter()
-  console.log(anotherInfo);
   useTitle("SignUp");
-  const { createUserByEmail, providerGoogleLogIn, emailVerify } =
+  const { createUserByEmail, providerGoogleLogIn, emailVerify, user} =
     useContext(AuthContext);
 
   const provider = new GoogleAuthProvider();
@@ -31,12 +29,6 @@ const SignUp = ({ userDetails, anotherInfo }) => {
     createUserByEmail(data.email, data.password)
       .then((result) => {
         const user = result.user;
-        if (user?.emailVerified) {
-          toast.success("Welcome to FITLESSIAN");
-          navigate("/Leaderboard");
-        } else {
-          alert("Please check email inbox or spam and Verify the email");
-        }
 
         // let interval = setInterval(async () => {
         //   if (user.emailVerified) {
@@ -46,7 +38,7 @@ const SignUp = ({ userDetails, anotherInfo }) => {
         //     // history.push("https://fitlessian.web.app/");
         //   }
         //   setTimeout(() => {
-        //     window.location.reload(); 
+        //     window.location.reload();
         //   },2000)
         // }, 2000);
 
@@ -98,7 +90,19 @@ const SignUp = ({ userDetails, anotherInfo }) => {
               .then((res) => res.json())
               .then((data) => {
                 emailVerify()
-                  .then(() => {})
+                  .then(() => {
+                    if (user.emailVerified) {
+                      toast.success("Welcome to FITLESSIAN");
+                      navigate("/Leaderboard");
+                      setTimeout(() => {
+                        window.location.reload();
+                      }, 2000);
+                    } else {
+                      alert(
+                        "Please check email inbox or spam and Verify the email"
+                      );
+                    }
+                  })
                   .catch((error) => console.log(error));
               });
           });
@@ -108,70 +112,40 @@ const SignUp = ({ userDetails, anotherInfo }) => {
       });
   };
 
-  const handleGoogleSignUp = (data) => {
-    providerGoogleLogIn(provider)
-      .then((result) => {
-        const user = result.user;
-        emailVerify()
-          .then(() => {})
-          .catch((error) => console.log(error));
-        <Loading></Loading>;
-        toast.success("Welcome to FITLESSIAN");
-        const image = data.img[0];
-
-        const formData = new FormData();
-        formData.append("image", image);
-        const url = `https://api.imgbb.com/1/upload?key=c49cb06155adb366044d147043658858`;
-        fetch(url, {
-          method: "POST",
-          body: formData,
-        })
-          .then((res) => res.json())
-          .then((imgData) => {
-            if (imgData.success) {
-              console.log(imgData.data.url);
-            }
-
-            const Details = {
-              name: user?.displayName,
-              gender: userDetails.gender,
-              age: userDetails.age,
-              birthday: userDetails.birthday,
-              email: user?.email,
-              weight: anotherInfo.weight,
-              height: anotherInfo.fit,
-              inch: anotherInfo.inch,
-              country: anotherInfo.country,
-              phone: anotherInfo.phone,
-              picture: imgData.data.url,
-              sendFrom: [],
-              sendTo: [],
-              postDate: userDetails.postDate,
-            };
-            fetch("https://fitness-tracking-web-server.vercel.app/users", {
-              method: "POST",
-              headers: {
-                "content-type": "application/json",
-              },
-              body: JSON.stringify(Details),
-            })
-              .then((res) => res.json())
-              .then((data) => {
-                emailVerify()
-                  .then(() => {})
-                  .catch((error) => console.log(error));
-                if (user?.emailVerified) {
-                  toast.success("Welcome to FITLESSIAN");
-                  navigate("/Leaderboard");
-                } else {
-                  alert(
-                    "Please check email inbox or spam and Verify the email"
-                  );
-                }
-              });
-          });
+  const handleGoogleSignUp = () => {
+    providerGoogleLogIn(provider).then((result) => {
+      const user = result.user;
+      console.log(user)
+      // <Loading></Loading>;
+      toast.success("Welcome to FITLESSIAN");
+      const Details = {
+        name: user?.displayName,
+        picture: user?.photoURL,
+        gender: userDetails.gender,
+        age: userDetails.age,
+        birthday: userDetails.birthday,
+        email: user?.email,
+        weight: anotherInfo.weight,
+        height: anotherInfo.fit,
+        inch: anotherInfo.inch,
+        country: anotherInfo.country,
+        phone: anotherInfo.phone,
+        sendFrom: [],
+        sendTo: [],
+        postDate: userDetails.postDate,
+      };
+      fetch("https://fitness-tracking-web-server.vercel.app/users", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(Details),
       })
-      .catch((error) => console.log(error));
+        .then((res) => res.json())
+        .then(() => {
+          navigate("/Leaderboard");
+        });
+    });
   };
 
   return (

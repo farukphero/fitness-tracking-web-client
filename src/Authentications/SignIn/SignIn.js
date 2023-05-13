@@ -10,7 +10,7 @@ import { toast } from "react-hot-toast";
 
 const SignIn = () => {
   useTitle("SignIn");
-  const { accountLogIn, providerGoogleLogIn, logOut } =
+  const { accountLogIn, providerGoogleLogIn, logOut, userInfo } =
     useContext(AuthContext);
   const provider = new GoogleAuthProvider();
   const [signInError, setSignInError] = useState("");
@@ -44,19 +44,22 @@ const SignIn = () => {
     providerGoogleLogIn(provider)
       .then((result) => {
         const user = result.user;
+        console.log(user.email, userInfo?.email)
+        if (user.email === userInfo.email) {
+          navigate("/Leaderboard");
+        } else {
+          alert("Please Sign Up first");
+          logOut()
+            .then(() => {})
+            .then((error) => console.log(error));
+        }
         <Loading></Loading>;
         setSignInError();
-        // if (user?.emailVerified) {
-        //   toast.success("Sign In success");
-        //   navigate("/Leaderboard");
-        // } else {
-        //   alert("Please check your email and verify.");
-        //   logOut()
-        //     .then(() => {})
-        //     .catch((error) => console.log(error));
-        // }
       })
-      .catch((error) => setSignInError(error));
+      .catch((error) => {
+        setSignInError(error);
+        navigate("/");
+      });
   };
   return (
     <div>
@@ -142,13 +145,9 @@ const SignIn = () => {
                       </form>
                       <div className="mt-4 text-end text-green-500 font-semibold">
                         <p>
-                          Forgot Password ? <Link to="/forgotPassword">Click here</Link>
-                          <button
-                          
-                          >
-                          </button>
-                         
-                          
+                          Forgot Password ?{" "}
+                          <Link to="/forgotPassword">Click here</Link>
+                          <button></button>
                         </p>
                       </div>
                       <div className="flex flex-col w-full ">
